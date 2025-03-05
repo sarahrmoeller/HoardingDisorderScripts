@@ -35,6 +35,11 @@ print("")
 # Print the results sorted alphabetically
 for document in sorted(documents.keys()):
     print(f"Document: {document}")
+    total_accepted = 0
+    total_rejected = 0
     for label in sorted(documents[document].keys()):
         print(f"- {label}: {documents[document][label]['accepted']} + {documents[document][label]['rejected']}")
+        total_accepted += documents[document][label]['accepted']
+        total_rejected += documents[document][label]['rejected']
+    print(f"Total: {total_accepted} + {total_rejected}")
     print("")
