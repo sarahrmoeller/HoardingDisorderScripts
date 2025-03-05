@@ -20,8 +20,14 @@ for user in project_data['users']:
         for span in labeled_data['spans']:
             label_id = [item for item in labeled_data['labels'] if item.get('id')==span['labelId']][0]['labelName']
             if label_id not in documents[document]:
-                documents[document][label_id] = 0
-            documents[document][label_id] += 1
+                documents[document][label_id] = {}
+                documents[document][label_id]['rejected'] = 0
+                documents[document][label_id]['accepted'] = 0
+            
+            if span['rejected']:
+                documents[document][label_id]['rejected'] += 1
+            else:
+                documents[document][label_id]['accepted'] += 1
 
 print("")
 print("")
@@ -30,5 +36,5 @@ print("")
 for document in sorted(documents.keys()):
     print(f"Document: {document}")
     for label in sorted(documents[document].keys()):
-        print(f"- {label}: {documents[document][label]}")
+        print(f"- {label}: {documents[document][label]['accepted']} + {documents[document][label]['rejected']}")
     print("")
