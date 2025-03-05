@@ -31,7 +31,7 @@ print(
     "First Span Label Name:",
     [item for item in labeled_data['labels'] if item.get('id')==labeled_data['spans'][0]['labelId']][0]['labelName']
 )
-print("First Span Rejected:", labeled_data['spans'][0]['rejected'])
+print("First Span Accepted:", labeled_data['spans'][0]['accepted'])
 print(
     "First Span Start:",
     labeled_data['rows']

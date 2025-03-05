@@ -21,13 +21,13 @@ for user in project_data['users']:
             label_id = [item for item in labeled_data['labels'] if item.get('id')==span['labelId']][0]['labelName']
             if label_id not in documents[document]:
                 documents[document][label_id] = {}
-                documents[document][label_id]['rejected'] = 0
                 documents[document][label_id]['accepted'] = 0
+                documents[document][label_id]['rejected'] = 0
             
-            if span['rejected']:
-                documents[document][label_id]['rejected'] += 1
-            else:
+            if span['accepted']:
                 documents[document][label_id]['accepted'] += 1
+            else:
+                documents[document][label_id]['rejected'] += 1
 
 print("")
 print("")

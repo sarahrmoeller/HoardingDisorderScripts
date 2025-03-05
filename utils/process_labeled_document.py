@@ -47,7 +47,7 @@ def load_label_data(directory, file):
             'labeledBy': span['labeledByUserId'],
             'acceptedBy': span['acceptedByUserId'],
             'rejectedBy': span['rejectedByUserId'],
-            'rejected': span['status'] == 'REJECTED',
+            'accepted': span['status'] == 'ACCEPTED',
             'labelId': span['labelItem']['id'],
             'start': span['textPosition']['start'],
             'end': span['textPosition']['end'],
