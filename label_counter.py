@@ -4,42 +4,44 @@ from utils.process_labeled_document import load_label_data
 project_dir = "data/HD_set1_1-7-NDE5MzE1ZWM" # TODO: Remove Hardcoded Value
 project_data = load_project_data(project_dir)
 
-documents = {}
+document_label_cnts = {}
 
 for user in project_data['users']:
     user_document_dir = project_dir + "/DOCUMENT-" + user['parsed_email']
-    if 'documents' not in user:
+    if 'documents' not in user.keys():
         continue
 
     for document in user['documents']:
-        labeled_data = load_label_data(document_dir, document)
+        labeled_data = load_label_data(user_document_dir, document)
 
-        if document not in documents:
-            documents[document] = {}
+        if document not in document_label_cnts:
+            document_label_cnts[document] = {}
         
         for span in labeled_data['spans']:
-            label_id = [item for item in labeled_data['labels'] if item.get('id')==span['labelId']][0]['labelName']
-            if label_id not in documents[document]:
-                documents[document][label_id] = {}
-                documents[document][label_id]['accepted'] = 0
-                documents[document][label_id]['rejected'] = 0
+            label_id = [
+                label for label in labeled_data['labels'] if label['id'] == span['labelId']
+            ][0]['labelName']
+            if label_id not in document_label_cnts[document]:
+                document_label_cnts[document][label_id] = {}
+                document_label_cnts[document][label_id]['accepted'] = 0
+                document_label_cnts[document][label_id]['rejected'] = 0
             
             if span['accepted']:
-                documents[document][label_id]['accepted'] += 1
+                document_label_cnts[document][label_id]['accepted'] += 1
             else:
-                documents[document][label_id]['rejected'] += 1
+                document_label_cnts[document][label_id]['rejected'] += 1
 
 print("")
 print("")
 
 # Print the results sorted alphabetically
-for document in sorted(documents.keys()):
+for document in sorted(document_label_cnts.keys()):
     print(f"Document: {document}")
     total_accepted = 0
     total_rejected = 0
-    for label in sorted(documents[document].keys()):
-        print(f"- {label}: {documents[document][label]['accepted']} + {documents[document][label]['rejected']}")
-        total_accepted += documents[document][label]['accepted']
-        total_rejected += documents[document][label]['rejected']
+    for label in sorted(document_label_cnts[document].keys()):
+        print(f"- {label}: {document_label_cnts[document][label]['accepted']} + {document_label_cnts[document][label]['rejected']}")
+        total_accepted += document_label_cnts[document][label]['accepted']
+        total_rejected += document_label_cnts[document][label]['rejected']
     print(f"Total: {total_accepted} + {total_rejected}")
     print("")
