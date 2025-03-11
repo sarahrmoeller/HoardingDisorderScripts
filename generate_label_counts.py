@@ -51,4 +51,4 @@ for i in range(len(json_files)):
     rows[i] = row
 
 df = pd.DataFrame(rows)
-df.to_csv('label_counts.csv', index=False)
+df.to_csv('./out/label_counts.csv', index=False)
