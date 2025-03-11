@@ -7,7 +7,7 @@ project_data = load_project_data(project_dir)
 documents = {}
 
 for user in project_data['users']:
-    document_dir = project_dir + "/Document-" + user['parsed_email']
+    user_document_dir = project_dir + "/DOCUMENT-" + user['parsed_email']
     if 'documents' not in user:
         continue
 

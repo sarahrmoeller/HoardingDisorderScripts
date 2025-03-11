@@ -15,7 +15,7 @@ for user in project_data['users']:
 print("")
 print("")
 
-document_dir = project_dir + "/Document-" + project_data['users'][0]['parsed_email']
+document_dir = project_dir + "/DOCUMENT-" + project_data['users'][0]['parsed_email']
 labeled_data = load_label_data(document_dir, project_data['users'][0]['documents'][0])
 
 print("Path:", document_dir)
