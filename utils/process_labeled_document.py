@@ -13,8 +13,8 @@ def load_label_data(directory, file):
     data['project']['id'] = raw_data['data']['project']['id']
     data['project']['name'] = raw_data['data']['project']['name']
     data['document'] = {}
-    data['document']['id'] = raw_data['data']['project']['id']
-    data['document']['name'] = raw_data['data']['project']['name']
+    data['document']['id'] = raw_data['data']['document']['id']
+    data['document']['name'] = raw_data['data']['document']['name']
     data['user'] = {}
     data['user']['name'] = raw_data['data']['labelerInfo']['displayName']
     data['user']['email'] = raw_data['data']['labelerInfo']['email']
