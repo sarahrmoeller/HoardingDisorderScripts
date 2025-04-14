@@ -36,13 +36,13 @@ print(
     "First Span Start:",
     labeled_data['rows']
     [labeled_data['spans'][0]['start']['row']]
-    [labeled_data['spans'][0]['start']['column']]
+    [labeled_data['spans'][0]['start']['column']]['tokens']
     [labeled_data['spans'][0]['start']['tokenIndex']]
 )
 print(
     "First Span End:",
     labeled_data['rows']
     [labeled_data['spans'][0]['end']['row']]
-    [labeled_data['spans'][0]['end']['column']]
+    [labeled_data['spans'][0]['end']['column']]['tokens']
     [labeled_data['spans'][0]['end']['tokenIndex']]
 )

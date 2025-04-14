@@ -31,11 +31,18 @@ def load_label_data(directory, file):
     
     # Rows
     data['rows'] = []
+    speaker = ""
     for row in raw_data['data']['rows']:
         row_tokens = []
 
         for column in row:
-            row_tokens.append(column['tokens'])
+            if (column['content'].find(":") != -1):
+                speaker = column['content'].split(":")[0]
+            
+            row_tokens.append({
+                'tokens': column['tokens'],
+                'speaker': speaker,
+            })
         
         data['rows'].append(row_tokens)
 
