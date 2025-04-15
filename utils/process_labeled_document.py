@@ -36,7 +36,7 @@ def load_label_data(directory, file):
         row_tokens = []
 
         for column in row:
-            if (column['content'].find(":") != -1):
+            if (column['content'].find(":") != -1 and column['content'].split(":")[0].len() < 40):
                 speaker = column['content'].split(":")[0]
             
             row_tokens.append({
