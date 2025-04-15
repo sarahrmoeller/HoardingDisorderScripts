@@ -6,20 +6,20 @@ import pandas as pd
 rows = []
 project_dirs = os.listdir('./data')
 project_dirs.remove('.gitignore')
+# List of all labels in the projects
+LABELS = {
+    'Incomplete Thought',
+    'Self Correction',
+    'Clarification',
+    'Generic Disfluency',
+    'Misspeak',
+    'Unclear',
+    'Overlap'
+}
 for project_dir in project_dirs:
     # Only looking in the REVIEW directory since this should contain all documents
     # with labels that have been agreed upon
     review_dir = f"./data/{project_dir}/REVIEW/"
-    # List of all labels in the project
-    LABELS = {
-        'Incomplete Thought',
-        'Self Correction',
-        'Clarification',
-        'Generic Disfluency',
-        'Misspeak',
-        'Unclear',
-        'Overlap'
-    }
 
     # Get all .json files in REVIEW dir
     json_files = [
