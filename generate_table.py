@@ -93,11 +93,25 @@ for project_dir in project_dirs:
         display_dict['Total'] = sum(cntDict.values())
         display_dict
 
+        # Type-token ratio (TTR)
+        assert not [row for row in data['rows'] if len(row) != 1] # make sure each row is a singleton list
+        doc_tokens = [row[0]['tokens'] for row in data['rows']]
+        flat_doc_tokens = [token for row in doc_tokens for token in row]
+        ttr = len(set(flat_doc_tokens)) / len(flat_doc_tokens) # TTR
+
+        # Average sentence length (ASL)
+        words = 0
+        for sent in doc_tokens:
+            words += len(sent)
+        asl = words / len(doc_tokens) # average sentence length
+
         row = {
             'Project' : project_dir,
             'Document Name' : data['document']['name'], 
             'Hoarder Flag' : hoarder_flag,
-            **display_dict
+            **display_dict,
+            'TTR' : ttr,
+            'ASL' : asl,
         }
         project_rows[i] = row
     rows.extend(project_rows)
