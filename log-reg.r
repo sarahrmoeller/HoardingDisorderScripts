@@ -1,15 +1,20 @@
-data <- read.csv("./out/label_counts.csv")
-# Remove names
-data <- data[, !(names(data) %in% c("Project", "Document.Name"))]
+all.data <- read.csv("./out/label_counts.csv")
+all.data <- all.data[, !(names(all.data) %in% c("Project", "Document.Name"))] # Remove project and document names
+names(all.data)
 
-mdl1 <- glm(Hoarder.Flag ~ . - Total, data = data, family = "binomial")
-summary(mdl1)
+# Simple regression on total labels per document
+total.slr <- glm(Hoarder.Flag ~ Total, data = all.data, family = "binomial")
+summary(total.slr)
 
-mdl2 <- glm(Hoarder.Flag ~ Total, data = data, family = "binomial")
-summary(mdl2)
+# Regression model by speaker
+total.rows <- names(all.data)[grepl("Total", names(all.data))]
+labels.by.speaker <- all.data[, !(names(all.data) %in% total.rows)]
+names(labels.by.speaker)
+speaker.mlr <- glm(Hoarder.Flag ~ ., data = labels.by.speaker, family = "binomial")
+summary(speaker.mlr)
 
-mdl3 <- glm(Hoarder.Flag ~ . - Misspeak - Unclear - Total, data = data, family = "binomial")
-summary(mdl3)
-
-mdl4 <- glm(Hoarder.Flag ~ . - Self.Correction - Misspeak - Unclear - Total, data = data, family = "binomial")
-summary(mdl4)
+# Sanity check: if we regress on the total like this, we should get the same coefficients
+total.rows <- total.rows[!total.rows == "Total"] # don't include the Total column
+labels.by.total <- all.data[, c("Hoarder.Flag", total.rows)]
+total.mlr <- glm(Hoarder.Flag ~ ., data = labels.by.total, family = "binomial")
+summary(total.mlr)
