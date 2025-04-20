@@ -2,7 +2,7 @@ from collections import Counter
 import json
 import os
 import pandas as pd
-import warnings
+from itertools import product
 
 rows = []
 project_dirs = os.listdir('./data')
@@ -69,16 +69,18 @@ for project_dir in project_dirs:
         labels_in_doc = data['spanLabels']
 
         labels_with_speakers = [('', '')] * len(labels_in_doc)
-        for j in range(len(labels_in_doc)):
-            label = labels_in_doc[j]
+        for k in range(len(labels_in_doc)):
+            label = labels_in_doc[k]
 
             label_name = label['labelItem']['labelName']
             row_index = label['textPosition']['start']['row']
             speaker = row_speakers[row_index] 
-            labels_with_speakers[j] = (label_name, speaker)
+            labels_with_speakers[k] = (label_name, speaker)
 
         cntDict = Counter(labels_with_speakers)
-        for label in set(LABELS).difference(cntDict.keys()):
+        for label, speaker in set(
+            product(LABELS, ['Interviewer', 'Participant'])
+        ).difference(cntDict.keys()):
             cntDict[label] = 0
         cntDict['Total'] = sum(cntDict.values())
 
@@ -100,4 +102,4 @@ for project_dir in project_dirs:
     rows.extend(project_rows)
 
 df = pd.DataFrame(rows)
-df.to_csv('./out/label_counts.csv', index=False)
+df.to_csv('./out/table.csv', index=False)
