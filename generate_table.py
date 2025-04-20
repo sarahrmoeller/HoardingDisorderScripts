@@ -30,8 +30,9 @@ for project_dir in project_dirs:
     ]
 
     project_rows = [dict()] * len(json_files) # List of rows in the csv file 
+
     # This loop populates the rows list---we loop over an index so that we 
-    # don't need to create a new list isn't created in memory after every 
+    # don't need to create a new list in memory after every 
     # .append method
     for i in range(len(json_files)):
         file = json_files[i]
