@@ -31,7 +31,10 @@ class Document:
         self.project = self._raw_data['project']['name']
         self.name = self._raw_data['document']['name']
         self.hoarder_flag = int(self.name[0] == '0')
-        self.tokens = [row[0]['tokens'] for row in self._raw_data['rows']]
+        self.tokens_by_sent = [
+            row[0]['tokens'] for row in self._raw_data['rows']
+        ]
+        self.tokens = [token for row in self.tokens_by_sent for token in row]
 
         # To make it easy to read the document while debugging
         self.sentences = [row[0]['content'] for row in self._raw_data['rows']]
@@ -109,15 +112,11 @@ class Document:
     @property
     def type_token_ratio(self):
         # Type-token ratio (TTR)
-        flat_doc_tokens = [token for row in self.tokens for token in row]
-        return len(set(flat_doc_tokens)) / len(flat_doc_tokens)
+        return len(set(self.tokens)) / len(self.tokens)
 
     @property
     def average_sentence_length(self):
-        words = 0
-        for sent in self.tokens:
-            words += len(sent)
-        return words / len(self.tokens)
+        return len(self.tokens) / len(self.tokens_by_sent)
 
 
 if __name__ == "__main__":
