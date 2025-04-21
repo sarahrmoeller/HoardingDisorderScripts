@@ -104,7 +104,8 @@ class Document:
         for label in LABELS:
             display_dict[label+'–Interviewer'] = cntDict[(label, 'Interviewer')]
             display_dict[label+'–Participant'] = cntDict[(label, 'Participant')]
-            display_dict[label+'–Total'] = cntDict[(label, 'Interviewer')] + cntDict[(label, 'Participant')]
+            display_dict[label+'–Total'] = cntDict[(label, 'Interviewer')] + \
+                                            cntDict[(label, 'Participant')]
         display_dict['Total'] = sum(cntDict.values())
 
         return display_dict
