@@ -56,22 +56,22 @@ class Document:
         row_speakers = [''] * len(rows)
         speaker = ""
         for i in range(len(rows)):
-            row = self._raw_data['rows'][i]
-            for column in row:
-                if (column['content'].find(":") != -1):
-                    slice_with_potential_speaker: str = column['content'].split(":")[0].title()
-                    speaker_found = False
-                    for name in INTERVIEWER_NAMES:
+            row_data = self._raw_data['rows'][i][0]
+            row_text: str = row_data['content']
+            if row_text.find(":") != -1:
+                slice_with_potential_speaker: str = row_text.split(":")[0].title()
+                speaker_found = False
+                for name in INTERVIEWER_NAMES:
+                    if name in slice_with_potential_speaker:
+                        speaker = INTERVIEWER_NAMES[0]
+                        break
+                # Don't look for participant name if we already found the interviewer
+                if not speaker_found: 
+                    for name in PARTICIPANT_NAMES:
                         if name in slice_with_potential_speaker:
-                            speaker = INTERVIEWER_NAMES[0]
+                            speaker = PARTICIPANT_NAMES[0]
                             break
-                    # Don't look for participant name if we already found the interviewer
-                    if not speaker_found: 
-                        for name in PARTICIPANT_NAMES:
-                            if name in slice_with_potential_speaker:
-                                speaker = PARTICIPANT_NAMES[0]
-                                break
-                row_speakers[i] = speaker
+            row_speakers[i] = speaker
         return row_speakers
 
 
