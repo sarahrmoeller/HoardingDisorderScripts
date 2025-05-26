@@ -18,6 +18,7 @@ LABELS = {
 INTERVIEWER_NAMES = ["Interviewer", "Rebecca"]
 PARTICIPANT_NAMES = ["Participant", "Interviewee"]
 
+
 class Document:
     """
     Read-only class that provides information relevant to us given a datasaur
@@ -31,10 +32,12 @@ class Document:
         self.project = self._raw_data['project']['name']
         self.name = self._raw_data['document']['name']
         self.hoarder_flag = int(self.name[0] == '0')
-        self.tokens_by_sent = [
+        # list of rows in the datasaur document, all assumed to be 
+        # newline-tokenized
+        self.newline_tokens = [ 
             row[0]['tokens'] for row in self._raw_data['rows']
         ]
-        self.tokens = [token for row in self.tokens_by_sent for token in row]
+        self.tokens = [token for row in self.newline_tokens for token in row]
 
         # To make it easy to read the document while debugging
         self.sentences = [row[0]['content'] for row in self._raw_data['rows']]
@@ -46,6 +49,8 @@ class Document:
         Expects a list of row data from from the datasaur document.
         Returns a list where index in this list corresponds to a row in the 
         document, and each index in the list contains the speaker of that row.
+        This list can be thought of as a mapping between each row index and the
+        speaker of the row corresponding to each index.
         """
         rows = self._raw_data['rows']
         row_speakers = [''] * len(rows)
@@ -119,7 +124,7 @@ class Document:
 
     @property
     def average_sentence_length(self):
-        return len(self.tokens) / len(self.tokens_by_sent)
+        return len(self.tokens) / len(self.newline_tokens)
 
 
 if __name__ == "__main__":
