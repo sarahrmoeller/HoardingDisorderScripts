@@ -26,3 +26,7 @@ total.rows <- total.rows[!total.rows == "Total"] # don't include the Total colum
 labels.by.total <- all.data[, c("Hoarder.Flag", total.rows)]
 total.mlr <- glm(Hoarder.Flag ~ ., data = labels.by.total, family = "binomial")
 summary(total.mlr)
+
+write.table(all.data[, c("Total", "Hoarder.Flag")],
+            row.names = FALSE, sep = "\t",
+            file = "./out/total_labels.tsv")
