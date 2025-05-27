@@ -25,7 +25,7 @@ class Document:
     document.
     """
         
-    def __init__(self, path: dict):
+    def __init__(self, path: str):
         with open(path) as f:
             raw_data = json.load(f)
         self._raw_data = raw_data['data'] # ignore version number
@@ -76,7 +76,7 @@ class Document:
 
 
     @property
-    def labels(self) -> tuple[str]:
+    def labels(self) -> list[tuple[str, str]]:
         """
         Expects a list of label data from the datasaur document,
         Returns the tuple 
@@ -97,7 +97,7 @@ class Document:
         return labels_with_speakers
 
     @property
-    def label_counts(self) -> dict[str]:
+    def label_counts(self) -> dict[str, str]:
         cntDict = Counter(self.labels)
         for label, speaker in set(
             product(LABELS, ['Interviewer', 'Participant'])
