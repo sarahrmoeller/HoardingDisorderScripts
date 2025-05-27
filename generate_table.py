@@ -56,7 +56,7 @@ class Document:
         row_speakers = [''] * len(rows)
         speaker = ""
         for i in range(len(rows)):
-            row_data = self._raw_data['rows'][i][0]
+            row_data = rows[i][0]
             row_text: str = row_data['content']
             if row_text.find(":") != -1:
                 slice_with_potential_speaker: str = row_text.split(":")[0].title()
