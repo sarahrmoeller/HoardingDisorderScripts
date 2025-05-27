@@ -1,5 +1,5 @@
-from generate_table import Document
 import pytest
+from utils.docment import Document
 
 
 # Using this project directory for testing since it has files from sets 1-3
