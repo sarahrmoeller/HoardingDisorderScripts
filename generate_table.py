@@ -2,6 +2,7 @@ from collections import Counter
 import json
 import os
 import pandas as pd
+import re
 from itertools import product
 
 
@@ -16,7 +17,7 @@ LABELS = {
     'Overlap'
 }
 INTERVIEWER_NAMES = ["Interviewer", "Rebecca"]
-PARTICIPANT_NAMES = ["Participant", "Interviewee"]
+PARTICIPANT_NAMES = ["Participant", "Interviewee", "Speaker"]
 
 
 class Document:
@@ -43,6 +44,20 @@ class Document:
         self.sentences = [row[0]['content'] for row in self._raw_data['rows']]
         self.content = ''.join(self.sentences).replace('\r', '\n')
 
+    @classmethod
+    def _detect_speaker(cls, row: str) -> str:
+        """
+        Expects a datasaur row, and returns whether the speaker is the
+        interviewer, 'Interviewer'; the participant, 'Participant'; or unknown,
+        in which case the function returns the empty string, ''.
+        """
+        matches = re.findall(r'([a-zA-z]+(?: \d+)?):', row)
+        if any(name in matches for name in INTERVIEWER_NAMES):
+            return 'Interviewer'
+        elif any(name in matches for name in PARTICIPANT_NAMES):
+            return 'Participant'
+        return ''
+
     @property
     def _row_speakers(self) -> list[str]:
         """
@@ -58,22 +73,16 @@ class Document:
         for i in range(len(rows)):
             row_data = rows[i][0]
             row_text: str = row_data['content']
-            if row_text.find(":") != -1:
-                slice_with_potential_speaker: str = row_text.split(":")[0].title()
-                speaker_found = False
-                for name in INTERVIEWER_NAMES:
-                    if name in slice_with_potential_speaker:
-                        speaker = INTERVIEWER_NAMES[0]
-                        break
-                # Don't look for participant name if we already found the interviewer
-                if not speaker_found: 
-                    for name in PARTICIPANT_NAMES:
-                        if name in slice_with_potential_speaker:
-                            speaker = PARTICIPANT_NAMES[0]
-                            break
-            row_speakers[i] = speaker
+            if speaker := self._detect_speaker(row_text):
+                row_speakers[i] = speaker
+            # If the speaker is not detected, we assume the speaker is the
+            # same as the previous row's speaker
+            elif i > 0:
+                row_speakers[i] = row_speakers[i-1]
+            else:
+                row_speakers[i] = ''
+                raise Warning(f'No speaker found in first row of {self.name}.')
         return row_speakers
-
 
     @property
     def labels(self) -> list[tuple[str, str]]:
