@@ -38,8 +38,9 @@ class Document:
         ]
         self.tokens = [token for row in self.newline_tokens for token in row]
 
-        # To make it easy to read the document while debugging
-        self.sentences = [row[0]['content'] for row in self._raw_data['rows']]
+        # To make it easy to read document properties while debugging
+        self.row_data = self._raw_data['rows']
+        self.sentences = [row[0]['content'] for row in self.row_data]
         self.content = ''.join(self.sentences).replace('\r', '\n')
 
     @classmethod
@@ -65,11 +66,10 @@ class Document:
         This list can be thought of as a mapping between each row index and the
         speaker of the row corresponding to each index.
         """
-        rows = self._raw_data['rows']
-        row_speakers = [''] * len(rows)
+        row_speakers = [''] * len(self.row_data)
         speaker = ""
-        for i in range(len(rows)):
-            row_data = rows[i][0]
+        for i in range(len(self.row_data)):
+            row_data = self.row_data[i][0]
             row_text: str = row_data['content']
             if speaker := self._detect_speaker(row_text):
                 row_speakers[i] = speaker
