@@ -41,7 +41,10 @@ class Document:
         ]
         self.tokens = [token for row in self.row_data for token in row['tokens']]
         # Sentences are decided by splitting on periods
-        self.sentences = [sent for line in self.lines for sent in line.split('.')]
+        self.sentences = [
+            sent for line in self.lines 
+            for sent in line.split('.')
+        ]
         self.content = ''.join(self.sentences).replace('\r', '\n')
 
     @classmethod
