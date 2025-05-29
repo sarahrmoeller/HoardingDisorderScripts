@@ -2,6 +2,7 @@ from collections import Counter
 import json
 import re
 from itertools import product
+import warnings
 
 
 # List of all labels in the projects
@@ -82,7 +83,7 @@ class Document:
                 row_speakers[i] = row_speakers[i-1]
             else:
                 row_speakers[i] = ''
-                raise Warning(f'No speaker found in first row of {self.name}.')
+                warnings.warn(f'No speaker found in first row of {self.name}.')
         return row_speakers
 
     @property
