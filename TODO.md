@@ -1,1 +1,5 @@
-- There seems to be the `REVIEW` and `ROOT-<user>` directories which contain labels too. `REVIEW` should be easy but not so sure about finding `ROOT`s.
+- [x] Fix row speaker detection 
+- [ ] Separate document content into interviewer and participant
+- [ ] Find ratio of NPs to other phrases
+- [ ] Report model accuracy
+- [ ] Find way to automatically label incomplete clauses
