@@ -63,7 +63,7 @@ class Document:
         return ''
 
     @property
-    def _row_speakers(self) -> list[str]:
+    def _row_speakers(self, warn=False) -> list[str]:
         """
         Expects a list of row data from from the datasaur document.
         Returns a list where index in this list corresponds to a row in the 
@@ -83,7 +83,10 @@ class Document:
                 row_speakers[i] = row_speakers[i-1]
             else:
                 row_speakers[i] = ''
-                warnings.warn(f'No speaker found in first row of {self.name}.')
+                if warn:
+                    warnings.warn(
+                        f'No speaker found in first row of {self.name}.'
+                    )
         return row_speakers
 
     @property
