@@ -31,15 +31,15 @@ class Document:
         self.project = self._raw_data['project']['name']
         self.name = self._raw_data['document']['name']
         self.hoarder_flag = int(self.name[0] == '0')
+        # To make it easy to read document properties while debugging
+        self.row_data = self._raw_data['rows']
         # list of rows in the datasaur document, all assumed to be 
         # newline-tokenized
         self.newline_tokens = [ 
-            row[0]['tokens'] for row in self._raw_data['rows']
+            row[0]['tokens'] for row in self.row_data
         ]
         self.tokens = [token for row in self.newline_tokens for token in row]
-
-        # To make it easy to read the document while debugging
-        self.sentences = [row[0]['content'] for row in self._raw_data['rows']]
+        self.sentences = [row[0]['content'] for row in self.row_data]
         self.content = ''.join(self.sentences).replace('\r', '\n')
 
     @classmethod
@@ -65,11 +65,10 @@ class Document:
         This list can be thought of as a mapping between each row index and the
         speaker of the row corresponding to each index.
         """
-        rows = self._raw_data['rows']
-        row_speakers = [''] * len(rows)
+        row_speakers = [''] * len(self.row_data)
         speaker = ""
-        for i in range(len(rows)):
-            row_data = rows[i][0]
+        for i in range(len(self.row_data)):
+            row_data = self.row_data[i][0]
             row_text: str = row_data['content']
             if speaker := self._detect_speaker(row_text):
                 row_speakers[i] = speaker
