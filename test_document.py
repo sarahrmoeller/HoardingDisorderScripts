@@ -21,6 +21,7 @@ test_docs = [Document(review_dir + filename + '.json')
     ('Patrick: ', ''),
     (': ', ''),
     (' : ', ''),
+    ('Participant 12: ', 'Participant'),
     ('19:24 Interviewer: ', 'Interviewer'),
     ('23:14 Participant: ', 'Participant'),
     ('23:27', ''),

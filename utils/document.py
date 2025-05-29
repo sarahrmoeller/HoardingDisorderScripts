@@ -55,7 +55,7 @@ class Document:
         interviewer, 'Interviewer'; the participant, 'Participant'; or unknown,
         in which case the function returns the empty string, ''.
         """
-        matches = re.findall(r'([a-zA-z]+(?: \d+)?):', row)
+        matches = re.findall(r'([a-zA-z]+)(?: \d+)?:', row)
         if any(name in matches for name in INTERVIEWER_NAMES):
             return 'Interviewer'
         elif any(name in matches for name in PARTICIPANT_NAMES):
