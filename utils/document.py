@@ -158,7 +158,7 @@ class Document:
             display_dict[label+'–Total'] = cntDict[(label, 'Interviewer')] + \
                                             cntDict[(label, 'Participant')]
         display_dict['Total'] = sum(
-            [val for key, val in cntDict.items() if 'Total' in key]
+            [val for key, val in display_dict.items() if 'Total' in key]
         )
 
         return display_dict
