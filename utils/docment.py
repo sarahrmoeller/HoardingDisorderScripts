@@ -70,12 +70,11 @@ class Document:
         This list can be thought of as a mapping between each row index and the
         speaker of the row corresponding to each index.
         """
-        row_speakers = [''] * len(self.row_data)
+        row_speakers = [''] * len(self.lines)
         speaker = ""
-        for i in range(len(self.row_data)):
-            row_data = self.row_data[i][0]
-            row_text: str = row_data['content']
-            if speaker := self._detect_speaker(row_text):
+        for i in range(len(self.lines)):
+            line = self.lines[i]
+            if speaker := self._detect_speaker(line):
                 row_speakers[i] = speaker
             # If the speaker is not detected, we assume the speaker is the
             # same as the previous row's speaker
