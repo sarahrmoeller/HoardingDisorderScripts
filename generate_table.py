@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from tqdm import tqdm
 from utils.document import Document
 
 if __name__ == "__main__":
@@ -7,7 +8,7 @@ if __name__ == "__main__":
     project_dirs = os.listdir('./data')
     project_dirs.remove('.gitignore')
 
-    for project_dir in project_dirs:
+    for project_dir in tqdm(project_dirs):
         # Only looking in the REVIEW directory, as this directory contains all
         # adjudicated documents (and not documents with labels from only one 
         # person)
