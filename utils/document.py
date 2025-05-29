@@ -106,6 +106,12 @@ class Document:
             label_name = label['labelItem']['labelName']
             row_index = label['textPosition']['start']['row']
             speaker = self._row_speakers[row_index] 
+            if not speaker:
+                warnings.warn(
+                    f'No speaker found for {label_name} label in row '
+                    f'{row_index} of document {self.name} (Project '
+                    f'{self.project}).'
+                )
             labels_with_speakers[k] = (label_name, speaker)
 
         return labels_with_speakers
