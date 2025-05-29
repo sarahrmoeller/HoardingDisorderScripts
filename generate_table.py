@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from utils.docment import Document
+from utils.document import Document
 
 if __name__ == "__main__":
     table_rows = []

@@ -1,5 +1,5 @@
 import pytest
-from utils.docment import Document
+from utils.document import Document
 
 
 # Using this project directory for testing since it has files from sets 1-3
