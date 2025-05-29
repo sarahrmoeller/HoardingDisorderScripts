@@ -164,9 +164,16 @@ class Document:
         return display_dict
 
     @property
-    def type_token_ratio(self):
+    def type_token_ratio(self, omit_speaker=True):
         # Type-token ratio (TTR)
-        return len(set(self.tokens)) / len(self.tokens)
+        if omit_speaker:
+            tokens = [
+                token for token in self.tokens 
+                if not self._detect_speaker(token)
+            ]
+        else:
+            tokens = self.tokens
+        return len(set(tokens)) / len(tokens)
 
     @property
     def average_sentence_length(self, omit_speaker=True):
