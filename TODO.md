@@ -1,4 +1,5 @@
 - [x] Fix row speaker detection 
+- [ ] Write unit tests for all functions in document.py
 - [ ] Separate document content into interviewer and participant
 - [ ] Find ratio of NPs to other phrases
 - [ ] Report model accuracy
