@@ -123,7 +123,6 @@ class Document:
             product(LABELS, ['Interviewer', 'Participant'])
         ).difference(cntDict.keys()):
             cntDict[(label, speaker)] = 0
-        cntDict['Total'] = sum(cntDict.values())
 
         display_dict = {}
         for label in LABELS:
