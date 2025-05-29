@@ -61,9 +61,23 @@ class Document:
         elif any(name in matches for name in PARTICIPANT_NAMES):
             return 'Participant'
         return ''
+    
+    @classmethod
+    def _other_speaker(cls, speaker: str) -> str:
+        """
+        Expects a speaker, and returns the other speaker.
+        If the speaker is 'Interviewer', returns 'Participant'.
+        If the speaker is 'Participant', returns 'Interviewer'.
+        If the speaker is neither, returns an empty string.
+        """
+        if speaker in INTERVIEWER_NAMES:
+            return PARTICIPANT_NAMES[0]
+        if speaker in PARTICIPANT_NAMES:
+            return INTERVIEWER_NAMES[0]
+        return ''
 
     @property
-    def _row_speakers(self, warn=False) -> list[str]:
+    def _row_speakers(self) -> list[str]:
         """
         Expects a list of row data from from the datasaur document.
         Returns a list where index in this list corresponds to a row in the 
@@ -73,20 +87,33 @@ class Document:
         """
         row_speakers = [''] * len(self.lines)
         speaker = ""
+        first_row_empty = False
         for i in range(len(self.lines)):
             line = self.lines[i]
-            if speaker := self._detect_speaker(line):
-                row_speakers[i] = speaker
-            # If the speaker is not detected, we assume the speaker is the
-            # same as the previous row's speaker
-            elif i > 0:
-                row_speakers[i] = row_speakers[i-1]
-            else:
-                row_speakers[i] = ''
-                if warn:
-                    warnings.warn(
-                        f'No speaker found in first row of {self.name}.'
-                    )
+            speaker = self._detect_speaker(line)
+            row_speakers[i] = speaker
+            # If no speaker found...
+            if not speaker:
+                # If not at the first row, assume speaker is the same as previous 
+                # speaker (even if no speaker was found in the previous row)
+                if i > 0:
+                    row_speakers[i] = row_speakers[i-1]
+                # If we are at the first row, indicate the first row is empty.
+                # Ideally, once we find a row with a speaker, we can fill in all
+                # previous rows with the other speaker.
+                else:
+                    first_row_empty = True
+            elif first_row_empty:
+                row_speakers[0:i] = [self._other_speaker(speaker)] * i
+                first_row_empty = False
+        
+        rows_without_speakers = tuple(i for i in range(len(row_speakers)) 
+                                      if not row_speakers[i])
+        if any(rows_without_speakers):
+            warnings.warn(
+                f'Rows {rows_without_speakers} in document {self.name} '
+                f'(Project {self.project}) are missing speakers.'
+            )
         return row_speakers
 
     @property

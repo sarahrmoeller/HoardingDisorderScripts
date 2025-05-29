@@ -2,14 +2,18 @@ import pytest
 from utils.document import Document
 
 
-# Using this project directory for testing since it has files from sets 1-3
-project_dir = "s1062_s2022-26_s3076-97"
-# All files we care about are in the REVIEW directory
-review_dir = f"./data/{project_dir}/REVIEW/" 
-# One test file from each set
-test_files = ["062_745.txt", "2022_335.txt", "3001_090.txt"]
-test_docs = [Document(review_dir + filename + '.json') 
-             for filename in test_files]
+test_files: list[tuple[str, str]] = [
+    # First three are chosen from a project that has files from each of 
+    # sets 1-3
+    ("s1062_s2022-26_s3076-97", "062_745.txt"), 
+    ("s1062_s2022-26_s3076-97", "2022_335.txt"), 
+    ("s1062_s2022-26_s3076-97", "3001_090.txt"), # Contains a single saying "TRANSCRIPTION PAUSED"
+    # Misc files with special cases
+    ("s1046-50_s2012-13_s3026-50", "049_606.txt"),
+    ("s1_28-35_s2_4-7", "005_083.txt")
+]
+test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json") 
+             for project, filename in test_files]
 
 
 @pytest.mark.parametrize("row, speaker", [
@@ -60,6 +64,20 @@ def test_detect_speaker(row, speaker):
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
     ]),
+    (test_docs[3], [
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant',
+        'Interviewer', 'Interviewer', 'Interviewer', 'Interviewer', 
+        'Interviewer',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant'
+    ])
 ])
 def test_row_speakers(test_doc, expected_speakers):
     assert test_doc._row_speakers == expected_speakers
