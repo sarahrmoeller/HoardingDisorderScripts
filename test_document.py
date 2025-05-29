@@ -10,7 +10,7 @@ test_files: list[tuple[str, str]] = [
     ("s1062_s2022-26_s3076-97", "3001_090.txt"), # Contains a single saying "TRANSCRIPTION PAUSED"
     # Misc files with special cases
     ("s1046-50_s2012-13_s3026-50", "049_606.txt"),
-    ("s1_28-35_s2_4-7", "005_083.txt")
+    ("s1_28-35_s2_4-7", "005_083.txt") # contains "P1: " and "P3: " interview/speaker format
 ]
 test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json") 
              for project, filename in test_files]
@@ -32,6 +32,8 @@ test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json")
     # HD Sets 2-3 Tests
     ('Interviewer: What is your favorite color?', 'Interviewer'),
     ('Participant: Blue.', 'Participant'),
+    ('P1: Okay, kind of inline with that ', 'Interviewer'),
+    ('P3: Hm hm, yeah that’s an ', 'Participant'),
 ])
 def test_detect_speaker(row, speaker):
     assert Document._detect_speaker(row) == speaker
