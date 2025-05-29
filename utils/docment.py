@@ -32,14 +32,16 @@ class Document:
         self.name = self._raw_data['document']['name']
         self.hoarder_flag = int(self.name[0] == '0')
         # To make it easy to read document properties while debugging
-        self.row_data = self._raw_data['rows']
-        # list of rows in the datasaur document, all assumed to be 
-        # newline-tokenized
-        self.newline_tokens = [ 
-            row[0]['tokens'] for row in self.row_data
+        # Accessing the first element of the row since all rows are singleton
+        # lists
+        self.row_data = [row[0] for row in self._raw_data['rows']]
+        # List of rows in the document indexed by newlines
+        self.lines = [ 
+            row['content'] for row in self.row_data
         ]
-        self.tokens = [token for row in self.newline_tokens for token in row]
-        self.sentences = [row[0]['content'] for row in self.row_data]
+        self.tokens = [token for row in self.row_data for token in row['tokens']]
+        # Sentences are decided by splitting on periods
+        self.sentences = [sent for line in self.lines for sent in line.split('.')]
         self.content = ''.join(self.sentences).replace('\r', '\n')
 
     @classmethod
@@ -130,4 +132,4 @@ class Document:
 
     @property
     def average_sentence_length(self):
-        return len(self.tokens) / len(self.newline_tokens)
+        return len(self.tokens) / len(self.lines)
