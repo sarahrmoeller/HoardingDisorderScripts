@@ -17,7 +17,7 @@ test_files: list[tuple[str, str]] = [
     ("s1036-42_s2008-9_s3000-15", "2008_136.txt"),
     ("s1_21-27_s2_1-3", "026_307.txt"),
 ]
-test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json") 
+test_docs = [Document(f"../data/{project}/REVIEW/{filename}.json") 
              for project, filename in test_files]
 
 
