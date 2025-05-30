@@ -165,23 +165,20 @@ class Document:
         return display_dict
 
     @property
-    def type_token_ratio(self, omit_speaker=True):
+    def type_token_ratio(self):
         # Type-token ratio (TTR)
-        if omit_speaker:
-            tokens = [
-                token for token in self.tokens 
-                if not self._detect_speaker(token)
-            ]
-        else:
-            tokens = self.tokens
+        tokens = [
+            token for token in self.tokens 
+            if not self._detect_speaker(token)
+        ]
         return len(set(tokens)) / len(tokens)
 
     @property
-    def average_sentence_length(self, omit_speaker=True):
+    def average_sentence_length(self):
         # Only omit speaker if the document is a hoarder document due to 
         # single lines/sentences that appear in these sets # that look like 
         # 'Interviewer: ' or 'Participant: ' which are not actual sentences
-        if self.hoarder_flag and omit_speaker:
+        if self.hoarder_flag:
             sents = [
                 sent for sent in self.sentences 
                 if not self._detect_speaker(sent)
