@@ -1,5 +1,6 @@
 from collections import Counter
 import json
+import ling
 import re
 from itertools import product
 import warnings
@@ -43,11 +44,16 @@ class Document:
         self.content = '\n'.join(self.lines)
         self.tokens = [token for row in self.row_data for token in row['tokens']]
         # Sentences are decided by splitting on periods
-        self.sentences = [
-            sent for line in self.lines 
-            for sent in line.split('.')
-        ]
-        self.content = ''.join(self.sentences).replace('\r', '\n')
+        self.sentences = []
+        sent = []
+        for token in self.tokens:
+            sent.append(token)
+            if token.endswith(('.', '!', '?')):  # end of sentence
+                self.sentences.append(sent)
+                sent = []
+        # If there are remaining tokens in the last sentence, add the sentence
+        if sent: 
+            self.sentences.append(sent)
 
     @classmethod
     def _detect_speaker(cls, row: str) -> str:
@@ -166,7 +172,9 @@ class Document:
 
     @property
     def type_token_ratio(self):
-        # Type-token ratio (TTR)
+        """
+        Returns the type-token ratio of the document's tokens.
+        """
         tokens = [
             token for token in self.tokens 
             if not self._detect_speaker(token)
@@ -175,6 +183,9 @@ class Document:
 
     @property
     def average_sentence_length(self):
+        """
+        Returns the average number of tokens in each sentence in the document.
+        """
         # Only omit speaker if the document is a hoarder document due to 
         # single lines/sentences that appear in these sets # that look like 
         # 'Interviewer: ' or 'Participant: ' which are not actual sentences
