@@ -3,7 +3,7 @@
 Here reside the scripts for running Statistics on the data we have on Hoarding Disorder patients and control, 
 including labeled data from datasaur and the original unlabeled data (TBD). 
 
-## Replicating Our Work
+## How to Replicate our Work
 
 ### Python Environment
 
@@ -42,7 +42,7 @@ Our first test was to see whether the number of labels of each type in a documen
 created a logistic regression model each document's hoarding flag given the number of labels in each document.
 Run `python generate_table.py` to generate the file `table.csv` located in the `./out/` directiory. Each row in this file specifies a file,
 the set it came from, and provides a "hoarding flag" (1 if hoarding patient, 0 otherwise), the number of labels of each type in the file, as well as
-the total label counts in the file.
+the total label counts in the file. It also contains Type-token ratio (TTR) and Average Sentence Length (ASL) information.
 
 Create an interactive R session with the file `log-reg.r` to see the logisitc models. 
 We created a few models:
