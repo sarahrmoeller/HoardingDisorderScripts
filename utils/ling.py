@@ -14,7 +14,7 @@ def type_token_ratio(flat_tokens: list[str]) -> float:
     if not flat_tokens:
         warnings.warn("Empty token list provided for type-token ratio calculation.")
         return 0.0
-    return len(set(flat_tokens)) / len(flat_tokens)
+    return len(set(token.lower() for token in flat_tokens)) / len(flat_tokens)
 
 
 def average_sentence_length(sentences: list[list[str]]) -> float:

@@ -8,7 +8,7 @@ from utils.ling import type_token_ratio, average_sentence_length
     (["a", "b", "c", "d"], 1.0), # All unique tokens
     (["word"] * 10, 0.1), # All tokens are the same
     (["unique"], 1.0), # Single unique token
-    (["Word", "word", "WORD"], 1.0), # Case sensitivity matters, all are unique
+    (["Word", "word", "WORD"], 1 / 3), # Case insensitive, all the same
 ])
 def test_type_token_ratio(tokens, expected):
     assert type_token_ratio(tokens) == expected
