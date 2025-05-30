@@ -12,7 +12,8 @@ def type_token_ratio(flat_tokens: list[str]) -> float:
         float: The type-token ratio of the document.
     """
     if not flat_tokens:
-        warnings.warn("Empty token list provided for type-token ratio calculation.")
+        warnings.warn("Empty token list provided for type-token ratio "
+                      "calculation.")
         return 0.0
     return len(set(token.lower() for token in flat_tokens)) / len(flat_tokens)
 
@@ -28,6 +29,7 @@ def average_sentence_length(sentences: list[list[str]]) -> float:
         float: The average number of tokens in each sentence in the document.
     """
     if not sentences:
-        warnings.warn("Empty sentences list provided for average sentence length calculation.")
+        warnings.warn("Empty sentences list provided for average sentence " \
+                      "length calculation.")
         return 0.0
     return sum(len(sent) for sent in sentences) / len(sentences)
