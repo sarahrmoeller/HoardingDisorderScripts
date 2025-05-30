@@ -5,11 +5,14 @@ including labeled data from datasaur and the original unlabeled data (TBD).
 
 ## Replicating our Python Environment
 
-These python scripts were run in a a python virtual environment with `venv`. To replicate our results, we recommend cloning our repository 
-to your machine, and (after ensuring you are in the root directory of the cloned repository) creating a new virtual environment using `python -m venv .venv`.
-After this, running `pip install -r requirements.txt` should install all needed dependencies to replicate our work. 
+These python scripts were run in a a python virtual environment with `venv`. To replicate our results, we recommend the following:
+1. Check for `python` version 3.10.12 and `pip` version 22.0.2.
+2. Clone our repository with `git` to your machine, and ensure you are in the root directory of the cloned repository.
+3. Create a new virtual environment using `{path/to/python3} -m venv .venv`.
+4. Run `source .venv/bin/activate` from the project's root directory to activate the virtual environment.
+5. Run `pip install -r requirements.txt` to install all needed dependencies to replicate our work. 
 
-It may be possible to get our code working using `conda`/`anaconda`, but we have not tested this. 
+We tested this on multiple computers with the given versions.  It may be possible to get our code working using `conda`/`anaconda`, but we have not tested this. 
 
 ### Label Count Results
 
