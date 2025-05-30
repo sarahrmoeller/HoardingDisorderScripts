@@ -1,5 +1,6 @@
 import pytest
 from utils.document import Document
+import math
 
 
 test_files: list[tuple[str, str]] = [
@@ -10,7 +11,11 @@ test_files: list[tuple[str, str]] = [
     ("s1062_s2022-26_s3076-97", "3001_090.txt"), # Contains a single saying "TRANSCRIPTION PAUSED"
     # Misc files with special cases
     ("s1046-50_s2012-13_s3026-50", "049_606.txt"),
-    ("s1_28-35_s2_4-7", "005_083.txt") # contains "P1: " and "P3: " interview/speaker format
+    ("s1_28-35_s2_4-7", "005_083.txt"), # contains "P1: " and "P3: " interview/speaker format
+    ("s1_28-35_s2_4-7", "005_082.txt"),
+    ("s1_28-35_s2_4-7", "005_086.txt"),
+    ("s1036-42_s2008-9_s3000-15", "2008_136.txt"),
+    ("s1_21-27_s2_1-3", "026_307.txt"),
 ]
 test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json") 
              for project, filename in test_files]
@@ -83,3 +88,13 @@ def test_detect_speaker(row, speaker):
 ])
 def test_row_speakers(test_doc, expected_speakers):
     assert test_doc._row_speakers == expected_speakers
+
+
+@pytest.mark.parametrize("test_doc,expected", [
+    (doc, None) for doc in test_docs
+])
+def test_average_sentence_length(test_doc, expected):
+    # If expected is None, just check that the value is a positive float
+    asl = test_doc.average_sentence_length
+    assert isinstance(asl, float)
+    assert asl > 0

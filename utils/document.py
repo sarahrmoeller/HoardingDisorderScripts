@@ -1,6 +1,6 @@
 from collections import Counter
 import json
-import ling
+import utils.ling as ling
 import re
 from itertools import product
 import warnings
@@ -186,14 +186,22 @@ class Document:
         """
         Returns the average number of tokens in each sentence in the document.
         """
-        # Only omit speaker if the document is a hoarder document due to 
-        # single lines/sentences that appear in these sets # that look like 
-        # 'Interviewer: ' or 'Participant: ' which are not actual sentences
-        if self.hoarder_flag:
-            sents = [
-                sent for sent in self.sentences 
-                if not self._detect_speaker(sent)
-            ]
-        else: 
-            sents = self.sentences
+        # If a sentence has two or fewer tokens and contains a speaker,
+        # we skip the sentence, assuming the sentence looks like 'Interviewer: '
+        # or 'Participant: '.
+        # Otherwise, we skip the token containing the speaker.
+        sents = []
+        for sent in self.sentences:
+            valid_sent = []
+            for token in sent:
+                if self._detect_speaker(token):
+                    if len(sent) <= 2:
+                        # skip sentence
+                        valid_sent = []
+                        break
+                    else: 
+                        # skip token
+                        continue 
+                valid_sent.append(token)
+            sents.append(valid_sent)
         return ling.average_sentence_length(sents)
