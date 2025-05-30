@@ -1,5 +1,10 @@
-- [x] Fix row speaker detection 
-- [ ] Write unit tests for all functions in document.py
+# TODO
+
+- [ ] Fix row speaker detection:
+  - [ ] Find interview/speaker Pairs
+- [ ] Write unit tests for:
+  - [ ] Sentence creation
+  - [ ] Row speakers (after fixing)
 - [ ] Separate document content into interviewer and participant
 - [ ] Find ratio of NPs to other phrases
 - [ ] Report model accuracy
