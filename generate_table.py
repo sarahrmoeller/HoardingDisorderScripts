@@ -8,14 +8,15 @@ if __name__ == "__main__":
     project_dirs = os.listdir('./data')
     project_dirs.remove('.gitignore')
 
-    for project_dir in tqdm(project_dirs):
+    for project_dir in project_dirs:
         # Only looking in the REVIEW directory, as this directory contains all
         # adjudicated documents (and not documents with labels from only one 
         # person)
         review_dir = f"./data/{project_dir}/REVIEW/"
         json_files = os.listdir(review_dir)
 
-        project_docs = [Document(review_dir + file) for file in json_files]
+        project_docs = [Document(review_dir + file) 
+                        for file in tqdm(json_files, desc=project_dir)]
         # List of rows in the csv file 
         project_rows = list(map(lambda doc: { 
             'Project' : project_dir,
