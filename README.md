@@ -40,15 +40,13 @@ HoardingDisorderScripts/
 
 Our first test was to see whether the number of labels of each type in a document were significant in predicting Hoarding. To this end, we
 created a logistic regression model each document's hoarding flag given the number of labels in each document.
-Run `python generate_label_counts.py` to generate the file `label_counts.csv` located in the `./out/` directiory. Each row in this file specifies a file,
+Run `python generate_table.py` to generate the file `table.csv` located in the `./out/` directiory. Each row in this file specifies a file,
 the set it came from, and provides a "hoarding flag" (1 if hoarding patient, 0 otherwise), the number of labels of each type in the file, as well as
 the total label counts in the file.
 
-Create an interactive R session with the file `log-reg.r` to see the logisitc models. We created four models, numbered `mdl1`, ..., `mdl4`:
+Create an interactive R session with the file `log-reg.r` to see the logisitc models. 
+We created a few models:
 
-1. A multiple logistic regression (MLR) model against counts of all label types in each document (we exclude the total label count in this model to avoid multicollinearity).
-2. A simple logistic regression model on total label counts in each document.
-3. A MLR model against counts of all label types except for Misspeak and Unclear. We created this model because these predictors had high standard errors in the first model,
-   so we hoped that taking away these labels would improve the model's prediction.
-4. A MLR model against counts of all label types except for Misspeak, Unclear, and Self Correction. We removed Self Correction from this model as its p-value was high in
-   previous models.
+1. `total.slr`: Model predicting Hoarding against total label counts in a document.
+2. `speaker.mlr`: Model predicting Hoarding against label counts, which are divided by type and speaker (of the label), the speakers being Interviewer or Participant.
+3. `total.mlr`: Model predicting Hoarding against label counts, divided only by type.
