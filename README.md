@@ -3,7 +3,9 @@
 Here reside the scripts for running Statistics on the data we have on Hoarding Disorder patients and control, 
 including labeled data from datasaur and the original unlabeled data (TBD). 
 
-## Replicating our Python Environment
+## Replicating Our Work
+
+### Python Environment
 
 These python scripts were run in a a python virtual environment with `venv`. To replicate our results, we recommend the following:
 1. Check for `python` version 3.10.12 and `pip` version 22.0.2.
@@ -13,6 +15,26 @@ These python scripts were run in a a python virtual environment with `venv`. To 
 5. Run `pip install -r requirements.txt` to install all needed dependencies to replicate our work. 
 
 We tested this on multiple computers with the given versions.  It may be possible to get our code working using `conda`/`anaconda`, but we have not tested this. 
+
+### Data
+
+To get same data we used for the experiments run in this project, ask one of us for the `data.zip` file. 
+Unzip this file, and move its contents `data/` directory.  The project's file structure on your end should look like this:
+
+```
+HoardingDisorderScripts/
+   .venv/
+   data/
+      HD-Set-1-7/
+      HD-Set-8-11/
+      ...
+      .gitignore
+   ... (other directories)
+   data.zip
+   README.md
+   TODO.md
+   ... (other files)
+```
 
 ### Label Count Results
 
