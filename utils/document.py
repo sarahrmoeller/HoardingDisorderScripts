@@ -179,7 +179,7 @@ class Document:
             token for token in self.tokens 
             if not self._detect_speaker(token)
         ]
-        return len(set(tokens)) / len(tokens)
+        return ling.type_token_ratio(tokens)
 
     @property
     def average_sentence_length(self):
@@ -196,4 +196,4 @@ class Document:
             ]
         else: 
             sents = self.sentences
-        return len(self.tokens) / len(sents)
+        return ling.average_sentence_length(sents)
