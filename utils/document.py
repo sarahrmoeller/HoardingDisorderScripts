@@ -36,10 +36,11 @@ class Document:
         # Accessing the first element of the row since all rows are singleton
         # lists
         self.row_data = [row[0] for row in self._raw_data['rows']]
-        # List of rows in the document indexed by newlines
-        self.lines = [ 
-            row['content'] for row in self.row_data
+        # List of rows in the document indexed by carriage returns
+        self.lines = [
+            row['content'].rstrip() for row in self.row_data
         ]
+        self.content = '\n'.join(self.lines)
         self.tokens = [token for row in self.row_data for token in row['tokens']]
         # Sentences are decided by splitting on periods
         self.sentences = [
