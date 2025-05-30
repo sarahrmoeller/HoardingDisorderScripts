@@ -29,7 +29,7 @@ def average_sentence_length(sentences: list[list[str]]) -> float:
         float: The average number of tokens in each sentence in the document.
     """
     if not sentences:
-        warnings.warn("Empty sentences list provided for average sentence " \
+        warnings.warn("Empty sentences list provided for average sentence "
                       "length calculation.")
         return 0.0
     return sum(len(sent) for sent in sentences) / len(sentences)
