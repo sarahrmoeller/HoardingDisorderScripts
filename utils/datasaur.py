@@ -12,3 +12,4 @@ data: dict[str, list] = {
               for filename in os.listdir(review_dir(project))]
     for project in projects
 }
+all_docs = [doc for doc_list in data.values() for doc in doc_list]
