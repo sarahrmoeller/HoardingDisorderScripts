@@ -1,6 +1,6 @@
 from collections import Counter
 import json
-import utils.ling as ling
+from . import ling
 import re
 from itertools import product
 import warnings
