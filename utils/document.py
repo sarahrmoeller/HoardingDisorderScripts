@@ -47,6 +47,7 @@ class Document:
         self._raw_data = raw_data['data'] # ignore version number
         self.project = self._raw_data['project']['name']
         self.name = self._raw_data['document']['name']
+        self.transcript_number = self.name.split('_')[0]
         self.hoarder_flag = int(self.name[0] == '0')
         # To make it easy to read document properties while debugging
         # Accessing the first element of the row since all rows are singleton
