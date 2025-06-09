@@ -40,8 +40,10 @@ class Document:
     # Default interviewer name is at index 0, and default participant name is
     # at index 1
     default_speaker_pair = SPEAKER_PAIRS[0]
+    # This regex is used to match timestamps, i.e. '19:24' or '23:14'
+    _TIMESTAMPS_REGEX = re.compile(r'(\d+:\d+)')
         
-    def __init__(self, path: str):
+    def __init__(self, path: str) -> None:
         with open(path) as f:
             raw_data = json.load(f)
         self._raw_data = raw_data['data'] # ignore version number
@@ -247,6 +249,10 @@ class Document:
             if not self._find_speakers(token)
         ]
         return ling.type_token_ratio(tokens)
+
+    @staticmethod
+    def valid_sentence(sent: list[str]) -> bool:
+        ...
 
     @property
     def average_sentence_length(self):

@@ -1,12 +1,12 @@
 import pandas as pd
 from tqdm import tqdm
-from utils.datasaur import data
+import utils.data as data 
 
 
 if __name__ == "__main__":
     table_rows = []
     
-    pbar = tqdm(data.items())
+    pbar = tqdm(data.by_project.items())
     for project, docs in pbar:
         pbar.set_description(project)
         # List of rows in the csv file 
