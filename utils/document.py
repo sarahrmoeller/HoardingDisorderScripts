@@ -16,8 +16,18 @@ LABELS = {
     'Unclear',
     'Overlap'
 }
-INTERVIEWER_NAMES = ["Interviewer", "Rebecca", "P1"]
-PARTICIPANT_NAMES = ["Participant", "Interviewee", "Speaker", "P3"]
+# List of Interviewer/Participant speaker name tuples found in the data.
+# We commented to the right which set the pair was found in.
+# We use the convention that the last speaker in the tuple is the participant,
+# and all other speakers are interviewers.
+SPEAKER_PAIRS: list[tuple] = [
+    ("Interviewer", "Participant"), # Hoarding-Patient
+    ("Rebecca", "Interviewee"), # "Hoarding-Clinician" 
+    ("Interviewer", "Speaker"), # Parents
+    ("P1", "P3", "Interviewee"), # Transcript no. (2)005
+    ("P1", "P2", "Interviewee") # Transcript no. 2008
+]
+SPEAKERS: set = {speaker for pair in SPEAKER_PAIRS for speaker in pair}
 
 
 class Document:
@@ -25,6 +35,11 @@ class Document:
     Read-only class that provides information relevant to us given a datasaur
     document.
     """
+
+    # Define the default speaker names to use for display in output table
+    # Default interviewer name is at index 0, and default participant name is
+    # at index 1
+    default_speaker_pair = SPEAKER_PAIRS[0]
         
     def __init__(self, path: str):
         with open(path) as f:
@@ -55,52 +70,86 @@ class Document:
         if sent: 
             self.sentences.append(sent)
 
-    @classmethod
-    def _detect_speaker(cls, row: str) -> str:
+    def _find_speakers(self, content: str) -> list[str]:
         """
-        Expects a datasaur row, and returns whether the speaker is the
-        interviewer, 'Interviewer'; the participant, 'Participant'; or unknown,
-        in which case the function returns the empty string, ''.
+        Uses re.findall to look for all occurences of valid speaker names 
+        (defined in SPEAKERS set) followed by an optional number and mandatory
+        colon (i.e. 'Interviewer:' or 'Participant 12: ') in a string. More 
+        generally, this finds all parts of a string that look like 
+            {speaker_name} [optional number]:
+        and returns speaker_name within the `findall` list.
         """
-        matches = re.findall(r'([a-zA-z0-9]+)(?: \d+)?:', row)
-        if any(name in matches for name in INTERVIEWER_NAMES):
-            return 'Interviewer'
-        elif any(name in matches for name in PARTICIPANT_NAMES):
-            return 'Participant'
-        return ''
+        return re.findall(r'({speaker_names})(?: \d+)?:'
+                           .format(speaker_names='|'.join(SPEAKERS)), content)
     
-    @classmethod
-    def _other_speaker(cls, speaker: str) -> str:
+    @property
+    def _speaker_set(self) -> set[str]:
         """
-        Expects a speaker, and returns the other speaker.
-        If the speaker is 'Interviewer', returns 'Participant'.
-        If the speaker is 'Participant', returns 'Interviewer'.
-        If the speaker is neither, returns an empty string.
+        Returns the set of all speakers in the document.
         """
-        if speaker in INTERVIEWER_NAMES:
-            return PARTICIPANT_NAMES[0]
-        if speaker in PARTICIPANT_NAMES:
-            return INTERVIEWER_NAMES[0]
-        return ''
+        speaker_matches = self._find_speakers(self.content)
+        returned_set = set(speaker_matches)
+        if (num_speakers := len(returned_set)) != 2:
+            warnings.warn(
+                f'{num_speakers} total speakers found in {self.name} '
+                f'({self.project}). Speakers: {returned_set}'
+            )
+        return returned_set
+    
+    @property
+    def speaker_pair(self) -> tuple:
+        """
+        Uses the _speaker_set property and SPEAKER_PAIRS to return a tuple of 
+        the two speakers in the document, with interviewer indexed at 0 and 
+        participant indexed at 1.
+        """
+        num_speakers = len(self._speaker_set)
+        if num_speakers == 0:
+            raise ValueError(f'No speakers found in {self.name} '
+                             f'({self.project}). Assuming something is wrong.')
+        elif num_speakers == 1:
+            speaker = next(iter(self._speaker_set))
+            return tuple(speaker)
+        # If all elements in some speaker pair are in the speaker set, we 
+        # assume we've found the right pair
+        for pair in SPEAKER_PAIRS:
+            if all(speaker in self._speaker_set for speaker in pair):
+                return pair
+        # If we still haven't found a match, something has gone wrong
+        raise ValueError(f'No valid speaker pair found for {self.name} '
+                         f'({self.project}). Speakers: {self._speaker_set}')
 
     @property
-    def _row_speakers(self) -> list[str]:
+    def _row_speakers(self) -> list[str | None]:
         """
-        Expects a list of row data from from the datasaur document.
         Returns a list where index in this list corresponds to a row in the 
         document, and each index in the list contains the speaker of that row.
         This list can be thought of as a mapping between each row index and the
         speaker of the row corresponding to each index.
         """
-        row_speakers = [''] * len(self.lines)
-        speaker = ""
+        row_speakers: list[str | None] = [None] * len(self.lines)
+        current_speaker: str | None = None
         first_row_empty = False
         for i in range(len(self.lines)):
             line = self.lines[i]
-            speaker = self._detect_speaker(line)
-            row_speakers[i] = speaker
+            speaker_matches = self._find_speakers(line)
+            # If speaker found, change global current_speaker variable
+            if speaker_matches:
+                # Check: a single line should only have one speaker.
+                # If multiple speakers found, warn and use the first one
+                if len(speaker_matches) > 1:
+                    warnings.warn(
+                        f'Multiple speakers found in row {i} of document '
+                        f'{self.name} (Project {self.project}). Speakers: '
+                        f'{speaker_matches}. Using first speaker.'
+                    )
+                # TODO: Warn if speaker is found not at the beginning of the 
+                # line, ignoring timestamps
+                current_speaker = speaker_matches[0]
+            row_speakers[i] = current_speaker
+            # TODO: Below logic is superfluous
             # If no speaker found...
-            if not speaker:
+            if not current_speaker:
                 # If not at the first row, assume speaker is the same as previous 
                 # speaker (even if no speaker was found in the previous row)
                 if i > 0:
@@ -110,8 +159,11 @@ class Document:
                 # previous rows with the other speaker.
                 else:
                     first_row_empty = True
-            elif first_row_empty:
-                row_speakers[0:i] = [self._other_speaker(speaker)] * i
+            elif first_row_empty and len(self.speaker_pair) == 2:
+                # The "other speaker" is only defined if there are two speakers
+                other_speaker = self.speaker_pair[self.speaker_pair
+                                                  .index(current_speaker)-1]
+                row_speakers[0:i] = [other_speaker] * i
                 first_row_empty = False
         
         rows_without_speakers = tuple(i for i in range(len(row_speakers)) 
@@ -122,6 +174,20 @@ class Document:
                 f'(Project {self.project}) are missing speakers.'
             )
         return row_speakers
+    
+    @property
+    def _row_speakers_default(self) -> list[str]:
+        """
+        Convert all names in _row_speakers to their default pair names given
+        by SPEAKER_PAIRS[0].
+        """
+        # See default_speaker_pair definition for convention
+        default_interviewer_name = Document.default_speaker_pair[0]
+        default_participant_name = Document.default_speaker_pair[1]
+        last_speaker_in_pair = self.speaker_pair[-1]
+        return [default_participant_name if speaker == last_speaker_in_pair 
+                else default_interviewer_name 
+                for speaker in self._row_speakers]
 
     @property
     def labels(self) -> list[tuple[str, str]]:
@@ -139,7 +205,7 @@ class Document:
 
             label_name = label['labelItem']['labelName']
             row_index = label['textPosition']['start']['row']
-            speaker = self._row_speakers[row_index] 
+            speaker = self._row_speakers_default[row_index] 
             if not speaker:
                 warnings.warn(
                     f'No speaker found for {label_name} label in row '
@@ -154,7 +220,7 @@ class Document:
     def label_counts(self) -> dict[str, str]:
         cntDict = Counter(self.labels)
         for label, speaker in set(
-            product(LABELS, ['Interviewer', 'Participant'])
+            product(LABELS, Document.default_speaker_pair)
         ).difference(cntDict.keys()):
             cntDict[(label, speaker)] = 0
 
@@ -177,7 +243,7 @@ class Document:
         """
         tokens = [
             token for token in self.tokens 
-            if not self._detect_speaker(token)
+            if not self._find_speakers(token)
         ]
         return ling.type_token_ratio(tokens)
 
@@ -194,7 +260,7 @@ class Document:
         for sent in self.sentences:
             valid_sent = []
             for token in sent:
-                if self._detect_speaker(token):
+                if self._find_speakers(token):
                     if len(sent) <= 2:
                         # skip sentence
                         valid_sent = []

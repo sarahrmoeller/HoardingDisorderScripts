@@ -8,7 +8,7 @@ test_files: list[tuple[str, str]] = [
     # sets 1-3
     ("s1062_s2022-26_s3076-97", "062_745.txt"), 
     ("s1062_s2022-26_s3076-97", "2022_335.txt"), 
-    ("s1062_s2022-26_s3076-97", "3001_090.txt"), # Contains a single saying "TRANSCRIPTION PAUSED"
+    ("s1062_s2022-26_s3076-97", "3001_090.txt"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
     # Misc files with special cases
     ("s1046-50_s2012-13_s3026-50", "049_606.txt"),
     ("s1_28-35_s2_4-7", "005_083.txt"), # contains "P1: " and "P3: " interview/speaker format
@@ -17,31 +17,116 @@ test_files: list[tuple[str, str]] = [
     ("s1036-42_s2008-9_s3000-15", "2008_136.txt"),
     ("s1_21-27_s2_1-3", "026_307.txt"),
 ]
-test_docs = [Document(f"../data/{project}/REVIEW/{filename}.json") 
+test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json") 
              for project, filename in test_files]
 
 
-@pytest.mark.parametrize("row, speaker", [
-    # HD Set 1 Tests
-    ('Interviewer: ', 'Interviewer'),
-    ('Participant: ', 'Participant'),
-    ('Rebecca: ', 'Interviewer'),
-    ('Interviewee: ', 'Participant'),
-    ('Patrick: ', ''),
-    (': ', ''),
-    (' : ', ''),
-    ('Participant 12: ', 'Participant'),
-    ('19:24 Interviewer: ', 'Interviewer'),
-    ('23:14 Participant: ', 'Participant'),
-    ('23:27', ''),
-    # HD Sets 2-3 Tests
-    ('Interviewer: What is your favorite color?', 'Interviewer'),
-    ('Participant: Blue.', 'Participant'),
-    ('P1: Okay, kind of inline with that ', 'Interviewer'),
-    ('P3: Hm hm, yeah that’s an ', 'Participant'),
+@pytest.mark.parametrize("input_line,expected", [
+    # Basic speaker labels
+    ("Interviewer:", ["Interviewer"]),
+    ("Participant:", ["Participant"]),
+    ("Rebecca:", ["Rebecca"]),
+    ("Interviewee:", ["Interviewee"]),
+    ("Speaker:", ["Speaker"]),
+    ("P1:", ["P1"]),
+    ("P3:", ["P3"]),
+    # Speaker with number
+    ("Participant 12:", ["Participant"]),
+    ("Interviewer 2:", ["Interviewer"]),
+    # Speaker with timestamp
+    ("19:24 Interviewer:", ["Interviewer"]),
+    ("23:14 Participant:", ["Participant"]),
+    # No speaker
+    ("Random text", []),
+    ("23:27", []),
+    (":", []),
+    (" : ", []),
+    # Speaker with extra text
+    ("Rebecca: How are you?", ["Rebecca"]),
+    ("Interviewee: Fine.", ["Interviewee"]),
+    ("P1: Okay, kind of inline with that", ["P1"]),
+    ("P3: Hm hm, yeah that’s an", ["P3"]),
+    # Multiple speakers in one line
+    ("Interviewer: Participant:", ["Interviewer", "Participant"]),
+    ("P1: P3: Something", ["P1", "P3"]),
+    # Speaker with number and text
+    ("Interviewer 3: Hello", ["Interviewer"]),
+    ("Participant 7: Hi", ["Participant"]),
 ])
-def test_detect_speaker(row, speaker):
-    assert Document._detect_speaker(row) == speaker
+def test__find_speakers(input_line, expected):
+    doc = test_docs[0]
+    assert doc._find_speakers(input_line) == expected
+
+
+
+@pytest.mark.parametrize("test_doc,expected_speakers", [
+    (test_docs[0], [
+        'Interviewer', 'Interviewer',
+        'Participant', 'Participant',
+        'Interviewer', 'Interviewer',
+        'Participant', 'Participant',
+        'Interviewer', 'Interviewer',
+        'Participant', 'Participant',
+        'Interviewer', 'Interviewer',
+        'Participant', 'Participant',
+        'Interviewer', 'Interviewer',
+        'Participant', 'Participant',
+        'Interviewer', 'Interviewer',
+    ]),
+    (test_docs[1], ['Rebecca', 'Interviewee']),
+    (test_docs[2], [
+        'Interviewer', 'Speaker',
+        'Interviewer', 'Speaker',
+        'Interviewer', 'Speaker',
+        'Interviewer', 'Speaker',
+        'Interviewer', 'Speaker',
+        'Interviewer', 'Speaker',
+        'Speaker',
+        'Interviewer', 'Speaker',
+        'Interviewer', 'Speaker',
+        'Interviewer', 'Speaker',
+    ]),
+    (test_docs[3], [
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant',
+        'Interviewer', 'Interviewer', 'Interviewer', 'Interviewer', 
+        'Interviewer',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant',
+        'Participant', 'Participant', 'Participant', 'Participant'
+    ]),
+    # Do this test after 005 documents are fixed
+    # (test_docs[-2], [ 
+    #     'Interviewee',
+    #     'P1',
+    #     'Interviewee',
+    #     'P1',
+    #     'P3',
+    #     'Interviewee',
+    # ]),
+    (test_docs[-2], [
+        'P2',
+        'Interviewee',
+        'Interviewee',
+        'P1',
+        'Interviewee',
+        'P2',
+        'Interviewee',
+        'P2',
+        'Interviewee',
+        'P2',
+        'Interviewee',
+        'P2',
+        'Interviewee'
+    ])
+])
+def test_row_speakers(test_doc, expected_speakers):
+    assert test_doc._row_speakers == expected_speakers
 
 
 @pytest.mark.parametrize("test_doc,expected_speakers", [
@@ -84,10 +169,25 @@ def test_detect_speaker(row, speaker):
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant'
+    ]),
+    (test_docs[-2], [
+        'Interviewer',
+        'Participant',
+        'Participant',
+        'Interviewer',
+        'Participant',
+        'Interviewer',
+        'Participant',
+        'Interviewer',
+        'Participant',
+        'Interviewer',
+        'Participant',
+        'Interviewer',
+        'Participant'
     ])
 ])
-def test_row_speakers(test_doc, expected_speakers):
-    assert test_doc._row_speakers == expected_speakers
+def test_row_speakers_default(test_doc, expected_speakers):
+    assert test_doc._row_speakers_default == expected_speakers
 
 
 @pytest.mark.parametrize("test_doc,expected", [
