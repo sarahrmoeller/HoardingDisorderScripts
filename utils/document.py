@@ -89,7 +89,7 @@ class Document:
         """
         speaker_matches = self._find_speakers(self.content)
         returned_set = set(speaker_matches)
-        if (num_speakers := len(returned_set)) != 2:
+        if (num_speakers := len(returned_set)) not in (2, 3):
             warnings.warn(
                 f'{num_speakers} total speakers found in {self.name} '
                 f'({self.project}). Speakers: {returned_set}'
