@@ -20,6 +20,8 @@
     - [ ] Edit `Document` class to include a cleaned version
   - [ ] Implement metrics from previous paper:
     - [ ] Type-Token Ratio
+      - [ ] Document TTR
+      - [ ] Average Sentence TTR
     - [ ] Average Sentence Length
     - [ ] Noun Phrase (NP) Count/Ratio
 Later:
