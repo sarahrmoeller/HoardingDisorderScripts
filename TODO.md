@@ -7,12 +7,14 @@
     - [ ] Implement row speaker detection:
       - [ ] Figure out what to do with three-speaker documents
       - [ ] WARN ABOUT SPEAKERS NOT AT THE BEGINNING OF THE LINE!!!
-  - [ ] Identify removable tokens in documents, i.e. timestamps (i.e. 18:19, (18:19), (1:25:01)), [END OF RECORDING], [TRANSCRIPT PAUSED], variations of INAUDIBLE (??), etc.
+  - [ ] Identify removable tokens in documents, i.e. timestamps (i.e. 18:19, (18:19), (1:25:01)), [END OF RECORDING], [TRANSCRIPT PAUSED], variations of INAUDIBLE (??), etc, ANONYMIZED.
   - [ ] Implement metrics from previous paper:
     - [ ] Type-Token Ratio
+      - [ ] Document TTR
+      - [ ] Average Sentence TTR
     - [ ] Average Sentence Length
     - [ ] Noun Phrase (NP) Count/Ratio
-  - [ ] Report model accuracy
+    - [ ] Average no. Sentences
 - [ ] Later:
   - [ ] Frankenstein Document content together
     - [ ] Create new table based on Frank. Documents
