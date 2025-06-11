@@ -58,7 +58,6 @@ def test__find_speakers(input_line, expected):
     assert doc._find_speakers(input_line) == expected
 
 
-
 @pytest.mark.parametrize("test_doc,expected_speakers", [
     (test_docs[0], [
         'Interviewer', 'Interviewer',

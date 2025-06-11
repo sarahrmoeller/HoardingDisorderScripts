@@ -48,7 +48,9 @@ class Document:
         self.project = self._raw_data['project']['name']
         self.name = self._raw_data['document']['name']
         self.transcript_number = self.name.split('_')[0]
-        self.hoarder_flag = int(self.name[0] == '0')
+        self.set = 1 if self.name[0] == '0' else int(self.name[0])
+        assert self.set in (1, 2, 3)
+        self.hoarder_flag = int(self.set == 1)
         # To make it easy to read document properties while debugging
         # Accessing the first element of the row since all rows are singleton
         # lists
@@ -60,6 +62,7 @@ class Document:
         self.content = '\n'.join(self.lines)
         self.tokens = [token for row in self.row_data for token in row['tokens']]
         # Sentences are decided by splitting on periods
+        self.label_data = self._raw_data['spanLabels']
         self.sentences = []
         sent = []
         for token in self.tokens:
