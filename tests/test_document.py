@@ -123,7 +123,13 @@ def test__find_speakers(input_line, expected):
         'Interviewee',
         'P2',
         'Interviewee'
-    ], id="Three-speaker document")
+    ], id="Three-speaker document"),
+    pytest.param(test_docs["026_307.txt"], [
+        'Interviewer',
+        'Interviewer',
+        'Interviewer',
+        None,
+    ], id="Contains only Interviewer label, as well as [END OF RECORDING]"), # 
 ])
 def test_row_speakers(test_doc, expected_speakers):
     assert test_doc._row_speakers == expected_speakers
@@ -188,7 +194,13 @@ def test_row_speakers(test_doc, expected_speakers):
         'Participant',
         'Interviewer',
         'Participant'
-    ], id="Three-speaker document")
+    ], id="Three-speaker document"),
+    pytest.param(test_docs["026_307.txt"], [
+        'Interviewer',
+        'Interviewer',
+        'Interviewer',
+        'Interviewer',
+    ], id="Contains only Interviewer label, as well as [END OF RECORDING]")
 ])
 def test_row_speakers_default(test_doc, expected_speakers):
     assert test_doc._row_speakers_default == expected_speakers
