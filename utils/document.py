@@ -142,7 +142,6 @@ class Document:
         """
         row_speakers: list[str | None] = [None] * len(self.lines)
         current_speaker: str | None = None
-        first_row_empty = False
         for i in range(len(self.lines)):
             line = self.lines[i]
             speaker_matches = self._find_speakers(line)
@@ -160,32 +159,30 @@ class Document:
                 # line, ignoring timestamps
                 current_speaker = speaker_matches[0]
             row_speakers[i] = current_speaker
-            # TODO: Below logic is superfluous
-            # If no speaker found...
-            if not current_speaker:
-                # If not at the first row, assume speaker is the same as previous 
-                # speaker (even if no speaker was found in the previous row)
-                if i > 0:
-                    row_speakers[i] = row_speakers[i-1]
-                # If we are at the first row, indicate the first row is empty.
-                # Ideally, once we find a row with a speaker, we can fill in all
-                # previous rows with the other speaker.
+            # If we've found a speaker farther than at the first row,
+            # and the first row is empty, we assume that all rows up to this
+            # point haven't been labeled (check)
+            if i > 0 and current_speaker and not row_speakers[0]:
+                assert row_speakers[:i] == [None] * i, \
+                    f'Row speakers up to row {i} in {self.name} ' \
+                    f'({self.project}) are not all None: {row_speakers}'
+                # In the case when there are two speakers, we know the
+                # empty rows are spoken by the other speaker.
+                if len(self.speaker_tuple) == 2:
+                    current_speaker_ind = (self.speaker_tuple
+                                               .index(current_speaker))
+                    other_speaker = self.speaker_tuple[current_speaker_ind-1]
+                    row_speakers[:i] = [other_speaker] * i
                 else:
-                    first_row_empty = True
-            elif first_row_empty and len(self.speaker_pair) == 2:
-                # The "other speaker" is only defined if there are two speakers
-                other_speaker = self.speaker_pair[self.speaker_pair
-                                                  .index(current_speaker)-1]
-                row_speakers[0:i] = [other_speaker] * i
-                first_row_empty = False
+                    warnings.warn(f'First few rows empty in {self.name} '
+                                  f'({self.project}), but there are too many '
+                                   'speakers! I don\'t know how to fill them.')
         
         rows_without_speakers = tuple(i for i in range(len(row_speakers)) 
                                       if not row_speakers[i])
         if any(rows_without_speakers):
-            warnings.warn(
-                f'Rows {rows_without_speakers} in document {self.name} '
-                f'(Project {self.project}) are missing speakers.'
-            )
+            warnings.warn(f'Rows {rows_without_speakers} in {self.name} '
+                          f'({self.project}) are missing speakers.')
         return row_speakers
     
     @property
