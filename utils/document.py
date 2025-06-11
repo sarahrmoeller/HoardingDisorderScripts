@@ -210,11 +210,10 @@ class Document:
             (label_name, speaker),
         where label is the label's name and speaker is the label's speaker.
         """
-        label_data = self._raw_data['spanLabels']
-        labels_with_speakers = [('', '')] * len(label_data)
+        labels_with_speakers = [('', '')] * len(self.label_data)
 
-        for k in range(len(label_data)):
-            label = label_data[k]
+        for k in range(len(self.label_data)):
+            label = self.label_data[k]
 
             label_name = label['labelItem']['labelName']
             row_index = label['textPosition']['start']['row']
