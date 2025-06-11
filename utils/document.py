@@ -89,39 +89,48 @@ class Document:
     @property
     def _speaker_set(self) -> set[str]:
         """
-        Returns the set of all speakers in the document.
+        Returns the set of all speaker labels found in the document.
         """
         speaker_matches = self._find_speakers(self.content)
-        returned_set = set(speaker_matches)
-        if (num_speakers := len(returned_set)) not in (2, 3):
-            warnings.warn(
-                f'{num_speakers} total speakers found in {self.name} '
-                f'({self.project}). Speakers: {returned_set}'
-            )
-        return returned_set
+        if not speaker_matches:
+            # There should never be 0 speakers in a document
+            raise ValueError(f'No speakers found in {self.name} '
+                                f'({self.project}). Assuming something is wrong.')
+        return set(speaker_matches)
     
     @property
-    def speaker_pair(self) -> tuple:
+    def speaker_tuple(self) -> tuple:
         """
-        Uses the _speaker_set property and SPEAKER_PAIRS to return a tuple of 
-        the two speakers in the document, with interviewer indexed at 0 and 
-        participant indexed at 1.
+        Uses the _speaker_set property to find which pair of speakers in 
+        SPEAKER_PAIRS is speaking in the document.
         """
-        num_speakers = len(self._speaker_set)
-        if num_speakers == 0:
-            raise ValueError(f'No speakers found in {self.name} '
-                             f'({self.project}). Assuming something is wrong.')
-        elif num_speakers == 1:
+        if len(self._speaker_set) == 1:
+            # If we only find one speaker label, find the pair in 
+            # SPEAKER_PAIRS that contains that label
             speaker = next(iter(self._speaker_set))
-            return tuple(speaker)
+            pairs_with_speaker = [pair for pair in SPEAKER_PAIRS 
+                                    if speaker in pair]
+            # If we find more than one pair, give up.
+            if len(pairs_with_speaker) > 1:
+                raise ValueError(f'Not enough information to determine '
+                                  'speaker tuple. Only 1 speaker label, '
+                                 f'\"{speaker}\", found in {self.name} '
+                                 f'({self.project}), yet there are '
+                                 f'{len(pairs_with_speaker)} speaker tuples '
+                                 f'that have this speaker in them: '
+                                 f'{pairs_with_speaker}')
+            if not pairs_with_speaker:
+                raise ValueError('No speaker tuple found containing speaker '
+                                f'label \"{speaker}\".')
+            return pairs_with_speaker[0]
         # If all elements in some speaker pair are in the speaker set, we 
         # assume we've found the right pair
         for pair in SPEAKER_PAIRS:
-            if all(speaker in self._speaker_set for speaker in pair):
+            if all(speaker in pair for speaker in self._speaker_set):
                 return pair
         # If we still haven't found a match, something has gone wrong
         raise ValueError(f'No valid speaker pair found for {self.name} '
-                         f'({self.project}). Speakers: {self._speaker_set}')
+                            f'({self.project}). Speakers: {self._speaker_set}')
 
     @property
     def _row_speakers(self) -> list[str | None]:
@@ -188,7 +197,7 @@ class Document:
         # See default_speaker_pair definition for convention
         default_interviewer_name = Document.default_speaker_pair[0]
         default_participant_name = Document.default_speaker_pair[1]
-        last_speaker_in_pair = self.speaker_pair[-1]
+        last_speaker_in_pair = self.speaker_tuple[-1]
         return [default_participant_name if speaker == last_speaker_in_pair 
                 else default_interviewer_name 
                 for speaker in self._row_speakers]
