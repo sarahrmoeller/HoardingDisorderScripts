@@ -7,6 +7,8 @@
     - [ ] Implement row speaker detection:
       - [ ] Figure out what to do with three-speaker documents
       - [ ] WARN ABOUT SPEAKERS NOT AT THE BEGINNING OF THE LINE!!!
+      - [ ] Identify certain lines that don't need speaker labels, i.e. transcript labels and 
+            [END OF RECORDING]
   - [ ] Identify removable tokens in documents, i.e. timestamps (i.e. 18:19, (18:19), (1:25:01)), [END OF RECORDING], [TRANSCRIPT PAUSED], variations of INAUDIBLE (??), etc.
   - [ ] Implement metrics from previous paper:
     - [ ] Type-Token Ratio
