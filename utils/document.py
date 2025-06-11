@@ -4,6 +4,7 @@ from . import ling
 import re
 from itertools import product
 import warnings
+# from . import datasaur as data
 
 
 # List of all labels in the projects
@@ -40,6 +41,8 @@ class Document:
     # Default interviewer name is at index 0, and default participant name is
     # at index 1
     default_speaker_pair = SPEAKER_PAIRS[0]
+    # This regex is used to match timestamps, i.e. '19:24' or '23:14'
+    _TIMESTAMPS_REGEX = re.compile(r'(\d+:\d+)')
         
     def __init__(self, path: str) -> None:
         with open(path) as f:
@@ -109,17 +112,17 @@ class Document:
             # SPEAKER_PAIRS that contains that label
             speaker = next(iter(self._speaker_set))
             pairs_with_speaker = [pair for pair in SPEAKER_PAIRS 
-                                    if speaker in pair]
+                                  if speaker in pair]
             # If we find more than one pair, give up.
             if len(pairs_with_speaker) > 1:
-                raise ValueError(f'Not enough information to determine '
-                                  'speaker tuple. Only 1 speaker label, '
-                                 f'\"{speaker}\", found in {self.name} '
-                                 f'({self.project}), yet there are '
-                                 f'{len(pairs_with_speaker)} speaker tuples '
-                                 f'that have this speaker in them: '
-                                 f'{pairs_with_speaker}')
-            if not pairs_with_speaker:
+                warnings.warn(f'Not enough information to determine '
+                               'speaker tuple. Only 1 speaker label, '
+                              f'\"{speaker}\", found in {self.name} '
+                              f'({self.project}), yet there are '
+                              f'{len(pairs_with_speaker)} speaker tuples '
+                              f'that have this speaker in them: '
+                              f'{pairs_with_speaker}')
+            elif not pairs_with_speaker:
                 raise ValueError('No speaker tuple found containing speaker '
                                 f'label \"{speaker}\".')
             return pairs_with_speaker[0]
@@ -286,3 +289,21 @@ class Document:
     
     def __repr__(self) -> str:
         return f'Document(name=\"{self.name}\", project=\"{self.project}\")'
+
+
+# class Transcript(Document):
+
+#     def __init__(self, transcript_number: str) -> None:
+#         assert transcript_number in data.transcript_numbers, \
+#             f'Transcript number {transcript_number} not found!'
+#         self.transcript_number = transcript_number
+#         self.docs = data.by_transcript[self.transcript_number]
+#         self.set = self.docs[0].set
+#         self.hoarder_flag = self.docs[0].hoarder_flag
+#         self.lines = []
+#         self.content = []
+#         for doc in self.docs:
+#             # List of rows in the document indexed by carriage returns
+#             self.lines            
+#             self.content += doc.content
+#             self.tokens = [token for row in self.row_data for token in row['tokens']]
