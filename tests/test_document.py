@@ -151,7 +151,7 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer', 'Interviewer',
         'Participant', 'Participant',
         'Interviewer', 'Interviewer',
-    ], id="Test arbitrary set 2 doc with default speakers"),
+    ], id="Test arbitrary set 1 doc with default speakers"),
     pytest.param(test_docs["2022_335.txt"], ['Interviewer', 'Participant'],
                  id="Test arbitrary set 2 doc with default speakers"),
     pytest.param(test_docs["3001_090.txt"], [
