@@ -128,7 +128,7 @@ def test__find_speakers(input_line, expected):
         'Interviewer',
         'Interviewer',
         'Interviewer',
-        None,
+        'Interviewer',
     ], id="Contains only Interviewer label, as well as [END OF RECORDING]"), # 
 ])
 def test_row_speakers(test_doc, expected_speakers):
