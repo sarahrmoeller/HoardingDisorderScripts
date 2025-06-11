@@ -15,10 +15,10 @@ test_files: list[tuple[str, str]] = [
     ("s1_28-35_s2_4-7", "005_082.txt"),
     ("s1_28-35_s2_4-7", "005_086.txt"),
     ("s1036-42_s2008-9_s3000-15", "2008_136.txt"),
-    ("s1_21-27_s2_1-3", "026_307.txt"),
+    ("s1_21-27_s2_1-3", "026_307.txt"), # Contains only Interviewer label, as well as [END OF RECORDING]
 ]
-test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json") 
-             for project, filename in test_files]
+test_docs = {filename: Document(f"./data/{project}/REVIEW/{filename}.json")
+             for project, filename in test_files}
 
 
 @pytest.mark.parametrize("input_line,expected", [
@@ -54,26 +54,27 @@ test_docs = [Document(f"./data/{project}/REVIEW/{filename}.json")
     ("Participant 7: Hi", ["Participant"]),
 ])
 def test__find_speakers(input_line, expected):
-    doc = test_docs[0]
+    doc = test_docs["062_745.txt"] # Use dummy instance
     assert doc._find_speakers(input_line) == expected
 
 
 @pytest.mark.parametrize("test_doc,expected_speakers", [
-    (test_docs[0], [
-        'Interviewer', 'Interviewer',
-        'Participant', 'Participant',
-        'Interviewer', 'Interviewer',
-        'Participant', 'Participant',
-        'Interviewer', 'Interviewer',
-        'Participant', 'Participant',
-        'Interviewer', 'Interviewer',
-        'Participant', 'Participant',
-        'Interviewer', 'Interviewer',
-        'Participant', 'Participant',
-        'Interviewer', 'Interviewer',
-    ]),
-    (test_docs[1], ['Rebecca', 'Interviewee']),
-    (test_docs[2], [
+    pytest.param(test_docs["062_745.txt"], [ 
+                'Interviewer', 'Interviewer',
+                'Participant', 'Participant',
+                'Interviewer', 'Interviewer',
+                'Participant', 'Participant',
+                'Interviewer', 'Interviewer',
+                'Participant', 'Participant',
+                'Interviewer', 'Interviewer',
+                'Participant', 'Participant',
+                'Interviewer', 'Interviewer',
+                'Participant', 'Participant',
+                'Interviewer', 'Interviewer',
+            ], id="Test arbitrary set 1 doc"),
+    pytest.param(test_docs["2022_335.txt"], ['Rebecca', 'Interviewee'], 
+                 id="Test arbitrary set 2 doc"),
+    pytest.param(test_docs["3001_090.txt"], [
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
@@ -84,8 +85,8 @@ def test__find_speakers(input_line, expected):
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
-    ]),
-    (test_docs[3], [
+    ], id="Test arbitrary set 3 doc"),
+    pytest.param(test_docs["049_606.txt"], [
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
@@ -98,7 +99,7 @@ def test__find_speakers(input_line, expected):
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant'
-    ]),
+    ], id="Document that doesn't begin with a speaker label"),
     # Do this test after 005 documents are fixed
     # (test_docs[-2], [ 
     #     'Interviewee',
@@ -108,7 +109,7 @@ def test__find_speakers(input_line, expected):
     #     'P3',
     #     'Interviewee',
     # ]),
-    (test_docs[-2], [
+    pytest.param(test_docs["2008_136.txt"], [
         'P2',
         'Interviewee',
         'Interviewee',
@@ -122,14 +123,17 @@ def test__find_speakers(input_line, expected):
         'Interviewee',
         'P2',
         'Interviewee'
-    ])
+    ], id="Three-speaker document")
 ])
 def test_row_speakers(test_doc, expected_speakers):
     assert test_doc._row_speakers == expected_speakers
 
 
+# Each of these tests are basically the same as the previous one, but
+# with all interviewer names changed to 'Interviewer' and all participant names
+# changed to 'Participant'. This is useful for testing the default speaker 
 @pytest.mark.parametrize("test_doc,expected_speakers", [
-    (test_docs[0], [
+    pytest.param(test_docs["062_745.txt"], [
         'Interviewer', 'Interviewer',
         'Participant', 'Participant',
         'Interviewer', 'Interviewer',
@@ -141,9 +145,10 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer', 'Interviewer',
         'Participant', 'Participant',
         'Interviewer', 'Interviewer',
-    ]),
-    (test_docs[1], ['Interviewer', 'Participant']),
-    (test_docs[2], [
+    ], id="Test arbitrary set 2 doc with default speakers"),
+    pytest.param(test_docs["2022_335.txt"], ['Interviewer', 'Participant'],
+                 id="Test arbitrary set 2 doc with default speakers"),
+    pytest.param(test_docs["3001_090.txt"], [
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
@@ -154,8 +159,8 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
-    ]),
-    (test_docs[3], [
+    ], id="Test arbitrary set 2 doc with default speakers"),
+    pytest.param(test_docs["049_606.txt"], [
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
@@ -168,8 +173,8 @@ def test_row_speakers(test_doc, expected_speakers):
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant'
-    ]),
-    (test_docs[-2], [
+    ], id="Document that doesn't begin with a speaker label"),
+    pytest.param(test_docs["2008_136.txt"], [
         'Interviewer',
         'Participant',
         'Participant',
@@ -183,17 +188,18 @@ def test_row_speakers(test_doc, expected_speakers):
         'Participant',
         'Interviewer',
         'Participant'
-    ])
+    ], id="Three-speaker document")
 ])
 def test_row_speakers_default(test_doc, expected_speakers):
     assert test_doc._row_speakers_default == expected_speakers
 
 
 @pytest.mark.parametrize("test_doc,expected", [
-    (doc, None) for doc in test_docs
+    (doc, None) for doc in test_docs.values()
 ])
 def test_average_sentence_length(test_doc, expected):
     # If expected is None, just check that the value is a positive float
+    # I.e. non-zero
     asl = test_doc.average_sentence_length
     assert isinstance(asl, float)
     assert asl > 0
