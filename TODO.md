@@ -3,21 +3,20 @@
 - [ ] Important:
   - [x] Create Logistic Model
   - [x] Abstract `generate_table.py` code into `Document` class
+  - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
+  - [ ] Fix Transcript no. 005
   - [ ] Separate document content into interviewer and participant
-    - [ ] Implement row speaker detection:
-      - [ ] Figure out what to do with three-speaker documents
+    - [ ] Fix row speaker detection:
+      - [x] Figure out what to do with three-speaker documents (we are doing Frankenstein to solve this)
+      - [ ] Frankenstein Document content together to analyze data by Transcript
+      - [ ] Create new table based on data by Transcripts
       - [ ] WARN ABOUT SPEAKERS NOT AT THE BEGINNING OF THE LINE!!!
-      - [ ] Identify certain lines that don't need speaker labels, i.e. transcript labels and 
-            [END OF RECORDING]
-  - [x] Identify removable tokens in documents:
+      - [ ] Identify certain lines that don't need speaker labels, i.e. transcript labels and [END OF RECORDING] (look through removable tokens)
   - [ ] Clean documents
   - [ ] Implement metrics from previous paper:
     - [ ] Type-Token Ratio
     - [ ] Average Sentence Length
     - [ ] Noun Phrase (NP) Count/Ratio
   - [ ] Report model accuracy
-- [ ] Later:
-  - [ ] Frankenstein Document content together
-    - [ ] Create new table based on Frank. Documents
   - [ ] Speech Graphs???
   - [ ] Find way to automatically label incomplete clauses
