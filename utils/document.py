@@ -96,8 +96,8 @@ class Document:
         speaker_matches = self._find_speakers(self.content)
         if not speaker_matches:
             # There should never be 0 speakers in a document
-            raise ValueError(f'No speakers found in {self.name} '
-                                f'({self.project}). Assuming something is wrong.')
+            raise ValueError(f'No speakers found in {self}. '
+                             f'Assuming something is wrong.')
         return set(speaker_matches)
     
     @property
@@ -116,11 +116,10 @@ class Document:
             if len(pairs_with_speaker) > 1:
                 warnings.warn(f'Not enough information to determine '
                                'speaker tuple. Only 1 speaker label, '
-                              f'\"{speaker}\", found in {self.name} '
-                              f'({self.project}), yet there are '
-                              f'{len(pairs_with_speaker)} speaker tuples '
-                              f'that have this speaker in them: '
-                              f'{pairs_with_speaker}')
+                              f'\"{speaker}\", found in {self} '
+                              f'yet there are {len(pairs_with_speaker)} '
+                               'speaker tuples that have this speaker in '
+                              f'them: {pairs_with_speaker}')
             elif not pairs_with_speaker:
                 raise ValueError('No speaker tuple found containing speaker '
                                 f'label \"{speaker}\".')
@@ -131,8 +130,8 @@ class Document:
             if all(speaker in pair for speaker in self._speaker_set):
                 return pair
         # If we still haven't found a match, something has gone wrong
-        raise ValueError(f'No valid speaker pair found for {self.name} '
-                            f'({self.project}). Speakers: {self._speaker_set}')
+        raise ValueError(f'No valid speaker pair found for {self}. '
+                         f'Speakers: {self._speaker_set}')
 
     @property
     def _row_speakers(self) -> list[str | None]:
@@ -153,10 +152,9 @@ class Document:
                 # If multiple speakers found, warn and use the first one
                 if len(speaker_matches) > 1:
                     warnings.warn(
-                        f'Multiple speakers found in row {i} of document '
-                        f'{self.name} (Project {self.project}). Speakers: '
-                        f'{speaker_matches}. Using first speaker.'
-                    )
+                        f'Multiple speakers found in row {i} of '
+                        f'{self}. Speakers: {speaker_matches}. '
+                         'Using first speaker.')
                 # TODO: Warn if speaker is found not at the beginning of the 
                 # line, ignoring timestamps
                 current_speaker = speaker_matches[0]
@@ -166,8 +164,8 @@ class Document:
             # point haven't been labeled (check)
             if i > 0 and current_speaker and not row_speakers[0]:
                 assert row_speakers[:i] == [None] * i, \
-                    f'Row speakers up to row {i} in {self.name} ' \
-                    f'({self.project}) are not all None: {row_speakers}'
+                    f'Row speakers up to row {i} in {self} ' \
+                    f'are not all None: {row_speakers}'
                 # In the case when there are two speakers, we know the
                 # empty rows are spoken by the other speaker.
                 if len(self.speaker_tuple) == 2:
@@ -176,15 +174,15 @@ class Document:
                     other_speaker = self.speaker_tuple[current_speaker_ind-1]
                     row_speakers[:i] = [other_speaker] * i
                 else:
-                    warnings.warn(f'First few rows empty in {self.name} '
-                                  f'({self.project}), but there are too many '
-                                   'speakers! I don\'t know how to fill them.')
+                    warnings.warn(f'First few rows empty in {self} but there '
+                                   'are too many speakers! I don\'t know how '
+                                   'to fill them.')
         
         rows_without_speakers = tuple(i for i in range(len(row_speakers)) 
                                       if not row_speakers[i])
         if any(rows_without_speakers):
-            warnings.warn(f'Rows {rows_without_speakers} in {self.name} '
-                          f'({self.project}) are missing speakers.')
+            warnings.warn(f'Rows {rows_without_speakers} in {self} '
+                          f'are missing speakers.')
         return row_speakers
     
     @property
@@ -220,9 +218,7 @@ class Document:
             if not speaker:
                 warnings.warn(
                     f'No speaker found for {label_name} label in row '
-                    f'{row_index} of document {self.name} (Project '
-                    f'{self.project}).'
-                )
+                    f'{row_index} of {self}.')
             labels_with_speakers[k] = (label_name, speaker)
 
         return labels_with_speakers
