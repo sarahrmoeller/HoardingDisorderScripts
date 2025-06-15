@@ -24,6 +24,7 @@ SPEAKER_PAIRS: list[tuple] = [
     ("Interviewer", "Participant"), # Hoarding-Patient
     ("Rebecca", "Interviewee"), # "Hoarding-Clinician" 
     ("Interviewer", "Speaker"), # Parents
+    ("Interviewer", "Interviewee"), # Transcript no. 2010
     ("P1", "P3", "Interviewee"), # Transcript no. (2)005
     ("P1", "P2", "Interviewee") # Transcript no. 2008
 ]
