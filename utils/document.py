@@ -4,7 +4,6 @@ from . import ling
 import re
 from itertools import product
 import warnings
-# from . import datasaur as data
 
 
 # List of all labels in the projects
@@ -289,21 +288,3 @@ class Document:
     
     def __repr__(self) -> str:
         return f'Document(name=\"{self.name}\", project=\"{self.project}\")'
-
-
-# class Transcript(Document):
-
-#     def __init__(self, transcript_number: str) -> None:
-#         assert transcript_number in data.transcript_numbers, \
-#             f'Transcript number {transcript_number} not found!'
-#         self.transcript_number = transcript_number
-#         self.docs = data.by_transcript[self.transcript_number]
-#         self.set = self.docs[0].set
-#         self.hoarder_flag = self.docs[0].hoarder_flag
-#         self.lines = []
-#         self.content = []
-#         for doc in self.docs:
-#             # List of rows in the document indexed by carriage returns
-#             self.lines            
-#             self.content += doc.content
-#             self.tokens = [token for row in self.row_data for token in row['tokens']]
