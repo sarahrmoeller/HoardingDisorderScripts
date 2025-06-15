@@ -282,9 +282,6 @@ class Document:
                 valid_sent.append(token)
             sents.append(valid_sent)
         return ling.average_sentence_length(sents)
-
-    def __str__(self) -> str:
-        return f'Document(name=\"{self.name}\", project=\"{self.project}\")'
     
     def __repr__(self) -> str:
         return f'Document(name=\"{self.name}\", project=\"{self.project}\")'
