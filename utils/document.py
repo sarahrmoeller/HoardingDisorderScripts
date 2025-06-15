@@ -4,7 +4,7 @@ from . import ling
 import re
 from itertools import product
 import warnings
-# from . import datasaur as data
+from .shared import get_row_speakers
 
 
 # List of all labels in the projects
@@ -143,50 +143,14 @@ class Document:
         This list can be thought of as a mapping between each row index and the
         speaker of the row corresponding to each index.
         """
-        row_speakers: list[str | None] = [None] * len(self.lines)
-        current_speaker: str | None = None
-        for i in range(len(self.lines)):
-            line = self.lines[i]
-            speaker_matches = self._find_speakers(line)
-            # If speaker found, change global current_speaker variable
-            if speaker_matches:
-                # Check: a single line should only have one speaker.
-                # If multiple speakers found, warn and use the first one
-                if len(speaker_matches) > 1:
-                    warnings.warn(
-                        f'Multiple speakers found in row {i} of document '
-                        f'{self.name} (Project {self.project}). Speakers: '
-                        f'{speaker_matches}. Using first speaker.'
-                    )
-                # TODO: Warn if speaker is found not at the beginning of the 
-                # line, ignoring timestamps
-                current_speaker = speaker_matches[0]
-            row_speakers[i] = current_speaker
-            # If we've found a speaker farther than at the first row,
-            # and the first row is empty, we assume that all rows up to this
-            # point haven't been labeled (check)
-            if i > 0 and current_speaker and not row_speakers[0]:
-                assert row_speakers[:i] == [None] * i, \
-                    f'Row speakers up to row {i} in {self.name} ' \
-                    f'({self.project}) are not all None: {row_speakers}'
-                # In the case when there are two speakers, we know the
-                # empty rows are spoken by the other speaker.
-                if len(self.speaker_tuple) == 2:
-                    current_speaker_ind = (self.speaker_tuple
-                                               .index(current_speaker))
-                    other_speaker = self.speaker_tuple[current_speaker_ind-1]
-                    row_speakers[:i] = [other_speaker] * i
-                else:
-                    warnings.warn(f'First few rows empty in {self.name} '
-                                  f'({self.project}), but there are too many '
-                                   'speakers! I don\'t know how to fill them.')
-        
-        rows_without_speakers = tuple(i for i in range(len(row_speakers)) 
-                                      if not row_speakers[i])
-        if any(rows_without_speakers):
-            warnings.warn(f'Rows {rows_without_speakers} in {self.name} '
-                          f'({self.project}) are missing speakers.')
-        return row_speakers
+        return get_row_speakers(
+            self.lines,
+            self.speaker_tuple,
+            self._find_speakers,
+            self.name,
+            self.project
+        )
+
     
     @property
     def _row_speakers_default(self) -> list[str]:
@@ -289,21 +253,3 @@ class Document:
     
     def __repr__(self) -> str:
         return f'Document(name=\"{self.name}\", project=\"{self.project}\")'
-
-
-# class Transcript(Document):
-
-#     def __init__(self, transcript_number: str) -> None:
-#         assert transcript_number in data.transcript_numbers, \
-#             f'Transcript number {transcript_number} not found!'
-#         self.transcript_number = transcript_number
-#         self.docs = data.by_transcript[self.transcript_number]
-#         self.set = self.docs[0].set
-#         self.hoarder_flag = self.docs[0].hoarder_flag
-#         self.lines = []
-#         self.content = []
-#         for doc in self.docs:
-#             # List of rows in the document indexed by carriage returns
-#             self.lines            
-#             self.content += doc.content
-#             self.tokens = [token for row in self.row_data for token in row['tokens']]
