@@ -1,8 +1,9 @@
 from collections import Counter
+from functools import cached_property
+from itertools import product
 import json
 from . import ling
 import re
-from itertools import product
 import warnings
 
 
@@ -91,7 +92,7 @@ class Document:
         return re.findall(r'({speaker_names})(?: \d+)?:'
                            .format(speaker_names='|'.join(SPEAKERS)), content)
     
-    @property
+    @cached_property
     def _speaker_set(self) -> set[str]:
         """
         Returns the set of all speaker labels found in the document.
@@ -103,7 +104,7 @@ class Document:
                              f'Assuming something is wrong.')
         return set(speaker_matches)
     
-    @property
+    @cached_property
     def speaker_tuple(self) -> tuple:
         """
         Uses the _speaker_set property to find which pair of speakers in 
@@ -136,7 +137,7 @@ class Document:
         raise ValueError(f'No valid speaker pair found for {self}. '
                          f'Speakers: {self._speaker_set}')
 
-    @property
+    @cached_property
     def _row_speakers(self) -> list[str | None]:
         """
         Returns a list where index in this list corresponds to a row in the 
@@ -188,7 +189,7 @@ class Document:
                           f'are missing speakers.')
         return row_speakers
     
-    @property
+    @cached_property
     def _row_speakers_default(self) -> list[str]:
         """
         Convert all names in _row_speakers to their default pair names given
@@ -202,8 +203,8 @@ class Document:
                 else default_interviewer_name 
                 for speaker in self._row_speakers]
 
-    @property
-    def labels(self) -> list[tuple[str, str]]:
+    @cached_property
+    def _labels(self) -> list[tuple[str, str]]:
         """
         Expects a list of label data from the datasaur document,
         Returns the tuple 
@@ -226,9 +227,9 @@ class Document:
 
         return labels_with_speakers
 
-    @property
+    @cached_property
     def label_counts(self) -> dict[str, str]:
-        cntDict = Counter(self.labels)
+        cntDict = Counter(self._labels)
         for label, speaker in set(
             product(LABELS, Document.default_speaker_pair)
         ).difference(cntDict.keys()):
