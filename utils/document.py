@@ -46,10 +46,12 @@ class Document:
         
     def __init__(self, path: str) -> None:
         with open(path) as f:
-            raw_data = json.load(f)
-        self._raw_data = raw_data['data'] # ignore version number
-        self.project = self._raw_data['project']['name']
-        self.name = self._raw_data['document']['name']
+            self.json_dump = json.load(f)
+        # JSON always looks like {'version' : '1.0', 'data' : {...}},
+        # So we will just index into the 'data' key
+        self.data = self.json_dump['data']
+        self.project = self.data['project']['name']
+        self.name = self.data['document']['name']
         self.transcript_number = self.name.split('_')[0]
         self.set = 1 if self.name[0] == '0' else int(self.name[0])
         assert self.set in (1, 2, 3)
@@ -57,7 +59,7 @@ class Document:
         # To make it easy to read document properties while debugging
         # Accessing the first element of the row since all rows are singleton
         # lists
-        self.row_data = [row[0] for row in self._raw_data['rows']]
+        self.row_data: list[dict] = [row[0] for row in self.data['rows']]
         # List of rows in the document indexed by carriage returns
         self.lines = [
             row['content'].rstrip() for row in self.row_data
@@ -65,7 +67,7 @@ class Document:
         self.content = '\n'.join(self.lines)
         self.tokens = [token for row in self.row_data for token in row['tokens']]
         # Sentences are decided by splitting on periods
-        self.label_data = self._raw_data['spanLabels']
+        self.label_data = self.data['spanLabels']
         self.sentences = []
         sent = []
         for token in self.tokens:
