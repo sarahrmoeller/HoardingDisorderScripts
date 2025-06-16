@@ -3,20 +3,26 @@
 - [ ] Important:
   - [x] Create Logistic Model
   - [x] Abstract `generate_table.py` code into `Document` class
-  - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
-  - [ ] Fix Transcript no. 005
+  ~~- [ ] Fix Transcript no. 005~~
+  - [ ] Fix broken transcripts found in `broken_transcripts.ipynb`
+    - [x] 2010
+    - [x] 012
+    - [ ] 001-007
   - [ ] Separate document content into interviewer and participant
-    - [ ] Fix row speaker detection:
-      - [x] Figure out what to do with three-speaker documents (we are doing Frankenstein to solve this)
-      - [ ] Frankenstein Document content together to analyze data by Transcript
-      - [ ] Create new table based on data by Transcripts
-      - [ ] WARN ABOUT SPEAKERS NOT AT THE BEGINNING OF THE LINE!!!
-      - [ ] Identify certain lines that don't need speaker labels, i.e. transcript labels and [END OF RECORDING] (look through removable tokens)
-  - [ ] Clean documents
+    - [x] Figure out what to do with three-speaker documents (we are doing Frankenstein to solve this)
+    - [x] ~~Frankenstein Document content together to analyze data by Transcript~~ Create `Transcript` class
+    - [ ] Identify certain lines that don't need speaker labels, i.e. transcript labels and [END OF RECORDING] (look through removable tokens)
+    - [ ] WARN ABOUT SPEAKERS NOT AT THE BEGINNING OF THE LINE!!!
+    - [ ] Create new table based on transcript data
+  - [ ] Clean documents:
+    - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
+    - [ ] Figure out how to remove each removable token
+    - [ ] Edit `Document` class to include a cleaned version
   - [ ] Implement metrics from previous paper:
     - [ ] Type-Token Ratio
     - [ ] Average Sentence Length
     - [ ] Noun Phrase (NP) Count/Ratio
+Later:
   - [ ] Report model accuracy
   - [ ] Speech Graphs???
   - [ ] Find way to automatically label incomplete clauses
