@@ -9,6 +9,8 @@ def review_dir(project: str) -> str:
     """
     Given name of a project, return the path to the REVIEW directory
     assuming current directory is the project's root.
+
+    Example: "HD_set1_1-7" -> "./data/HD_set1_1-7/REVIEW/"
     """
     return f"./data/{project}/REVIEW/"
 
