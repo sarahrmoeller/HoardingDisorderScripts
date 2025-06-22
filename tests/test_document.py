@@ -56,10 +56,17 @@ test_docs = {filename: Document(f"./data/{project}/REVIEW/{filename}.json")
     ("Participant  004: ", ["Participant"]),
     ("Participant\t004: ", ["Participant"]),
     ("Participant \t004: ", ["Participant"]),
+    # Make sure we don't match some of the weird cases we've found
+    ("[:", []),
+    ("]:", []),
+    ("[0:", []),
+    ("PART 2 OF 4 ENDS [00:46:04]", []),
+    ("This is NAME [00:02] again", []),
+    ("Rebecca: Hi NAME [00:01] how are you?", ['Rebecca']),
 ])
 def test_find_speakers(input_line, expected):
     doc = test_docs["062_745.txt"] # Use dummy instance
-    assert doc.find_speakers(input_line) == expected
+    assert doc.find_speakers(input_line, restrict=False) == expected
 
 
 @pytest.mark.parametrize("test_doc,expected_speakers", [

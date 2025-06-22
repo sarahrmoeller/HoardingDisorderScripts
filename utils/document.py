@@ -43,7 +43,7 @@ class Document:
     # at index 1
     default_speaker_pair = SPEAKER_PAIRS[0]
     # This regex is used to match speaker labels, i.e. 'Interviewer:', 'Participant 12:'
-    _SPEAKER_REGEX = re.compile(r'([a-zA-z][a-zA-z0-9]+)(?:\s+\d+)?:')
+    _SPEAKER_REGEX = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?:')
     # This regex is used to match timestamps, i.e. '19:24' or '23:14'
     _TIMESTAMPS_REGEX = re.compile(r'(\d+:\d+)')
         
