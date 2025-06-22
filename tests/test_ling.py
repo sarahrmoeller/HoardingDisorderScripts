@@ -1,6 +1,6 @@
 import pytest
 import warnings
-from utils.ling import type_token_ratio, average_sentence_length
+from utils.ling import type_token_ratio, average_sentence_length, get_np_counts, get_np_ratios
 
 
 @pytest.mark.parametrize("tokens,expected", [
@@ -37,3 +37,28 @@ def test_average_sentence_length_empty():
         result = average_sentence_length([])
         assert result == 0.0
         assert any("Empty sentences list" in str(warn.message) for warn in w)
+
+
+""" Need to nest these in a pytest (decorator function?) like above ^ """
+def test_np_count_simple():
+    text = "The dog barked."
+    counts = get_np_counts(text)
+    assert counts == [1], f"Expected 1 NP, got {counts}"
+
+
+def test_np_count_multiple():
+    text = "My brother and his dog walked to the park."
+    counts = get_np_counts(text)
+    assert counts[0] >= 2, f"Expected at least 2 NPs, got {counts}"
+
+
+def test_np_ratio_nonzero():
+    text = "The tall man saw a cat."
+    ratios = get_np_ratios(text)
+    assert 0 < ratios[0] <= 1, f"Ratio out of range: {ratios[0]}"
+
+
+def test_empty_sentence():
+    text = ""
+    ratios = get_np_ratios(text)
+    assert ratios == [], "Expected empty list for empty input."
