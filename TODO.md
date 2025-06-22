@@ -11,7 +11,7 @@
   - [ ] Separate document content into interviewer and participant
     - [x] Figure out what to do with three-speaker documents (we are doing Frankenstein to solve this)
     - [x] ~~Frankenstein Document content together to analyze data by Transcript~~ Create `Transcript` class
-    - [ ] Identify certain lines that don't need speaker labels, i.e. transcript labels and [END OF RECORDING] (look through removable tokens)
+    - [ ] Identify certain lines that don't need speaker labels, i.e. transcript labels, [END OF RECORDING], and PART 2 OF 4 ENDS [00:46:04] (look through removable tokens)
     - [ ] WARN ABOUT SPEAKERS NOT AT THE BEGINNING OF THE LINE!!!
     - [ ] Create new table based on transcript data
   - [ ] Clean documents:
