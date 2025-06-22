@@ -42,6 +42,8 @@ class Document:
     # Default interviewer name is at index 0, and default participant name is
     # at index 1
     default_speaker_pair = SPEAKER_PAIRS[0]
+    # This regex is used to match speaker labels, i.e. 'Interviewer:', 'Participant 12:'
+    _SPEAKER_REGEX = re.compile(r'([a-zA-z][a-zA-z0-9]+)(?:\s+\d+)?:')
     # This regex is used to match timestamps, i.e. '19:24' or '23:14'
     _TIMESTAMPS_REGEX = re.compile(r'(\d+:\d+)')
         
@@ -80,17 +82,23 @@ class Document:
         if sent: 
             self.sentences.append(sent)
 
-    def _find_speakers(self, content: str) -> list[str]:
+    def _find_speakers(self, content: str, restrict=True) -> list[str]:
         """
-        Uses re.findall to look for all occurences of valid speaker names 
-        (defined in SPEAKERS set) followed by an optional number and mandatory
-        colon (i.e. 'Interviewer:' or 'Participant 12: ') in a string. More 
-        generally, this finds all parts of a string that look like 
-            {speaker_name} [optional number]:
-        and returns speaker_name within the `findall` list.
+        Takes in a string (`content`),
+        Returns a list of all occurences of strings followed by optional whitespace, 
+        optional number(s), and a colon. It then captures the string. Format:
+            (captured string) [optional number]:
+        If `restrict` is True, it only returns speakers that are in the `SPEAKERS` set.
+
+        Examples: 
+        - 'Interviewer:' -> ['Interviewer']
+        - 'Participant 12: ' -> ['Participant 12']
+        - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not in `SPEAKERS`)
         """
-        return re.findall(r'({speaker_names})(?:\s+\d+)?:'
-                           .format(speaker_names='|'.join(SPEAKERS)), content)
+        matches = Document._SPEAKER_REGEX.findall(content)
+        if not restrict:
+            return matches
+        return [match for match in matches if match in SPEAKERS]
     
     @cached_property
     def speaker_set(self) -> set[str]:
