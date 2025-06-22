@@ -57,9 +57,9 @@ test_docs = {filename: Document(f"./data/{project}/REVIEW/{filename}.json")
     ("Participant\t004: ", ["Participant"]),
     ("Participant \t004: ", ["Participant"]),
 ])
-def test__find_speakers(input_line, expected):
+def test_find_speakers(input_line, expected):
     doc = test_docs["062_745.txt"] # Use dummy instance
-    assert doc._find_speakers(input_line) == expected
+    assert doc.find_speakers(input_line) == expected
 
 
 @pytest.mark.parametrize("test_doc,expected_speakers", [

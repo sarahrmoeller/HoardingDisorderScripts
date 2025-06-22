@@ -82,7 +82,7 @@ class Document:
         if sent: 
             self.sentences.append(sent)
 
-    def _find_speakers(self, content: str, restrict=True) -> list[str]:
+    def find_speakers(self, content: str, restrict=True) -> list[str]:
         """
         Takes in a string (`content`),
         Returns a list of all occurences of strings followed by optional whitespace, 
@@ -105,7 +105,7 @@ class Document:
         """
         Returns the set of all speaker labels found in the document.
         """
-        speaker_matches = self._find_speakers(self.content)
+        speaker_matches = self.find_speakers(self.content)
         if not speaker_matches:
             # There should never be 0 speakers in a document
             raise ValueError(f'No speakers found in {self}. '
@@ -157,7 +157,7 @@ class Document:
         current_speaker: str | None = None
         for i in range(len(self.lines)):
             line = self.lines[i]
-            speaker_matches = self._find_speakers(line)
+            speaker_matches = self.find_speakers(line)
             # If speaker found, change global current_speaker variable
             if speaker_matches:
                 # Check: a single line should only have one speaker.
@@ -262,7 +262,7 @@ class Document:
         """
         tokens = [
             token for token in self.tokens 
-            if not self._find_speakers(token)
+            if not self.find_speakers(token)
         ]
         return ling.type_token_ratio(tokens)
 
@@ -279,7 +279,7 @@ class Document:
         for sent in self.sentences:
             valid_sent = []
             for token in sent:
-                if self._find_speakers(token):
+                if self.find_speakers(token):
                     if len(sent) <= 2:
                         # skip sentence
                         valid_sent = []
