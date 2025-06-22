@@ -52,6 +52,10 @@ test_docs = {filename: Document(f"./data/{project}/REVIEW/{filename}.json")
     # Speaker with number and text
     ("Interviewer 3: Hello", ["Interviewer"]),
     ("Participant 7: Hi", ["Participant"]),
+    # Test arbitrary whitespace between numbers
+    ("Participant  004: ", ["Participant"]),
+    ("Participant\t004: ", ["Participant"]),
+    ("Participant \t004: ", ["Participant"]),
 ])
 def test__find_speakers(input_line, expected):
     doc = test_docs["062_745.txt"] # Use dummy instance

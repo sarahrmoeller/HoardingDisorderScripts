@@ -89,7 +89,7 @@ class Document:
             {speaker_name} [optional number]:
         and returns speaker_name within the `findall` list.
         """
-        return re.findall(r'({speaker_names})(?: \d+)?:'
+        return re.findall(r'({speaker_names})(?:\s+\d+)?:'
                            .format(speaker_names='|'.join(SPEAKERS)), content)
     
     @cached_property
