@@ -3,9 +3,9 @@
 Here reside the scripts for running Statistics on the data we have on Hoarding Disorder patients and control, 
 including labeled data from datasaur and the original unlabeled data (TBD). 
 
-## How to Replicate our Work
+## How to Replicate our Environment
 
-### Python Environment
+### Python
 
 These python scripts were run in a a python virtual environment with `venv`. To replicate our results, we recommend the following:
 1. Check for `python` version 3.10.12 and `pip` version 22.0.2.
@@ -36,7 +36,42 @@ HoardingDisorderScripts/
    ... (other files)
 ```
 
-### Label Count Results
+## How to Use Our Code to Inspect the Datasaur Data
+
+The meat of this project is the `Document` class within `./utils/document.py`. Given a path to a json file from the datasaur data, this class
+extracts and deduces important information about each document, including label data. Some examples:
+
+- `Document.name`: Document's name, i.e. `'001_001.txt'`
+- `Document.project`: Document's project, i.e. `'HD_set1_1-7'`
+- `Document.hoarder_flag`: 1 if the document is a hoarding document, 0 otherwise (determined by the document's name)
+- `Document.__repr__`: prints the document's name and project
+- `Document.lines`: A list of each line (sep. newline) in the document  
+- `Document.content`: The document's entire content in one string
+- `Document.speaker_set`: The set of all speaker labels (strings followed by a colon, i.e. 'Interviewer: ') found in the document.
+- `Document.labels`: A list of the document's labels, presented as a tuple (Label, Speaker)
+
+Further, `utils/datasaur.py` contains a few data structures that organize all of the document objects:
+
+```python
+# Run this in the project root
+import utils.datasaur as data
+
+data.by_project # dict[project name -> list of docs in that project]
+data.by_doc # list of all documents
+data.by_transcript # dict[transcript name (i.e. '002') -> list of all docs corresponding to that transcript (i.e. '002_015.txt')]
+```
+
+Check the file for the other stuff. You can use these structures to make queries about the data, often with some form of Pythonic comprehension. For instance, the following code finds the set of all speaker labels for all Hoarding documents found in the HD_set1 projects:
+
+```python
+>>> hdsets = {proj: docs for proj, docs in data.by_project.items() if proj.startswith('HD_set1')}
+>>> hdset_docs = [doc for doclist in hdsets.values() for doc in doclist] # flattened list
+>>> hdset_speakers = {speaker for doc in hdset_docs for speaker in doc.speaker_set}
+>>> hdset_speakers
+{'Interviewee', 'Interviewer', 'Participant'}
+```
+
+## Label Count Results
 
 Our first test was to see whether the number of labels of each type in a document were significant in predicting Hoarding. To this end, we
 created a logistic regression model each document's hoarding flag given the number of labels in each document.
