@@ -100,12 +100,11 @@ class Document:
             return matches
         return [match for match in matches if match in SPEAKERS]
     
-    @cached_property
-    def speaker_set(self) -> set[str]:
+    def speaker_set(self, restrict=True) -> set[str]:
         """
         Returns the set of all speaker labels found in the document.
         """
-        speaker_matches = self.find_speakers(self.content)
+        speaker_matches = self.find_speakers(self.content, restrict=restrict)
         if not speaker_matches:
             # There should never be 0 speakers in a document
             raise ValueError(f'No speakers found in {self}. '
@@ -118,10 +117,10 @@ class Document:
         Uses the _speaker_set property to find which pair of speakers in 
         SPEAKER_PAIRS is speaking in the document.
         """
-        if len(self.speaker_set) == 1:
+        if len(self.speaker_set()) == 1:
             # If we only find one speaker label, find the pair in 
             # SPEAKER_PAIRS that contains that label
-            speaker = next(iter(self.speaker_set))
+            speaker = next(iter(self.speaker_set()))
             pairs_with_speaker = [pair for pair in SPEAKER_PAIRS 
                                   if speaker in pair]
             # If we find more than one pair, give up.
@@ -139,7 +138,7 @@ class Document:
         # If all elements in some speaker pair are in the speaker set, we 
         # assume we've found the right pair
         for pair in SPEAKER_PAIRS:
-            if all(speaker in pair for speaker in self.speaker_set):
+            if all(speaker in pair for speaker in self.speaker_set()):
                 return pair
         # If we still haven't found a match, something has gone wrong
         raise ValueError(f'No valid speaker pair found for {self}. '
