@@ -23,7 +23,6 @@ LABELS = {
 # and all other speakers are interviewers.
 SPEAKER_PAIRS: list[tuple] = [
     ("Interviewer", "Participant"), # Hoarding-Patient
-    ("Rebecca", "Interviewee"), # "Hoarding-Clinician" 
     ("Interviewer", "Speaker"), # Parents
     ("Interviewer", "Interviewee"), # Transcript no. 012 & 2010
     ("P1", "P3", "Interviewee"), # Transcript no. (2)005
@@ -82,7 +81,8 @@ class Document:
         if sent: 
             self.sentences.append(sent)
 
-    def find_speakers(self, content: str, restrict=True) -> list[str]:
+    @classmethod
+    def find_speakers(cls, content: str, restrict=True) -> list[str]:
         """
         Takes in a string (`content`),
         Returns a list of all occurences of strings followed by optional whitespace, 

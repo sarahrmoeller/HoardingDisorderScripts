@@ -83,7 +83,7 @@ def test_find_speakers(input_line, expected):
                 'Participant', 'Participant',
                 'Interviewer', 'Interviewer',
             ], id="Test arbitrary set 1 doc"),
-    pytest.param(test_docs["2022_335.txt"], ['Rebecca', 'Interviewee'], 
+    pytest.param(test_docs["2022_335.txt"], ['Interviewer', 'Interviewee'], 
                  id="Test arbitrary set 2 doc"),
     pytest.param(test_docs["3001_090.txt"], [
         'Interviewer', 'Speaker',
