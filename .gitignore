@@ -175,3 +175,5 @@ cython_debug/
 
 ## Custom ignores
 data.zip
+datasaur.zip
+datasaur/
