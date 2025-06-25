@@ -69,6 +69,26 @@ def test_find_speakers(input_line, expected):
     assert doc.find_speakers(input_line, restrict=False) == expected
 
 
+@pytest.mark.parametrize("test_doc,expected_speaker_set", [
+    pytest.param(test_docs["062_745.txt"], {'Interviewer', 'Participant'}, 
+                 id="Test arbitrary set 1 doc"),
+    pytest.param(test_docs["2022_335.txt"], {'Interviewer', 'Interviewee'}, 
+                 id="Test arbitrary set 2 doc"),
+    pytest.param(test_docs["3001_090.txt"], {'Interviewer', 'Speaker'}, 
+                 id="Test arbitrary set 3 doc"),
+    pytest.param(test_docs["049_606.txt"], {'Interviewer', 'Participant'}, 
+                 id="Document that doesn't begin with a speaker label"),
+    # Do this test after 005 documents are fixed
+    # (test_docs[-2], {'Interviewee', 'P1', 'P3'}, id="Three-speaker document (Interviewers: P1 and P3)"),
+    pytest.param(test_docs["2008_136.txt"], {'P2', 'Interviewee', 'P1'}, 
+                 id="Three-speaker document (Interviewers: P1 and P2)"),
+    pytest.param(test_docs["026_307.txt"], {'Interviewer'}, 
+                 id="Contains only Interviewer label, as well as [END OF RECORDING]"), # 
+])
+def test_speaker_set(test_doc, expected_speaker_set):
+    assert test_doc.speaker_set(restrict=True) == expected_speaker_set
+
+
 @pytest.mark.parametrize("test_doc,expected_speakers", [
     pytest.param(test_docs["062_745.txt"], [ 
                 'Interviewer', 'Interviewer',
