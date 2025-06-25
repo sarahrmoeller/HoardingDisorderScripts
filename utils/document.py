@@ -22,9 +22,9 @@ LABELS = {
 # We use the convention that the last speaker in the tuple is the participant,
 # and all other speakers are interviewers.
 SPEAKER_PAIRS: list[tuple] = [
-    ("Interviewer", "Participant"), # Hoarding-Patient
-    ("Interviewer", "Speaker"), # Parents
-    ("Interviewer", "Interviewee"), # Transcript no. 012 & 2010
+    ("Interviewer", "Participant"), # Hoarding-Patient (set 1)
+    ("Interviewer", "Interviewee"), # Hoarding-Clinician (set 2) & Transcript no. 012
+    ("Interviewer", "Speaker"), # Parents (set 3)
     ("P1", "P3", "Interviewee"), # Transcript no. (2)005
     ("P1", "P2", "Interviewee") # Transcript no. 2008
 ]
