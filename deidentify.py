@@ -15,6 +15,15 @@ replacements = {
 
 
 for doc in data.by_doc:
+    # If both Rebecca and Christian are present, we can distinguish them
+    # (not necessary, but makes reading the transcript easier)
+    if {"Rebecca", "Christian"}.issubset(doc.speaker_set(restrict=False)):
+        replacements["Rebecca"] = "Interviewer 1"
+        replacements["Christian"] = "Interviewer 2"
+    else:
+        replacements["Rebecca"] = "Interviewer"
+        replacements["Christian"] = "Interviewer"
+
     # Modify doc.row_data
     for i in range(len(doc.row_data)):
         # Fix labels in the lines
