@@ -133,15 +133,15 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'Participant', 'Participant', 'Participant', 'Participant'
     ], id="Document that doesn't begin with a speaker label"),
     (test_docs["2005_086.txt"], [ 
-        'Interviewee',
-        'P1',
-        'Interviewee',
+        'P3',
         'P1',
         'P3',
+        'P1',
         'Interviewee',
         'P3',
         'Interviewee',
         'P3',
+        'Interviewee',
     ]),
     pytest.param(test_docs["2008_136.txt"], [
         'P2',
@@ -215,15 +215,15 @@ def test_row_speakers(test_doc, expected_speakers):
         'Participant', 'Participant', 'Participant', 'Participant'
     ], id="Document that doesn't begin with a speaker label"),
     (test_docs["2005_086.txt"], [ 
-        'Participant',
+        'Interviewer',
+        'Interviewer',
+        'Interviewer',
         'Interviewer',
         'Participant',
         'Interviewer',
-        'Interviewer',
         'Participant',
         'Interviewer',
         'Participant',
-        'Interviewer',
     ]),
     pytest.param(test_docs["2008_136.txt"], [
         'Interviewer',
@@ -249,3 +249,10 @@ def test_row_speakers(test_doc, expected_speakers):
 ])
 def test_row_speakers_default(test_doc, expected_speakers):
     assert test_doc._row_speakers_default == expected_speakers
+
+
+@pytest.mark.parametrize("test_doc,speaker,expected_lines", [
+
+])
+def test_lines_by_speaker(test_doc, speaker, expected_lines):
+    ...
