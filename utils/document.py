@@ -104,6 +104,14 @@ class Document:
         return [self.lines[i] for i in range(len(self.lines))
                 if self._row_speakers_default[i] == speaker]
 
+    def content_by_speaker(self, speaker: str) -> str:
+        """
+        Returns a dictionary where keys are speaker names and values are lists
+        of lines spoken by that speaker.
+        """
+        content = '\n'.join(self.lines_by_speaker(speaker))
+        return content
+
     @classmethod
     def find_speakers(cls, content: str, restrict=True) -> list[str]:
         """
