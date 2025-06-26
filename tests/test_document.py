@@ -10,10 +10,10 @@ test_files: list[tuple[str, str]] = [
     ("s1062_s2022-26_s3076-97", "2022_335.txt"), 
     ("s1062_s2022-26_s3076-97", "3001_090.txt"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
     # Misc files with special cases
-    ("s1046-50_s2012-13_s3026-50", "049_606.txt"),
-    ("s1_28-35_s2_4-7", "005_083.txt"), # contains "P1: " and "P3: " interview/speaker format
-    ("s1_28-35_s2_4-7", "005_082.txt"),
-    ("s1_28-35_s2_4-7", "005_086.txt"),
+    ("s1043-5_s2010-11_s3016-25", "049_606.txt"),
+    ("s1_28-35_s2_4-7", "2005_083.txt"), # contains "P1: " and "P3: " interview/speaker format
+    ("s1_28-35_s2_4-7", "2005_082.txt"),
+    ("s1_28-35_s2_4-7", "2005_086.txt"),
     ("s1036-42_s2008-9_s3000-15", "2008_136.txt"),
     ("s1_21-27_s2_1-3", "026_307.txt"), # Contains only Interviewer label, as well as [END OF RECORDING]
 ]
