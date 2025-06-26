@@ -2,6 +2,7 @@ from collections import Counter
 from functools import cached_property
 from itertools import product
 import json
+import os
 import re
 import warnings
 
@@ -80,6 +81,16 @@ class Document:
         # If there are remaining tokens in the last sentence, add the sentence
         if sent: 
             self.sentences.append(sent)
+
+    def write_to_file(self, path: str='') -> None:
+        """
+        Write the document to a file. 
+        """
+        path = path or f"./{self.name}"
+        if os.path.dirname(path):
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w') as f:
+            f.write(self.full_content)
 
     @cached_property
     def lines_by_speaker(self) -> dict[str, list[str]]:
