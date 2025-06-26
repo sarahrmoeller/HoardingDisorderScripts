@@ -92,18 +92,17 @@ class Document:
         with open(path, 'w') as f:
             f.write(self.full_content)
 
-    @cached_property
-    def lines_by_speaker(self) -> dict[str, list[str]]:
+    def lines_by_speaker(self, speaker: str) -> list[str]:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
         """
-        lines_by_speaker = {
-            speaker : [self.lines[i] for i in range(len(self.lines))
-                       if self._row_speakers_default[i] == speaker]
-            for speaker in self.default_speaker_pair
-        }
-        return lines_by_speaker
+        assert speaker in SPEAKERS, f"Speaker label {speaker} not known."
+        assert speaker in self.default_speaker_pair, \
+            f"Speaker label {speaker} not in default speaker pair " \
+            f"{self.default_speaker_pair}"
+        return [self.lines[i] for i in range(len(self.lines))
+                if self._row_speakers_default[i] == speaker]
 
     @classmethod
     def find_speakers(cls, content: str, restrict=True) -> list[str]:
