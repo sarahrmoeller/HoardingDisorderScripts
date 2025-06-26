@@ -49,6 +49,7 @@ class Document:
     def __init__(self, path: str) -> None:
         with open(path) as f:
             self.json_dump = json.load(f)
+        self.path = path
         # JSON always looks like {'version' : '1.0', 'data' : {...}},
         # So we will just index into the 'data' key
         self.data = self.json_dump['data']
