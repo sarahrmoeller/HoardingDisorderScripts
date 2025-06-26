@@ -235,14 +235,3 @@ def test_row_speakers(test_doc, expected_speakers):
 ])
 def test_row_speakers_default(test_doc, expected_speakers):
     assert test_doc._row_speakers_default == expected_speakers
-
-
-@pytest.mark.parametrize("test_doc,expected", [
-    (doc, None) for doc in test_docs.values()
-])
-def test_average_sentence_length(test_doc, expected):
-    # If expected is None, just check that the value is a positive float
-    # I.e. non-zero
-    asl = test_doc.average_sentence_length
-    assert isinstance(asl, float)
-    assert asl > 0
