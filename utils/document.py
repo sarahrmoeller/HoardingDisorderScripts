@@ -2,7 +2,6 @@ from collections import Counter
 from functools import cached_property
 from itertools import product
 import json
-from . import ling
 import re
 import warnings
 
