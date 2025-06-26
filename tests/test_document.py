@@ -79,7 +79,8 @@ def test_find_speakers(input_line, expected):
     pytest.param(test_docs["049_606.txt"], {'Interviewer', 'Participant'}, 
                  id="Document that doesn't begin with a speaker label"),
     # Do this test after 005 documents are fixed
-    # (test_docs[-2], {'Interviewee', 'P1', 'P3'}, id="Three-speaker document (Interviewers: P1 and P3)"),
+    pytest.param(test_docs["2005_086.txt"], {'Interviewee', 'P1', 'P3'}, 
+                 id="Three-speaker document (Interviewers: P1 and P3)"),
     pytest.param(test_docs["2008_136.txt"], {'P2', 'Interviewee', 'P1'}, 
                  id="Three-speaker document (Interviewers: P1 and P2)"),
     pytest.param(test_docs["026_307.txt"], {'Interviewer'}, 
@@ -131,15 +132,17 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant'
     ], id="Document that doesn't begin with a speaker label"),
-    # Do this test after 005 documents are fixed
-    # (test_docs[-2], [ 
-    #     'Interviewee',
-    #     'P1',
-    #     'Interviewee',
-    #     'P1',
-    #     'P3',
-    #     'Interviewee',
-    # ]),
+    (test_docs["2005_086.txt"], [ 
+        'Interviewee',
+        'P1',
+        'Interviewee',
+        'P1',
+        'P3',
+        'Interviewee',
+        'P3',
+        'Interviewee',
+        'P3',
+    ]),
     pytest.param(test_docs["2008_136.txt"], [
         'P2',
         'Interviewee',
@@ -211,6 +214,17 @@ def test_row_speakers(test_doc, expected_speakers):
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant'
     ], id="Document that doesn't begin with a speaker label"),
+    (test_docs["2005_086.txt"], [ 
+        'Participant',
+        'Interviewer',
+        'Participant',
+        'Interviewer',
+        'Interviewer',
+        'Participant',
+        'Interviewer',
+        'Participant',
+        'Interviewer',
+    ]),
     pytest.param(test_docs["2008_136.txt"], [
         'Interviewer',
         'Participant',
