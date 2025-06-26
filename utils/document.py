@@ -67,10 +67,10 @@ class Document:
         self.lines = [
             row['content'].rstrip() for row in self.row_data
         ]
-        self.content = '\n'.join(self.lines)
+        self.full_content = '\n'.join(self.lines)
         self.tokens = [token for row in self.row_data for token in row['tokens']]
-        # Sentences are decided by splitting on periods
         self.label_data = self.data['spanLabels']
+        # Sentences are decided by splitting on periods
         self.sentences = []
         sent = []
         for token in self.tokens:
@@ -81,6 +81,19 @@ class Document:
         # If there are remaining tokens in the last sentence, add the sentence
         if sent: 
             self.sentences.append(sent)
+
+    @cached_property
+    def lines_by_speaker(self) -> dict[str, list[str]]:
+        """
+        Returns a dictionary where keys are speaker names and values are lists
+        of lines spoken by that speaker.
+        """
+        lines_by_speaker = {
+            speaker : [self.lines[i] for i in range(len(self.lines))
+                       if self._row_speakers_default[i] == speaker]
+            for speaker in self.default_speaker_pair
+        }
+        return lines_by_speaker
 
     @classmethod
     def find_speakers(cls, content: str, restrict=True) -> list[str]:
@@ -105,7 +118,7 @@ class Document:
         """
         Returns the set of all speaker labels found in the document.
         """
-        speaker_matches = self.find_speakers(self.content, restrict=restrict)
+        speaker_matches = self.find_speakers(self.full_content, restrict=restrict)
         if not speaker_matches:
             # There should never be 0 speakers in a document
             raise ValueError(f'No speakers found in {self}. '

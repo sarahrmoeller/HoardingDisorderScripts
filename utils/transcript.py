@@ -27,7 +27,7 @@ class Transcript(Document):
         self.hoarder_flag = self.docs[0].hoarder_flag
         self.row_data = [rd for doc in self.docs for rd in doc.row_data]
         self.lines = [line for doc in self.docs for line in doc.lines]
-        self.content = "\n".join(doc.content for doc in self.docs)
+        self.full_content = "\n".join(doc.full_content for doc in self.docs)
     
     def write_to_file(self, path: str='') -> None:
         """
@@ -35,7 +35,7 @@ class Transcript(Document):
         """
         path = path or f"./{self.transcript_number}.txt"
         with open(path, 'w') as f:
-            f.write(self.content)
+            f.write(self.full_content)
 
     def __repr__(self) -> str:
         return f"Transcript(\"{self.transcript_number}\")"
