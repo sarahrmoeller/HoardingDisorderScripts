@@ -116,15 +116,18 @@ class Document:
     def find_speakers(cls, content: str, restrict=True) -> list[str]:
         """
         Takes in a string (`content`),
-        Returns a list of all occurences of strings followed by optional whitespace, 
-        optional number(s), and a colon. It then captures the string. Format:
+        Returns a list of all occurences of strings followed by optional 
+        whitespace, optional number(s), and a colon. It then captures the 
+        string. The format is:
             (captured string) [optional number]:
-        If `restrict` is True, it only returns speakers that are in the `SPEAKERS` set.
+        If `restrict` is True, it only returns speakers that are in the 
+        `SPEAKERS` set.
 
         Examples: 
         - 'Interviewer:' -> ['Interviewer']
-        - 'Participant 12: ' -> ['Participant 12']
-        - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not in `SPEAKERS`)
+        - 'Participant 12: ' -> ['Participant']
+        - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not 
+                              in `SPEAKERS`)
         """
         matches = Document._SPEAKER_REGEX.findall(content)
         if not restrict:
