@@ -43,6 +43,9 @@ class Document:
     default_speaker_pair = SPEAKER_PAIRS[0]
     # This regex is used to match speaker labels, i.e. 'Interviewer:', 'Participant 12:'
     _SPEAKER_REGEX = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?:')
+    _SPEAKER_REGEX_RESTRICTED = re.compile(
+        r'\s*(?:{speakers})(?:\s+\d+)?:\s*'.format(
+            speakers='|'.join(SPEAKERS)))
     # This regex is used to match timestamps, i.e. '19:24' or '23:14'
     _TIMESTAMPS_REGEX = re.compile(r'(\d+:\d+)')
         
@@ -92,7 +95,8 @@ class Document:
         with open(path, 'w') as f:
             f.write(self.full_content)
 
-    def lines_by_speaker(self, speaker: str) -> list[str]:
+    def lines_by_speaker(self, speaker: str, 
+                         speaker_labels=False) -> list[str]:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
@@ -101,15 +105,20 @@ class Document:
         assert speaker in self.default_speaker_pair, \
             f"Speaker label {speaker} not in default speaker pair " \
             f"{self.default_speaker_pair}"
-        return [self.lines[i] for i in range(len(self.lines))
-                if self._row_speakers_default[i] == speaker]
+        lines = [self.lines[i] for i in range(len(self.lines))
+                 if self._row_speakers_default[i] == speaker]
+        if speaker_labels:
+            return lines
+        return [self._SPEAKER_REGEX_RESTRICTED.sub('', line)
+                for line in lines]
 
-    def content_by_speaker(self, speaker: str) -> str:
+    def content_by_speaker(self, speaker: str, speaker_labels=False) -> str:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
         """
-        content = '\n'.join(self.lines_by_speaker(speaker))
+        content = '\n'.join(
+            self.lines_by_speaker(speaker, speaker_labels=speaker_labels))
         return content
 
     @classmethod
