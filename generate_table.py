@@ -1,6 +1,7 @@
 import pandas as pd
 from tqdm import tqdm
 import utils.datasaur as data 
+import utils.ling as ling
 
 
 if __name__ == "__main__":
@@ -15,8 +16,8 @@ if __name__ == "__main__":
             'Document Name' : doc.name, 
             'Hoarder Flag' : doc.hoarder_flag,
             **doc.label_counts,
-            'TTR' : doc.type_token_ratio,
-            'ASL' : doc.average_sentence_length,
+            'TTR' : ling.type_token_ratio(doc.full_content),
+            'ASL' : ling.average_sentence_length(doc.full_content),
         }, docs))
         table_rows.extend(project_rows)
 
