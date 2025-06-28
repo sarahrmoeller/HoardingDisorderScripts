@@ -297,3 +297,6 @@ class Document:
         )
 
         return display_dict
+    
+    def __repr__(self) -> str:
+        return f"Document({self.name}, {self.project})"
