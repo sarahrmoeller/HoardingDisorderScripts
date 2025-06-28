@@ -1,5 +1,7 @@
 import pytest
 from utils.document import Document
+import json
+import os
 
 
 test_files: list[tuple[str, str]] = [
@@ -250,147 +252,28 @@ def test_row_speakers_default(test_doc, expected_speakers):
     assert test_doc._row_speakers_default == expected_speakers
 
 
+TEST_DATA_DIR = "./tests/doc_test_data/"
+
+def load_test_data(filename: str) -> dict:
+    with open(TEST_DATA_DIR + filename, 'r', 
+              encoding='utf-8') as f:
+        return json.load(f)
+
+
 @pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [
-    pytest.param(test_docs["062_745.txt"], "Interviewer", True,
-                 ["29:19 Interviewer:",
-                  "Okay, and what do you think about when you hear the words “hoarding disorder?”",
-                  "29:17 Interviewer:",
-                  "Okay, so in our last section, I just have a couple more questions for you. Do your problems with clutter upset you?",
-                  "30:05 Interviewer:",
-                  "Right, so you mentioned that it gets in the way of everything, so would you say it gets in the way of your daily life?",
-                  "31:11 Interviewer:",
-                  "So could you describe a time where your clutter got in the way of something you really wanted? I know you mentioned that it’s difficult to entertain and have people over because it’s embarrassing to you.",
-                  "31:51 Interviewer:",
-                  "So definitely it gets in the way of your family time.",
-                  "32:07 Interviewer:",
-                  "Okay, and has your clutter ever impacted your work?"],
-                 id="Set 1 doc, Interviewer lines w/ labels"),
-    pytest.param(test_docs["062_745.txt"], "Interviewer", False,
-                 ["29:19",
-                  "Okay, and what do you think about when you hear the words “hoarding disorder?”",
-                  "29:17",
-                  "Okay, so in our last section, I just have a couple more questions for you. Do your problems with clutter upset you?",
-                  "30:05",
-                  "Right, so you mentioned that it gets in the way of everything, so would you say it gets in the way of your daily life?",
-                  "31:11",
-                  "So could you describe a time where your clutter got in the way of something you really wanted? I know you mentioned that it’s difficult to entertain and have people over because it’s embarrassing to you.",
-                  "31:51",
-                  "So definitely it gets in the way of your family time.",
-                  "32:07",
-                  "Okay, and has your clutter ever impacted your work?"],
-                 id="Set 1 doc, Interviewer lines no labels"),
-    pytest.param(test_docs["062_745.txt"], "Participant", True,
-                 ["Participant:",
-                  "I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!",
-                  "Participant:",
-                  "Yeah. It upsets me, you know, because we can’t really have people in here to have like a dinner party or anything. There’s no room. It upsets my family. It gets in the way of everything, you know, it always pisses my husband off, and he gets pissed off at enough things, you’d think I'd be able to control this to where it’s one less thing he’d be pissed about.",
-                  "Participant:",
-                  "Not so much, you know, if we vacuum around it, but you know, it’s in the way because the room cannot be used the way it’s supposed to be used. There’s not enough room in it with all the clutter in it on top of things, and it just looks disorganized and messy and, you know, you don’t really want to have visitors or friends come over. I look at other people’s houses and they’re all clean and lovely and lots of space and no problems. And I look at my front room and it's embarrassing! And it looks like I’m, for lack of a better word, trailer trash or something. Yeah it is a better word! My daughter’s here!",
-                  "Participant:",
-                  "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.",
-                  "Participant:",
-                  "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad."],
-                 id="Set 1 doc with only lines, Participant lines w/ labels"),
-    pytest.param(test_docs["062_745.txt"], "Participant", False,
-                 ["I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!",
-                  "Yeah. It upsets me, you know, because we can’t really have people in here to have like a dinner party or anything. There’s no room. It upsets my family. It gets in the way of everything, you know, it always pisses my husband off, and he gets pissed off at enough things, you’d think I'd be able to control this to where it’s one less thing he’d be pissed about.",
-                  "Not so much, you know, if we vacuum around it, but you know, it’s in the way because the room cannot be used the way it’s supposed to be used. There’s not enough room in it with all the clutter in it on top of things, and it just looks disorganized and messy and, you know, you don’t really want to have visitors or friends come over. I look at other people’s houses and they’re all clean and lovely and lots of space and no problems. And I look at my front room and it's embarrassing! And it looks like I’m, for lack of a better word, trailer trash or something. Yeah it is a better word! My daughter’s here!",
-                  "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.",
-                  "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad."],
-                 id="Set 1 doc with only lines, Participant lines no labels"),
-    pytest.param(test_docs["049_606.txt"], "Participant", True,
-                 ["And then I said, \"Okay, the next thing I want is the kitchen,\" which is right out the entryway.", 
-                  "That just brings us back to there anyway.", 
-                  "But while she was working on parts of the kitchen, I was out working at a computer station I've set up between the living room and dining room, because I had to move the computer downstairs for a connection problem.", 
-                  "So, while she was doing one area, I could do another.",
-                  "Sometimes we're both working together.",
-                  "Sometimes we're working in adjacent rooms.",
-                  "It's a pretty open downstairs.",
-                  "It's a townhouse with a reasonably open plan.",
-                  "And sometimes ... I mean, I'm 69.",
-                  "I don't think I'm decrepit at all, but I'm not in good shape.",
-                  "So sometimes I'll just get tired in the afternoon and we've been working all day, and I'll come up and take a nap.",
-                  "And I know she's fine downstairs.",
-                  "She's not going to mess with anything.",
-                  "I totally trust her.",
-                  "So I'm able to work with her or apart from her.",
-                  "Participant 49:",
-                  "I met her ...",
-                  "I'm trying to think.",
-                  "I met her through a friend who had ...",
-                  "I'm trying to remember this.",
-                  "A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found [NAME 00:41:48].",
-                  "That's the helper's name.",
-                  "Found NAME somewhere.",
-                  "I don't know if she found her on the internet, or through another friend or whatever.",
-                  "But then I met NAME, and I was very comfortable with her.",
-                  "She's kind of a neat person.",
-                  "And I agreed with her about, let's say, 12 years ago, to work a little bit on my house.",
-                  "I left that out when I jumped from 2000 to now.",
-                  "To work a little bit on the house, and then she moved to Georgia.",
-                  "And now she's back in the area.",
-                  "So she's been back in the area for three or four years, but it was just this winter that ...",
-                  "It was right after I fell, really, that I finally said, \"This is ridiculous.",
-                  "I've got to get NAME back.\"",
-                  "I didn't want to spend the money, is part of it.",
-                  "And I thought, \"You have to do this, money or no money.\"",
-                  "And I was so relieved that she would come back, and her attitude, she's very non-judgmental.",
-                  "Her mother's somewhat of a hoarder, and her whole ... and she has other family members who have some mental health issues.",
-                  "Her attitude is sort of, \"People need help.",
-                  "I can help them.\""],
-                 id="Set 1 doc, Participant label has number, w/ label"),
-    pytest.param(test_docs["049_606.txt"], "Participant", False,
-                 ["And then I said, \"Okay, the next thing I want is the kitchen,\" which is right out the entryway.", 
-                  "That just brings us back to there anyway.", 
-                  "But while she was working on parts of the kitchen, I was out working at a computer station I've set up between the living room and dining room, because I had to move the computer downstairs for a connection problem.", 
-                  "So, while she was doing one area, I could do another.",
-                  "Sometimes we're both working together.",
-                  "Sometimes we're working in adjacent rooms.",
-                  "It's a pretty open downstairs.",
-                  "It's a townhouse with a reasonably open plan.",
-                  "And sometimes ... I mean, I'm 69.",
-                  "I don't think I'm decrepit at all, but I'm not in good shape.",
-                  "So sometimes I'll just get tired in the afternoon and we've been working all day, and I'll come up and take a nap.",
-                  "And I know she's fine downstairs.",
-                  "She's not going to mess with anything.",
-                  "I totally trust her.",
-                  "So I'm able to work with her or apart from her.",
-                  "I met her ...",
-                  "I'm trying to think.",
-                  "I met her through a friend who had ...",
-                  "I'm trying to remember this.",
-                  "A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found [NAME 00:41:48].",
-                  "That's the helper's name.",
-                  "Found NAME somewhere.",
-                  "I don't know if she found her on the internet, or through another friend or whatever.",
-                  "But then I met NAME, and I was very comfortable with her.",
-                  "She's kind of a neat person.",
-                  "And I agreed with her about, let's say, 12 years ago, to work a little bit on my house.",
-                  "I left that out when I jumped from 2000 to now.",
-                  "To work a little bit on the house, and then she moved to Georgia.",
-                  "And now she's back in the area.",
-                  "So she's been back in the area for three or four years, but it was just this winter that ...",
-                  "It was right after I fell, really, that I finally said, \"This is ridiculous.",
-                  "I've got to get NAME back.\"",
-                  "I didn't want to spend the money, is part of it.",
-                  "And I thought, \"You have to do this, money or no money.\"",
-                  "And I was so relieved that she would come back, and her attitude, she's very non-judgmental.",
-                  "Her mother's somewhat of a hoarder, and her whole ... and she has other family members who have some mental health issues.",
-                  "Her attitude is sort of, \"People need help.",
-                  "I can help them.\""],
-                 id="Set 1 doc, Participant label has number, no label"),
-    pytest.param(test_docs["2022_335.txt"], "Interviewer", True,
-                 ["Interviewer: Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?"],
-                 id="Set 2 doc with only two lines, Interviewer lines w/ label"),
-    pytest.param(test_docs["2022_335.txt"], "Interviewer", False,
-                 ["Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?"],
-                 id="Set 2 doc with only two lines, Interviewer lines no labels"),
-    pytest.param(test_docs["2022_335.txt"], "Participant", True,
-                 ["Interviewee: Yeah I think the distress question is slightly more difficult than the impairment question. I think often times it is the collateral context, the people around the person with hoarding that are the distress markers, if you will. So they are the family members or the housing inspector or the child welfare organization, are the markers of distress so they are the ones who are bothered by the saving and the manifestation of the objects, and sometimes in the face of that evidence in clinical interview I have been successful in having clients acknowledge at least why others might be distressed, even if they are not distressed. So they continue to deny their own, but are willing to say, \"yes I hear it from other people and I can see why they would be bothered and/or worried.\" So that's one path that I take in clinical interview for assessment purposes of distress. I think the measures--and I would say that the measures that we have, the standardized measures, you know the hoarding rating scale or the saving inventory revise very little in these ways. They do more in the area of impairment if the person has some amount of insight, but we know that insight of course, or lack thereof, is part of the pathology of this problem. It's also fluctuating, right, so in any given moment a person may be able to say, \"yes this is deeply impairing and deeply distressing\" and in the very next moment they may deny both of those things, again as part of the illness. So I think both, for me clinically, both distress and impairment is part of my clinical interview more than, I come at those things through the clinical interview more than I use those standardized assessments. I don't think what we have available right now does a very good job."],
-                 id="Set 2 doc with only two lines, Participant lines w/ label"),
-    pytest.param(test_docs["2022_335.txt"], "Participant", False,
-                 ["Yeah I think the distress question is slightly more difficult than the impairment question. I think often times it is the collateral context, the people around the person with hoarding that are the distress markers, if you will. So they are the family members or the housing inspector or the child welfare organization, are the markers of distress so they are the ones who are bothered by the saving and the manifestation of the objects, and sometimes in the face of that evidence in clinical interview I have been successful in having clients acknowledge at least why others might be distressed, even if they are not distressed. So they continue to deny their own, but are willing to say, \"yes I hear it from other people and I can see why they would be bothered and/or worried.\" So that's one path that I take in clinical interview for assessment purposes of distress. I think the measures--and I would say that the measures that we have, the standardized measures, you know the hoarding rating scale or the saving inventory revise very little in these ways. They do more in the area of impairment if the person has some amount of insight, but we know that insight of course, or lack thereof, is part of the pathology of this problem. It's also fluctuating, right, so in any given moment a person may be able to say, \"yes this is deeply impairing and deeply distressing\" and in the very next moment they may deny both of those things, again as part of the illness. So I think both, for me clinically, both distress and impairment is part of my clinical interview more than, I come at those things through the clinical interview more than I use those standardized assessments. I don't think what we have available right now does a very good job."],
-                 id="Set 2 doc with only two lines, Participant lines"),
+    pytest.param(test_docs[os.path.splitext(filename)[0]], 
+                 speaker,
+                 variant == "raw",
+                 load_test_data(filename)[speaker][variant]["lines"],
+                 id=f"L + ratio + {os.path.splitext(filename)[0]} + "
+                    f"{speaker} + {variant} + "
+                    f"{load_test_data(filename)['id']}")
+    for filename in os.listdir(TEST_DATA_DIR) 
+    for speaker in ("Interviewer", "Participant")
+    for variant in ("raw", "no-speaker-labels")
+    if filename.endswith(".json") and 
+    speaker in load_test_data(filename).keys() and 
+    variant in load_test_data(filename)[speaker].keys()
 ])
 def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
     assert test_doc.lines_by_speaker(speaker, 
@@ -398,105 +281,21 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
 
 
 @pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [
-    pytest.param(test_docs["062_745.txt"], "Interviewer", True,
-                 "29:19 Interviewer:\n"
-                 "Okay, and what do you think about when you hear the words “hoarding disorder?”\n"
-                 "29:17 Interviewer:\n"
-                 "Okay, so in our last section, I just have a couple more questions for you. Do your problems with clutter upset you?\n"
-                 "30:05 Interviewer:\n"
-                 "Right, so you mentioned that it gets in the way of everything, so would you say it gets in the way of your daily life?\n"
-                 "31:11 Interviewer:\n"
-                 "So could you describe a time where your clutter got in the way of something you really wanted? I know you mentioned that it’s difficult to entertain and have people over because it’s embarrassing to you.\n"
-                 "31:51 Interviewer:\n"
-                 "So definitely it gets in the way of your family time.\n"
-                 "32:07 Interviewer:\n"
-                 "Okay, and has your clutter ever impacted your work?",
-                 id="Set 1 doc, Interviewer lines"),
-    pytest.param(test_docs["062_745.txt"], "Interviewer", False,
-                 "29:19\n"
-                 "Okay, and what do you think about when you hear the words “hoarding disorder?”\n"
-                 "29:17\n"
-                 "Okay, so in our last section, I just have a couple more questions for you. Do your problems with clutter upset you?\n"
-                 "30:05\n"
-                 "Right, so you mentioned that it gets in the way of everything, so would you say it gets in the way of your daily life?\n"
-                 "31:11\n"
-                 "So could you describe a time where your clutter got in the way of something you really wanted? I know you mentioned that it’s difficult to entertain and have people over because it’s embarrassing to you.\n"
-                 "31:51\n"
-                 "So definitely it gets in the way of your family time.\n"
-                 "32:07\n"
-                 "Okay, and has your clutter ever impacted your work?",
-                 id="Set 1 doc, Interviewer lines"),
-    pytest.param(test_docs["062_745.txt"], "Participant", True,
-                 "Participant:\n"
-                 "I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!\n"
-                 "Participant:\n"
-                 "Yeah. It upsets me, you know, because we can’t really have people in here to have like a dinner party or anything. There’s no room. It upsets my family. It gets in the way of everything, you know, it always pisses my husband off, and he gets pissed off at enough things, you’d think I'd be able to control this to where it’s one less thing he’d be pissed about.\n"
-                 "Participant:\n"
-                 "Not so much, you know, if we vacuum around it, but you know, it’s in the way because the room cannot be used the way it’s supposed to be used. There’s not enough room in it with all the clutter in it on top of things, and it just looks disorganized and messy and, you know, you don’t really want to have visitors or friends come over. I look at other people’s houses and they’re all clean and lovely and lots of space and no problems. And I look at my front room and it's embarrassing! And it looks like I’m, for lack of a better word, trailer trash or something. Yeah it is a better word! My daughter’s here!\n"
-                 "Participant:\n"
-                 "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.\n"
-                 "Participant:\n"
-                 "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad.",
-                 id="Set 1 doc with only lines, Participant lines"),
-    pytest.param(test_docs["062_745.txt"], "Participant", False,
-                 "I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!\n"
-                 "Yeah. It upsets me, you know, because we can’t really have people in here to have like a dinner party or anything. There’s no room. It upsets my family. It gets in the way of everything, you know, it always pisses my husband off, and he gets pissed off at enough things, you’d think I'd be able to control this to where it’s one less thing he’d be pissed about.\n"
-                 "Not so much, you know, if we vacuum around it, but you know, it’s in the way because the room cannot be used the way it’s supposed to be used. There’s not enough room in it with all the clutter in it on top of things, and it just looks disorganized and messy and, you know, you don’t really want to have visitors or friends come over. I look at other people’s houses and they’re all clean and lovely and lots of space and no problems. And I look at my front room and it's embarrassing! And it looks like I’m, for lack of a better word, trailer trash or something. Yeah it is a better word! My daughter’s here!\n"
-                 "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.\n"
-                 "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad.",
-                 id="Set 1 doc with only lines, Participant lines"),
-    pytest.param(test_docs["049_606.txt"], "Participant", False,
-                 "And then I said, \"Okay, the next thing I want is the kitchen,\" which is right out the entryway.\n"
-                  "That just brings us back to there anyway.\n"
-                  "But while she was working on parts of the kitchen, I was out working at a computer station I've set up between the living room and dining room, because I had to move the computer downstairs for a connection problem.\n" 
-                  "So, while she was doing one area, I could do another.\n"
-                  "Sometimes we're both working together.\n"
-                  "Sometimes we're working in adjacent rooms.\n"
-                  "It's a pretty open downstairs.\n"
-                  "It's a townhouse with a reasonably open plan.\n"
-                  "And sometimes ... I mean, I'm 69.\n"
-                  "I don't think I'm decrepit at all, but I'm not in good shape.\n"
-                  "So sometimes I'll just get tired in the afternoon and we've been working all day, and I'll come up and take a nap.\n"
-                  "And I know she's fine downstairs.\n"
-                  "She's not going to mess with anything.\n"
-                  "I totally trust her.\n"
-                  "So I'm able to work with her or apart from her.\n"
-                  "I met her ...\n"
-                  "I'm trying to think.\n"
-                  "I met her through a friend who had ...\n"
-                  "I'm trying to remember this.\n"
-                  "A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found [NAME 00:41:48].\n"
-                  "That's the helper's name.\n"
-                  "Found NAME somewhere.\n"
-                  "I don't know if she found her on the internet, or through another friend or whatever.\n"
-                  "But then I met NAME, and I was very comfortable with her.\n"
-                  "She's kind of a neat person.\n"
-                  "And I agreed with her about, let's say, 12 years ago, to work a little bit on my house.\n"
-                  "I left that out when I jumped from 2000 to now.\n"
-                  "To work a little bit on the house, and then she moved to Georgia.\n"
-                  "And now she's back in the area.\n"
-                  "So she's been back in the area for three or four years, but it was just this winter that ...\n"
-                  "It was right after I fell, really, that I finally said, \"This is ridiculous.\n"
-                  "I've got to get NAME back.\"\n"
-                  "I didn't want to spend the money, is part of it.\n"
-                  "And I thought, \"You have to do this, money or no money.\"\n"
-                  "And I was so relieved that she would come back, and her attitude, she's very non-judgmental.\n"
-                  "Her mother's somewhat of a hoarder, and her whole ... and she has other family members who have some mental health issues.\n"
-                  "Her attitude is sort of, \"People need help.\n"
-                  "I can help them.\"",
-                 id="Set 1 doc, Participant label has number"),
-    pytest.param(test_docs["2022_335.txt"], "Interviewer", True,
-                 "Interviewer: Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?",
-                 id="Set 2 doc with only two lines, Interviewer lines"),
-    pytest.param(test_docs["2022_335.txt"], "Interviewer", False,
-                 "Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?",
-                 id="Set 2 doc with only two lines, Interviewer lines"),
-    pytest.param(test_docs["2022_335.txt"], "Participant", True,
-                 "Interviewee: Yeah I think the distress question is slightly more difficult than the impairment question. I think often times it is the collateral context, the people around the person with hoarding that are the distress markers, if you will. So they are the family members or the housing inspector or the child welfare organization, are the markers of distress so they are the ones who are bothered by the saving and the manifestation of the objects, and sometimes in the face of that evidence in clinical interview I have been successful in having clients acknowledge at least why others might be distressed, even if they are not distressed. So they continue to deny their own, but are willing to say, \"yes I hear it from other people and I can see why they would be bothered and/or worried.\" So that's one path that I take in clinical interview for assessment purposes of distress. I think the measures--and I would say that the measures that we have, the standardized measures, you know the hoarding rating scale or the saving inventory revise very little in these ways. They do more in the area of impairment if the person has some amount of insight, but we know that insight of course, or lack thereof, is part of the pathology of this problem. It's also fluctuating, right, so in any given moment a person may be able to say, \"yes this is deeply impairing and deeply distressing\" and in the very next moment they may deny both of those things, again as part of the illness. So I think both, for me clinically, both distress and impairment is part of my clinical interview more than, I come at those things through the clinical interview more than I use those standardized assessments. I don't think what we have available right now does a very good job.",
-                 id="Set 2 doc with only two lines, Participant lines"),
-    pytest.param(test_docs["2022_335.txt"], "Participant", False,
-                 "Yeah I think the distress question is slightly more difficult than the impairment question. I think often times it is the collateral context, the people around the person with hoarding that are the distress markers, if you will. So they are the family members or the housing inspector or the child welfare organization, are the markers of distress so they are the ones who are bothered by the saving and the manifestation of the objects, and sometimes in the face of that evidence in clinical interview I have been successful in having clients acknowledge at least why others might be distressed, even if they are not distressed. So they continue to deny their own, but are willing to say, \"yes I hear it from other people and I can see why they would be bothered and/or worried.\" So that's one path that I take in clinical interview for assessment purposes of distress. I think the measures--and I would say that the measures that we have, the standardized measures, you know the hoarding rating scale or the saving inventory revise very little in these ways. They do more in the area of impairment if the person has some amount of insight, but we know that insight of course, or lack thereof, is part of the pathology of this problem. It's also fluctuating, right, so in any given moment a person may be able to say, \"yes this is deeply impairing and deeply distressing\" and in the very next moment they may deny both of those things, again as part of the illness. So I think both, for me clinically, both distress and impairment is part of my clinical interview more than, I come at those things through the clinical interview more than I use those standardized assessments. I don't think what we have available right now does a very good job.",
-                 id="Set 2 doc with only two lines, Participant lines"),
+    pytest.param(test_docs[os.path.splitext(filename)[0]], 
+                 speaker,
+                 variant == "raw",
+                 load_test_data(filename)[speaker][variant]["content"],
+                 id=f"L + ratio + {os.path.splitext(filename)[0]} + "
+                    f"{speaker} + {variant} + "
+                    f"{load_test_data(filename)['id']}")
+    for filename in os.listdir(TEST_DATA_DIR) 
+    for speaker in ("Interviewer", "Participant")
+    for variant in ("raw", "no-speaker-labels")
+    if filename.endswith(".json") and 
+    speaker in load_test_data(filename).keys() and 
+    variant in load_test_data(filename)[speaker].keys() and
+    'content' in load_test_data(filename)[speaker][variant].keys()
 ])
 def test_content_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
-    assert test_doc.content_by_speaker(speaker, speaker_labels=speaker_labels) == expected_lines
+    assert test_doc.content_by_speaker(speaker, 
+                                       speaker_labels=speaker_labels) == expected_lines
