@@ -1,6 +1,5 @@
 import pytest
 from utils.document import Document
-import math
 
 
 test_files: list[tuple[str, str]] = [
