@@ -293,15 +293,10 @@ def test_row_speakers_default(test_doc, expected_speakers):
                   "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad."],
                  id="Set 1 doc with only lines, Participant lines w/ labels"),
     pytest.param(test_docs["062_745.txt"], "Participant", False,
-                 ["",
-                  "I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!",
-                  "",
+                 ["I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!",
                   "Yeah. It upsets me, you know, because we can’t really have people in here to have like a dinner party or anything. There’s no room. It upsets my family. It gets in the way of everything, you know, it always pisses my husband off, and he gets pissed off at enough things, you’d think I'd be able to control this to where it’s one less thing he’d be pissed about.",
-                  "",
                   "Not so much, you know, if we vacuum around it, but you know, it’s in the way because the room cannot be used the way it’s supposed to be used. There’s not enough room in it with all the clutter in it on top of things, and it just looks disorganized and messy and, you know, you don’t really want to have visitors or friends come over. I look at other people’s houses and they’re all clean and lovely and lots of space and no problems. And I look at my front room and it's embarrassing! And it looks like I’m, for lack of a better word, trailer trash or something. Yeah it is a better word! My daughter’s here!",
-                  "",
                   "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.",
-                  "",
                   "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad."],
                  id="Set 1 doc with only lines, Participant lines no labels"),
     pytest.param(test_docs["2022_335.txt"], "Interviewer", True,
@@ -364,15 +359,10 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
                  "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad.",
                  id="Set 1 doc with only lines, Participant lines"),
     pytest.param(test_docs["062_745.txt"], "Participant", False,
-                 "\n"
                  "I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!\n"
-                 "\n"
                  "Yeah. It upsets me, you know, because we can’t really have people in here to have like a dinner party or anything. There’s no room. It upsets my family. It gets in the way of everything, you know, it always pisses my husband off, and he gets pissed off at enough things, you’d think I'd be able to control this to where it’s one less thing he’d be pissed about.\n"
-                 "\n"
                  "Not so much, you know, if we vacuum around it, but you know, it’s in the way because the room cannot be used the way it’s supposed to be used. There’s not enough room in it with all the clutter in it on top of things, and it just looks disorganized and messy and, you know, you don’t really want to have visitors or friends come over. I look at other people’s houses and they’re all clean and lovely and lots of space and no problems. And I look at my front room and it's embarrassing! And it looks like I’m, for lack of a better word, trailer trash or something. Yeah it is a better word! My daughter’s here!\n"
-                 "\n"
                  "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.\n"
-                 "\n"
                  "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad.",
                  id="Set 1 doc with only lines, Participant lines"),
     pytest.param(test_docs["2022_335.txt"], "Interviewer", True,

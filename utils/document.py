@@ -107,10 +107,11 @@ class Document:
             f"{self.default_speaker_pair}"
         lines = [self.lines[i] for i in range(len(self.lines))
                  if self._row_speakers_default[i] == speaker]
-        if speaker_labels:
-            return lines
-        return [self._SPEAKER_REGEX_RESTRICTED.sub('', line)
-                for line in lines]
+        if not speaker_labels:
+            lines = [self._SPEAKER_REGEX_RESTRICTED.sub('', line)
+                     for line in lines]
+            lines = [line for line in lines if line]
+        return lines
 
     def content_by_speaker(self, speaker: str, speaker_labels=False) -> str:
         """
