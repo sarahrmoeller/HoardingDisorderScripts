@@ -299,6 +299,87 @@ def test_row_speakers_default(test_doc, expected_speakers):
                   "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.",
                   "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad."],
                  id="Set 1 doc with only lines, Participant lines no labels"),
+    pytest.param(test_docs["049_606.txt"], "Participant", True,
+                 ["And then I said, \"Okay, the next thing I want is the kitchen,\" which is right out the entryway.", 
+                  "That just brings us back to there anyway.", 
+                  "But while she was working on parts of the kitchen, I was out working at a computer station I've set up between the living room and dining room, because I had to move the computer downstairs for a connection problem.", 
+                  "So, while she was doing one area, I could do another.",
+                  "Sometimes we're both working together.",
+                  "Sometimes we're working in adjacent rooms.",
+                  "It's a pretty open downstairs.",
+                  "It's a townhouse with a reasonably open plan.",
+                  "And sometimes ... I mean, I'm 69.",
+                  "I don't think I'm decrepit at all, but I'm not in good shape.",
+                  "So sometimes I'll just get tired in the afternoon and we've been working all day, and I'll come up and take a nap.",
+                  "And I know she's fine downstairs.",
+                  "She's not going to mess with anything.",
+                  "I totally trust her.",
+                  "So I'm able to work with her or apart from her.",
+                  "Participant 49:",
+                  "I met her ...",
+                  "I'm trying to think.",
+                  "I met her through a friend who had ...",
+                  "I'm trying to remember this.",
+                  "A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found [NAME 00:41:48].",
+                  "That's the helper's name.",
+                  "Found NAME somewhere.",
+                  "I don't know if she found her on the internet, or through another friend or whatever.",
+                  "But then I met NAME, and I was very comfortable with her.",
+                  "She's kind of a neat person.",
+                  "And I agreed with her about, let's say, 12 years ago, to work a little bit on my house.",
+                  "I left that out when I jumped from 2000 to now.",
+                  "To work a little bit on the house, and then she moved to Georgia.",
+                  "And now she's back in the area.",
+                  "So she's been back in the area for three or four years, but it was just this winter that ...",
+                  "It was right after I fell, really, that I finally said, \"This is ridiculous.",
+                  "I've got to get NAME back.\"",
+                  "I didn't want to spend the money, is part of it.",
+                  "And I thought, \"You have to do this, money or no money.\"",
+                  "And I was so relieved that she would come back, and her attitude, she's very non-judgmental.",
+                  "Her mother's somewhat of a hoarder, and her whole ... and she has other family members who have some mental health issues.",
+                  "Her attitude is sort of, \"People need help.",
+                  "I can help them.\""],
+                 id="Set 1 doc, Participant label has number, w/ label"),
+    pytest.param(test_docs["049_606.txt"], "Participant", False,
+                 ["And then I said, \"Okay, the next thing I want is the kitchen,\" which is right out the entryway.", 
+                  "That just brings us back to there anyway.", 
+                  "But while she was working on parts of the kitchen, I was out working at a computer station I've set up between the living room and dining room, because I had to move the computer downstairs for a connection problem.", 
+                  "So, while she was doing one area, I could do another.",
+                  "Sometimes we're both working together.",
+                  "Sometimes we're working in adjacent rooms.",
+                  "It's a pretty open downstairs.",
+                  "It's a townhouse with a reasonably open plan.",
+                  "And sometimes ... I mean, I'm 69.",
+                  "I don't think I'm decrepit at all, but I'm not in good shape.",
+                  "So sometimes I'll just get tired in the afternoon and we've been working all day, and I'll come up and take a nap.",
+                  "And I know she's fine downstairs.",
+                  "She's not going to mess with anything.",
+                  "I totally trust her.",
+                  "So I'm able to work with her or apart from her.",
+                  "I met her ...",
+                  "I'm trying to think.",
+                  "I met her through a friend who had ...",
+                  "I'm trying to remember this.",
+                  "A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found [NAME 00:41:48].",
+                  "That's the helper's name.",
+                  "Found NAME somewhere.",
+                  "I don't know if she found her on the internet, or through another friend or whatever.",
+                  "But then I met NAME, and I was very comfortable with her.",
+                  "She's kind of a neat person.",
+                  "And I agreed with her about, let's say, 12 years ago, to work a little bit on my house.",
+                  "I left that out when I jumped from 2000 to now.",
+                  "To work a little bit on the house, and then she moved to Georgia.",
+                  "And now she's back in the area.",
+                  "So she's been back in the area for three or four years, but it was just this winter that ...",
+                  "It was right after I fell, really, that I finally said, \"This is ridiculous.",
+                  "I've got to get NAME back.\"",
+                  "I didn't want to spend the money, is part of it.",
+                  "And I thought, \"You have to do this, money or no money.\"",
+                  "And I was so relieved that she would come back, and her attitude, she's very non-judgmental.",
+                  "Her mother's somewhat of a hoarder, and her whole ... and she has other family members who have some mental health issues.",
+                  "Her attitude is sort of, \"People need help.",
+                  "I can help them.\""],
+                 id="Set 1 doc, Participant label has number, no label"),
     pytest.param(test_docs["2022_335.txt"], "Interviewer", True,
                  ["Interviewer: Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?"],
                  id="Set 2 doc with only two lines, Interviewer lines w/ label"),
@@ -365,6 +446,46 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
                  "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.\n"
                  "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad.",
                  id="Set 1 doc with only lines, Participant lines"),
+    pytest.param(test_docs["049_606.txt"], "Participant", False,
+                 "And then I said, \"Okay, the next thing I want is the kitchen,\" which is right out the entryway.\n"
+                  "That just brings us back to there anyway.\n"
+                  "But while she was working on parts of the kitchen, I was out working at a computer station I've set up between the living room and dining room, because I had to move the computer downstairs for a connection problem.\n" 
+                  "So, while she was doing one area, I could do another.\n"
+                  "Sometimes we're both working together.\n"
+                  "Sometimes we're working in adjacent rooms.\n"
+                  "It's a pretty open downstairs.\n"
+                  "It's a townhouse with a reasonably open plan.\n"
+                  "And sometimes ... I mean, I'm 69.\n"
+                  "I don't think I'm decrepit at all, but I'm not in good shape.\n"
+                  "So sometimes I'll just get tired in the afternoon and we've been working all day, and I'll come up and take a nap.\n"
+                  "And I know she's fine downstairs.\n"
+                  "She's not going to mess with anything.\n"
+                  "I totally trust her.\n"
+                  "So I'm able to work with her or apart from her.\n"
+                  "I met her ...\n"
+                  "I'm trying to think.\n"
+                  "I met her through a friend who had ...\n"
+                  "I'm trying to remember this.\n"
+                  "A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found [NAME 00:41:48].\n"
+                  "That's the helper's name.\n"
+                  "Found NAME somewhere.\n"
+                  "I don't know if she found her on the internet, or through another friend or whatever.\n"
+                  "But then I met NAME, and I was very comfortable with her.\n"
+                  "She's kind of a neat person.\n"
+                  "And I agreed with her about, let's say, 12 years ago, to work a little bit on my house.\n"
+                  "I left that out when I jumped from 2000 to now.\n"
+                  "To work a little bit on the house, and then she moved to Georgia.\n"
+                  "And now she's back in the area.\n"
+                  "So she's been back in the area for three or four years, but it was just this winter that ...\n"
+                  "It was right after I fell, really, that I finally said, \"This is ridiculous.\n"
+                  "I've got to get NAME back.\"\n"
+                  "I didn't want to spend the money, is part of it.\n"
+                  "And I thought, \"You have to do this, money or no money.\"\n"
+                  "And I was so relieved that she would come back, and her attitude, she's very non-judgmental.\n"
+                  "Her mother's somewhat of a hoarder, and her whole ... and she has other family members who have some mental health issues.\n"
+                  "Her attitude is sort of, \"People need help.\n"
+                  "I can help them.\"",
+                 id="Set 1 doc, Participant label has number"),
     pytest.param(test_docs["2022_335.txt"], "Interviewer", True,
                  "Interviewer: Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?",
                  id="Set 2 doc with only two lines, Interviewer lines"),
