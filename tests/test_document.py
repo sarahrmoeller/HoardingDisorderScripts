@@ -322,8 +322,8 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
                                      speaker_labels=speaker_labels) == expected_lines
 
 
-@pytest.mark.parametrize("test_doc,speaker,expected_lines", [
-    pytest.param(test_docs["062_745.txt"], "Interviewer",
+@pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [
+    pytest.param(test_docs["062_745.txt"], "Interviewer", True,
                  "29:19 Interviewer:\n"
                  "Okay, and what do you think about when you hear the words “hoarding disorder?”\n"
                  "29:17 Interviewer:\n"
@@ -337,7 +337,21 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
                  "32:07 Interviewer:\n"
                  "Okay, and has your clutter ever impacted your work?",
                  id="Set 1 doc, Interviewer lines"),
-    pytest.param(test_docs["062_745.txt"], "Participant",
+    pytest.param(test_docs["062_745.txt"], "Interviewer", False,
+                 "29:19\n"
+                 "Okay, and what do you think about when you hear the words “hoarding disorder?”\n"
+                 "29:17\n"
+                 "Okay, so in our last section, I just have a couple more questions for you. Do your problems with clutter upset you?\n"
+                 "30:05\n"
+                 "Right, so you mentioned that it gets in the way of everything, so would you say it gets in the way of your daily life?\n"
+                 "31:11\n"
+                 "So could you describe a time where your clutter got in the way of something you really wanted? I know you mentioned that it’s difficult to entertain and have people over because it’s embarrassing to you.\n"
+                 "31:51\n"
+                 "So definitely it gets in the way of your family time.\n"
+                 "32:07\n"
+                 "Okay, and has your clutter ever impacted your work?",
+                 id="Set 1 doc, Interviewer lines"),
+    pytest.param(test_docs["062_745.txt"], "Participant", True,
                  "Participant:\n"
                  "I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!\n"
                  "Participant:\n"
@@ -349,13 +363,30 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
                  "Participant:\n"
                  "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad.",
                  id="Set 1 doc with only lines, Participant lines"),
-    pytest.param(test_docs["2022_335.txt"], "Interviewer",
+    pytest.param(test_docs["062_745.txt"], "Participant", False,
+                 "\n"
+                 "I think, you know, somebody who has a uh…. Well for a lack of a better term, mental problem, and, you know… I don’t know, because these people are hanging on to things because they can’t get rid of them, and mine is more like I’m too lazy to go through and get rid of stuff. I don’t generally have a problem disposing of things or getting rid of things, unless it’s something that, you know, either has memories or it’s something that I’m collecting. Yeah so, I don’t know if I’m just lazy and don’t want to do it.. I don’t know!\n"
+                 "\n"
+                 "Yeah. It upsets me, you know, because we can’t really have people in here to have like a dinner party or anything. There’s no room. It upsets my family. It gets in the way of everything, you know, it always pisses my husband off, and he gets pissed off at enough things, you’d think I'd be able to control this to where it’s one less thing he’d be pissed about.\n"
+                 "\n"
+                 "Not so much, you know, if we vacuum around it, but you know, it’s in the way because the room cannot be used the way it’s supposed to be used. There’s not enough room in it with all the clutter in it on top of things, and it just looks disorganized and messy and, you know, you don’t really want to have visitors or friends come over. I look at other people’s houses and they’re all clean and lovely and lots of space and no problems. And I look at my front room and it's embarrassing! And it looks like I’m, for lack of a better word, trailer trash or something. Yeah it is a better word! My daughter’s here!\n"
+                 "\n"
+                 "Well more importantly than being embarrassing, the way that I couldn’t house my daughter here the way that would be best for everyone was really impacting the lives of everyone else in this house, so that was a big impact for about a week here.\n"
+                 "\n"
+                 "And just being an eyesore, you know, the fact that my husband can’t stand it. It’s just all around bad.",
+                 id="Set 1 doc with only lines, Participant lines"),
+    pytest.param(test_docs["2022_335.txt"], "Interviewer", True,
                  "Interviewer: Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?",
                  id="Set 2 doc with only two lines, Interviewer lines"),
-    pytest.param(test_docs["2022_335.txt"], "Participant",
+    pytest.param(test_docs["2022_335.txt"], "Interviewer", False,
+                 "Sorry, so the last of the criteria that I'd like to talk through with you is about distress and it's gonna move us into a conversation about insight that you've kind of already foreshadowed, and the criteria reads, \"this difficulty is due to a perceived need to save the items and to distress associated with discarding them.\" And so the question that I have is about how you're determining distress in this context? If a patient has very low insight and doesn't think that their hoarding is a problem, you know, denies that they are at all distressed and says they're perfectly happy with their space the way that it is, how is the distress kind of criteria met or if the person says they're not impaired, how do you determine what constitutes impairment?",
+                 id="Set 2 doc with only two lines, Interviewer lines"),
+    pytest.param(test_docs["2022_335.txt"], "Participant", True,
                  "Interviewee: Yeah I think the distress question is slightly more difficult than the impairment question. I think often times it is the collateral context, the people around the person with hoarding that are the distress markers, if you will. So they are the family members or the housing inspector or the child welfare organization, are the markers of distress so they are the ones who are bothered by the saving and the manifestation of the objects, and sometimes in the face of that evidence in clinical interview I have been successful in having clients acknowledge at least why others might be distressed, even if they are not distressed. So they continue to deny their own, but are willing to say, \"yes I hear it from other people and I can see why they would be bothered and/or worried.\" So that's one path that I take in clinical interview for assessment purposes of distress. I think the measures--and I would say that the measures that we have, the standardized measures, you know the hoarding rating scale or the saving inventory revise very little in these ways. They do more in the area of impairment if the person has some amount of insight, but we know that insight of course, or lack thereof, is part of the pathology of this problem. It's also fluctuating, right, so in any given moment a person may be able to say, \"yes this is deeply impairing and deeply distressing\" and in the very next moment they may deny both of those things, again as part of the illness. So I think both, for me clinically, both distress and impairment is part of my clinical interview more than, I come at those things through the clinical interview more than I use those standardized assessments. I don't think what we have available right now does a very good job.",
                  id="Set 2 doc with only two lines, Participant lines"),
+    pytest.param(test_docs["2022_335.txt"], "Participant", False,
+                 "Yeah I think the distress question is slightly more difficult than the impairment question. I think often times it is the collateral context, the people around the person with hoarding that are the distress markers, if you will. So they are the family members or the housing inspector or the child welfare organization, are the markers of distress so they are the ones who are bothered by the saving and the manifestation of the objects, and sometimes in the face of that evidence in clinical interview I have been successful in having clients acknowledge at least why others might be distressed, even if they are not distressed. So they continue to deny their own, but are willing to say, \"yes I hear it from other people and I can see why they would be bothered and/or worried.\" So that's one path that I take in clinical interview for assessment purposes of distress. I think the measures--and I would say that the measures that we have, the standardized measures, you know the hoarding rating scale or the saving inventory revise very little in these ways. They do more in the area of impairment if the person has some amount of insight, but we know that insight of course, or lack thereof, is part of the pathology of this problem. It's also fluctuating, right, so in any given moment a person may be able to say, \"yes this is deeply impairing and deeply distressing\" and in the very next moment they may deny both of those things, again as part of the illness. So I think both, for me clinically, both distress and impairment is part of my clinical interview more than, I come at those things through the clinical interview more than I use those standardized assessments. I don't think what we have available right now does a very good job.",
+                 id="Set 2 doc with only two lines, Participant lines"),
 ])
-def test_content_by_speaker(test_doc, speaker, expected_lines):
-    assert test_doc.content_by_speaker(speaker, 
-                                       speaker_labels=True) == expected_lines
+def test_content_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
+    assert test_doc.content_by_speaker(speaker, speaker_labels=speaker_labels) == expected_lines
