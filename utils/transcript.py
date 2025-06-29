@@ -12,13 +12,13 @@ class Transcript(Document):
         assert transcript_number in data.transcript_numbers, \
             f'Transcript number {transcript_number} not found in available ' \
              'transcripts.'
-        self.transcript_number = transcript_number
+        self.number = transcript_number
         # All documents associated with this transcript number
         # i.e. if transcript_number is "005", then this will have
         # '005_082', '005_083', '005_086', etc.
         self.docs: list[Document] = [
             doc for doc in data.by_doc 
-            if doc.transcript_number == self.transcript_number
+            if doc.transcript_number == self.number
         ]
         assert self.docs, \
             f"No documents found for transcript number {transcript_number}"
@@ -45,11 +45,11 @@ class Transcript(Document):
         Ex: if you want document '2008_118', access Transcript('2008')['118'].
         """
         for doc in self.docs:
-            if doc.name == f"{self.transcript_number}_{index}.txt":
+            if doc.name == f"{self.number}_{index}.txt":
                 return doc
         raise KeyError(f"Document no. {index} "
-                       f"('{self.transcript_number}_{index}.txt') not found "
-                       f"in transcript {self.transcript_number}")
+                       f"('{self.number}_{index}.txt') not found "
+                       f"in transcript {self.number}")
 
     def __repr__(self) -> str:
-        return f"Transcript(\"{self.transcript_number}\")"
+        return f"Transcript(\"{self.number}\")"
