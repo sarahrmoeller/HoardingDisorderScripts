@@ -3,8 +3,9 @@ from functools import cached_property
 from itertools import product
 import json
 import os
-import re
 import warnings
+from . import regexes
+from .regexes import SPEAKER_PAIRS, SPEAKERS
 
 
 # List of all labels in the projects
@@ -17,18 +18,6 @@ LABELS = {
     'Unclear',
     'Overlap'
 }
-# List of Interviewer/Participant speaker name tuples found in the data.
-# We commented to the right which set the pair was found in.
-# We use the convention that the last speaker in the tuple is the participant,
-# and all other speakers are interviewers.
-SPEAKER_PAIRS: list[tuple] = [
-    ("Interviewer", "Participant"), # Hoarding-Patient (set 1)
-    ("Interviewer", "Interviewee"), # Hoarding-Clinician (set 2) & Transcript no. 012
-    ("Interviewer", "Speaker"), # Parents (set 3)
-    ("P1", "P3", "Interviewee"), # Transcript no. (2)005
-    ("P1", "P2", "Interviewee") # Transcript no. 2008
-]
-SPEAKERS: set = {speaker for pair in SPEAKER_PAIRS for speaker in pair}
 
 
 class Document:
@@ -40,14 +29,7 @@ class Document:
     # Define the default speaker names to use for display in output table
     # Default interviewer name is at index 0, and default participant name is
     # at index 1
-    default_speaker_pair = SPEAKER_PAIRS[0]
-    # This regex is used to match speaker labels, i.e. 'Interviewer:', 'Participant 12:'
-    _SPEAKER_REGEX = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?:')
-    _SPEAKER_REGEX_RESTRICTED = re.compile(
-        r'\s*(?:{speakers})(?:\s+\d+)?:\s*'.format(
-            speakers='|'.join(SPEAKERS)))
-    # This regex is used to match timestamps, i.e. '19:24' or '23:14'
-    _TIMESTAMPS_REGEX = re.compile(r'(\d+:\d+)')
+    default_speaker_pair = regexes.SPEAKER_PAIRS[0]
         
     def __init__(self, path: str) -> None:
         with open(path) as f:
@@ -110,11 +92,11 @@ class Document:
                  if self._row_speakers_default[i] == speaker]
         if not speaker_labels:
             # Remove speakerl labels from the lines
-            lines = [self._SPEAKER_REGEX_RESTRICTED.sub('', line)
+            lines = [regexes.speaker_labels_restricted.sub('', line)
                      for line in lines]
         if cleaned:
             # Remove timestamps from the lines
-            lines = [self._TIMESTAMPS_REGEX.sub('', line).strip() 
+            lines = [regexes.timestamps.sub('', line).strip() 
                      for line in lines]
         # Remove empty lines
         lines = [line for line in lines if line]
@@ -150,7 +132,7 @@ class Document:
         - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not 
                               in `SPEAKERS`)
         """
-        matches = Document._SPEAKER_REGEX.findall(content)
+        matches = regexes.speaker_labels.findall(content)
         if not restrict:
             return matches
         return [match for match in matches if match in SPEAKERS]
