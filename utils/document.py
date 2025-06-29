@@ -85,14 +85,13 @@ class Document:
         if sent: 
             self.sentences.append(sent)
 
-    def write_to_file(self, path: str='') -> None:
+    def write_to_file(self, dir: str='.') -> None:
         """
         Write the document to a file. 
+        Writes to the (optionally) specfied directory. If no directory is 
+        specified, writes to the current directory.
         """
-        path = path or f"./{self.name}"
-        if os.path.dirname(path):
-            os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'w') as f:
+        with open(f"{dir}/{self.name}", 'w') as f:
             f.write(self.full_content)
 
     def lines_by_speaker(self, speaker: str, 

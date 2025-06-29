@@ -29,12 +29,13 @@ class Transcript(Document):
         self.lines = [line for doc in self.docs for line in doc.lines]
         self.full_content = "\n".join(doc.full_content for doc in self.docs)
     
-    def write_to_file(self, path: str='') -> None:
+    def write_to_file(self, dir: str='.') -> None:
         """
         Write the transcript to a file. 
+        Writes to the (optionally) specfied directory. If no directory is 
+        specified, writes to the current directory.
         """
-        path = path or f"./{self.transcript_number}.txt"
-        with open(path, 'w') as f:
+        with open(f"{dir}/{self.name}", 'w') as f:
             f.write(self.full_content)
 
     def __getitem__(self, index: str) -> Document:
