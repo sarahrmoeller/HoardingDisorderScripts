@@ -1,5 +1,4 @@
 from .document import Document
-from .transcript import Transcript
 import os
 
 
@@ -22,4 +21,7 @@ by_project = {project: [Document(review_dir(project) + filename)
 by_doc = (doc for doc_list in by_project.values() for doc in doc_list)
 
 transcript_numbers = sorted(list(set(doc.transcript_number for doc in by_doc)))
-by_transcript = (Transcript(num) for num in transcript_numbers)
+by_transcript = {tn : sorted([doc for doc in by_doc
+                              if doc.transcript_number == tn],
+                             key=lambda doc: doc.name)
+                 for tn in transcript_numbers}
