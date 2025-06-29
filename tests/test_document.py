@@ -261,19 +261,19 @@ def load_test_data(filename: str) -> dict:
 
 
 @pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [
-    pytest.param(test_docs[os.path.splitext(filename)[0]], 
+    pytest.param(test_docs[filename.rstrip('.json')], 
                  speaker,
                  variant == "raw",
-                 load_test_data(filename)[speaker][variant]["lines"],
-                 id=f"L + ratio + {os.path.splitext(filename)[0]} + "
+                 file_data[speaker][variant]["lines"],
+                 id=f"L + ratio + {filename} + "
                     f"{speaker} + {variant} + "
-                    f"{load_test_data(filename)['id']}")
+                    f"{file_data['id']}")
     for filename in os.listdir(TEST_DATA_DIR) 
     for speaker in ("Interviewer", "Participant")
     for variant in ("raw", "no-speaker-labels")
     if filename.endswith(".json") and 
-    speaker in load_test_data(filename).keys() and 
-    variant in load_test_data(filename)[speaker].keys()
+    speaker in (file_data := load_test_data(filename)) and 
+    variant in file_data[speaker].keys()
 ])
 def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
     assert test_doc.lines_by_speaker(speaker, 
@@ -281,20 +281,20 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
 
 
 @pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [
-    pytest.param(test_docs[os.path.splitext(filename)[0]], 
+    pytest.param(test_docs[filename.rstrip('.json')], 
                  speaker,
                  variant == "raw",
-                 load_test_data(filename)[speaker][variant]["content"],
-                 id=f"L + ratio + {os.path.splitext(filename)[0]} + "
+                 file_data[speaker][variant]["content"],
+                 id=f"L + ratio + {filename} + "
                     f"{speaker} + {variant} + "
-                    f"{load_test_data(filename)['id']}")
+                    f"{file_data['id']}")
     for filename in os.listdir(TEST_DATA_DIR) 
     for speaker in ("Interviewer", "Participant")
     for variant in ("raw", "no-speaker-labels")
     if filename.endswith(".json") and 
-    speaker in load_test_data(filename).keys() and 
-    variant in load_test_data(filename)[speaker].keys() and
-    'content' in load_test_data(filename)[speaker][variant].keys()
+    speaker in (file_data := load_test_data(filename)) and 
+    variant in file_data[speaker].keys() and
+    'content' in file_data[speaker][variant].keys()
 ])
 def test_content_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
     assert test_doc.content_by_speaker(speaker, 
