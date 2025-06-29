@@ -267,9 +267,7 @@ def load_test_data(filename: str) -> dict:
                  variant == "raw", # Only enable speaker_labels option if testing raw
                  variant == "cleaned", # Only enable cleaned option if testing cleaned
                  file_data[speaker][variant]["lines"],
-                 id=f"L + ratio + {filename} + "
-                    f"{speaker} + {variant} + "
-                    f"{file_data['id']}")
+                 id=f"{filename} + {speaker} + {variant} + {file_data['id']}")
     for filename in os.listdir(TEST_DATA_DIR) 
     for speaker in ("Interviewer", "Participant")
     for variant in ("raw", "no-speaker-labels", "cleaned")
@@ -289,9 +287,7 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, cleaned,
                  speaker,
                  variant == "raw",
                  file_data[speaker][variant]["content"],
-                 id=f"L + ratio + {filename} + "
-                    f"{speaker} + {variant} + "
-                    f"{file_data['id']}")
+                 id=f"{filename} + {speaker} + {variant} + {file_data['id']}")
     for filename in os.listdir(TEST_DATA_DIR) 
     for speaker in ("Interviewer", "Participant")
     for variant in ("raw", "no-speaker-labels")
