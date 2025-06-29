@@ -37,5 +37,18 @@ class Transcript(Document):
         with open(path, 'w') as f:
             f.write(self.full_content)
 
+    def __getitem__(self, index: str) -> Document:
+        """
+        Get a document by its index within the transcript.
+        
+        Ex: if you want document '2008_118', access Transcript('2008')['118'].
+        """
+        for doc in self.docs:
+            if doc.name == f"{self.transcript_number}_{index}.txt":
+                return doc
+        raise KeyError(f"Document no. {index} "
+                       f"('{self.transcript_number}_{index}.txt') not found "
+                       f"in transcript {self.transcript_number}")
+
     def __repr__(self) -> str:
         return f"Transcript(\"{self.transcript_number}\")"
