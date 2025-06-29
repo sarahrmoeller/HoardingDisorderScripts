@@ -282,20 +282,24 @@ def test_lines_by_speaker(test_doc, speaker, speaker_labels, cleaned,
                                      cleaned=cleaned) == expected_lines
 
 
-@pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [
+@pytest.mark.parametrize("test_doc,speaker,speaker_labels,cleaned," \
+                         "expected_lines", [
     pytest.param(test_docs[filename.rstrip('.json')], 
                  speaker,
                  variant == "raw",
+                 variant == "cleaned",
                  file_data[speaker][variant]["content"],
                  id=f"{filename} + {speaker} + {variant} + {file_data['id']}")
     for filename in os.listdir(TEST_DATA_DIR) 
     for speaker in ("Interviewer", "Participant")
-    for variant in ("raw", "no-speaker-labels")
+    for variant in ("raw", "no-speaker-labels", "cleaned")
     if filename.endswith(".json") and 
     speaker in (file_data := load_test_data(filename)) and 
     variant in file_data[speaker].keys() and
     'content' in file_data[speaker][variant].keys()
 ])
-def test_content_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
+def test_content_by_speaker(test_doc, speaker, speaker_labels, cleaned, 
+                            expected_lines):
     assert test_doc.content_by_speaker(speaker, 
-                                       speaker_labels=speaker_labels) == expected_lines
+                                       speaker_labels=speaker_labels,
+                                       cleaned=cleaned) == expected_lines

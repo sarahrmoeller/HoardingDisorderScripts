@@ -120,13 +120,17 @@ class Document:
         lines = [line for line in lines if line]
         return lines
 
-    def content_by_speaker(self, speaker: str, speaker_labels=False) -> str:
+    def content_by_speaker(self, speaker: str, 
+                           speaker_labels=False,
+                           cleaned=True) -> str:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
         """
         content = '\n'.join(
-            self.lines_by_speaker(speaker, speaker_labels=speaker_labels))
+            self.lines_by_speaker(speaker, 
+                                  speaker_labels=speaker_labels,
+                                  cleaned=cleaned))
         return content
 
     @classmethod
