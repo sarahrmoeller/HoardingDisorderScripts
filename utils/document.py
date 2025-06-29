@@ -8,7 +8,7 @@ from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
 
 
-# List of all labels in the projects
+# List of all labels (types of incomplete clauses) found across all projects
 LABELS = {
     'Incomplete Thought',
     'Self Correction',
