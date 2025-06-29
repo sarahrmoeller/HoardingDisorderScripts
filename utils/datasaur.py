@@ -18,7 +18,7 @@ by_project = {project: [Document(review_dir(project) + filename)
                         for filename in os.listdir(review_dir(project))] 
               for project in projects}
 
-by_doc = (doc for doc_list in by_project.values() for doc in doc_list)
+by_doc = [doc for doc_list in by_project.values() for doc in doc_list]
 
 transcript_numbers = sorted(list(set(doc.transcript_number for doc in by_doc)))
 by_transcript = {tn : sorted([doc for doc in by_doc
