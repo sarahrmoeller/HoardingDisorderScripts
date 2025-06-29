@@ -260,24 +260,28 @@ def load_test_data(filename: str) -> dict:
         return json.load(f)
 
 
-@pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [
+@pytest.mark.parametrize("test_doc,speaker,speaker_labels,cleaned,"
+                         "expected_lines", [
     pytest.param(test_docs[filename.rstrip('.json')], 
                  speaker,
-                 variant == "raw",
+                 variant == "raw", # Only enable speaker_labels option if testing raw
+                 variant == "cleaned", # Only enable cleaned option if testing cleaned
                  file_data[speaker][variant]["lines"],
                  id=f"L + ratio + {filename} + "
                     f"{speaker} + {variant} + "
                     f"{file_data['id']}")
     for filename in os.listdir(TEST_DATA_DIR) 
     for speaker in ("Interviewer", "Participant")
-    for variant in ("raw", "no-speaker-labels")
+    for variant in ("raw", "no-speaker-labels", "cleaned")
     if filename.endswith(".json") and 
     speaker in (file_data := load_test_data(filename)) and 
     variant in file_data[speaker].keys()
 ])
-def test_lines_by_speaker(test_doc, speaker, speaker_labels, expected_lines):
+def test_lines_by_speaker(test_doc, speaker, speaker_labels, cleaned, 
+                          expected_lines):
     assert test_doc.lines_by_speaker(speaker, 
-                                     speaker_labels=speaker_labels) == expected_lines
+                                     speaker_labels=speaker_labels,
+                                     cleaned=cleaned) == expected_lines
 
 
 @pytest.mark.parametrize("test_doc,speaker,speaker_labels,expected_lines", [

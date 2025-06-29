@@ -96,7 +96,8 @@ class Document:
             f.write(self.full_content)
 
     def lines_by_speaker(self, speaker: str, 
-                         speaker_labels=False) -> list[str]:
+                         speaker_labels=False,
+                         cleaned=True) -> list[str]:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
@@ -108,9 +109,15 @@ class Document:
         lines = [self.lines[i] for i in range(len(self.lines))
                  if self._row_speakers_default[i] == speaker]
         if not speaker_labels:
+            # Remove speakerl labels from the lines
             lines = [self._SPEAKER_REGEX_RESTRICTED.sub('', line)
                      for line in lines]
-            lines = [line for line in lines if line]
+        if cleaned:
+            # Remove timestamps from the lines
+            lines = [self._TIMESTAMPS_REGEX.sub('', line).strip() 
+                     for line in lines]
+        # Remove empty lines
+        lines = [line for line in lines if line]
         return lines
 
     def content_by_speaker(self, speaker: str, speaker_labels=False) -> str:
