@@ -231,7 +231,7 @@ class Document:
             if i > 0 and current_speaker and not row_speakers[0]:
                 assert row_speakers[:i] == [None] * i, \
                     f'Row speakers up to row {i} in {self} ' \
-                    f'are not all None: {row_speakers}'
+                    f'are not all None:\n\t{row_speakers}'
                 # In the case when there are two speakers, we know the
                 # empty rows are spoken by the other speaker.
                 if len(self.speaker_tuple) == 2:
