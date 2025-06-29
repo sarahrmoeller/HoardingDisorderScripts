@@ -22,12 +22,15 @@ class Transcript(Document):
         ]
         assert self.docs, \
             f"No documents found for transcript number {transcript_number}"
-        self.docs.sort(key=lambda doc: doc.name) # Sorted for easier debugging
+        # Sorted so transcript order is preserved
+        self.docs.sort(key=lambda doc: doc.name) 
         self.set = self.docs[0].set
         self.hoarder_flag = self.docs[0].hoarder_flag
+        # Extracting data from all documents, flattening the lists
         self.row_data = [rd for doc in self.docs for rd in doc.row_data]
         self.lines = [line for doc in self.docs for line in doc.lines]
         self.full_content = "\n".join(doc.full_content for doc in self.docs)
+        self.label_data = [ld for doc in self.docs for ld in doc.label_data]
     
     def write_to_file(self, dir: str='.') -> None:
         """
