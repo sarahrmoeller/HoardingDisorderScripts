@@ -33,4 +33,4 @@ timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
 extractable_token = re.compile(r"""(?:\((?:(\w*),?\s+)?{ts}\))|
                                    (?:\[(?:(\w*),?\s+)?{ts}\])
                                 """.format(ts=timestamps.pattern),
-                             flags = re.IGNORECASE | re.VERBOSE)
+                               flags = re.IGNORECASE | re.VERBOSE)
