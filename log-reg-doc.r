@@ -1,4 +1,4 @@
-all.data <- read.csv("./out/table.csv")
+all.data <- read.csv("./out/document_table.csv")
 all.data <- all.data[, !(names(all.data) %in% c("Project", "Document.Name"))] # Remove project and document names
 names(all.data)
 
