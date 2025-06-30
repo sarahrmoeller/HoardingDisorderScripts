@@ -228,9 +228,6 @@ class Document:
             # and the first row is empty, we assume that all rows up to this
             # point haven't been labeled (check)
             if i > 0 and current_speaker and not row_speakers[0]:
-                assert row_speakers[:i] == [None] * i, \
-                    f'Row speakers up to row {i} in {self} ' \
-                    f'are not all None:\n\t{row_speakers}'
                 # In the case when there are two speakers, we know the
                 # empty rows are spoken by the other speaker.
                 if len(self.speaker_tuple) == 2:
@@ -239,7 +236,7 @@ class Document:
                     other_speaker = self.speaker_tuple[current_speaker_ind-1]
                     row_speakers[:i] = [other_speaker] * i
                 else:
-                    warnings.warn(f'First few rows empty in {self} but there '
+                    warnings.warn(f'First {i} rows empty in {self} but there '
                                    'are too many speakers! I don\'t know how '
                                    'to fill them.')
         
