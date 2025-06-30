@@ -48,3 +48,38 @@ from utils import regexes
 def test_speaker_labels(input_line, expected):
     assert regexes.speaker_labels.findall(input_line) == expected
 
+
+@pytest.mark.parametrize("string,expected", [
+    ("17:38", ""),
+    ("1:23", ""),
+    ("12:34:56", ""),
+    ("1:52:23", ""),
+    ("1;23", ""), # Mistakes allowed
+    ("2:23 Interviewer:", "Interviewer:"),
+])
+def test_timestamps(string, expected):
+    assert regexes.timestamps.match(string)
+    assert regexes.timestamps.sub('', string) == expected
+
+
+@pytest.mark.parametrize("string,expected", [
+    ("(17:38)", ""),
+    ("(1:23)", ""),
+    ("(12:34:56)", ""),
+    ("(1:52:23)", ""),
+    ("[17:38]", ""),
+    ("[1:23]", ""),
+    ("[12:34:56]", ""),
+    ("[1:52:23]", ""),
+    ("(inAuDiBlE 2:23)", "INAUDIBLE"),
+    ("[inAuDiBlE 2:23]", "INAUDIBLE"),
+    ("When we go to the [inaudible 2:23] place", 
+     "When we go to the INAUDIBLE place"), 
+])
+def test_removable_token(string, expected):
+    assert regexes.removable_token.search(string)
+    assert regexes.removable_token \
+                  .sub(lambda m : '' if m.groups() == (None, None)
+                                     else [g for i in range(0, 1 + 1)
+                                           if (g := m.groups()[i])][0].upper(),
+                       string) == expected

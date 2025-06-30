@@ -24,5 +24,10 @@ speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?:')
 # SPEAKERS set.
 speaker_labels_restricted = re.compile(r'\s*(?:{speakers})(?:\s+\d+)?:\s*'
                                        .format(speakers='|'.join(SPEAKERS)))
-# This regex is used to match timestamps, i.e. '19:24' or '23:14'
-timestamps = re.compile(r'(\d+:\d+)')
+
+# This regex is used to match timestamps, i.e. '19:24', '3:14', or '12:34:56'.
+timestamps = re.compile(r'\d{1,2}[:|;]\d{2}(?:[:|;]\d{2})?\s?')
+removable_token = re.compile(r"""(?:\((?:(\w*)\s+)?{ts}\))|
+                                 (?:\[(?:(\w*)\s+)?{ts}\])
+                                 """.format(ts=timestamps.pattern),
+                             flags = re.IGNORECASE | re.VERBOSE)
