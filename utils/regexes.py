@@ -26,7 +26,10 @@ speaker_labels_restricted = re.compile(r'\s*(?:{speakers})(?:\s+\d+)?:\s*'
                                        .format(speakers='|'.join(SPEAKERS)))
 
 # This regex is used to match timestamps, i.e. '19:24', '3:14', or '12:34:56'.
+# Also allows for ranges, i.e. '1:23-1:56'.
 timestamps = re.compile(r'\d{1,2}[:|;]\d{2}(?:[:|;]\d{2})?\s?')
+timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
+
 extractable_token = re.compile(r"""(?:\((?:(\w*),?\s+)?{ts}\))|
                                    (?:\[(?:(\w*),?\s+)?{ts}\])
                                 """.format(ts=timestamps.pattern),

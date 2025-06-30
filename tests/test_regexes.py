@@ -55,6 +55,7 @@ def test_speaker_labels(input_line, expected):
     ("12:34:56", ""),
     ("1:52:23", ""),
     ("1;23", ""), # Mistakes allowed
+    ("1:23-1:56", ""), # Ranges allowed
     ("2:23 Interviewer:", "Interviewer:"),
 ])
 def test_timestamps(string, expected):
@@ -71,6 +72,7 @@ def test_timestamps(string, expected):
     ("[1:23]", ""),
     ("[12:34:56]", ""),
     ("[1:52:23]", ""),
+    ("[1:52:23-12:43:44]", ""),
     ("(inAuDiBlE 2:23)", "INAUDIBLE"),
     ("[inAuDiBlE 2:23]", "INAUDIBLE"),
     ("When we go to the [inaudible 2:23] place", "When we go to the INAUDIBLE "
