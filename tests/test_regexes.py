@@ -62,7 +62,7 @@ def test_timestamps(string, expected):
     assert regexes.timestamps.sub('', string) == expected
 
 
-@pytest.mark.parametrize("string,expected", [
+@pytest.mark.parametrize("string,expected", (
     ("(17:38)", ""),
     ("(1:23)", ""),
     ("(12:34:56)", ""),
@@ -73,9 +73,11 @@ def test_timestamps(string, expected):
     ("[1:52:23]", ""),
     ("(inAuDiBlE 2:23)", "INAUDIBLE"),
     ("[inAuDiBlE 2:23]", "INAUDIBLE"),
-    ("When we go to the [inaudible 2:23] place", 
-     "When we go to the INAUDIBLE place"), 
-])
+    ("When we go to the [inaudible 2:23] place", "When we go to the INAUDIBLE "
+                                                 "place"), 
+    ("(NAME, 2:23)", "NAME"),
+    ("[NAME, 2:23]", "NAME"),
+))
 def test_removable_token(string, expected):
     assert regexes.removable_token.search(string)
     assert regexes.removable_token \
