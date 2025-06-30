@@ -74,15 +74,25 @@ def test_timestamps(string, expected):
 
 
 @pytest.mark.parametrize("string,expected", [ 
+    ("(NAME)", "NAME"),
+    ("[NAME]", "NAME"),
     ("(inAuDiBlE 2:23)", "INAUDIBLE"),
     ("[inAuDiBlE 2:23]", "INAUDIBLE"),
-    ("When we go to the [inaudible 2:23] place", "When we go to the INAUDIBLE "
-                                                 "place"), 
-    ("(NAME, 2:23)", "NAME"),
+    ("(NAME, 2:23)", "NAME"), 
     ("[NAME, 2:23]", "NAME"),
+    ("(UNIVERSITY, (2:24))", "UNIVERSITY"), # Try with timestamp's parentheses
+    ("[UNIVERSITY, (2:24)]", "UNIVERSITY"),
+    ("(UNIVERSITY, [2:25])", "UNIVERSITY"), # And with timestamp brackets
+    ("[UNIVERSITY, [2:25]]", "UNIVERSITY"),
+    ("[names of companies; (48:15)]", "NAMES_OF_COMPANIES"),
+    # In context
+    ("When we go to the [inaudible 2:23] place", 
+     "When we go to the INAUDIBLE place"), 
 ])
 def test_extractable_token(string, expected):
     assert regexes.extractable_token.search(string)
-    assert regexes.extractable_token.sub(lambda m: (m.group(1) or m.group(2) 
-                                                    or '').upper(),
+    assert regexes.extractable_token.sub(lambda m: '_'.join((m.group(1) or 
+                                                             m.group(2) or 
+                                                             '').upper()
+                                                                .split()),
                                          string) == expected

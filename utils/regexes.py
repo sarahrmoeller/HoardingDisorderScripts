@@ -32,7 +32,7 @@ timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
 timestamps = re.compile(r'{ts}|\({ts}\)|\[{ts}\]'
                         .format(ts=timestamps.pattern))
 
-extractable_token = re.compile(r"""(?:\((?:(\w*),?\s+)?{ts}\))|
-                                   (?:\[(?:(\w*),?\s+)?{ts}\])
-                                """.format(ts=timestamps.pattern),
-                               flags = re.IGNORECASE | re.VERBOSE)
+extractable_token = re.compile(r"([a-zA-Z ]+)(?:[,;]?\s+(?:{ts}))?"
+                               .format(ts=timestamps.pattern))
+extractable_token = re.compile(r"\({et}\)|\[{et}\]"
+                               .format(et=extractable_token.pattern))
