@@ -6,14 +6,6 @@ names(all.data)
 total.slr <- glm(Hoarder.Flag ~ Total, data = all.data, family = "binomial")
 summary(total.slr)
 
-library(ggplot2)
-ggplot(all.data, aes(Total, Hoarder.Flag)) + 
-    geom_point(position=position_jitter(h=2e-3,w=2e-3)) +
-    theme_gray(base_size = 24) +
-    stat_smooth(method="glm", color="red", se=FALSE,
-            method.args = list(family=binomial)) +
-    labs(x="Total Labels", y="Hoarder Flag")
-
 # Regression model by speaker
 total.rows <- names(all.data)[grepl("Total", names(all.data))]
 labels.by.speaker <- all.data[, !(names(all.data) %in% total.rows)]
