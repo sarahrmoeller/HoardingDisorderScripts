@@ -18,8 +18,13 @@ ggplot(all.data, aes(Total, Hoarder.Flag)) +
 total.rows <- names(all.data)[grepl("Total", names(all.data))]
 labels.by.speaker <- all.data[, !(names(all.data) %in% total.rows)]
 names(labels.by.speaker)
+speaker.label.mlr <- glm(Hoarder.Flag ~ . - TTR - ASL, data = labels.by.speaker, family = "binomial")
+speaker.label.part.mlr <- glm(Hoarder.Flag ~ . - TTR - ASL, data = labels.by.speaker[, !grepl("Interviewer", names(labels.by.speaker))],
+                              family = "binomial")
 speaker.mlr <- glm(Hoarder.Flag ~ ., data = labels.by.speaker, family = "binomial")
 summary(speaker.mlr)
+summary(speaker.label.mlr)
+summary(speaker.label.part.mlr)
 
 # Sanity check: if we regress on the total like this, we should get the same coefficients
 total.rows <- total.rows[!total.rows == "Total"] # don't include the Total column
