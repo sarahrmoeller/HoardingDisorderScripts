@@ -38,7 +38,7 @@ class Transcript(Document):
         Writes to the (optionally) specfied directory. If no directory is 
         specified, writes to the current directory.
         """
-        with open(f"{dir}/{self.name}", 'w') as f:
+        with open(f"{dir}/{self.number}.txt", 'w') as f:
             f.write(self.full_content)
 
     def __getitem__(self, index: str) -> Document:
