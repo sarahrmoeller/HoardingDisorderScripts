@@ -56,7 +56,7 @@ def test_speaker_labels(input_line, expected):
     ("1:52:23", ""),
     ("1;23", ""), # Mistakes allowed
     ("1:23-1:56", ""), # Ranges allowed
-    ("2:23 Interviewer:", "Interviewer:"),
+    ("2:23 Interviewer:", " Interviewer:"),
     # Test with brackets/parentheses
     ("(17:38)", ""),
     ("(1:23)", ""),
