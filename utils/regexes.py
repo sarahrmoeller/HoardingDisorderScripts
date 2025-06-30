@@ -29,6 +29,8 @@ speaker_labels_restricted = re.compile(r'\s*(?:{speakers})(?:\s+\d+)?:\s*'
 # Also allows for ranges, i.e. '1:23-1:56'.
 timestamps = re.compile(r'\d{1,2}[:|;]\d{2}(?:[:|;]\d{2})?\s?')
 timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
+timestamps = re.compile(r'{ts}|\({ts}\)|\[{ts}\]'
+                        .format(ts=timestamps.pattern))
 
 extractable_token = re.compile(r"""(?:\((?:(\w*),?\s+)?{ts}\))|
                                    (?:\[(?:(\w*),?\s+)?{ts}\])

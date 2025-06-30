@@ -57,13 +57,7 @@ def test_speaker_labels(input_line, expected):
     ("1;23", ""), # Mistakes allowed
     ("1:23-1:56", ""), # Ranges allowed
     ("2:23 Interviewer:", "Interviewer:"),
-])
-def test_timestamps(string, expected):
-    assert regexes.timestamps.match(string)
-    assert regexes.timestamps.sub('', string) == expected
-
-
-@pytest.mark.parametrize("string,expected", (
+    # Test with brackets/parentheses
     ("(17:38)", ""),
     ("(1:23)", ""),
     ("(12:34:56)", ""),
@@ -73,13 +67,20 @@ def test_timestamps(string, expected):
     ("[12:34:56]", ""),
     ("[1:52:23]", ""),
     ("[1:52:23-12:43:44]", ""),
+])
+def test_timestamps(string, expected):
+    assert regexes.timestamps.match(string)
+    assert regexes.timestamps.sub('', string) == expected
+
+
+@pytest.mark.parametrize("string,expected", [ 
     ("(inAuDiBlE 2:23)", "INAUDIBLE"),
     ("[inAuDiBlE 2:23]", "INAUDIBLE"),
     ("When we go to the [inaudible 2:23] place", "When we go to the INAUDIBLE "
                                                  "place"), 
     ("(NAME, 2:23)", "NAME"),
     ("[NAME, 2:23]", "NAME"),
-))
+])
 def test_extractable_token(string, expected):
     assert regexes.extractable_token.search(string)
     assert regexes.extractable_token.sub(lambda m: (m.group(1) or m.group(2) 
