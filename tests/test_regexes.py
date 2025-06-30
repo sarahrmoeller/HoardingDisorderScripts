@@ -82,8 +82,6 @@ def test_timestamps(string, expected):
 ))
 def test_extractable_token(string, expected):
     assert regexes.extractable_token.search(string)
-    assert regexes.extractable_token \
-                  .sub(lambda m : '' if m.groups() == (None, None)
-                                     else [g for i in range(0, 1 + 1)
-                                           if (g := m.groups()[i])][0].upper(),
-                       string) == expected
+    assert regexes.extractable_token.sub(lambda m: (m.group(1) or m.group(2) 
+                                                    or '').upper(),
+                                         string) == expected
