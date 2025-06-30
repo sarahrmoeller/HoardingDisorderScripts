@@ -78,9 +78,9 @@ def test_timestamps(string, expected):
     ("(NAME, 2:23)", "NAME"),
     ("[NAME, 2:23]", "NAME"),
 ))
-def test_removable_token(string, expected):
-    assert regexes.removable_token.search(string)
-    assert regexes.removable_token \
+def test_extractable_token(string, expected):
+    assert regexes.extractable_token.search(string)
+    assert regexes.extractable_token \
                   .sub(lambda m : '' if m.groups() == (None, None)
                                      else [g for i in range(0, 1 + 1)
                                            if (g := m.groups()[i])][0].upper(),
