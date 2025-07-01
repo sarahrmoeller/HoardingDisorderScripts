@@ -98,6 +98,12 @@ class Document:
             # Remove timestamps from the lines
             lines = [regexes.timestamps.sub('', line).strip() 
                      for line in lines]
+            # Replace bracketed stuff with better representations
+            lines = [regexes.replace_tokens(line)
+                     for line in lines]
+            # Remove tokens that are not useful for us
+            lines = [regexes.remove_tokens(line)
+                     for line in lines]
         # Remove empty lines
         lines = [line for line in lines if line]
         return lines
