@@ -52,19 +52,7 @@ class Document:
             row['content'].rstrip() for row in self.row_data
         ]
         self.full_content = '\n'.join(self.lines)
-        self.tokens = [token for row in self.row_data for token in row['tokens']]
         self.label_data = self.data['spanLabels']
-        # Sentences are decided by splitting on periods
-        self.sentences = []
-        sent = []
-        for token in self.tokens:
-            sent.append(token)
-            if token.endswith(('.', '!', '?')):  # end of sentence
-                self.sentences.append(sent)
-                sent = []
-        # If there are remaining tokens in the last sentence, add the sentence
-        if sent: 
-            self.sentences.append(sent)
 
     def write_to_file(self, dir: str='.') -> None:
         """
