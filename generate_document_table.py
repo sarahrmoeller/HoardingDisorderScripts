@@ -16,8 +16,14 @@ if __name__ == "__main__":
             'Document Name' : doc.name, 
             'Hoarder Flag' : doc.hoarder_flag,
             **doc.label_counts,
-            'TTR' : ling.type_token_ratio(doc.full_content),
-            'ASL' : ling.average_sentence_length(doc.full_content),
+            'TTR-Interviewer' : ling.type_token_ratio(doc.tokens("Interviewer",
+                                                                 flat=True)), # type: ignore
+            'TTR-Participant' : ling.type_token_ratio(doc.tokens("Participant",
+                                                                 flat=True)), # type: ignore
+            'ASL-Interviewer' : ling.average_sentence_length(
+                doc.tokens("Participant")), # type: ignore
+            'ASL-Participant' : ling.average_sentence_length(
+                doc.tokens("Interviewer")), # type: ignore
         }, docs))
         table_rows.extend(project_rows)
 
