@@ -25,6 +25,27 @@ speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?:')
 speaker_labels_restricted = re.compile(r'\s*(?:{speakers})(?:\s+\d+)?:\s*'
                                        .format(speakers='|'.join(SPEAKERS)))
 
+def find_speakers(content: str, restrict=True) -> list[str]:
+    """
+    Takes in a string (`content`),
+    Returns a list of all occurences of strings followed by optional 
+    whitespace, optional number(s), and a colon. It then captures the 
+    string. The format is:
+        (captured string) [optional number]:
+    If `restrict` is True, it only returns speakers that are in the 
+    `SPEAKERS` set.
+
+    Examples: 
+    - 'Interviewer:' -> ['Interviewer']
+    - 'Participant 12: ' -> ['Participant']
+    - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not 
+                            in `SPEAKERS`)
+    """
+    matches = speaker_labels.findall(content)
+    if not restrict:
+        return matches
+    return [match for match in matches if match in SPEAKERS]
+
 # This regex is used to match timestamps, i.e. '19:24', '3:14', or '12:34:56'.
 # Also allows for ranges, i.e. '1:23-1:56'.
 timestamps = re.compile(r'\d{1,2}[:;]\d{2}(?:[:;]\d{2})?')

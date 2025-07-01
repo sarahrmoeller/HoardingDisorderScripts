@@ -114,34 +114,13 @@ class Document:
                                   speaker_labels=speaker_labels,
                                   cleaned=cleaned))
         return content
-
-    @classmethod
-    def find_speakers(cls, content: str, restrict=True) -> list[str]:
-        """
-        Takes in a string (`content`),
-        Returns a list of all occurences of strings followed by optional 
-        whitespace, optional number(s), and a colon. It then captures the 
-        string. The format is:
-            (captured string) [optional number]:
-        If `restrict` is True, it only returns speakers that are in the 
-        `SPEAKERS` set.
-
-        Examples: 
-        - 'Interviewer:' -> ['Interviewer']
-        - 'Participant 12: ' -> ['Participant']
-        - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not 
-                              in `SPEAKERS`)
-        """
-        matches = regexes.speaker_labels.findall(content)
-        if not restrict:
-            return matches
-        return [match for match in matches if match in SPEAKERS]
     
     def speaker_set(self, restrict=True) -> set[str]:
         """
         Returns the set of all speaker labels found in the document.
         """
-        speaker_matches = self.find_speakers(self.full_content, restrict=restrict)
+        speaker_matches = regexes.find_speakers(self.full_content, 
+                                                restrict=restrict)
         if not speaker_matches:
             # There should never be 0 speakers in a document
             raise ValueError(f'No speakers found in {self}. '
@@ -193,7 +172,7 @@ class Document:
         current_speaker: str | None = None
         for i in range(len(self.lines)):
             line = self.lines[i]
-            speaker_matches = self.find_speakers(line)
+            speaker_matches = regexes.find_speakers(line)
             # If speaker found, change global current_speaker variable
             if speaker_matches:
                 # Check: a single line should only have one speaker.
