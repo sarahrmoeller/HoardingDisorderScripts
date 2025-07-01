@@ -95,3 +95,13 @@ def test_timestamps(string, expected):
 def test_extractable_token(string, expected):
     assert regexes.extractable_token.search(string)
     assert regexes.replace_tokens(string) == expected
+
+
+@pytest.mark.parametrize("string", [
+    "001",
+    "Interview 001",
+    "PART 2 of 4 ENDS (12:34:56)",
+    "[END OF RECORDING]",
+])
+def test_removable_token(string):
+    assert regexes.remove_tokens(string) == ""

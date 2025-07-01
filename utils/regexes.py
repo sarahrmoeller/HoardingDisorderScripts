@@ -50,14 +50,14 @@ def find_speakers(content: str, restrict=True) -> list[str]:
 # Also allows for ranges, i.e. '1:23-1:56'.
 timestamps = re.compile(r'\d{1,2}[:;]\d{2}(?:[:;]\d{2})?')
 timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
-timestamps = re.compile(r'{ts}|\({ts}\)|\[{ts}\]'
+timestamps = re.compile(r'\({ts}\)|\[{ts}\]|{ts}'
                         .format(ts=timestamps.pattern))
+
 
 extractable_token = re.compile(r"([a-zA-Z ]+)(?:[,;]?\s+(?:{ts}))?"
                                .format(ts=timestamps.pattern))
 extractable_token = re.compile(r"\({et}\)|\[{et}\]"
                                .format(et=extractable_token.pattern))
-
 
 def replace_tokens(string: str) -> str:
     """
@@ -77,3 +77,24 @@ def replace_tokens(string: str) -> str:
                                                           .split()),
                                    string)
     return string.replace('_REDACTED', '').replace('_DEDACTED', '')
+
+
+removable_token_patterns = [
+    r'^(Interview )?\d{3}$', # Matches '001', 'Interview 001' (only if this is the whole line)
+    r'PART \d of \d ENDS {ts}'.format(ts=timestamps.pattern),
+    r'\[END OF RECORDING\]' # Matches literal '[END OF RECORDING]'
+]
+
+def remove_tokens(string: str) -> str:
+    """
+    Removes all removable tokens from a string.
+    
+    Args:
+        string (str): The string to remove the tokens from.
+        
+    Returns:
+        str: The string with the tokens removed.
+    """
+    for pattern in removable_token_patterns:
+        string = re.sub(pattern, '', string, flags=re.IGNORECASE)
+    return string.strip()
