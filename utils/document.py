@@ -2,7 +2,6 @@ from collections import Counter
 from functools import cached_property
 from itertools import product
 import json
-import os
 import warnings
 from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
