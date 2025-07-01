@@ -20,6 +20,12 @@ if __name__ == "__main__":
                                                                  flat=True)), # type: ignore
             'TTR-Participant' : ling.type_token_ratio(doc.tokens("Participant",
                                                                  flat=True)), # type: ignore
+            'TTR-sent-Interviewer' : ling.type_token_ratio(doc.tokens("Interviewer",
+                                                                 flat=True,
+                                                                 per_sent=True)), # type: ignore
+            'TTR-sent-Participant' : ling.type_token_ratio(doc.tokens("Participant",
+                                                                 flat=True,
+                                                                 per_sent=True)), # type: ignore
             'ASL-Interviewer' : ling.average_sentence_length(
                 doc.tokens("Participant")), # type: ignore
             'ASL-Participant' : ling.average_sentence_length(

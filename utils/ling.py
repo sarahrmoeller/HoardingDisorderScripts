@@ -1,21 +1,34 @@
 import warnings
 
 
-def type_token_ratio(flat_tokens: list[str]) -> float:
+def type_token_ratio(tokens: list[str] | list[list[str]],
+                     per_sent=False) -> float:
     """
     Calculate the type-token ratio of a document.
     
     Args:
-        doc (list[list[str]]): A list of sentences, each sentence is a list of tokens.
+        tokens (list[list[str]]): Either a flat list of tokens (`list[str]`), 
+                                  or a list of tokenized sentences 
+                                  (`list[list[str]]`).
+        per_sent (bool): If `True`, the function expects an input in the form 
+                         of `list[list[str]]`, which is a list of tokenized 
+                         sentences. The TTR of each sentence is calculated and
+                         their average is returned. 
+                         If `False`, the function expects a flat list of 
+                         tokens, and the TTR of that list is calculated.
         
     Returns:
         float: The type-token ratio of the document.
     """
-    if not flat_tokens:
+    if not tokens:
         warnings.warn("Empty token list provided for type-token ratio "
                       "calculation.")
         return 0.0
-    return len(set(token.lower() for token in flat_tokens)) / len(flat_tokens)
+    if per_sent:
+        return sum([len(set(token.lower() for token in sent)) 
+                    for sent in tokens]) / len(tokens)
+    # Otherwise tokens are flat
+    return len(set(token.lower() for token in tokens)) / len(tokens) # type: ignore
 
 
 def average_sentence_length(sentences: list[list[str]]) -> float:
