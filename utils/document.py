@@ -5,6 +5,18 @@ import json
 import warnings
 from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
+import nltk
+from nltk.tokenize import sent_tokenize, word_tokenize
+import string
+
+
+# Ensure that the punkt tokenizer is downloaded
+try:
+    nltk.data.find('tokenizers/punkt')
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab')
+    nltk.download('punkt')
 
 
 # List of all labels (types of incomplete clauses) found across all projects
@@ -31,7 +43,7 @@ class Document:
     default_speaker_pair = regexes.SPEAKER_PAIRS[0]
         
     def __init__(self, path: str) -> None:
-        with open(path) as f:
+        with open(path, encoding='ASCII') as f:
             self.json_dump = json.load(f)
         self.path = path
         # JSON always looks like {'version' : '1.0', 'data' : {...}},
@@ -81,8 +93,8 @@ class Document:
             lines = [regexes.speaker_labels_restricted.sub('', line)
                      for line in lines]
         if cleaned:
-            # Remove timestamps from the lines
-            lines = [regexes.timestamps.sub('', line).strip() 
+            # Remove timestamps from the lines (and apply lowercase)
+            lines = [regexes.timestamps.sub('', line).strip().lower() 
                      for line in lines]
             # Replace bracketed stuff with better representations
             lines = [regexes.replace_tokens(line)
@@ -106,6 +118,22 @@ class Document:
                                   speaker_labels=speaker_labels,
                                   cleaned=cleaned))
         return content
+    
+
+    def tokens(self, speaker: str, 
+               flat: bool=False) -> list[str] | list[list[str]]:
+        tokenized = [word_tokenize(sentence)
+                     for sentence 
+                     in sent_tokenize(self.content_by_speaker(speaker))]
+        # Remove punctuation tokens
+        tokenized = [[token for token in sentence
+                      if token not in string.punctuation]
+                     for sentence in tokenized]
+        if flat:
+            tokenized = [token for sentence in tokenized
+                         for token in sentence]
+        return tokenized
+
     
     def speaker_set(self, restrict=True) -> set[str]:
         """
