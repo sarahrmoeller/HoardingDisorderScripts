@@ -7,7 +7,7 @@
     - [x] 2010
     - [x] 012
     - [x] 001-007
-  - [ ] Separate document content into interviewer and participant
+  - [x] Separate document content into interviewer and participant
     - [x] Figure out what to do with three-speaker documents (we are doing Frankenstein to solve this)
     - [x] ~~Frankenstein Document content together to analyze data by Transcript~~ Create `Transcript` class
     - [x] Create new table based on transcript data
@@ -20,11 +20,13 @@
     - [ ] Test Document cleaning on specific Documents
     - [ ] Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC 
   - [ ] Implement metrics from previous paper:
-    - [ ] Type-Token Ratio
-    - [ ] Document TTR
-    - [ ] Average Sentence TTR
-    - [ ] Average Sentence Length
-    - [ ] Noun Phrase (NP) Count/Ratio
+    - [x] Type-Token Ratio
+      - [x] Document TTR
+      - [x] Average Sentence TTR
+    - [x] Average Sentence Length
+    - [ ] Noun Phrases (NP) 
+      - [] NP Count
+      - [] NP Ratio
 Later:
   - [ ] Figure out what to do about speakers that are not at the beginning of the line
   - [ ] Report model accuracy
