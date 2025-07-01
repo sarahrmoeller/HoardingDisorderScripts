@@ -16,6 +16,7 @@
     - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
     - [x] Figure out how to remove each removable token
     - [x] Edit `Document` class to include a cleaned version
+    - [ ] Deal with `word_tokenize` splitting contractions, i.e. "don't" -> ["don", "'", "t"] (likely due to UTF-8 apostrophe)
     - [ ] Test Document cleaning on specific Documents
     - [ ] Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC 
   - [ ] Implement metrics from previous paper:
