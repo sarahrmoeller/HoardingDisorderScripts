@@ -85,14 +85,13 @@ def test_timestamps(string, expected):
     ("(UNIVERSITY, [2:25])", "UNIVERSITY"), # And with timestamp brackets
     ("[UNIVERSITY, [2:25]]", "UNIVERSITY"),
     ("[names of companies; (48:15)]", "NAMES_OF_COMPANIES"),
+    # Dedacted
+    ("[NAME DEDACTED]", "NAME"),
+    ("[NAME REDACTED]", "NAME"),
     # In context
     ("When we go to the [inaudible 2:23] place", 
      "When we go to the INAUDIBLE place"), 
 ])
 def test_extractable_token(string, expected):
     assert regexes.extractable_token.search(string)
-    assert regexes.extractable_token.sub(lambda m: '_'.join((m.group(1) or 
-                                                             m.group(2) or 
-                                                             '').upper()
-                                                                .split()),
-                                         string) == expected
+    assert regexes.replace_tokens(string) == expected

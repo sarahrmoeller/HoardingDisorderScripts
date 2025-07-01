@@ -36,3 +36,23 @@ extractable_token = re.compile(r"([a-zA-Z ]+)(?:[,;]?\s+(?:{ts}))?"
                                .format(ts=timestamps.pattern))
 extractable_token = re.compile(r"\({et}\)|\[{et}\]"
                                .format(et=extractable_token.pattern))
+
+
+def replace_tokens(string: str) -> str:
+    """
+    Replaces all tokens in a string according to the extractable_token regex.
+    If a token with spaces is found, it is joined together by underscores.
+    
+    Args:
+        string (str): The string to extract the token from.
+        
+    Returns:
+        str: The extracted token, in uppercase and with underscores 
+             instead of spaces.
+    """
+    string = extractable_token.sub(lambda m: '_'.join((m.group(1) or 
+                                                       m.group(2) or 
+                                                       '').upper()
+                                                          .split()),
+                                   string)
+    return string.replace('_REDACTED', '').replace('_DEDACTED', '')
