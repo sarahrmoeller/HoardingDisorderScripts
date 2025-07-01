@@ -102,6 +102,8 @@ def test_extractable_token(string, expected):
     "Interview 001",
     "PART 2 of 4 ENDS (12:34:56)",
     "[END OF RECORDING]",
+    "(affirmative)",
+    "(negative)",
 ])
 def test_removable_token(string):
     assert regexes.remove_tokens(string) == ""
