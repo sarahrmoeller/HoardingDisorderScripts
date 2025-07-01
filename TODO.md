@@ -3,6 +3,7 @@
 - [ ] Important:
   - [x] Create Logistic Model
   - [x] Abstract `generate_table.py` code into `Document` class
+  ~~- [ ] Fix Transcript no. 005~~
   - [x] Fix broken transcripts found in `broken_transcripts.ipynb`
     - [x] 2010
     - [x] 012
