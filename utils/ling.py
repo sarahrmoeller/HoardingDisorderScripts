@@ -82,7 +82,7 @@ def get_np_counts(text):
         List[int]: A list of NP counts, one per sentence.
     """
     doc = nlp(text)
-    return [count_nps(sentence.constituency) for sentence in doc.sentences]
+    return [count_nps(sentence.constituency) for sentence in doc.sentences] # type: ignore
 
 
 def get_np_ratios(text):
@@ -101,7 +101,7 @@ def get_np_ratios(text):
     """
     doc = nlp(text)
     ratios = []
-    for sentence in doc.sentences:
+    for sentence in doc.sentences: # type: ignore
         np_count = count_nps(sentence.constituency)
         word_count = len(sentence.words)
         ratios.append(round(np_count / word_count, 2) if word_count > 0 else 0)
