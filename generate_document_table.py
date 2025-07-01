@@ -32,8 +32,10 @@ if __name__ == "__main__":
                 doc.tokens("Participant")), # type: ignore
             'ASL-Participant' : ling.average_sentence_length(
                 doc.tokens("Interviewer")), # type: ignore
+            'NP-counts-Interviewer' : ling.get_np_counts(doc.tokens("Interviewer")),
             'NP-counts-Participant' : ling.get_np_counts(doc.tokens("Participant")),
-            'NP-ratio-Participant' : ling.get_np_ratios(doc.tokens("Participant"))
+            'NP-ratio-Interviewer' : ling.get_np_ratios(doc.tokens("Participant")),
+            'NP-ratio-Participant' : ling.get_np_ratios(doc.tokens("Interviewer"))
         }, docs))
         table_rows.extend(project_rows)
 
