@@ -1,3 +1,4 @@
+accelerate==1.8.1
 annotated-types==0.7.0
 appnope==0.1.4
 asttokens==3.0.0
@@ -62,6 +63,7 @@ pyzmq==26.2.1
 regex==2024.11.6
 requests==2.32.3
 rich==14.0.0
+sentence-transformers==5.0.0
 setuptools==80.9.0
 shellingham==1.5.4
 six==1.17.0
@@ -69,6 +71,7 @@ smart-open==7.1.0
 spacy==3.8.7
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
+sqlitedict==2.1.0
 srsly==2.5.1
 stack-data==0.6.3
 stanza==1.10.1
@@ -79,6 +82,7 @@ torch==2.7.1
 tornado==6.4.2
 tqdm==4.67.1
 traitlets==5.14.3
+transformers==4.53.1
 typer==0.16.0
 typing-inspection==0.4.1
 typing_extensions==4.13.2
