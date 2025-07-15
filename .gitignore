@@ -175,6 +175,7 @@ cython_debug/
 
 ## Custom ignores
 data.zip
+data-fixed.zip
 datasaur.zip
 datasaur/
 notebooks/
