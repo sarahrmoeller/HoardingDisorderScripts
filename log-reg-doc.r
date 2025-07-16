@@ -1,7 +1,32 @@
 all.data <- read.csv("./out/document_table.csv")
-# Remove project and document names
-data <- all.data[, !(names(all.data) %in% c("Project", "Document.Name"))]
+# Remove project names (we will remove document names soon, but not yet)
+data <- all.data[, names(all.data) != "Project"]
 names(data)
+
+# Add embeddings to the dataframe
+embeddings_table <- read.csv("out/embedding_call_response_table.csv")
+
+# Aggregate mean and sd of Similarity by Document.Name
+embeddings_summary <- aggregate(Similarity ~ Document.Name,
+                                embeddings_table,
+                                function(x) {
+                                  c(mean = mean(x, na.rm = TRUE),
+                                    sd = sd(x, na.rm = TRUE))
+                                })
+embeddings_summary$Similarity.mean <- embeddings_summary[["Similarity"]][, 1]
+embeddings_summary$Similarity.sd <- embeddings_summary[["Similarity"]][, 2]
+embeddings_summary["Similarity"] <- NULL
+head(embeddings_summary)
+names(embeddings_summary)
+
+# Merge with data by Document.Name
+data <- merge(data, embeddings_summary,
+              by = "Document.Name", all.x = TRUE)
+head(data)
+names(data)
+
+# Now we can remove Document.Name
+data <- data[, names(data) != "Document.Name"]
 
 # "Joining" CLF and SC columns
 data[["CLF.or.SC.Participant"]] <- (data[["Clarification.Participant"]] +
@@ -43,20 +68,32 @@ participant_cols <- names(data)[grepl("Participant", names(data))]
 # We will investigate CLF.or.SC.Participant soon
 participant_cols <- participant_cols[!grepl("sent|CLF.or.SC.Participant",
                                             participant_cols)]
-# Removing biased or unimportant labels
-biased_or_unimportant_columns <- c("Generic.Disfluency", "ASL", # Biased
-                                   "Misspeak", "Unclear") # Unimportant
-filtered_participant_cols <-
-  participant_cols[!grepl(paste(biased_or_unimportant_columns,
-                                collapse = "|"),
-                          participant_cols)]
+# Add in similarity columns
+sim_cols <- names(data)[grepl("Similarity", names(data))]
+relevant_cols <- c(participant_cols, sim_cols)
+# Removing unimportant columns
+unimportant_columns <- c("Misspeak", "Unclear")
+relevant_cols <- relevant_cols[!grepl(paste(unimportant_columns,
+                                            collapse = "|"),
+                                      relevant_cols)]
+biased_columns <- c("Generic.Disfluency", "ASL")
+relevant_cols_unbiased <- relevant_cols[!grepl(paste(biased_columns,
+                                                     collapse = "|"),
+                                               relevant_cols)]
+cols_unbiased_combined <-
+  c(relevant_cols_unbiased[!grepl("Clarification|Self.Correction",
+                                  relevant_cols_unbiased)],
+    "CLF.or.SC.Participant")
+
 columns_list <- list(
   "Total" = "Total",
-  "Participant Columns" = participant_cols,
-  "Filtered Participant Columns" = filtered_participant_cols,
-  "Using Combined CLF + SC" = c(filtered_participant_cols[!grepl("Clarification|Self.Correction", 
-                                                          filtered_participant_cols)], 
-                                "CLF.or.SC.Participant")
+  "All relevant Columns" = relevant_cols,
+  "Unbiased Columns" = relevant_cols_unbiased,
+  "Using Combined CLF + SC" = cols_unbiased_combined,
+  "No TTR" = cols_unbiased_combined[!grepl("TTR", cols_unbiased_combined)],
+  "No mean" = cols_unbiased_combined[!grepl("mean", cols_unbiased_combined)],
+  "No TTR nor mean" = cols_unbiased_combined[!grepl("TTR|mean",
+                                                    cols_unbiased_combined)]
 )
 
 # Create a model for each set of columns
@@ -64,11 +101,6 @@ mdls <- setNames(lapply(columns_list, function(cols) {
   glm(Hoarder.Flag ~ ., data = data[, c("Hoarder.Flag", cols)],
       family = "binomial")
 }), names(columns_list))
-mdls[["Interaction Term"]] <- glm(Hoarder.Flag ~ . + Clarification.Participant *
-                                    Self.Correction.Participant,
-                                  data = data[, c("Hoarder.Flag",
-                                                columns_list[[length(columns_list)]])],
-                                family = "binomial")
 lapply(mdls, summary)
 
 library(car)
