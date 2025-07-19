@@ -93,6 +93,8 @@ columns_list <- list(
   "No TTR" = cols_unbiased_combined[!grepl("TTR", cols_unbiased_combined)],
   "No mean" = cols_unbiased_combined[!grepl("mean", cols_unbiased_combined)],
   "No TTR nor mean" = cols_unbiased_combined[!grepl("TTR|mean",
+                                                    cols_unbiased_combined)],
+  "No TTR nor mean nor sd" = cols_unbiased_combined[!grepl("TTR|mean|sd",
                                                     cols_unbiased_combined)]
 )
 
@@ -112,3 +114,18 @@ write.table(data[, c("Total", "Hoarder.Flag")],
             file = "./out/total_labels.tsv")
 
 heatmap(cormat)
+
+library(lme4)
+
+model <- glmer(
+  Hoarder.Flag ~ CLF.or.SC.Participant + NP.ratio.Participant +
+    Incomplete.Thought.Participant + Overlap.Participant +
+    TTR.sent.Participant + NP.counts.Participant +
+    (1 | Generic.Disfluency.Participant) +
+    (1 | Misspeak.Participant) +
+    (1 | ASL.Participant) +
+    (1 | Unclear.Participant),
+  data = data,
+  family = binomial(link = "logit")
+)
+summary(model)
