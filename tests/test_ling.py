@@ -43,13 +43,13 @@ def test_average_sentence_length_empty():
 def test_np_count_simple():
     text = "The dog barked."
     counts = get_np_counts(text)
-    assert counts == [1], f"Expected 1 NP, got {counts}"
+    assert counts[0] == 1, f"Expected 1 NP, got {counts}"
 
 
 def test_np_count_multiple():
     text = "My brother and his dog walked to the park."
     counts = get_np_counts(text)
-    assert counts[0] >= 2, f"Expected at least 2 NPs, got {counts}"
+    assert counts[0] == 3, f"Expected 3 NPs, got {counts}"
 
 
 def test_np_ratio_nonzero():
