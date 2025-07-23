@@ -1,5 +1,6 @@
 import warnings
 import stanza
+import stanza.models.constituency.parse_tree as pt
 
 stanza.download('en')
 nlp = stanza.Pipeline()
@@ -62,14 +63,15 @@ def count_nps(tree):
     Returns:
         int: Total number of NP (noun phrase) nodes in the tree.
     """
-    count = 0
-    if tree.label == 'NP':
-        count += 1
-    for child in tree.children:
-        if not isinstance(child, str): #not sure if this is correct
-            count += count_nps(child)
-    return count
-
+    # Theoretically, this will count only the lowest node
+    # If this node is an NP and contains no NP children, it's a lowest NP
+    if tree.label == 'NP' and \
+        all(child.label != 'NP' for child in tree.children 
+            if isinstance(child, pt.Tree)):
+        return 1
+    # Recurse into children
+    return sum(count_nps(child) for child in tree.children 
+               if isinstance(child, pt.Tree))
 
 def get_np_counts(text):
     """ 
@@ -82,7 +84,8 @@ def get_np_counts(text):
         List[int]: A list of NP counts, one per sentence.
     """
     doc = nlp(text)
-    return [count_nps(sentence.constituency) for sentence in doc.sentences] # type: ignore
+    return sum([count_nps(sentence.constituency) 
+                for sentence in doc.sentences]) # type: ignore
 
 
 def get_np_ratios(text):

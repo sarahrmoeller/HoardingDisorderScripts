@@ -39,26 +39,18 @@ def test_average_sentence_length_empty():
         assert any("Empty sentences list" in str(warn.message) for warn in w)
 
 
-""" Need to nest these in a pytest (decorator function?) like above ^ """
-def test_np_count_simple():
-    text = "The dog barked."
-    counts = get_np_counts(text)
-    assert counts[0] == 1, f"Expected 1 NP, got {counts}"
+@pytest.mark.parametrize("text,expected", [
+    ("The dog barked.", 1),  # Single sentence with 1 NP
+    ("My brother and his dog walked to the park.", 3),  # Multiple NPs
+])
+def test_get_np_counts(text, expected):
+    assert get_np_counts(text) == expected
 
 
-def test_np_count_multiple():
-    text = "My brother and his dog walked to the park."
-    counts = get_np_counts(text)
-    assert counts[0] == 3, f"Expected 3 NPs, got {counts}"
-
-
-def test_np_ratio_nonzero():
-    text = "The tall man saw a cat."
-    ratios = get_np_ratios(text)
-    assert 0 < ratios[0] <= 1, f"Ratio out of range: {ratios[0]}"
-
-
-def test_empty_sentence():
-    text = ""
-    ratios = get_np_ratios(text)
-    assert ratios == [], "Expected empty list for empty input."
+@pytest.mark.parametrize("text,expected", [
+    ("The tall man saw a cat.", 2 / 5),
+    ("", None)
+])
+def test_np_ratio_nonzero(sentence, expected):
+    ratios = get_np_ratios(sentence)
+    assert ratios[0] == expected
