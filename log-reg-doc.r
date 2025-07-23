@@ -113,8 +113,6 @@ write.table(data[, c("Total", "Hoarder.Flag")],
             row.names = FALSE, sep = "\t",
             file = "./out/total_labels.tsv")
 
-heatmap(cormat)
-
 library(lme4)
 
 model <- glmer(
