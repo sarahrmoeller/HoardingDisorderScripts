@@ -5,18 +5,9 @@ import json
 import warnings
 from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
-import nltk
-from nltk.tokenize import sent_tokenize, word_tokenize
 import string
-
-
-# Ensure that the punkt tokenizer is downloaded
-try:
-    nltk.data.find('tokenizers/punkt')
-    nltk.data.find('tokenizers/punkt_tab')
-except LookupError:
-    nltk.download('punkt_tab')
-    nltk.download('punkt')
+import stanza
+import stanza.models.common.doc as stnzdoc
 
 
 # List of all labels (types of incomplete clauses) found across all projects
@@ -102,6 +93,9 @@ class Document:
             # Remove tokens that are not useful for us
             lines = [regexes.remove_tokens(line)
                      for line in lines]
+            # Remove punctuation
+            lines = [line.translate(str.maketrans('', '', string.punctuation))
+                     for line in lines]
         # Remove empty lines
         lines = [line for line in lines if line]
         return lines
@@ -119,21 +113,20 @@ class Document:
                                   cleaned=cleaned))
         return content
     
+    def stanza_doc(self, speaker: str, 
+                   nlp: stanza.Pipeline) -> stnzdoc.Document:
+        """
+        Returns a stanza Document object for the content spoken by the
+        specified speaker. 
 
-    def tokens(self, speaker: str, 
-               flat: bool=False) -> list[str] | list[list[str]]:
-        tokenized = [word_tokenize(sentence)
-                     for sentence 
-                     in sent_tokenize(self.content_by_speaker(speaker))]
-        # Remove punctuation tokens
-        tokenized = [[token for token in sentence
-                      if token not in string.punctuation]
-                     for sentence in tokenized]
-        if flat:
-            tokenized = [token for sentence in tokenized
-                         for token in sentence]
-        return tokenized
-
+        Args:
+            speaker (str): The speaker label to get the content for.
+            nlp (stanza.Pipeline): The stanza pipeline to use for processing.
+            Make sure `tokenize_pretokenized` is set to `True` in the pipeline!
+        Returns:         
+            stnzdoc.Document: The stanza Document object for the content.
+        """
+        return nlp(self.content_by_speaker(speaker)) # type: ignore
     
     def speaker_set(self, restrict=True) -> set[str]:
         """
