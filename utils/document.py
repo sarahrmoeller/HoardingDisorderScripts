@@ -6,8 +6,7 @@ import warnings
 from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
 import string
-import ling
-import stanza
+from . import ling
 import stanza.models.common.doc as stnzdoc
 
 
