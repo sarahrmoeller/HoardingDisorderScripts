@@ -128,6 +128,14 @@ class Document:
         """
         return nlp(self.content_by_speaker(speaker)) # type: ignore
     
+    def tokens(self, speaker: str, nlp: stanza.Pipeline) -> list[str]:
+        """
+        Returns a list of tokens (as strings) in the content spoken by the 
+        specified speaker.
+        """
+        sd = self.stanza_doc(speaker, nlp)
+        return [token.text for token in sd.iter_tokens()]
+    
     def speaker_set(self, restrict=True) -> set[str]:
         """
         Returns the set of all speaker labels found in the document.
