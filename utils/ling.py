@@ -1,9 +1,5 @@
 import warnings
-import stanza
 import stanza.models.constituency.parse_tree as pt
-
-stanza.download('en')
-nlp = stanza.Pipeline()
 
 
 def type_token_ratio(tokens: list[str] | list[list[str]],
@@ -55,7 +51,8 @@ def average_sentence_length(sentences: list[list[str]]) -> float:
 
 def count_nps(tree):
     """
-    Recursively count the number of noun phrases (NPs) in a constituency parse tree.
+    Recursively count the number of noun phrases (NPs) in a constituency parse 
+    tree.
 
     Args:
         tree (Tree): A constituency parse tree for a sentence.
@@ -73,39 +70,47 @@ def count_nps(tree):
     return sum(count_nps(child) for child in tree.children 
                if isinstance(child, pt.Tree))
 
-def get_np_counts(text):
-    """ 
-    Compute the number of noun phrases (NPs) in each sentence of a given text.
+
+def count_non_NP_phrases(tree: pt.Tree) -> int:
+    """
+    Recursively counts the total number of phrase nodes in a Stanza 
+    constituency tree. We define a "phrase" to be any node that is not 
+    preterminal---since all terminal nodes are words, we assume preterminal
+    nodes are POS tags for the words.
 
     Args:
-        text (str): A block of text containing one or more sentences.
+        tree (stanza.models.common.constituent.Tree): The constituency tree or 
+        a sub-tree.
 
     Returns:
-        List[int]: A list of NP counts, one per sentence.
+        int: The total count of phrase nodes in the tree.
     """
-    doc = nlp(text)
-    return sum([count_nps(sentence.constituency) 
-                for sentence in doc.sentences]) # type: ignore
+    def internal_count(tree: pt.Tree) -> int:
+        # Base case    
+        if tree.is_preterminal() or tree.label == 'NP':
+            return 0
+
+        # Recursive step: Count this node as 1 phrase, then add the counts
+        # from all of its children that are also sub-trees.
+        return 1 + sum(internal_count(child) for child in tree.children)
+    # Exclude the ROOT and S nodes from the count
+    return internal_count(tree) - 2
 
 
-def get_np_ratios(text):
-    """ 
-    MAIN FUNCTION: Calculate the noun phrase (NP) ratio for each sentence in a given text.
+def NP_ratio(tree: pt.Tree) -> float:
+    """
+    Calculate the noun phrase (NP) ratio for a given constituency tree.
 
     The NP ratio is defined as:
-        number of noun phrases (NPs) / number of words in the sentence
+        number of noun phrases (NPs) / number of phrases in the sentence
 
     Args:
-        text (str): A block of text containing one or more sentences.
+        tree (stanza.models.common.constituent.Tree): The constituency tree 
+        for a sentence.
 
     Returns:
-        List[float]: A list of NP ratios (rounded to 2 decimal places),
-                     one for each sentence in the text.
+        float: The NP ratio
     """
-    doc = nlp(text)
-    ratios = []
-    for sentence in doc.sentences: # type: ignore
-        np_count = count_nps(sentence.constituency)
-        word_count = len(sentence.words)
-        ratios.append(round(np_count / word_count, 2) if word_count > 0 else 0)
-    return ratios
+    np_count = count_nps(tree)
+    other_phrases_count = count_non_NP_phrases(tree)
+    return np_count / (np_count + other_phrases_count)

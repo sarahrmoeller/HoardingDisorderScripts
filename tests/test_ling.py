@@ -1,7 +1,8 @@
 import pytest
 import warnings
-from utils.ling import type_token_ratio, average_sentence_length, get_np_counts, get_np_ratios
-
+import stanza
+from utils.ling import type_token_ratio, average_sentence_length, \
+                       count_nps, count_non_NP_phrases 
 
 @pytest.mark.parametrize("tokens,expected", [
     (["the", "cat", "sat", "on", "the", "mat"], 5 / 6), # 5 unique tokens out of 6 total
@@ -39,18 +40,26 @@ def test_average_sentence_length_empty():
         assert any("Empty sentences list" in str(warn.message) for warn in w)
 
 
+nlp = stanza.Pipeline(lang='en', processors='tokenize,pos,lemma,constituency')
+
+
 @pytest.mark.parametrize("text,expected", [
     ("The dog barked.", 1),  # Single sentence with 1 NP
-    ("My brother and his dog walked to the park.", 3),  # Multiple NPs
+    ("The tall man saw a cat.", 2), # 2 NPs
+    ("My brother and his dog walked to the park.", 3),  # 3 surface-level NPs
 ])
-def test_get_np_counts(text, expected):
-    assert get_np_counts(text) == expected
+def test_count_nps(text, expected):
+    doc = nlp(text)
+    tree = doc.sentences[0].constituency # type: ignore
+    assert count_nps(tree) == expected
 
 
 @pytest.mark.parametrize("text,expected", [
-    ("The tall man saw a cat.", 2 / 5),
-    ("", None)
+    ("The dog barked", 1), # 1 NP, *1* VP
+    ("The tall man saw a cat", 1), # *1* VP, 2 NPs (one nested in the VP)
+    ("My brother and his dog walked to the park", 2), # 3 NPs, 1 VP + 1 PP
 ])
-def test_np_ratio_nonzero(sentence, expected):
-    ratios = get_np_ratios(sentence)
-    assert ratios[0] == expected
+def test_count_non_NP_phrases(text, expected):
+    doc = nlp(text)
+    tree = doc.sentences[0].constituency # type: ignore
+    assert count_non_NP_phrases(tree) == expected
