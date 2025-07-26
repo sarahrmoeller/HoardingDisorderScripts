@@ -114,19 +114,20 @@ class Document:
                                   cleaned=cleaned))
         return content
     
+    @cached_property
+    def _stanza_docs(self) -> dict:
+        """
+        Cache stanza Document objects for each speaker.
+        """
+        return {speaker: ling.nlp(self.content_by_speaker(speaker))
+                for speaker in self.default_speaker_pair}
+
     def stanza_doc(self, speaker: str) -> stnzdoc.Document:
         """
         Returns a stanza Document object for the content spoken by the
-        specified speaker. 
-
-        Args:
-            speaker (str): The speaker label to get the content for.
-            nlp (stanza.Pipeline): The stanza pipeline to use for processing.
-            Make sure `tokenize_pretokenized` is set to `True` in the pipeline!
-        Returns:         
-            stnzdoc.Document: The stanza Document object for the content.
+        specified speaker. Uses a cached dictionary to avoid recomputation.
         """
-        return ling.nlp(self.content_by_speaker(speaker)) # type: ignore
+        return self._stanza_docs[speaker]
     
     def tokens(self, speaker: str) -> list[str]:
         """
