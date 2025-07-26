@@ -40,7 +40,7 @@ def test_average_sentence_length_empty():
         assert any("Empty sentences list" in str(warn.message) for warn in w)
 
 
-nlp = stanza.Pipeline(lang='en', processors='tokenize,pos,lemma,constituency')
+nlp = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
 
 
 @pytest.mark.parametrize("text,expected", [
