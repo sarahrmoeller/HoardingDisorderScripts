@@ -1,5 +1,9 @@
 import warnings
+import stanza
 import stanza.models.constituency.parse_tree as pt
+
+
+nlp = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
 
 
 def type_token_ratio(tokens: list[str] | list[list[str]],

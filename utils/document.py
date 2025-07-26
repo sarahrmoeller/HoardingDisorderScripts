@@ -6,6 +6,7 @@ import warnings
 from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
 import string
+import ling
 import stanza
 import stanza.models.common.doc as stnzdoc
 
@@ -113,8 +114,7 @@ class Document:
                                   cleaned=cleaned))
         return content
     
-    def stanza_doc(self, speaker: str, 
-                   nlp: stanza.Pipeline) -> stnzdoc.Document:
+    def stanza_doc(self, speaker: str) -> stnzdoc.Document:
         """
         Returns a stanza Document object for the content spoken by the
         specified speaker. 
@@ -126,14 +126,14 @@ class Document:
         Returns:         
             stnzdoc.Document: The stanza Document object for the content.
         """
-        return nlp(self.content_by_speaker(speaker)) # type: ignore
+        return ling.nlp(self.content_by_speaker(speaker)) # type: ignore
     
-    def tokens(self, speaker: str, nlp: stanza.Pipeline) -> list[str]:
+    def tokens(self, speaker: str) -> list[str]:
         """
         Returns a list of tokens (as strings) in the content spoken by the 
         specified speaker.
         """
-        sd = self.stanza_doc(speaker, nlp)
+        sd = self.stanza_doc(speaker)
         return [token.text for token in sd.iter_tokens()]
     
     def speaker_set(self, restrict=True) -> set[str]:
