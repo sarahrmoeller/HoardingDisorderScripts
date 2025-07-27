@@ -1,6 +1,7 @@
 import pytest
 import warnings
 import stanza
+from stanza.models.constituency import tree_reader
 from utils.ling import type_token_ratio, average_sentence_length, \
                        count_nps, count_non_NP_phrases 
 
@@ -63,3 +64,12 @@ def test_count_non_NP_phrases(text, expected):
     doc = nlp(text)
     tree = doc.sentences[0].constituency # type: ignore
     assert count_non_NP_phrases(tree) == expected
+
+
+tree_string = "(ROOT (NP (ADJP (UH yeah) (JJ sure) (NP (UH no) (SBAR (WHNP (DT that)) (S (VP (VBZ sounds) (ADJP (JJ perfect)) (ADVP (UH yeah)) (UH no)))))) (SBAR (WHNP (DT that)) (S (VP (VBZ sounds) (ADJP (JJ great)) (ADJP (RB really) (JJ good)))))))"
+tree = tree_reader.read_trees(tree_string)[0]
+
+# Found this in testing
+def test_count_weird_string():
+    assert count_nps(tree) == 1
+    assert count_non_NP_phrases(tree) == 11

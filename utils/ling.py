@@ -89,16 +89,15 @@ def count_non_NP_phrases(tree: pt.Tree) -> int:
     Returns:
         int: The total count of phrase nodes in the tree.
     """
-    def internal_count(tree: pt.Tree) -> int:
-        # Base case    
-        if tree.is_preterminal() or tree.label == 'NP':
-            return 0
+    # Base case    
+    if tree.is_preterminal():
+        return 0
 
-        # Recursive step: Count this node as 1 phrase, then add the counts
-        # from all of its children that are also sub-trees.
-        return 1 + sum(internal_count(child) for child in tree.children)
+    # Recursive step: Count this node as 1 phrase, then add the counts
+    # from all of its children that are also sub-trees.
     # Exclude the ROOT and S nodes from the count
-    return internal_count(tree) - 2
+    return int(tree.label not in {'ROOT', 'S', 'NP'}) + \
+            sum(count_non_NP_phrases(child) for child in tree.children)
 
 
 def NP_ratio(tree: pt.Tree) -> float:
