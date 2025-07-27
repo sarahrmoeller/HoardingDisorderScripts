@@ -117,3 +117,17 @@ def NP_ratio(tree: pt.Tree) -> float:
     np_count = count_nps(tree)
     other_phrases_count = count_non_NP_phrases(tree)
     return np_count / (np_count + other_phrases_count)
+
+
+def count_nps_in_sd(stanza_doc) -> int:
+    if not stanza_doc:
+        return 0
+    return sum(count_nps(sent.constituency) for sent in stanza_doc.sentences)
+
+
+def NP_ratio_in_sd(stanza_doc) -> float:
+    if not stanza_doc or len(stanza_doc.sentences) < 1:
+        return 0.0
+    return stats.mean(NP_ratio(sent.constituency) 
+                      for sent in stanza_doc.sentences
+                      if sent)
