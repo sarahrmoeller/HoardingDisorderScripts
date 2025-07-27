@@ -32,31 +32,6 @@ data <- data[, names(data) != "Document.Name"]
 data[["CLF.or.SC.Participant"]] <- (data[["Clarification.Participant"]] +
                                       data[["Self.Correction.Participant"]])
 
-# Fix columns with lists in them instead of numbers
-pylist_to_vec <- function(l) {
-  l <- gsub("\\[|\\]", "", l)  # Remove brackets
-  l <- strsplit(l, ",")[[1]]   # Split by comma
-  as.numeric(trimws(l))        # Convert to numeric and trim whitespace
-}
-
-for (col in names(data)[grepl("NP", names(data))]) {
-  for (i in seq_along(data[[col]])) {
-    entry <- data[[col]][i]
-    entry <- pylist_to_vec(entry)
-    if (grepl("counts", col)) {
-      # NP count lists are lists of counts of NPs in each sentence,
-      # so we need to sum them up
-      entry <- sum(entry, na.rm = TRUE)
-    } else if (grepl("ratio", col)) {
-      # NP ratio lists are lists of NPs ratios in each sentence,
-      # for simplicity we will take the mean
-      entry <- mean(entry, na.rm = TRUE)
-    }
-    data[[col]][i] <- as.numeric(entry)
-  }
-  data[[col]] <- as.numeric(data[[col]])
-}
-
 labels <- c("Clarification", "Incomplete.Thought", "Misspeak",
             "Self.Correction", "Generic.Disfluency", "Overlap", "Unclear")
 
@@ -116,9 +91,9 @@ write.table(data[, c("Total", "Hoarder.Flag")],
 library(lme4)
 
 model <- glmer(
-  Hoarder.Flag ~ CLF.or.SC.Participant + NP.ratio.Participant +
+  Hoarder.Flag ~ CLF.or.SC.Participant + 
     Incomplete.Thought.Participant + Overlap.Participant +
-    TTR.sent.Participant + NP.counts.Participant +
+    TTR.Participant + NP.counts.Participant +
     (1 | Generic.Disfluency.Participant) +
     (1 | Misspeak.Participant) +
     (1 | ASL.Participant) +
