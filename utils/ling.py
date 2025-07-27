@@ -1,6 +1,7 @@
 import warnings
 import stanza
 import stanza.models.constituency.parse_tree as pt
+import statistics as stats
 
 
 nlp = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
@@ -114,8 +115,12 @@ def NP_ratio(tree: pt.Tree) -> float:
     Returns:
         float: The NP ratio
     """
+    if not tree:
+        return 0.0
     np_count = count_nps(tree)
     other_phrases_count = count_non_NP_phrases(tree)
+    if np_count + other_phrases_count == 0:
+        return 0.0
     return np_count / (np_count + other_phrases_count)
 
 
