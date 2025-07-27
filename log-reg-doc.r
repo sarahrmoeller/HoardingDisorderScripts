@@ -91,9 +91,8 @@ write.table(data[, c("Total", "Hoarder.Flag")],
 library(lme4)
 
 model <- glmer(
-  Hoarder.Flag ~ CLF.or.SC.Participant + 
-    Incomplete.Thought.Participant + Overlap.Participant +
-    TTR.Participant + NP.counts.Participant +
+  Hoarder.Flag ~ CLF.or.SC.Participant + Incomplete.Thought.Participant +
+    Overlap.Participant + TTR.Participant + NP.ratio.Participant +
     (1 | Generic.Disfluency.Participant) +
     (1 | Misspeak.Participant) +
     (1 | ASL.Participant) +
