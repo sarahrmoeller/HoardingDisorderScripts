@@ -105,8 +105,10 @@ def remove_tokens(string: str) -> str:
 def find_speaker_format_issues(text, speaker_set):
         """
        Method 2.1 Detects speaker label formatting issues:
-            1. Speaker label followed by space before colon (e.g., 'Participant :')
-            2. Speaker label followed by punctuation or character other than ':' (e.g., 'Participant.', 'Participant-')
+            1. Speaker label followed by space before colon 
+               (e.g., 'Participant :')
+            2. Speaker label followed by punctuation or character other than 
+                ':' (e.g., 'Participant.', 'Participant-')
         Returns a dictionary with issue types and matching instances.
         """
         issues = {}
@@ -128,9 +130,11 @@ def find_speaker_format_issues(text, speaker_set):
 
 def find_spelling_variants(text, speaker_set, threshold=0.8):
     '''
-    Method 3.1 Finds likely misspellings of speaker labels using fuzzy matching.
+    Method 3.1 Finds likely misspellings of speaker labels using fuzzy 
+    matching.
     '''
-    pattern = re.compile(r'^([A-Z][a-zA-Z0-9_ ]{1,30})(?=\s*:\s*)', re.MULTILINE)
+    pattern = re.compile(r'^([A-Z][a-zA-Z0-9_ ]{1,30})(?=\s*:\s*)', 
+                         re.MULTILINE)
     candidates = pattern.findall(text)
 
     fuzzy_hits = {}
@@ -145,7 +149,8 @@ def find_multi_speaker_lines(text):
     '''
     Method 3.2 Finds lines that contain more than one speaker label.
     '''
-    speaker_pattern = r'\b(?:' + '|'.join(re.escape(s) for s in SPEAKERS) + r')\s*:'
+    speaker_pattern = r'\b(?:' + '|'.join(re.escape(s) for s in SPEAKERS) \
+                            + r')\s*:'
     pattern = re.compile(speaker_pattern)
     multi_speaker_lines = []
     for i, line in enumerate(text.splitlines()):
