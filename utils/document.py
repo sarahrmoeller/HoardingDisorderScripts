@@ -139,6 +139,9 @@ class Document:
     def speaker_set(self, restrict=True) -> set[str]:
         """
         Returns the set of all speaker labels found in the document.
+        If the restrict flag is set to False, all strings appearing to be
+        speaker labels (those strings captured by `regexes.find_speakers`) will
+        be returned.
         """
         speaker_matches = regexes.find_speakers(self.full_content, 
                                                 restrict=restrict)
