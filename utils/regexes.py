@@ -114,13 +114,20 @@ def find_speaker_format_issues(text, speaker_set):
         issues = {}
 
         # Pattern 1: Space before colon "Participant :" (colon spacing issue)
-        spacing_pattern = re.compile(r'\b(?:' + '|'.join(re.escape(s) for s in speaker_set) + r')\s+:')
+        spacing_pattern = re.compile(r'\b(?:{speaker_set})\s+:'
+                                     .format(speaker_set='|'
+                                             .join(re.escape(s) for s in 
+                                                                speaker_set)))
         spacing_matches = spacing_pattern.findall(text)
         if spacing_matches:
             issues['spacing_issue'] = spacing_matches
 
-        # Pattern 2: Speaker label followed by something other than colon or space (e.g., 'Participant.' or 'Participant!')
-        bad_punct_pattern = re.compile(r'\b(?:' + '|'.join(re.escape(s) for s in speaker_set) + r')[^\s:]')
+        # Pattern 2: Speaker label followed by something other than colon or 
+        # space (e.g., 'Participant.' or 'Participant!')
+        bad_punct_pattern = re.compile(r'\b(?:' + '|'.join(re.escape(s) 
+                                                           for s in 
+                                                           speaker_set) 
+                                                + r')[^\s:]')
         punct_matches = bad_punct_pattern.findall(text)
         if punct_matches:
             issues['bad_punctuation'] = punct_matches
