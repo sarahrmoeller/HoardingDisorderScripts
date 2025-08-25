@@ -161,7 +161,8 @@ def find_speaker_at_end_of_line(text):
     Ex:
         "Yeah, that's an interesting idea. Participant:"
     """
-    pattern = re.compile(r'\b(?:{speakers})\s*:'
-                         .format(speakers='|'.join(SPEAKERS)),
+    pattern = re.compile(r'(?<!\n)\s*(?:{ts})?\s*{speakers}:'
+                         .format(ts=timestamps.pattern,
+                                 speakers='|'.join(SPEAKERS)),
                          re.MULTILINE)
     return pattern.findall(text)
