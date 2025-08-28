@@ -135,20 +135,24 @@ def find_speaker_format_issues(text, speaker_set):
         return issues
 
 
-def find_spelling_variants(text, speaker_set, threshold=0.8):
+def find_spelling_variants(text, speaker_set=SPEAKERS, threshold=0.8) -> dict:
     '''
     Method 3.1 Finds likely misspellings of speaker labels using fuzzy 
-    matching.
+    matching. 
+    Returns a dictionary where keys are the potential misspellings of speaker 
+    labels found in the text, and values are lists of potential correct labels
+    corresponding to each potential misspelling.
     '''
-    pattern = re.compile(r'^([A-Z][a-zA-Z0-9_ ]{1,30})(?=\s*:\s*)', 
-                         re.MULTILINE)
-    candidates = pattern.findall(text)
-
     fuzzy_hits = {}
-    for cand in candidates:
-        matches = get_close_matches(cand, speaker_set, n=1, cutoff=threshold)
-        if matches and matches[0] != cand:
-            fuzzy_hits[cand] = matches[0]
+    for potential_label in speaker_labels.findall(text):
+        # Check if the potential label is similar to any existing labels
+        matches = get_close_matches(potential_label, speaker_set, 
+                                    cutoff=threshold)
+        # If the potential label not exactly the same as the existing label
+        # (and the matches are not empty), we consider it as a potential
+        # misspelling
+        if any(potential_label == match for match in matches) and matches:
+            fuzzy_hits[potential_label] = matches
     return fuzzy_hits
 
 
