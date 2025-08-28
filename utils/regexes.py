@@ -102,7 +102,7 @@ def remove_tokens(string: str) -> str:
     return string.strip()
 
 
-def find_speaker_format_issues(text, speaker_set):
+def find_speaker_format_issues(text, speaker_set=SPEAKERS):
         """
        Method 2.1 Detects speaker label formatting issues:
             1. Speaker label followed by space before colon 
