@@ -54,6 +54,7 @@ class Document:
         self.lines = [
             row['content'].rstrip() for row in self.row_data
         ]
+        self.tokens = [row['tokens'] for row in self.row_data]
         self.full_content = '\n'.join(self.lines)
         self.label_data = self.data['spanLabels']
 
@@ -128,7 +129,7 @@ class Document:
         """
         return self._stanza_docs[speaker]
     
-    def tokens(self, speaker: str) -> list[str]:
+    def tokens_by_speaker(self, speaker: str) -> list[str]:
         """
         Returns a list of tokens (as strings) in the content spoken by the 
         specified speaker.

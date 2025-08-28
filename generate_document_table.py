@@ -20,12 +20,12 @@ if __name__ == "__main__":
             'Document Name' : doc.name, 
             'Hoarder Flag' : doc.hoarder_flag,
             **doc.label_counts,
-            'TTR-Interviewer' : ling.type_token_ratio(doc.tokens("Interviewer")),
-            'TTR-Participant' : ling.type_token_ratio(doc.tokens("Participant")),
+            'TTR-Interviewer' : ling.type_token_ratio(doc.tokens_by_speaker("Interviewer")),
+            'TTR-Participant' : ling.type_token_ratio(doc.tokens_by_speaker("Participant")),
             'ASL-Interviewer' : ling.average_sentence_length(
-                doc.tokens("Interviewer")), # type: ignore
+                doc.tokens_by_speaker("Interviewer")), # type: ignore
             'ASL-Participant' : ling.average_sentence_length(
-                doc.tokens("Participant")), # type: ignore
+                doc.tokens_by_speaker("Participant")), # type: ignore
             'NP-counts-Interviewer' : ling.count_nps_in_sd(sdoc_int),
             'NP-counts-Participant' : ling.count_nps_in_sd(sdoc_part), 
             'NP-ratio-Interviewer'  : ling.NP_ratio_in_sd(sdoc_int),
