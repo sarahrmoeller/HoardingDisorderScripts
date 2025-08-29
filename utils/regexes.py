@@ -169,16 +169,3 @@ def find_multi_speaker_lines(text):
         if len(matches) > 1:
             multi_speaker_lines.append((i + 1, line.strip(), matches))
     return multi_speaker_lines
-
-
-def find_speaker_at_end_of_line(text):
-    """
-    Method 3.3 Detect speaker labels that don't come after newlines.
-    Ex:
-        "Yeah, that's an interesting idea. Participant:"
-    """
-    pattern = re.compile(r'(?<!\n)\s*(?:{ts})?\s*{speakers}:'
-                         .format(ts=timestamps.pattern,
-                                 speakers='|'.join(SPEAKERS)),
-                         re.MULTILINE)
-    return pattern.findall(text)
