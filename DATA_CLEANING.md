@@ -86,3 +86,7 @@ Interviewer19:09- Ok sounds good.
 ```
 
 This script just fixes that.
+
+### `fix_timestamps.py`
+
+Fixes issues with timestamps looking like `07 :08` and `34:4o`.
