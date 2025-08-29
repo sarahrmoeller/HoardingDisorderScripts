@@ -72,3 +72,17 @@ This script should not be run until after the previous script, otherwise not all
 
 This script looks for documents with identical names and identical content, and chooses one of the documents at random to remove.
 We choose to run this after `fix_transcripts_001-007.py` so that names are accurate.
+
+### `fix_misspellings.py`
+
+Just read the docstring in the file at this point. Pretty please?
+
+### Fix 
+
+This line is in this document:
+
+```
+Interviewer19:09- Ok sounds good.
+```
+
+This script just fixes that.
