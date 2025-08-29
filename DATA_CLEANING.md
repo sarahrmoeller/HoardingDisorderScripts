@@ -75,9 +75,9 @@ We choose to run this after `fix_transcripts_001-007.py` so that names are accur
 
 ### `fix_misspellings.py`
 
-Just read the docstring in the file at this point. Pretty please?
+Fixes known misspellings of speaker labels found across documents. 
 
-### Fix 
+### `fix_059_718.py`
 
 This line is in this document:
 
