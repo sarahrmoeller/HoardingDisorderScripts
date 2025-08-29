@@ -49,7 +49,7 @@ def find_speakers(content: str, restrict=True) -> list[str]:
 
 # This regex is used to match timestamps, i.e. '19:24', '3:14', or '12:34:56'.
 # Also allows for ranges, i.e. '1:23-1:56'.
-timestamps = re.compile(r'\d{1,2}[:;]\d{2}(?:[:;]\d{2})?')
+timestamps = re.compile(r'\d{1,2}[:;]\d{2}(?:[:;](?:\d{2})?)?')
 timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
 timestamps = re.compile(r'\({ts}\)|\[{ts}\]|{ts}'
                         .format(ts=timestamps.pattern))
