@@ -200,16 +200,9 @@ class Document:
             speaker_matches = regexes.find_speakers(line)
             # If speaker found, change global current_speaker variable
             if speaker_matches:
-                # Check: a single line should only have one speaker.
-                # If multiple speakers found, warn and use the first one
-                if len(speaker_matches) > 1:
-                    warnings.warn(
-                        f'Multiple speakers found in row {i} of '
-                        f'{self}. Speakers: {speaker_matches}. '
-                         'Using first speaker.')
-                # TODO: Warn if speaker is found not at the beginning of the 
-                # line, ignoring timestamps
-                current_speaker = speaker_matches[0]
+                # In the case that len(speaker_matches) > 1, we use the last 
+                # entry in the list so that the next line is most up-to-date
+                current_speaker = speaker_matches[-1]
             row_speakers[i] = current_speaker
             # If we've found a speaker farther than at the first row,
             # and the first row is empty, we assume that all rows up to this
