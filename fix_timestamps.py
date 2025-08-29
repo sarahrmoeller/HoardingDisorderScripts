@@ -1,0 +1,51 @@
+"""
+The fixes here should be self-explanatory, given the context with the other
+files.
+"""
+import utils.datasaur as data
+from utils.transcript import Transcript
+import json
+
+
+# Found through datasaur diving
+broken_timestamps = [
+    # With spaces
+    ('07: 27', '07:27', 4, ['3001', '030']),
+    ('07: 27', '07:27', 23, ['3001', '048']),
+    ('26: 35', '26:35', 14, ['2004', '053']),
+    ('03: 58', '03:58', 9, ['3001', '082']),
+    ('07: 34', '07:34', 1, ['3001', '083']),
+    ('30: 31', '30:31', 5, ['3001', '087']),
+    ('35: 11', '35:11', 9, ['3001', '088']),
+    ('09: 22', '09:22', 9, ['059', '716']),
+    ('34: 54', '34:54', 34, ['3001', '007']),
+    ('38: 23', '38:23', 19, ['3001', '008']),
+    ('26: 48', '26:48', 26, ['3001', '005']),
+    ('03: 44', '03:44', 27, ['3001', '000']),
+    ('41: 50', '41:50', 29, ['3001', '009']),
+    ('43: 27', '43:27', 41, ['3001', '009']),
+    ('31: 23', '31:23', 30, ['3001', '006']),
+    # With letters
+    ('34:4y', '34:6y', 44, ['054', '671']),
+    ('36:4o', '36:40', 15, ['3001', '034'])
+]
+
+
+for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps: 
+    doc = Transcript(trans_num)[doc_num]
+
+    # Fix line
+    doc.lines[line_num] = doc.lines[line_num].replace(broken_ts, fixed_ts)
+    doc.row_data[line_num]['content'] = doc.lines[line_num]
+
+    # Fix token
+    broken_ts_parts = broken_ts.split()
+    fixed_token_index = doc.tokens.index(broken_ts_parts[0])
+    doc.tokens[fixed_token_index] = fixed_ts
+    del doc.tokens[fixed_token_index + 1]
+    doc.row_data[line_num]['tokens'] = doc.tokens
+
+    doc.json_dump['rows'] = doc.row_data
+
+    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+        json.dump(doc.json_dump, f)
