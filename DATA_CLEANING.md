@@ -73,7 +73,7 @@ This script should not be run until after the previous script, otherwise not all
 This script looks for documents with identical names and identical content, and chooses one of the documents at random to remove.
 We choose to run this after `fix_transcripts_001-007.py` so that names are accurate.
 
-### `fix_misspellings.py`
+### `fix_misspelled_labels.py`
 
 Fixes known misspellings of speaker labels found across documents. 
 
