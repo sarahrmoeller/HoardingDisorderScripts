@@ -23,7 +23,7 @@ SPEAKERS: set = {speaker for pair in SPEAKER_PAIRS for speaker in pair}
 speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?:')
 # This regex is used to match only speaker labels that are found in the 
 # SPEAKERS set.
-speaker_labels_restricted = re.compile(r'\s*(?:{speakers})(?:\s+\d+)?:\s*'
+speaker_labels_restricted = re.compile(r'(?:{speakers})(?:\s+\d+)?:'
                                        .format(speakers='|'.join(SPEAKERS)))
 
 def find_speakers(content: str, restrict=True) -> list[str]:
