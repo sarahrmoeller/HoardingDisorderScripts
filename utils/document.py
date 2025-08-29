@@ -6,7 +6,6 @@ import warnings
 from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
 import string
-from . import ling
 import stanza.models.common.doc as stnzdoc
 
 
@@ -119,6 +118,7 @@ class Document:
         """
         Cache stanza Document objects for each speaker.
         """
+        from . import ling
         return {speaker: ling.nlp(self.content_by_speaker(speaker))
                 for speaker in self.default_speaker_pair}
 
