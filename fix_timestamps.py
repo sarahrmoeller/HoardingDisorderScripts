@@ -38,12 +38,18 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
     doc.lines[line_num] = doc.lines[line_num].replace(broken_ts, fixed_ts)
     doc.row_data[line_num]['content'] = doc.lines[line_num]
 
-    # Fix token
-    broken_ts_parts = broken_ts.split()
-    fixed_token_index = doc.tokens.index(broken_ts_parts[0])
-    doc.tokens[fixed_token_index] = fixed_ts
-    del doc.tokens[fixed_token_index + 1]
-    doc.row_data[line_num]['tokens'] = doc.tokens
+    # Fix tokens
+    token_line: list[str] = doc.tokens[line_num]
+    if ' ' in broken_ts:
+        # Special fix for broken timestamps with spaces
+        broken_ts_parts = broken_ts.split()
+        fixed_token_index = token_line.index(broken_ts_parts[0])
+        token_line[fixed_token_index] = fixed_ts
+        del token_line[fixed_token_index + 1]
+    else:
+        # Normal fix
+        token_line[token_line.index(broken_ts)] = fixed_ts
+    doc.row_data[line_num]['tokens'] = token_line
 
     doc.json_dump['rows'] = doc.row_data
 
