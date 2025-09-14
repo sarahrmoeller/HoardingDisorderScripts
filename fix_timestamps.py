@@ -52,8 +52,11 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
         del token_line[fixed_token_index + 1]
     else:
         # Normal fix
-        index = [i for i in range(len(token_line)) 
-                 if broken_ts in token_line[i]][0]
+        try:
+            index = [i for i in range(len(token_line)) 
+                    if broken_ts in token_line[i]][0]
+        except IndexError:
+            continue
         token_line[index] = token_line[index].replace(broken_ts, fixed_ts)
     doc.row_data[line_num]['tokens'] = token_line
 
