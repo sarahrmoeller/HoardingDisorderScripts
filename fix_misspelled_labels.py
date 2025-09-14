@@ -6,7 +6,7 @@ import json
 
 
 misspellings = {
-    "Speaker" : ["Speake", "Spaker", "Speaker1", "1:Speaker"],
+    "Speaker" : ["Speake", "Spaker", "Speaker1", "1:Speaker, Speakerr"],
     "Participant" : ["2Participant"],
     "Interviewer" : ["Interviewer1", "1:Interviewer"],
     "Note" : ["1:Note"] # extra thing we caught---we'll fix even though it isn't a speaker label
