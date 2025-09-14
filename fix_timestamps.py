@@ -43,6 +43,8 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
     if ' ' in broken_ts:
         # Special fix for broken timestamps with spaces
         broken_ts_parts = broken_ts.split()
+        if any(part not in token_line for part in broken_ts_parts):
+            continue
         fixed_token_index = token_line.index(broken_ts_parts[0])
         token_line[fixed_token_index] = fixed_ts
         del token_line[fixed_token_index + 1]
