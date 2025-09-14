@@ -25,9 +25,12 @@ for doc in data.by_doc:
         for j in range(len(doc.row_data[i]['tokens'])):
             token: str = doc.row_data[i]['tokens'][j]
             for key in misspellings:
-                if token in misspellings[key]:
+                if any(misspelling in token 
+                       for misspelling in misspellings[key]):
                     # token = key (correct spelling)
-                    doc.row_data[i]['tokens'][j] = key
+                    fixed_token = (doc.row_data[i]['tokens'][j]
+                                      .replace(token, key))
+                    doc.row_data[i]['tokens'][j] = fixed_token
                     break # Found token's match, no need to keep checking
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
