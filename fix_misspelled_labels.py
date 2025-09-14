@@ -19,8 +19,8 @@ for doc in data.by_doc:
         # Fix labels in the lines
         for key in misspellings:
             for misspelled in misspellings[key]:
-                doc.row_data[i]['content'] = doc.row_data[i]['content'] \
-                                                .replace(misspelled, key)
+                doc.row_data[i]['content'] = (doc.row_data[i]['content']
+                                                 .replace(misspelled, key))
         # Fix labels in the tokens
         for j in range(len(doc.row_data[i]['tokens'])):
             token: str = doc.row_data[i]['tokens'][j]
