@@ -20,7 +20,7 @@ SPEAKERS: set = {speaker for pair in SPEAKER_PAIRS for speaker in pair}
 # 'Participant 12:', 'Spongebob: '. Any attempt to match a speaker label
 # will return the label itself, e.g. finding 'Interviewer:' in the text 
 # returns 'Interviewer'
-speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?:')
+speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?[:-]')
 # This regex is used to match only speaker labels that are found in the 
 # SPEAKERS set.
 speaker_labels_restricted = re.compile(r'(?:{speakers})(?:\s+\d+)?:'
