@@ -8,7 +8,7 @@ nlp = stanza.Pipeline(lang='en', processors='tokenize,pos,constituency')
 
 
 def type_token_ratio(tokens: list[str] | list[list[str]],
-                     per_sent=False) -> float:
+                     per_sent=True) -> float:
     """
     Calculate the type-token ratio of a document.
     
