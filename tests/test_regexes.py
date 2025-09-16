@@ -19,6 +19,7 @@ from utils import regexes
     ("23:14 Participant:", ["Participant"]),
     # Timestamp after
     ("Interviewer 23:14:", ["Interviewer"]),
+    ("Interviewer (23:14):", ["Interviewer"]), # Timestamp after with ()
     # Hyphen is ok too
     ("Interviewer 23:14-", ["Interviewer"]),
     # No speaker

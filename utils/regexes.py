@@ -16,15 +16,26 @@ SPEAKER_PAIRS: list[tuple] = [
 SPEAKERS: set = {speaker for pair in SPEAKER_PAIRS for speaker in pair}
 
 
+# This regex is used to match timestamps, i.e. '19:24', '3:14', or '12:34:56'.
+# Also allows for ranges, i.e. '1:23-1:56'.
+timestamps = re.compile(r'\d{1,2}[:;]\d{2}(?:[:;](?:\d{2})?)?')
+timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
+timestamps = re.compile(r'(?:\({ts}\)|\[{ts}\]|{ts})'
+                        .format(ts=timestamps.pattern))
+
+
 # This regex is used to match speaker labels, i.e. 'Interviewer:', 
 # 'Participant 12:', 'Spongebob: '. Any attempt to match a speaker label
 # will return the label itself, e.g. finding 'Interviewer:' in the text 
 # returns 'Interviewer'
-speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+\d+)?[:-]')
+speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+(?:\d+|{ts}))?[:\-—]'
+                            .format(ts=timestamps.pattern),
+                            re.UNICODE)
 # This regex is used to match only speaker labels that are found in the 
 # SPEAKERS set.
 speaker_labels_restricted = re.compile(r'(?:{speakers})(?:\s+\d+)?:'
                                        .format(speakers='|'.join(SPEAKERS)))
+
 
 def find_speakers(content: str, restrict=True) -> list[str]:
     """
@@ -47,12 +58,6 @@ def find_speakers(content: str, restrict=True) -> list[str]:
         return matches
     return [match for match in matches if match in SPEAKERS]
 
-# This regex is used to match timestamps, i.e. '19:24', '3:14', or '12:34:56'.
-# Also allows for ranges, i.e. '1:23-1:56'.
-timestamps = re.compile(r'\d{1,2}[:;]\d{2}(?:[:;](?:\d{2})?)?')
-timestamps = re.compile(r'{ts}(?:-{ts})?'.format(ts=timestamps.pattern))
-timestamps = re.compile(r'\({ts}\)|\[{ts}\]|{ts}'
-                        .format(ts=timestamps.pattern))
 
 
 extractable_token = re.compile(r"([a-zA-Z ]+)(?:[,;]?\s+(?:{ts}))?"

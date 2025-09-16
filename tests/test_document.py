@@ -18,6 +18,7 @@ test_files: list[tuple[str, str]] = [
     ("s1_28-35_s2_4-7", "2005_086.txt"),
     ("s1036-42_s2008-9_s3000-15", "2008_136.txt"),
     ("s1_21-27_s2_1-3", "026_307.txt"), # Contains only Interviewer label, as well as [END OF RECORDING]
+    ("s1051-54_s2014-19_s3051-75", "051_628.txt"), # Very normal doc that came out as empty for some reason
 ]
 test_docs = {filename: Document(f"./data/{project}/REVIEW/{filename}.json")
              for project, filename in test_files}
@@ -118,6 +119,20 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'Interviewer',
         'Interviewer',
     ], id="Contains only Interviewer label, as well as [END OF RECORDING]"), # 
+    pytest.param(test_docs["051_628.txt"], [
+        # Lines 1-14 part. of interview
+        "Participant", "Participant", "Participant", "Participant",
+        "Participant", "Participant", "Participant", "Participant",
+        "Participant", "Participant", "Participant", "Participant",
+        "Participant", "Participant",
+        "Interviewer", "Interviewer", "Interviewer", "Interviewer", # Lines 15-18
+        "Participant", "Participant", "Participant", # 19-21
+        "Interviewer", "Interviewer", # 22-23
+        "Participant", "Participant", # 24-25
+        "Interviewer", "Interviewer", "Interviewer", # 26-28
+        "Participant", "Participant", # 24-25
+        "Interviewer", "Interviewer", # 22-23
+    ], id="Very normal doc that should work but didn't"), # 
 ])
 def test_row_speakers(test_doc, expected_speakers):
     assert test_doc._row_speakers == expected_speakers
