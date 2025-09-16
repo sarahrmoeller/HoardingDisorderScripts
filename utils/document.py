@@ -141,7 +141,7 @@ class Document:
         if per_sent:
             return [[token.text for token in sent.tokens] 
                     for sent in sd.sentences]
-        return [token.text for sent in sd.sentences for token in sent.tokens]
+        return [token.text for token in sd.iter_tokens()]
 
     def speaker_set(self, restrict=True) -> set[str]:
         """
