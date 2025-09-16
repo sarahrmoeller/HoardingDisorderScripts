@@ -135,7 +135,7 @@ class Document:
         specified speaker.
         """
         sd = self.stanza_doc(speaker)
-        return [token.text for token in sd.iter_tokens()]
+        return [token.text for sent in sd.sentences for token in sent.tokens]
     
     def speaker_set(self, restrict=True) -> set[str]:
         """
