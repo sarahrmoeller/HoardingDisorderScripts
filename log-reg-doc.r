@@ -91,9 +91,9 @@ write.table(data[, c("Total", "Hoarder.Flag")],
 library(lme4)
 
 model1 <- glmer(
-  Hoarder.Flag ~ CLF.or.SC.Participant + 
-    Incomplete.Thought.Participant + Overlap.Participant + 
-    NP.ratio.Participant + TTR.Sent.Participant*ASL.Participant +
+  Hoarder.Flag ~ CLF.or.SC.Participant +
+    Incomplete.Thought.Participant + Overlap.Participant +
+    NP.ratio.Participant + TTR.Sent.Participant * ASL.Participant +
     (1 | Misspeak.Participant),
   data = data,
   family = binomial(link = "logit")
@@ -101,9 +101,9 @@ model1 <- glmer(
 summary(model1)
 
 model2 <- glmer(
-  Hoarder.Flag ~ Clarification.Participant + Self.Correction.Participant + 
-    Incomplete.Thought.Participant + Overlap.Participant + 
-    NP.ratio.Participant + TTR.Sent.Participant*ASL.Participant +
+  Hoarder.Flag ~ Clarification.Participant + Self.Correction.Participant +
+    Incomplete.Thought.Participant + Overlap.Participant +
+    NP.ratio.Participant + TTR.Sent.Participant * ASL.Participant +
     (1 | Misspeak.Participant),
   data = data,
   family = binomial(link = "logit")
