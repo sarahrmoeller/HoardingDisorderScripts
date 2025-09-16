@@ -216,9 +216,9 @@ class Document:
                     other_speaker = self.speaker_tuple[current_speaker_ind-1]
                     row_speakers[:i] = [other_speaker] * i
                 else:
-                    warnings.warn(f'First {i} rows empty in {self} but there '
-                                   'are too many speakers! I don\'t know how '
-                                   'to fill them.')
+                    warnings.warn(f'First {i} rows (out of {len(self.lines)}) '
+                                  f'empty in {self}, but there are too many '
+                                   'speakers! I don\'t know how to fill them.')
         
         rows_without_speakers = tuple(i for i in range(len(row_speakers)) 
                                       if not row_speakers[i])
