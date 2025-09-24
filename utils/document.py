@@ -33,7 +33,7 @@ class Document:
     default_speaker_pair = regexes.SPEAKER_PAIRS[0]
         
     def __init__(self, path: str) -> None:
-        with open(path, encoding='ASCII') as f:
+        with open(path) as f:
             self.json_dump = json.load(f)
         self.path = path
         # JSON always looks like {'version' : '1.0', 'data' : {...}},
