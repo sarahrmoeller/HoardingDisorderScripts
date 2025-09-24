@@ -100,10 +100,14 @@ model1 <- glmer(
 )
 summary(model1)
 
+# Avg TTR: sum(len(set(tokens)) / len(tokens) for sent in sentences) / len(sentences)
+# ASL: sum(len(token) for token_list in sentences) / len(sentences)
+# More unique tokens may lead to longer sentences
+# TTR goal: Are they finding new ways to say things, or just repeating the same words?
 model2 <- glmer(
   Hoarder.Flag ~ Clarification.Participant + Self.Correction.Participant +
     Incomplete.Thought.Participant + Overlap.Participant +
-    NP.ratio.Participant + TTR.Sent.Participant * ASL.Participant +
+    NP.ratio.Participant + TTR.Sent.Participant +
     (1 | Misspeak.Participant),
   data = data,
   family = binomial(link = "logit")
