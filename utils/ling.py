@@ -31,7 +31,7 @@ def type_token_ratio(tokens: list[str] | list[list[str]],
                       "calculation.")
         return 0.0
     if per_sent:
-        return sum([len(set(token.lower() for token in sent)) 
+        return sum([len(set(token.lower() for token in sent)) / len(sent) 
                     for sent in tokens]) / len(tokens)
     # Otherwise tokens are flat
     return len(set(token.lower() for token in tokens)) / len(tokens) # type: ignore
