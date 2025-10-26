@@ -1,15 +1,13 @@
 all.data <- read.csv("./out/transcript_table.csv")
+# Remove transcripts 2005 and 2008 as their speaker detection is broken
+# right now
+all.data <- all.data[!(all.data$Transcript %in% c("2005", "2008")), ]
 all.data <- all.data[, names(all.data) != "Transcript"] # Remove Transcript column
 names(all.data)
 
-# Simple regression on total labels per document
-total.slr <- glm(Hoarder.Flag ~ Total, data = all.data, family = "binomial")
-summary(total.slr)
-
-# Regression model by speaker
-total.rows <- names(all.data)[grepl("Total", names(all.data))]
-labels.by.speaker <- all.data[, !(names(all.data) %in% total.rows)]
-names(labels.by.speaker)
-speaker.mlr <- glm(Hoarder.Flag ~ ., data = labels.by.speaker[, !grepl("Interviewer", names(labels.by.speaker))], 
-                   family = "binomial")
-summary(speaker.mlr)
+mdl <- glm(Hoarder.Flag ~ Incomplete.Thought.Participant +
+             Clarification.Participant +
+             Overlap.Participant +
+             Self.Correction.Participant,
+           data = all.data, family = "binomial")
+summary(mdl)
