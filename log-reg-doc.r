@@ -28,6 +28,20 @@ names(data)
 # Now we can remove Document.Name
 data <- data[, names(data) != "Document.Name"]
 
+labels <- paste(c("Clarification", "Self.Correction", "Incomplete.Thought", 
+                  "Overlap"), ".Participant", sep = "")
+linguistic_metrics <- paste(
+  c("TTR", "TTR.Sent", "ASL", "NP.counts", "NP.ratio"),
+  ".Participant", sep = ""
+)
+names(data)
+
+data.labels <- data[, names(data) %in% c("Hoarder.Flag", labels)]
+colSums(data.labels)
+data.metrics <- data[, names(data) %in% c("Hoarder.Flag", linguistic_metrics)]
+colMeans(data.metrics)
+
+
 # "Joining" CLF and SC columns
 data[["CLF.or.SC.Participant"]] <- (data[["Clarification.Participant"]] +
                                       data[["Self.Correction.Participant"]])
@@ -100,16 +114,15 @@ model1 <- glmer(
 )
 summary(model1)
 
+data$Transcript <- sapply(strsplit(data$Document.Name, "_"), `[`, 1)
+
 # Avg TTR: sum(len(set(tokens)) / len(tokens) for sent in sentences) / len(sentences)
 # ASL: sum(len(token) for token_list in sentences) / len(sentences)
 # More unique tokens may lead to longer sentences
 # TTR goal: Are they finding new ways to say things, or just repeating the same words?
-model2 <- glmer(
+model2 <- glm(
   Hoarder.Flag ~ Clarification.Participant + Self.Correction.Participant +
-    Incomplete.Thought.Participant + Overlap.Participant +
-    NP.ratio.Participant + TTR.Sent.Participant +
-    (1 | Misspeak.Participant),
-  data = data,
-  family = binomial(link = "logit")
+    Incomplete.Thought.Participant + Overlap.Participant,
+  data, family = binomial(link = "logit")
 )
 summary(model2)
