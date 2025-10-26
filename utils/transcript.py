@@ -1,5 +1,7 @@
 from .document import Document
 from . import datasaur as data
+from functools import cached_property
+from collections import Counter
 
 
 class Transcript(Document):
@@ -40,6 +42,13 @@ class Transcript(Document):
         """
         with open(f"{dir}/{self.number}.txt", 'w') as f:
             f.write(self.full_content)
+    
+    @cached_property
+    def label_counts_tr(self) -> dict[str, int]:
+        summed_counter = Counter()
+        for doc in self.docs:
+            summed_counter.update(doc.label_counts)
+        return dict(summed_counter)
 
     def __getitem__(self, index: str) -> Document:
         """

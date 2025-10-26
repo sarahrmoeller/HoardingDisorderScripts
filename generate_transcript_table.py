@@ -9,7 +9,7 @@ if __name__ == "__main__":
         { 
             'Transcript' : tr.number,
             'Hoarder Flag' : tr.hoarder_flag,
-            **tr.label_counts
+            **tr.label_counts_tr
         }
         for tr in tqdm(Transcript(num) for num in data.transcript_numbers) ]
     df = pd.DataFrame(table_rows)
