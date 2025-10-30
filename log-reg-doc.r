@@ -125,4 +125,19 @@ model2 <- glm(
     Incomplete.Thought.Participant + Overlap.Participant,
   data, family = binomial(link = "logit")
 )
-summary(model2)
+
+library(stargazer)
+
+p.values <- summary(model2)$coefficients[, "Pr(>|z|)"]
+display_labels <- c(
+  "Clarification (Participant)",
+  "Self-Correction (Participant)",
+  "Incomplete Thought (Participant)",
+  "Overlap (Participant)"
+)
+
+stargazer(model2,
+          title = "Multiple Logistic Regression Model",
+          intercept.bottom = FALSE, # want intercept on the top
+          no.space = TRUE,
+          report = "*vcp")
