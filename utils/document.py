@@ -68,7 +68,8 @@ class Document:
 
     def lines_by_speaker(self, speaker: str, 
                          speaker_labels=False,
-                         cleaned=True) -> list[str]:
+                         cleaned=True,
+                         punctuation=False) -> list[str]:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
@@ -93,6 +94,7 @@ class Document:
             # Remove tokens that are not useful for us
             lines = [regexes.remove_tokens(line)
                      for line in lines]
+        if not punctuation:
             # Remove punctuation
             lines = [line.translate(str.maketrans('', '', string.punctuation))
                      for line in lines]
