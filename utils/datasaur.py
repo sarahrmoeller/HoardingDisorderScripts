@@ -2,7 +2,7 @@ from .document import Document
 import os
 
 
-projects = os.listdir('./data')
+projects = os.listdir('./data/json/')
 projects.remove('.gitignore')
 
 def review_dir(project: str) -> str:
@@ -12,7 +12,7 @@ def review_dir(project: str) -> str:
 
     Example: "HD_set1_1-7" -> "./data/HD_set1_1-7/REVIEW/"
     """
-    return f"./data/{project}/REVIEW/"
+    return f"./data/json/{project}/REVIEW/"
 
 by_project = {project: [Document(review_dir(project) + filename) 
                         for filename in os.listdir(review_dir(project))] 
