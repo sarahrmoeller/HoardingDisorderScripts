@@ -69,7 +69,8 @@ class Document:
     def lines_by_speaker(self, speaker: str, 
                          speaker_labels=False,
                          cleaned=True,
-                         punctuation=False) -> list[str]:
+                         remove_punctuation=False,
+                         lower=False) -> list[str]:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
@@ -86,7 +87,7 @@ class Document:
                      for line in lines]
         if cleaned:
             # Remove timestamps from the lines (and apply lowercase)
-            lines = [regexes.timestamps.sub('', line).strip().lower() 
+            lines = [regexes.timestamps.sub('', line).strip()
                      for line in lines]
             # Replace bracketed stuff with better representations
             lines = [regexes.replace_tokens(line)
@@ -94,7 +95,9 @@ class Document:
             # Remove tokens that are not useful for us
             lines = [regexes.remove_tokens(line)
                      for line in lines]
-        if not punctuation:
+        if lower:
+            lines = [line.lower() for line in lines]
+        if remove_punctuation:
             # Remove punctuation
             lines = [line.translate(str.maketrans('', '', string.punctuation))
                      for line in lines]
@@ -104,7 +107,9 @@ class Document:
 
     def content_by_speaker(self, speaker: str, 
                            speaker_labels=False,
-                           cleaned=True) -> str:
+                           cleaned=True,
+                           remove_punctuation=False,
+                           lower=False) -> str:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
@@ -112,7 +117,9 @@ class Document:
         content = '\n'.join(
             self.lines_by_speaker(speaker, 
                                   speaker_labels=speaker_labels,
-                                  cleaned=cleaned))
+                                  cleaned=cleaned,
+                                  remove_punctuation=remove_punctuation,
+                                  lower=lower))
         return content
     
     @cached_property
