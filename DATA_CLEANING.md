@@ -45,16 +45,14 @@ Note that we fully acknowledge that some of these fixes could have been implemen
 we simply did not because we were exhausted, and somehow this felt easier.
 Don't ask why!
 
-### `fix_transcript_012.py`
+### Naming-specific Fixes (run these first!)
+
+#### `fix_transcript_012.py`
 
 In this transcript, every label that said `Interviewee:` should have actually said `Interviewer:`. 
 This script fixes that.
 
-### `deidentify.py`
-
-This script replaces identifying information with generic names. For instance, "Jane" would be replaced with "NAME", "New York City" would be replaced with "CITY", etc.
-
-### `fix_transcripts_001-007.py`
+#### `fix_transcripts_001-007.py`
 
 This script checks all documents from the transcripts `001` to `007` for renaming. 
 More accurately, it fixes all documents that are said to be from that range—some of these documents are actually from transcripts `2001` to `2007`.
@@ -63,21 +61,21 @@ This is a big deal: which means that some documents from control transcripts are
 We checked in `001-007_fixes.ipynb` that not a single document in any of the projects labeled HD_set1 have speakers that are labeled `"Interviewee"`. 
 Thus, assuming that all documents in HD_set1 are actually hoarding documents, this is sufficient evidence to conclude that if a document has a speaker labeled "Interviewee", it is not a hoarding document, and is in fact from transcripts `2001` to `2007` and not `001` to `007`.
 
-### `fix_transcript_2005.py`
-
-This transcript had mismatched speakers: "P3" should have been "Interviewee" and vice versa.
-This script should not be run until after the previous script, otherwise not all documents from `2005` will be targeted.
-
-### `remove_duplicates.py`
+#### `remove_duplicates.py`
 
 This script looks for documents with identical names and identical content, and chooses one of the documents at random to remove.
 We choose to run this after `fix_transcripts_001-007.py` so that names are accurate.
 
-### `fix_misspelled_labels.py`
+#### `fix_transcript_2005.py`
 
-Fixes known misspellings of speaker labels found across documents. 
+This transcript had mismatched speakers: "P3" should have been "Interviewee" and vice versa.
+This script should not be run until after transcripts `001`-`007` are fixed, otherwise not all documents from `2005` will be targeted.
 
-### `fix_059_718.py`
+#### `fix_timestamps.py`
+
+Fixes issues with timestamps looking like `07 :08` and `34:4o` in a number of specific documents.
+
+#### `fix_059_718.py`
 
 This line is in this document:
 
@@ -87,14 +85,16 @@ Interviewer19:09- Ok sounds good.
 
 This script just fixes that.
 
-### `fix_timestamps.py`
-
-Fixes issues with timestamps looking like `07 :08` and `34:4o`.
-
-### `fix_misspelled_labels.py`
-
-Fixes a number of miscellaneous issues relating to speaker labels being misspelled or miswritten in some way.
-
-### `fix_3001_039.py`
+#### `fix_3001_039.py`
 
 Fix another very small issue.
+
+### Across-document fixes
+
+#### `deidentify.py`
+
+This script replaces identifying information with generic names. For instance, "Jane" would be replaced with "NAME", "New York City" would be replaced with "CITY", etc.
+
+#### `fix_misspelled_labels.py`
+
+Fixes a number of miscellaneous issues relating to speaker labels being misspelled or miswritten in some way.
