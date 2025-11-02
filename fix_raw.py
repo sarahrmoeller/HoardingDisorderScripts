@@ -13,8 +13,9 @@ for root, dirs, files in os.walk('./data/raw'):
             os.remove(os.path.join(root, filename))
 
 """Step 0b. Fix Document 2001-003.txt: replace - with _"""
-os.rename('./data/raw/set02/2001-003.txt', 
-          './data/raw/set02/2001_003.txt')
+if '2001-003.txt' in os.listdir('./data/raw/set02'):
+    os.rename('./data/raw/set02/2001-003.txt', 
+            './data/raw/set02/2001_003.txt')
 
 """Step 0c: Set up useful data structures, so accessing documents is easier."""
 doc_paths = [root + '/' + file
@@ -43,7 +44,7 @@ for doc_path in docs_by_transcript['012']:
 """2. Fix filenames for all documents from transcripts 001-007"""
 docs_to_check = [
     doc 
-    for tn in ['001', '002', '003', '004', '005', '006', '007']
+    for tn in ['001', '002', '003', '005', '006', '007']
     for doc in docs_by_transcript[tn]
 ]
 unique_set2_speaker_labels = {'Interviewee', 'P1', 'P2', 'P3'}
@@ -118,11 +119,11 @@ broken_timestamps = [
 for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps: 
     doc_path = get_doc_path(f'{trans_num}_{doc_num}.txt')
     with open(doc_path, 'r+') as f:
-        lines = f.readlines()
+        content = f.read()
         # Fix line
-        lines[line_num] = lines[line_num].replace(broken_ts, fixed_ts)
+        content = content.replace(broken_ts, fixed_ts)
         f.seek(0)
-        f.writelines(lines)
+        f.write(content)
         f.truncate()
 
 """8. Fixes across documents"""
