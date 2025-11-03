@@ -36,8 +36,17 @@ linguistic_metrics <- paste(
 )
 names(data)
 
-data.labels <- data[, names(data) %in% c("Hoarder.Flag", labels)]
-colSums(data.labels)
+data.labels.0 <- data[data$Hoarder.Flag == 0,
+                    names(data) %in% c("Hoarder.Flag", labels)]
+data.labels.1 <- data[data$Hoarder.Flag == 1,
+                      names(data) %in% c("Hoarder.Flag", labels)]
+tbl <- rbind(colSums(data.labels.0), colSums(data.labels.1),
+             colSums(data.labels.0) + colSums(data.labels.1))
+tbl <- tbl[, -which(colnames(tbl) == "Hoarder.Flag")]
+rownames(tbl) <- c("Non-Hoarders", "Hoarders", "Total")
+as.data.frame(tbl)
+
+
 data.metrics <- data[, names(data) %in% c("Hoarder.Flag", linguistic_metrics)]
 colMeans(data.metrics)
 
