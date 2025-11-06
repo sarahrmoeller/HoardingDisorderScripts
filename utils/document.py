@@ -79,7 +79,7 @@ class Document:
                                     f"({self})"
         assert speaker in self.default_speaker_pair, \
             f"Speaker label {speaker} not in default speaker pair " \
-            f"{self.default_speaker_pair} ({self})"
+            f"{self.default_speaker_pair}, check spelling? ({self})"
         lines = [self.lines[i] for i in range(len(self.lines))
                  if self._row_speakers_default[i] == speaker]
         if not speaker_labels:
