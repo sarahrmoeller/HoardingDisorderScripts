@@ -19,7 +19,7 @@ if '2001-003.txt' in os.listdir(f'./{base_data_folder_name}/raw/set02'):
               f'./{base_data_folder_name}/raw/set02/2001_003.txt')
 
 
-"""1. Fix transcript 012"""
+"""Fix transcript 012"""
 for doc_path in docs_by_transcript['012']:
     with open(doc_path, 'r+') as f:
         content = f.read()
@@ -27,7 +27,35 @@ for doc_path in docs_by_transcript['012']:
         f.write(content.replace('Interviewee:', 'Interviewer:'))
         f.truncate()
 
-"""2. Fix filenames for all documents from transcripts 001-007"""
+"""Fix misspelled speaker labels and deidentify all documents"""
+replacements = {
+    **dict.fromkeys(["Rebecca", "Christian"], "Interviewer"), 
+    **dict.fromkeys(["Ann", "Lauren Mellin", "Josha"], "NAME"), 
+    **dict.fromkeys(["Sand", "Buttonheim"], "LOCATION"),
+}
+misspellings = {
+    "Speaker" : ["Speake", "Spaker", "Speaker1", "1:Speaker", "Speakerr"],
+    "Participant" : ["2Participant"],
+    "Interviewer" : ["Interviewer1", "1:Interviewer"],
+    "Note" : ["1:Note"] # extra thing we caught---we'll fix even though it isn't a speaker label
+}
+
+for dp in doc_paths:
+    with open(dp, 'r+') as f:
+        content = f.read()
+        if "Rebecca" in content and "Christian" in content:
+            replacements["Rebecca"] = "Interviewer 1"
+            replacements["Christian"] = "Interviewer 2"
+        for old, new in replacements.items():
+            content = content.replace(old, new)
+        for key in misspellings:
+            for misspelling in misspellings[key]:
+                content = content.replace(misspelling, key)
+        f.seek(0)
+        f.write(content)
+        f.truncate()
+        
+"""Fix filenames for all documents from transcripts 001-007"""
 docs_to_check = [
     doc 
     for tn in ['001', '002', '003', '005', '006', '007']
@@ -44,6 +72,7 @@ for doc_path in docs_to_check:
         new_path = dir_path + '/' + new_name
         os.rename(doc_path, new_path)
         print(f'Renamed {doc_path} to {new_path}')
+
 
 """3. Remove duplicates"""
 doc_name_cntr = Counter(doc_names)
@@ -111,32 +140,3 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
         f.seek(0)
         f.write(content)
         f.truncate()
-
-"""8. Fixes across documents"""
-replacements = {
-    **dict.fromkeys(["Rebecca", "Christian"], "Interviewer"), 
-    **dict.fromkeys(["Ann", "Lauren Mellin", "Josha"], "NAME"), 
-    **dict.fromkeys(["Sand", "Buttonheim"], "LOCATION"),
-}
-misspellings = {
-    "Speaker" : ["Speake", "Spaker", "Speaker1", "1:Speaker", "Speakerr"],
-    "Participant" : ["2Participant"],
-    "Interviewer" : ["Interviewer1", "1:Interviewer"],
-    "Note" : ["1:Note"] # extra thing we caught---we'll fix even though it isn't a speaker label
-}
-
-for dp in doc_paths:
-    with open(dp, 'r+') as f:
-        content = f.read()
-        if "Rebecca" in content and "Christian" in content:
-            replacements["Rebecca"] = "Interviewer 1"
-            replacements["Christian"] = "Interviewer 2"
-        for old, new in replacements.items():
-            content = content.replace(old, new)
-        for key in misspellings:
-            for misspelling in misspellings[key]:
-                content = content.replace(misspelling, key)
-        f.seek(0)
-        f.write(content)
-        f.truncate()
-        
