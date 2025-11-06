@@ -54,6 +54,14 @@ for dp in doc_paths:
         f.seek(0)
         f.write(content)
         f.truncate()
+
+"""Fix Document 3001_039.txt"""
+with open(get_doc_path('3001_039.txt'), 'r+') as f:
+    content = f.read()
+    f.seek(0)
+    f.write(content.replace('Interviewer:Right', 'Interviewer: Right'))
+    f.truncate()
+
         
 """Fix filenames for all documents from transcripts 001-007"""
 docs_to_check = [
@@ -97,13 +105,6 @@ with open(get_doc_path('059_718.txt'), 'r+') as f:
     content = f.read()
     f.seek(0)
     f.write(content.replace('Interviewer19:09-', 'Interviewer 19:09 -'))
-    f.truncate()
-
-"""Fix Document 3001_039.txt"""
-with open(get_doc_path('3001_039.txt'), 'r+') as f:
-    content = f.read()
-    f.seek(0)
-    f.write(content.replace('Interviewer:Right', 'Interviewer: Right'))
     f.truncate()
 
 """Fix timestamps in various documents"""

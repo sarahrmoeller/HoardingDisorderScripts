@@ -55,6 +55,12 @@ Most importantly, this script also deidentifies speakers: this is necessary for 
 
 Fixes a number of miscellaneous issues relating to speaker labels being misspelled or miswritten in some way.
 
+#### Fix Label in Document 3001_039.txt
+
+We just change "Interviewer:Right" to "Interviewer: Right" in this document. 
+This is necessary for speaker label detection, as the regex that detects speaker labels assumes that they are separated from the next word via whitespace.
+As far as we could tell, this was the only instance of this mistake happening across the data (yes, we checked this multiple times).
+
 ### Fix Transcripts 001-007
 
 This script checks all documents from the transcripts `001` to `007` for renaming (not including 004). 
@@ -89,10 +95,3 @@ Interviewer 19:09- Ok sounds good.
 ```
 Without doing this, the regex that finds timestamps will not be able to 
 identify the timestamp with it being "attached" to word characters.
-
-#### Fix Specific Line in Document 3001_039.txt
-
-We just change "Interviewer:Right" to "Interviewer: Right" in this document. 
-This is necessary for speaker label detection, as the regex that detects speaker labels assumes that they are separated from the next word via whitespace.
-As far as we could tell, this was the only instance of this mistake happening across the data (yes, we checked this multiple times).
-
