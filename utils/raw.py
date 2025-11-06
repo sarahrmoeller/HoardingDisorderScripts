@@ -2,8 +2,11 @@
 import os
 
 
+base_data_folder_name = 'truncated_clause_data'
+
+
 doc_paths = [root + '/' + file
-             for root, dirs, files in os.walk('./data/raw')
+             for root, dirs, files in os.walk(f'./{base_data_folder_name}/raw')
              for file in files if file.endswith('.txt')]
 doc_names = [os.path.basename(path) for path in doc_paths]
 transcript_numbers = set(map(
@@ -12,6 +15,8 @@ transcript_numbers = set(map(
 docs_by_transcript = {tn: [dp for dp in doc_paths
                            if os.path.basename(dp).startswith(tn)]
                       for tn in transcript_numbers}
+
+
 def get_doc_path(doc_name: str) -> str:
     set_num = '1' if doc_name[0] == '0' else doc_name[0]
-    return f'./data/raw/set0{set_num}/{doc_name}'
+    return f'./{base_data_folder_name}/raw/set0{set_num}/{doc_name}'

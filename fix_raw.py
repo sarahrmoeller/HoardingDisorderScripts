@@ -8,15 +8,15 @@ from utils.raw import *
 
 
 """Step 0a: Remove non-txt files from raw data directories"""
-for root, dirs, files in os.walk('./data/raw'):
+for root, dirs, files in os.walk(f'./{base_data_folder_name}/raw'):
     for filename in files:
         if not filename.endswith('.txt'):
             os.remove(os.path.join(root, filename))
 
 """Step 0b. Fix Document 2001-003.txt: replace - with _"""
-if '2001-003.txt' in os.listdir('./data/raw/set02'):
-    os.rename('./data/raw/set02/2001-003.txt', 
-            './data/raw/set02/2001_003.txt')
+if '2001-003.txt' in os.listdir(f'./{base_data_folder_name}/raw/set02'):
+    os.rename(f'./{base_data_folder_name}/raw/set02/2001-003.txt', 
+              f'./{base_data_folder_name}/raw/set02/2001_003.txt')
 
 
 """1. Fix transcript 012"""
