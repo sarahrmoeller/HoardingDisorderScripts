@@ -82,7 +82,7 @@ class Document:
         lines = [self.lines[i] for i in range(len(self.lines))
                  if self._row_speakers_default[i] == speaker]
         if not speaker_labels:
-            # Remove speakerl labels from the lines
+            # Remove speaker labels from the lines
             lines = [regexes.speaker_labels_restricted.sub('', line)
                      for line in lines]
         if cleaned:
