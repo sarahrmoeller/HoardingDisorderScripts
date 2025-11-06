@@ -76,13 +76,13 @@ class Document:
         of lines spoken by that speaker.
         """
         assert speaker in SPEAKERS, f"Speaker label {speaker} not known."
-        assert speaker in self.speaker_set(), \
-            f"Speaker label {speaker} not in speaker set, " \
-            f"{self.speaker_set()} ({self})"
+        assert speaker in self.default_speaker_pair, \
+            f"Speaker label {speaker} not in default speaker pair " \
+            f"{self.default_speaker_pair}"
         lines = [self.lines[i] for i in range(len(self.lines))
                  if self._row_speakers_default[i] == speaker]
         if not speaker_labels:
-            # Remove speaker labels from the lines
+            # Remove speakerl labels from the lines
             lines = [regexes.speaker_labels_restricted.sub('', line)
                      for line in lines]
         if cleaned:
