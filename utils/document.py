@@ -75,10 +75,11 @@ class Document:
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
         """
-        assert speaker in SPEAKERS, f"Speaker label {speaker} not known."
+        assert speaker in SPEAKERS, f"Speaker label {speaker} not known." \
+                                    f"({self})"
         assert speaker in self.default_speaker_pair, \
             f"Speaker label {speaker} not in default speaker pair " \
-            f"{self.default_speaker_pair}"
+            f"{self.default_speaker_pair} ({self})"
         lines = [self.lines[i] for i in range(len(self.lines))
                  if self._row_speakers_default[i] == speaker]
         if not speaker_labels:
