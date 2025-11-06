@@ -1,11 +1,11 @@
-# How to replicate our data cleaning
+# Data Cleaning
 
-You may notice some Python scripts in the repository that are unrelated to analyzing the data. 
-These scripts are meant to modify the data for cleaning.
-Though most data cleaning is done in-memory, we modified some parts of the data itself in the project in order to fix some issues that we felt required direct modification.
-In this document, we will show the process in which the data was modified and why for replication and documentation purposes.
+After importing the label data from datasaur, we needed to apply a few changes to the text data after realizing that a few things were off with the text.
+This file explains the changes we made and why.
 
-## Transcript and Document Numbering Scheme
+If you want to replicate the data fixing, simply run `python fix_truncated_clause_data.py`.
+
+## Review: Transcript and Document Numbering Scheme
 
 Interviews were recorded as whole *transcripts*, i.e. an interview with Participant "John Doe" would may been recorded as *transcript* `005`.
 Note that the transcript number's first digit indicates whether it was an interview with a hoarding patient or not.
@@ -37,64 +37,62 @@ The only thing we do know is that if the documents `005_027` and `005_028` exist
 (The mock comments, inscribed by `---`, would not be present in the transcript).
 So, as we see, the content from document `005_028` necessarily comes after the content from `005_027`, but some content—in this case, lines 31-32—may be missed in between. This isn't always the case, but it's frequent.
 
-## The Scripts: What they fix
+## What We Fixed
 
-If you want to replicate the data fixing, run the scripts in the order that the headings are presented here.
-Run all scripts from the project's root.
-Note that we fully acknowledge that some of these fixes could have been implemented in code while analyzing the data in-memory:
-we simply did not because we were exhausted, and somehow this felt easier.
-Don't ask why!
+### Speaker Label Correction
 
-### Naming-specific Fixes (run these first!)
+#### Fix Transcript 012 speaker labels
 
-#### `fix_transcript_012.py`
+In Transcript 012, the speaker label "Interviewee" was mistakenly labeled as "Interviewer". 
+This code corrects that error by replacing all instances of "Interviewee" with "Interviewer".
 
-In this transcript, every label that said `Interviewee:` should have actually said `Interviewer:`. 
-This script fixes that.
+#### Deidentification
 
-#### `fix_transcripts_001-007.py`
+This script replaces identifying information with generic names. For instance, "Jane" would be replaced with "NAME", "New York City" would be replaced with "CITY", etc.
+Most importantly, this script also deidentifies speakers: this is necessary for speaker label deidentification.
 
-This script checks all documents from the transcripts `001` to `007` for renaming. 
+#### Fix Misspelled Labels
+
+Fixes a number of miscellaneous issues relating to speaker labels being misspelled or miswritten in some way.
+
+### Fix Transcripts 001-007
+
+This script checks all documents from the transcripts `001` to `007` for renaming (not including 004). 
 More accurately, it fixes all documents that are said to be from that range—some of these documents are actually from transcripts `2001` to `2007`.
 This is a big deal: which means that some documents from control transcripts are labeled as hoarding transcripts, which can mess up classification (which relies on the document name's first digit).
 
 We checked in `001-007_fixes.ipynb` that not a single document in any of the projects labeled HD_set1 have speakers that are labeled `"Interviewee"`. 
 Thus, assuming that all documents in HD_set1 are actually hoarding documents, this is sufficient evidence to conclude that if a document has a speaker labeled "Interviewee", it is not a hoarding document, and is in fact from transcripts `2001` to `2007` and not `001` to `007`.
 
-#### `remove_duplicates.py`
+### Remove Duplicates
 
-This script looks for documents with identical names and identical content, and chooses one of the documents at random to remove.
-We choose to run this after `fix_transcripts_001-007.py` so that names are accurate.
+We then proceed to find pairs of documents in the data that have the same name, and pick one at random to delete.
 
-#### `fix_transcript_2005.py`
+### Fix Transcript 2005: Swap "P3" and "Interviweee" Labels
 
-This transcript had mismatched speakers: "P3" should have been "Interviewee" and vice versa.
+Transcript 2005 had mismatched speakers: "P3" should have been "Interviewee" and vice versa.
 This script should not be run until after transcripts `001`-`007` are fixed, otherwise not all documents from `2005` will be targeted.
 
-#### `fix_timestamps.py`
+### Fix Timestamps
 
-Fixes issues with timestamps looking like `07 :08` and `34:4o` in a number of specific documents.
+We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a number of specific documents.
 
-#### `fix_059_718.py`
+### Fix Document `059_718.txt`
 
-This line is in this document:
-
+Document 059_718.txt contains this line
 ```
 Interviewer19:09- Ok sounds good.
 ```
+This script just changes this to
+```
+Interviewer 19:09- Ok sounds good.
+```
+Without doing this, the regex that finds timestamps will not be able to 
+identify the timestamp with it being "attached" to word characters.
 
-This script just fixes that.
+#### Fix Specific Line in Document 3001_039.txt
 
-#### `fix_3001_039.py`
+We just change "Interviewer:Right" to "Interviewer: Right" in this document. 
+This is necessary for speaker label detection, as the regex that detects speaker labels assumes that they are separated from the next word via whitespace.
+As far as we could tell, this was the only instance of this mistake happening across the data (yes, we checked this multiple times).
 
-Fix another very small issue.
-
-### Across-document fixes
-
-#### `deidentify.py`
-
-This script replaces identifying information with generic names. For instance, "Jane" would be replaced with "NAME", "New York City" would be replaced with "CITY", etc.
-
-#### `fix_misspelled_labels.py`
-
-Fixes a number of miscellaneous issues relating to speaker labels being misspelled or miswritten in some way.
