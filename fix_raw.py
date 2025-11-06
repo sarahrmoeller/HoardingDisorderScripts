@@ -74,14 +74,14 @@ for doc_path in docs_to_check:
         print(f'Renamed {doc_path} to {new_path}')
 
 
-"""3. Remove duplicates"""
+"""Remove duplicates"""
 doc_name_cntr = Counter(doc_names)
 duplicate_doc_names = {name : count for name, count in doc_name_cntr.items()
                        if count >= 2}
 # !! Not moving forward with this, as manual inspection showed that the
 #    `duplicate_doc_names` dictionary was empty.
 
-"""4. Fix transcript 2005"""
+"""Fix transcript 2005"""
 for doc_path in docs_by_transcript['2005']:
     with open(doc_path, 'r+') as f:
         content = f.read()
@@ -92,21 +92,21 @@ for doc_path in docs_by_transcript['2005']:
         f.write(content)
         f.truncate()
 
-"""5. Fix Document 059_718.txt"""
+"""Fix Document 059_718.txt"""
 with open(get_doc_path('059_718.txt'), 'r+') as f:
     content = f.read()
     f.seek(0)
     f.write(content.replace('Interviewer19:09-', 'Interviewer 19:09 -'))
     f.truncate()
 
-"""6. Fix Document 3001_039.txt"""
+"""Fix Document 3001_039.txt"""
 with open(get_doc_path('3001_039.txt'), 'r+') as f:
     content = f.read()
     f.seek(0)
     f.write(content.replace('Interviewer:Right', 'Interviewer: Right'))
     f.truncate()
 
-"""7. Fix timestamps in various documents"""
+"""Fix timestamps in various documents"""
 broken_timestamps = [
     # With spaces
     ('07: 27', '07:27', 4, ['3001', '030']),
