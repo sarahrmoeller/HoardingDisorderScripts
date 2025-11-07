@@ -2,8 +2,9 @@ from .document import Document
 import os
 
 
-base_data_folder_name = 'truncated_clause_data'
-projects = os.listdir(f'./{base_data_folder_name}/json/')
+project_dir_locations = ('./data/mathews/documents/datasaur_exports/' + 
+                         'truncated_clauses')
+projects = os.listdir(project_dir_locations)
 projects.remove('.gitignore')
 
 def review_dir(project: str) -> str:
@@ -11,9 +12,9 @@ def review_dir(project: str) -> str:
     Given name of a project, return the path to the REVIEW directory
     assuming current directory is the project's root.
 
-    Example: "HD_set1_1-7" -> "./{base_data_folder_name}/HD_set1_1-7/REVIEW/"
+    Example: "HD_set1_1-7" -> "./{project_dir_locations}/HD_set1_1-7/REVIEW/"
     """
-    return f"./{base_data_folder_name}/json/{project}/REVIEW/"
+    return f"{project_dir_locations}/{project}/REVIEW/"
 
 by_project = {project: [Document(review_dir(project) + filename) 
                         for filename in os.listdir(review_dir(project))] 
