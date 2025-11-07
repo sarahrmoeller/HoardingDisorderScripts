@@ -10,7 +10,7 @@ automatically clean it, then write those files to txt.
 """
 from pathlib import Path
 import utils.datasaur as data
-from utils.datasaur import base_data_folder_name
+from utils.raw import text_files_dir
 
 
 for doc in data.by_doc:
@@ -18,12 +18,6 @@ for doc in data.by_doc:
     
     # Create directory and write file
     cleaned_path = Path(
-        f'./{base_data_folder_name}/cleaned/set0{doc.set}/{doc.name}')
+        f'{text_files_dir}/cleaned/participant/{doc.name}')
     cleaned_path.parent.mkdir(parents=True, exist_ok=True)
     cleaned_path.write_text(content)
-    
-    # Also writing to ./for_punkt_mdl/ for a flat list
-    training_path = Path(
-        f'./{base_data_folder_name}/for_punkt_mdl/{doc.name}')
-    training_path.parent.mkdir(parents=True, exist_ok=True)
-    training_path.write_text(content)
