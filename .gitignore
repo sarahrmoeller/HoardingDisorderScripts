@@ -179,4 +179,6 @@ data-fixed.zip
 datasaur.zip
 datasaur/
 punctuator2tf2/
+punctuation-prediction/
+process/
 *.pcl
