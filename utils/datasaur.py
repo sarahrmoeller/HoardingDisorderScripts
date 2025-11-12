@@ -5,7 +5,6 @@ import os
 project_dir_locations = ('./data/mathews/documents/datasaur_exports/' + 
                          'truncated_clauses')
 projects = os.listdir(project_dir_locations)
-projects.remove('.gitignore')
 
 def review_dir(project: str) -> str:
     """
