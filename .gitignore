@@ -182,3 +182,4 @@ punctuator2tf2/
 punctuation-prediction/
 process/
 *.pcl
+*.zip
