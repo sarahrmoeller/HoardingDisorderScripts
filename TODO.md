@@ -12,30 +12,30 @@ Create a “clean” version of set 1, 2 and 3. Once cleaned, rename folders and
     - [x] ~~Frankenstein Document content together to analyze data by Transcript~~ Create `Transcript` class
     - [x] Create new table based on transcript data
     - [x] Identify certain lines that don't need speaker labels, i.e. transcript labels, [END OF RECORDING], and PART 2 OF 4 ENDS [00:46:04] (look through removable tokens), see `identifying_removable_tokens.ipynb`
-  - [ ] Clean documents:
+- Datasaur Exports
   - [ ] Rename files: Add 1 to the beginning of every file name in set 1 (So set 1 files begins with 1, set 2 with 2, set 3 with 3)
   - [ ] Remove from every document transcriber notes that don’t stand in for words: time stamps, [laughter], etc.
-  - [ ] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters.
+  - [ ] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters. Same as old note "Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC" 
   - [ ] Interview 2008 has no punctuation (periods, commas). Punctuation must be added by hand.
-  - [ ] Eyeball other interviews for lack of punctuation
-  - [ ] All interviewers should be labeled the same (some are Rebecca or P1 or P2 or even interviewee, especially in set 2 and 3), e.g. interview 2005
-  - [ ] All interviewees should be labeled the same (some are P1 or P2, especially in set 2 & 3)
+  - [x] Eyeball other interviews for lack of punctuation
+  - [ ] Make speaker labels homogeneous: all interviewers and interviewees notated the same when in "{Speaker Label}:" format.
     - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
     - [x] Figure out how to remove each removable token
     - [x] Edit `Document` class to include a cleaned version
-    - [ ] Deal with `word_tokenize` splitting contractions, i.e. "don't" -> ["don", "'", "t"] (likely due to UTF-8 apostrophe)
-    - [ ] Test Document cleaning on specific Documents
-    - [ ] Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC 
-  - [ ] Implement metrics from previous paper:
-    - [x] Type-Token Ratio
-      - [x] Document TTR
-      - [x] Average Sentence TTR
-    - [x] Average Sentence Length
-    - [ ] Noun Phrases (NP) 
-      - [] NP Count
-      - [] NP Ratio
+    - [x] Test Document cleaning on specific Documents
+- Text files
+  - [ ] Rename files: Add 1 to the beginning of every file name in set 1 (So set 1 files begins with 1, set 2 with 2, set 3 with 3)
+  - [ ] Remove from every document transcriber notes that don’t stand in for words: time stamps, [laughter], etc.
+  - [ ] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters. Same as old note "Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC" 
+  - [ ] Interview 2008 has no punctuation (periods, commas). Punctuation must be added by hand.
+  - [x] Eyeball other interviews for lack of punctuation
+  - [ ] Make speaker labels homogeneous: all interviewers and interviewees notated the same when in "{Speaker Label}:" format.
+    - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
+    - [x] Figure out how to remove each removable token
+    - [x] Edit `Document` class to include a cleaned version
+    - [x] Test Document cleaning on specific Documents
+  - [ ] Implement metrics from previous paper using cleaned text files
 Later:
-  - [ ] Figure out what to do about speakers that are not at the beginning of the line
+  - [x] Figure out what to do about speakers that are not at the beginning of the line
   - [ ] Report model accuracy
-  - [ ] Speech Graphs???
   - [ ] Find way to automatically label incomplete clauses
