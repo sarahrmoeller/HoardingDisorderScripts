@@ -2,7 +2,6 @@
 This file aggregates a bunch of changes, all summarized in `DATA_CLEANING.md `.
 """
 from collections import Counter
-from itertools import product
 import random
 import utils.datasaur as data
 from utils.transcript import Transcript
@@ -173,7 +172,7 @@ for doc in target_docs:
         new_path = project_path + new_name + '.json'
         os.rename(old_path, new_path)
         print(f'Renamed {old_path} to {new_path}')
-                  
+
 
 """Remove duplicate documents"""
 doc_names = [doc.name for doc in data.by_doc]
@@ -182,15 +181,17 @@ duplicate_doc_names = {name : count for name, count in doc_name_cntr.items()
                        if count >= 2}
 duplicate_docs = [doc for doc in data.by_doc 
                   if doc.name in duplicate_doc_names]
-dupdoc_pairs = [(doc1, doc2) for doc1, doc2 in product(duplicate_docs, 
-                                                       repeat=2)
-                if doc1.name == doc2.name and doc1 is not doc2]
+dupdocs = {name : [doc for doc in duplicate_docs if doc.name == name]
+           for name in duplicate_doc_names}
 
-for pair in dupdoc_pairs:
-    # Choose random element of the pair to delete
-    doc_to_delete = random.choice(pair)
-    os.remove(doc_to_delete.path)
-    print("Removed", doc_to_delete)
+for name, docs in dupdocs.items():
+    # Choose random element of the pair to keep
+    doc_to_keep = random.choice(docs)
+    # Remove all other duplicates
+    docs.remove(doc_to_keep)
+    for doc in docs:
+        os.remove(doc.path)
+        print(f"Removed duplicate document {doc.path}")
 
 
 """Fix Transcript 2005"""
