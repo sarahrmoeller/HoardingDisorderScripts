@@ -18,7 +18,7 @@ In Transcript 012, the speaker label "Interviewee" was mistakenly labeled as
 "Interviewer". This code corrects that error by replacing all instances of
 "Interviewee" with "Interviewer".
 """
-for doc in data.by_transcript["012"]:
+for doc in Transcript("012").docs:
     # Modify doc.row_data and fix Interviewer label
     for i in range(len(doc.row_data)):
         # Fix labels in the lines
@@ -195,7 +195,7 @@ for name, docs in dupdocs.items():
 
 
 """Fix Transcript 2005"""
-for doc in data.by_transcript['2005']:
+for doc in Transcript("2005").docs:
     # Fix rows/lines
     for i in range(len(doc.lines)):
         line = doc.lines[i]
