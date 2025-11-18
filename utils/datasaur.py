@@ -4,7 +4,8 @@ import os
 
 project_dir_locations = ('./data/mathews/documents/datasaur_exports/' + 
                          'truncated_clauses')
-projects = os.listdir(project_dir_locations)
+projects = [d for d in os.listdir(project_dir_locations)
+            if os.path.isdir(os.path.join(project_dir_locations, d))]
 
 def review_dir(project: str) -> str:
     """
