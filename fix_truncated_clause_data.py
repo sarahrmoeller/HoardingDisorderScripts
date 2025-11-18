@@ -32,7 +32,7 @@ for doc in Transcript("012").docs:
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 """
@@ -73,7 +73,7 @@ for doc in data.by_doc:
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 """
@@ -109,7 +109,7 @@ for doc in data.by_doc:
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 """
@@ -133,12 +133,11 @@ tokens.insert(1, "Right")
 
 # Switch out old row data in the JSON dump with the new one
 doc.json_dump['rows'] = doc.row_data
-with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+with open(doc.path, "w") as f:
     json.dump(doc.json_dump, f)
 
 
 """/Speaker Label Corrections"""
-
 
 """
 ## Fix Transcripts 001-007
