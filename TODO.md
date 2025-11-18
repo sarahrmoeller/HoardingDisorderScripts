@@ -24,7 +24,7 @@ Create a “clean” version of set 1, 2 and 3. Once cleaned, rename folders and
     - [x] Edit `Document` class to include a cleaned version
     - [x] Test Document cleaning on specific Documents
 - Text files
-  - [ ] Rename files: Add 1 to the beginning of every file name in set 1 (So set 1 files begins with 1, set 2 with 2, set 3 with 3)
+  - [x] Rename files: Add 1 to the beginning of every file name in set 1 (So set 1 files begins with 1, set 2 with 2, set 3 with 3)
   - [ ] Remove from every document transcriber notes that don’t stand in for words: time stamps, [laughter], etc.
   - [ ] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters. Same as old note "Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC" 
   - [ ] Interview 2008 has no punctuation (periods, commas). Punctuation must be added by hand.
