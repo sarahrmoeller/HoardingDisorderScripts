@@ -177,11 +177,9 @@ for doc in target_docs:
 """Remove duplicate documents"""
 doc_names = [doc.name for doc in data.by_doc]
 doc_name_cntr = Counter(doc_names)
-duplicate_doc_names = {name : count for name, count in doc_name_cntr.items()
-                       if count >= 2}
-duplicate_docs = [doc for doc in data.by_doc 
-                  if doc.name in duplicate_doc_names]
-dupdocs = {name : [doc for doc in duplicate_docs if doc.name == name]
+duplicate_doc_names = [name for name, count in doc_name_cntr.items() 
+                       if count >= 2]
+dupdocs = {name : [doc for doc in data.by_doc if doc.name == name]
            for name in duplicate_doc_names}
 
 for name, docs in dupdocs.items():
