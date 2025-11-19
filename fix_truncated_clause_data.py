@@ -2,8 +2,10 @@
 This file aggregates a bunch of changes, all summarized in `DATA_CLEANING.md `.
 """
 from collections import Counter
+import importlib
 import random
 import utils.datasaur as data
+import utils.transcript
 from utils.transcript import Transcript
 import json
 import os
@@ -191,6 +193,12 @@ for tn in transcript_numbers:
                 json.dump(doc.json_dump, f)
             os.rename(old_path, new_path)
             print(f'Renamed {old_path} to {new_path}')
+
+
+# Need to re-import to update changed file data
+importlib.reload(data)
+importlib.reload(utils.transcript)
+from utils.transcript import Transcript
 
 
 """Fix Transcript 2005"""
