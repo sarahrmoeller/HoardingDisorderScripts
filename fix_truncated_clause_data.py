@@ -324,35 +324,3 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
 
     with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
-
-
-"""
-## Fix Specific Line in Document 059_718.txt
-
-Document 059_718.txt contains this line
-```
-Interviewer19:09- Ok sounds good.
-```
-This script just changes this to
-```
-Interviewer 19:09- Ok sounds good.
-```
-Without doing this, the regex that finds timestamps will not be able to 
-identify the timestamp with it being "attached" to word characters.
-"""
-doc = Transcript("059")["718"]
-bad_line_index = [i for i in range(len(doc.lines)) 
-                  if "Interviewer19:09-" in doc.lines[i]][0]
-doc.row_data[bad_line_index]['content'] = doc.lines[bad_line_index].replace("Interviewer19:09-", 
-                                                                            "Interviewer 19:09-")
-# Fix labels in the tokens
-tokens = doc.row_data[bad_line_index]['tokens']
-tokens[0] = "Interviewer"
-tokens.insert(1, "19:09-")
-doc.row_data[bad_line_index]['tokens'] = tokens
-
-# Switch out old row data in the JSON dump with the new one
-doc.json_dump['rows'] = doc.row_data
-
-with open(doc.path, "w") as f:
-    json.dump(doc.json_dump, f)

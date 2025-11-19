@@ -82,16 +82,3 @@ This script should not be run until after transcripts `001`-`007` are fixed, oth
 ### Fix Timestamps
 
 We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a number of specific documents.
-
-### Fix Document `059_718.txt`
-
-Document 059_718.txt contains this line
-```
-Interviewer19:09- Ok sounds good.
-```
-This script just changes this to
-```
-Interviewer 19:09- Ok sounds good.
-```
-Without doing this, the regex that finds timestamps will not be able to 
-identify the timestamp with it being "attached" to word characters.
