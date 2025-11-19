@@ -4,6 +4,10 @@ from functools import cached_property
 from collections import Counter
 
 
+transcript_numbers = sorted(list(set(doc.transcript_number 
+                                     for doc in data.by_doc)))
+
+
 class Transcript(Document):
     """
     A class to represent a transcript, which is a collection of documents
@@ -11,7 +15,7 @@ class Transcript(Document):
     """
 
     def __init__(self, transcript_number: str) -> None:
-        assert transcript_number in data.transcript_numbers, \
+        assert transcript_number in transcript_numbers, \
             f'Transcript number {transcript_number} not found in available ' \
              'transcripts.'
         self.number = transcript_number

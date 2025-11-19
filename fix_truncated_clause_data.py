@@ -236,7 +236,7 @@ Note that this code needs to be run after the previous code, as otherwise some
 of the documents from 2005 will not be targeted, as they will be mistakenly 
 labeled under transcript 005.
 """
-for doc in data.by_transcript['2005']:
+for doc in Transcript('2005').docs:
     # Fix rows/lines
     for i in range(len(doc.lines)):
         line = doc.lines[i]
