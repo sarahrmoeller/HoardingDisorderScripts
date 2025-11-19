@@ -212,7 +212,7 @@ for doc in Transcript("2005").docs:
         doc.row_data[i]['tokens'] = doc.tokens
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 
@@ -250,7 +250,7 @@ for doc in data.by_transcript['2005']:
         doc.row_data[i]['tokens'] = doc.tokens
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 
@@ -316,7 +316,7 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
 
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 
@@ -348,5 +348,5 @@ doc.row_data[bad_line_index]['tokens'] = tokens
 # Switch out old row data in the JSON dump with the new one
 doc.json_dump['rows'] = doc.row_data
 
-with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+with open(doc.path, "w") as f:
     json.dump(doc.json_dump, f)
