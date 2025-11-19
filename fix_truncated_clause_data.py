@@ -161,14 +161,14 @@ for doc in target_docs:
     unique_set2_speaker_labels = {'Interviewee', 'P1', 'P2', 'P3'}
     if any(speaker_label in doc.speaker_set() 
            for speaker_label in unique_set2_speaker_labels):
-        project_path = data.review_dir(doc.project)
+        old_path = doc.path
         new_name = '2' + doc.name
-        old_path = project_path + doc.name + '.json'
+        new_path = (os.path.dirname(old_path) + '/' + new_name.rstrip('.txt') 
+                    + '.json')
         with open(old_path, 'w') as f:
             print(f'Fixing {old_path}')
             doc.json_dump['data']['document']['name'] = new_name
             json.dump(doc.json_dump, f)
-        new_path = project_path + new_name + '.json'
         os.rename(old_path, new_path)
         print(f'Renamed {old_path} to {new_path}')
 
