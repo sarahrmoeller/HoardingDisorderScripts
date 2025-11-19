@@ -90,6 +90,7 @@ removable_token_patterns = [
     r'PART \d of \d ENDS {ts}'.format(ts=timestamps.pattern),
     r'\[END OF RECORDING\]', # Matches literal '[END OF RECORDING]'
     r'\(affirmative\)|\(negative\)|\(laughter\)', # Remove (affirmative), (negative), and (laughter)
+    r'\[affirmative\]|\[negative\]|\[laughter\]', # Remove [affirmative], [negative], and [laughter]
 ]
 
 def remove_tokens(string: str) -> str:
