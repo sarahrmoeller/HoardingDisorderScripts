@@ -236,10 +236,6 @@ Note that this code needs to be run after the previous code, as otherwise some
 of the documents from 2005 will not be targeted, as they will be mistakenly 
 labeled under transcript 005.
 """
-import utils.datasaur as data
-import json
-
-
 for doc in data.by_transcript['2005']:
     # Fix rows/lines
     for i in range(len(doc.lines)):
