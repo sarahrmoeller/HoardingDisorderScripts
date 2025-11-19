@@ -89,7 +89,7 @@ removable_token_patterns = [
     r'^(Interview )?\d{3}$', # Matches '001', 'Interview 001' (only if this is the whole line)
     r'PART \d of \d ENDS {ts}'.format(ts=timestamps.pattern),
     r'\[END OF RECORDING\]', # Matches literal '[END OF RECORDING]'
-    r'\(affirmative\)|\(negative\)' # Remove (affirmative) and (negative)
+    r'\(affirmative\)|\(negative\)|\(laughter\)', # Remove (affirmative), (negative), and (laughter)
 ]
 
 def remove_tokens(string: str) -> str:
