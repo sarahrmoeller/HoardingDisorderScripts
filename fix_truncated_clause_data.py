@@ -139,6 +139,27 @@ with open(doc.path, "w") as f:
 
 """/Speaker Label Corrections"""
 
+
+"""Remove duplicate documents"""
+doc_names = [doc.name for doc in data.by_doc]
+doc_name_cntr = Counter(doc_names)
+duplicate_doc_names = [name for name, count in doc_name_cntr.items() 
+                       if count >= 2]
+                # list(set()) to remove possible duplicates in the list
+dupdocs = {name : list(set((doc for doc in data.by_doc if doc.name == name)))
+           for name in duplicate_doc_names}
+
+for name, docs in dupdocs.items():
+    # Choose random element of the pair to keep
+    print(name, [doc.path for doc in docs])
+    doc_to_keep = random.choice(docs)
+    # Remove all other duplicates
+    docs.remove(doc_to_keep)
+    for doc in docs:
+        os.remove(doc.path)
+        print(f"Removed duplicate document {doc.path}")
+
+
 """
 ## Fix Transcripts 001-007
 
@@ -153,42 +174,23 @@ actually hoarding documents, this is sufficient evidence to conclude that if a
 document has a speaker labeled "Interviewee", it is not a hoarding document, 
 and is in fact from transcripts 2001 to 2007.
 """
-transcripts = ['001', '002', '003', '004', '005', '006', '007']
-target_docs = (doc for doc in data.by_doc
-               if doc.transcript_number in transcripts)
+transcript_numbers = ['001', '002', '003', '004', '005', '006', '007']
 
-for doc in target_docs:
-    unique_set2_speaker_labels = {'Interviewee', 'P1', 'P2', 'P3'}
-    if any(speaker_label in doc.speaker_set() 
-           for speaker_label in unique_set2_speaker_labels):
-        old_path = doc.path
-        new_name = '2' + doc.name
-        new_path = (os.path.dirname(old_path) + '/' + new_name.rstrip('.txt') 
-                    + '.json')
-        with open(old_path, 'w') as f:
-            print(f'Fixing {old_path}')
-            doc.json_dump['data']['document']['name'] = new_name
-            json.dump(doc.json_dump, f)
-        os.rename(old_path, new_path)
-        print(f'Renamed {old_path} to {new_path}')
-
-
-"""Remove duplicate documents"""
-doc_names = [doc.name for doc in data.by_doc]
-doc_name_cntr = Counter(doc_names)
-duplicate_doc_names = [name for name, count in doc_name_cntr.items() 
-                       if count >= 2]
-dupdocs = {name : [doc for doc in data.by_doc if doc.name == name]
-           for name in duplicate_doc_names}
-
-for name, docs in dupdocs.items():
-    # Choose random element of the pair to keep
-    doc_to_keep = random.choice(docs)
-    # Remove all other duplicates
-    docs.remove(doc_to_keep)
-    for doc in docs:
-        os.remove(doc.path)
-        print(f"Removed duplicate document {doc.path}")
+for tn in transcript_numbers:
+    for doc in Transcript(tn).docs:
+        unique_set2_speaker_labels = {'Interviewee', 'P1', 'P2', 'P3'}
+        if any(speaker_label in doc.speaker_set() 
+            for speaker_label in unique_set2_speaker_labels):
+            old_path = doc.path
+            new_name = '2' + doc.name
+            new_path = (os.path.dirname(old_path) + '/' + 
+                        new_name.rstrip('.txt') + '.json')
+            with open(old_path, 'w') as f:
+                print(f'Fixing {old_path}')
+                doc.json_dump['data']['document']['name'] = new_name
+                json.dump(doc.json_dump, f)
+            os.rename(old_path, new_path)
+            print(f'Renamed {old_path} to {new_path}')
 
 
 """Fix Transcript 2005"""
