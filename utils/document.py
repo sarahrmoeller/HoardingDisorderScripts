@@ -43,6 +43,9 @@ class Document:
         self.transcript_number = self.name.split('_')[0]
         self.set = 1 if self.name[0] == '0' else int(self.name[0])
         assert self.set in (1, 2, 3)
+        self.fixed_name = self.name
+        if self.set == 1:
+            self.fixed_name = f'1{self.name}'
         self.hoarder_flag = int(self.set == 1)
         # To make it easy to read document properties while debugging
         # Accessing the first element of the row since all rows are singleton
