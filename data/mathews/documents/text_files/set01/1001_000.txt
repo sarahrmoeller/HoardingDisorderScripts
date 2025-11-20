@@ -1,4 +1,3 @@
-001
 Interviewer:
 Okay. Here we go. So as you know, this study is investigating individual attitudes and beliefs related to having hoarding disorder. The first question I have for you is what term do you prefer when we're talking about your difficulties with clutter and difficulties discarding?
 Participant 1:
@@ -24,7 +23,7 @@ All right. So could you please describe your clutter problems? How long has this
 Participant 1:
 Oh my gosh. A long time. I mean, I get lots and lots of mail. I try and go through it and throw things away. I'd say over 20 years.
 Interviewer:
-Okay. Mm-hmm (affirmative). How severe would you say this behavior is now?
+Okay. Mm-hmm AFFIRMATIVE. How severe would you say this behavior is now?
 Participant 1:
 Mildly. Moderately severe. Moderately. Yeah.
 Interviewer:
@@ -40,11 +39,11 @@ Yeah. Okay. Have you ever sought to change this behavior?
 Participant 1:
 Yes.
 Interviewer:
-Have you gone to a professional or [crosstalk 00:05:24]-
+Have you gone to a professional or CROSSTALK-
 Participant 1:
 No.
 Interviewer:
-No. Okay. 
+No. Okay.
 Participant 1:
 No.
 Interviewer:

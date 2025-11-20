@@ -13,7 +13,7 @@ White, I guess.
 Interviewer:
 Ethnicity, do you identify as Hispanic or Latino?
 Participant 2:
-No. 
+No.
 Interviewer:
 Okay, and household income? You can give me a range, it doesn't have to be exact.
 Participant 2:
@@ -28,4 +28,4 @@ Participant 2:
 College degree, bachelor's.
 Interviewer:
 Okay, so the demographic information was for the study. I'm going to ask you for payment information now, so your first... This we'll keep-
-[END OF RECORDING]
+END_OF_RECORDING
