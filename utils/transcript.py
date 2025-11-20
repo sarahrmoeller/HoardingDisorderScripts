@@ -34,18 +34,62 @@ class Transcript(Document):
         self.hoarder_flag = self.docs[0].hoarder_flag
         # Extracting data from all documents, flattening the lists
         self.row_data = [rd for doc in self.docs for rd in doc.row_data]
-        self.lines = [line for doc in self.docs for line in doc.lines]
-        self.full_content = "\n".join(doc.full_content for doc in self.docs)
         self.label_data = [ld for doc in self.docs for ld in doc.label_data]
     
-    def write_to_file(self, dir: str='.') -> None:
+    def lines(self, 
+              speaker: None | str=None, cleaned=True, 
+              remove_timestamps=True, do_replacements=True, do_removals=True,
+              speaker_labels=False, remove_punctuation=False, lower=False
+              ) -> list[str]:
+        """
+        Get all lines from all documents in the transcript.
+        """
+        return [line for doc in self.docs
+                for line in doc.lines(speaker=speaker, cleaned=cleaned, 
+                   remove_timestamps=remove_timestamps, 
+                   do_replacements=do_replacements, 
+                   do_removals=do_removals,
+                   speaker_labels=speaker_labels, 
+                   remove_punctuation=remove_punctuation, 
+                   lower=lower)]
+    
+    def content(self,
+                speaker: None | str=None, cleaned=True, 
+                remove_timestamps=True, do_replacements=True, do_removals=True,
+                speaker_labels=False, remove_punctuation=False, lower=False
+                ) -> str:
+        """
+        Get the full content of the transcript by concatenating the content
+        of all documents in the transcript.
+        """
+        return '\n'.join(doc.content(speaker=speaker, cleaned=cleaned, 
+                                     remove_timestamps=remove_timestamps, 
+                                     do_replacements=do_replacements, 
+                                     do_removals=do_removals,
+                                     speaker_labels=speaker_labels, 
+                                     remove_punctuation=remove_punctuation, 
+                                     lower=lower)
+                         for doc in self.docs)
+    
+    def write_to_file(self, dir: str='.', speaker: None | str=None, 
+                      cleaned=True, 
+                      remove_timestamps=True, do_replacements=True, 
+                      do_removals=True, speaker_labels=False, 
+                      remove_punctuation=False, lower=False
+                    ) -> None:
         """
         Write the transcript to a file. 
         Writes to the (optionally) specfied directory. If no directory is 
         specified, writes to the current directory.
         """
         with open(f"{dir}/{self.number}.txt", 'w') as f:
-            f.write(self.full_content)
+            f.write(self.content(speaker=speaker, cleaned=cleaned, 
+                                 remove_timestamps=remove_timestamps, 
+                                 do_replacements=do_replacements, 
+                                 do_removals=do_removals,
+                                 speaker_labels=speaker_labels, 
+                                 remove_punctuation=remove_punctuation, 
+                                 lower=lower))
     
     @cached_property
     def label_counts_tr(self) -> dict[str, int]:
