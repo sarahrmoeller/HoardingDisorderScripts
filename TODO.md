@@ -12,21 +12,39 @@ Create a “clean” version of set 1, 2 and 3. Once cleaned, rename folders and
     - [x] ~~Frankenstein Document content together to analyze data by Transcript~~ Create `Transcript` class
     - [x] Create new table based on transcript data
     - [x] Identify certain lines that don't need speaker labels, i.e. transcript labels, [END OF RECORDING], and PART 2 OF 4 ENDS [00:46:04] (look through removable tokens), see `identifying_removable_tokens.ipynb`
-- Fix Text Data (to the best of our ability, for now)
+- [ ] Fix Text Data (to the best of our ability, for now)
   - [ ] Remove from every document transcriber notes that don’t stand in for words: 
     - [x] Timestamps, 
     - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
-      - [x] Transcript-related details (INTERVIEW 001), [PAUSED], [END OF RECORDING] 
+      - [ ] Transcript-related details (INTERVIEW 001), [PAUSED], [END OF RECORDING] 
       - [x] [affirmative], [negative], [laughter], etc.
-    - [x] Figure out how to remove each removable token (see `./utils/regexes.py`, lines 88-108)
+    - [ ] Figure out how to remove each removable token (see `./utils/regexes.py`, lines 88-108)
+      - [ ] Make separate regex to filter transcript-related details
   - [x] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters. Same as old note "Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC" 
   - [x] Make speaker labels homogeneous: all interviewers and interviewees notated the same when in "{Speaker Label}:" format.
     - [x] Edit `Document` class to include a cleaned version
     - [x] Test Document cleaning on specific Documents
-  - [ ] Go back and do it all again manually
+- [x] Figure out what to do about speakers that are not at the beginning of the line
+- [ ] Manual Work, check for:
+  - [ ] Consistently formatted speaker labels <Label(#):_> Interviewer: or Interviewer1: or Interviewer2: Interviewee: 
+  - [ ] Make sure that interviewer/interviewee are correctly labeled, especially when there is more than two speakers.
+  - [ ] Keep these transcriber notes. Put them on their own line. Put square brackets around them. 
+        [Interview 001] 
+        [END OF RECORDING]
+        [PAUSED]
+- [ ] Remove any transcriber notes that do not stand in for an utterance, such as:
+      time stamps
+      [laughter]
+      [affirmative]
+      [negative]
+- [ ] Keep that the transcriptionists' notes that represent anonymized or inaudible speech. Put in all caps, make them consistent (at least across sets).
+      ANONYMIZATION
+      ORGANIZATION
+      NAME 
+      INAUDIBLE
 Later:
   - [ ] Implement metrics from previous paper using cleaned text files
   - [ ] Cohen's Kappa
-  - [x] Figure out what to do about speakers that are not at the beginning of the line
   - [ ] Report model accuracy
   - [ ] Find way to automatically label incomplete clauses
+-
