@@ -1,10 +1,10 @@
-50:53 Interviewer:
-Thank you so much. Have a good rest of your day. 
+Interviewer:
+Thank you so much. Have a good rest of your day.
 Participant:
-Thank you. Thank you. 
-50:57 Interviewer:
-Bye. 
+Thank you. Thank you.
+Interviewer:
+Bye.
 Participant:
-Okay. Bye bye. 
+Okay. Bye bye.
 End of transcription.
-[END OF RECORDING]
+END_OF_RECORDING

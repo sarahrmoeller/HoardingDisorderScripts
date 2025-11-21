@@ -6,7 +6,6 @@ import warnings
 from . import regexes
 from .regexes import SPEAKER_PAIRS, SPEAKERS
 import string
-import stanza.models.common.doc as stnzdoc
 
 
 # List of all labels (types of incomplete clauses) found across all projects
@@ -44,61 +43,66 @@ class Document:
         self.transcript_number = self.name.split('_')[0]
         self.set = 1 if self.name[0] == '0' else int(self.name[0])
         assert self.set in (1, 2, 3)
+        self.fixed_name = self.name
+        if self.set == 1:
+            self.fixed_name = f'1{self.name}'
         self.hoarder_flag = int(self.set == 1)
         # To make it easy to read document properties while debugging
         # Accessing the first element of the row since all rows are singleton
         # lists
         self.row_data: list[dict] = [row[0] for row in self.data['rows']]
         # List of rows in the document indexed by carriage returns
-        self.lines = [
-            row['content'].rstrip() for row in self.row_data
-        ]
         self.tokens = [row['tokens'] for row in self.row_data]
-        self.full_content = '\n'.join(self.lines)
         self.label_data = self.data['spanLabels']
 
-    def write_to_file(self, dir: str='.') -> None:
+    def write_to_file(self, dir: str='.', 
+                      speaker: None | str=None, cleaned=True, 
+                      remove_timestamps=True, do_replacements=True, 
+                      do_removals=True, speaker_labels=False, 
+                      remove_punctuation=False, lower=False) -> None:
         """
         Write the document to a file. 
         Writes to the (optionally) specfied directory. If no directory is 
         specified, writes to the current directory.
         """
+        content = self.content(speaker, cleaned=cleaned,
+                         remove_timestamps=remove_timestamps, 
+                         do_replacements=do_replacements, 
+                         do_removals=do_removals, 
+                         speaker_labels=speaker_labels, 
+                         remove_punctuation=remove_punctuation, 
+                         lower=lower)
         with open(f"{dir}/{self.name}", 'w') as f:
-            f.write(self.full_content)
-
-    def lines_by_speaker(self, speaker: str, 
-                         speaker_labels=False,
-                         cleaned=True,
-                         remove_punctuation=False,
-                         lower=False) -> list[str]:
+            f.write(content)
+    
+    def clean_lines(self, lines, 
+                    remove_timestamps=True,
+                    do_replacements=True,
+                    do_removals=True,
+                    speaker_labels=False, remove_punctuation=False, 
+                    lower=False) -> list[str]:
         """
-        Returns a dictionary where keys are speaker names and values are lists
-        of lines spoken by that speaker.
+        Big function to clean lines according to specified parameters.
         """
-        assert speaker in SPEAKERS, f"Speaker label {speaker} not known." \
-                                    f"({self})"
-        assert speaker in self.default_speaker_pair, \
-            f"Speaker label {speaker} not in default speaker pair " \
-            f"{self.default_speaker_pair}, check spelling? ({self})"
-        lines = [self.lines[i] for i in range(len(self.lines))
-                 if self._row_speakers_default[i] == speaker]
-        if not speaker_labels:
+        if remove_timestamps == True:
+            # Remove timestamps from the lines
+            lines = [regexes.timestamps.sub('', line).strip()
+                        for line in lines]
+        if do_replacements == True:
+            # Replace bracketed stuff with better representations
+            lines = [regexes.replace_tokens(line)
+                        for line in lines]
+        if do_removals == True:
+            # Remove tokens that are not useful for us
+            lines = [regexes.remove_tokens(line)
+                        for line in lines]
+        if speaker_labels == True:
             # Remove speaker labels from the lines
             lines = [regexes.speaker_labels_restricted.sub('', line)
                      for line in lines]
-        if cleaned:
-            # Remove timestamps from the lines (and apply lowercase)
-            lines = [regexes.timestamps.sub('', line).strip()
-                     for line in lines]
-            # Replace bracketed stuff with better representations
-            lines = [regexes.replace_tokens(line)
-                     for line in lines]
-            # Remove tokens that are not useful for us
-            lines = [regexes.remove_tokens(line)
-                     for line in lines]
-        if lower:
+        if lower == True:
             lines = [line.lower() for line in lines]
-        if remove_punctuation:
+        if remove_punctuation == True:
             # Remove punctuation
             lines = [line.translate(str.maketrans('', '', string.punctuation))
                      for line in lines]
@@ -106,52 +110,60 @@ class Document:
         lines = [line for line in lines if line]
         return lines
 
-    def content_by_speaker(self, speaker: str, 
-                           speaker_labels=False,
-                           cleaned=True,
-                           remove_punctuation=False,
-                           lower=False) -> str:
+    def lines(self, 
+              speaker: None | str=None, cleaned=True, 
+              remove_timestamps=True, do_replacements=True, do_removals=True,
+              speaker_labels=False, remove_punctuation=False, lower=False
+        ) -> list[str]:
         """
         Returns a dictionary where keys are speaker names and values are lists
         of lines spoken by that speaker.
         """
-        content = '\n'.join(
-            self.lines_by_speaker(speaker, 
-                                  speaker_labels=speaker_labels,
-                                  cleaned=cleaned,
-                                  remove_punctuation=remove_punctuation,
-                                  lower=lower))
+        lines = [ row['content'].rstrip() for row in self.row_data ]
+        if speaker is None:
+            if cleaned:
+                lines = self.clean_lines(lines, 
+                                         remove_timestamps=remove_timestamps, 
+                                         do_replacements=do_replacements, 
+                                         do_removals=do_removals, 
+                                         speaker_labels=speaker_labels, 
+                                         remove_punctuation=remove_punctuation, 
+                                         lower=lower)
+            return lines
+        assert speaker in SPEAKERS, f"Speaker label {speaker} not known." \
+                                    f"({self})"
+        assert speaker in self.default_speaker_pair, \
+            f"Speaker label {speaker} not in default speaker pair " \
+            f"{self.default_speaker_pair}, check spelling? ({self})"
+        speaker_lines = [lines[i] for i in range(len(lines))
+                         if self._row_speakers_default[i] == speaker]
+        if cleaned:
+            speaker_lines = self.clean_lines(speaker_lines, 
+                                        remove_timestamps=remove_timestamps, 
+                                        do_replacements=do_replacements, 
+                                        do_removals=do_removals, 
+                                        speaker_labels=speaker_labels, 
+                                        remove_punctuation=remove_punctuation, 
+                                        lower=lower)
+        return speaker_lines
+
+    def content(self, 
+                speaker: None | str=None, cleaned=True, 
+                remove_timestamps=True, do_replacements=True, do_removals=True,
+                speaker_labels=False, remove_punctuation=False, lower=False
+        ) -> str:
+        """
+        Returns a dictionary where keys are speaker names and values are lists
+        of lines spoken by that speaker.
+        """
+        content = '\n'.join(self.lines(speaker, cleaned=cleaned,
+                         remove_timestamps=remove_timestamps, 
+                         do_replacements=do_replacements, 
+                         do_removals=do_removals, 
+                         speaker_labels=speaker_labels, 
+                         remove_punctuation=remove_punctuation, 
+                         lower=lower))
         return content
-    
-    @cached_property
-    def _stanza_docs(self) -> dict:
-        """
-        Cache stanza Document objects for each speaker.
-        """
-        from . import ling
-        return {speaker: ling.nlp(self.content_by_speaker(speaker))
-                for speaker in self.default_speaker_pair}
-
-    def stanza_doc(self, speaker: str) -> stnzdoc.Document:
-        """
-        Returns a stanza Document object for the content spoken by the
-        specified speaker. Uses a cached dictionary to avoid recomputation.
-        """
-        return self._stanza_docs[speaker]
-
-    def tokens_by_speaker(self, speaker: str, per_sent: bool=True) -> list[list[str]]:
-        """
-        Returns a list of tokens (as strings) in the content spoken by the 
-        specified speaker. 
-        `per_sent` controls whether a list of lists is returned, where each
-        inner list contains the tokens in a single sentence, or whether a 
-        flattened list of all tokens is returned.
-        """
-        sd = self.stanza_doc(speaker)
-        if per_sent:
-            return [[token.text for token in sent.tokens] 
-                    for sent in sd.sentences]
-        return [token.text for token in sd.iter_tokens()]
 
     def speaker_set(self, restrict=True) -> set[str]:
         """
@@ -160,7 +172,7 @@ class Document:
         speaker labels (those strings captured by `regexes.find_speakers`) will
         be returned.
         """
-        speaker_matches = regexes.find_speakers(self.full_content, 
+        speaker_matches = regexes.find_speakers(self.content(cleaned=False), 
                                                 restrict=restrict)
         if not speaker_matches:
             # There should never be 0 speakers in a document
@@ -209,10 +221,11 @@ class Document:
         This list can be thought of as a mapping between each row index and the
         speaker of the row corresponding to each index.
         """
-        row_speakers: list[str | None] = [None] * len(self.lines)
+        lines = self.lines(cleaned=False)
+        row_speakers: list[str | None] = [None] * len(lines)
         current_speaker: str | None = None
-        for i in range(len(self.lines)):
-            line = self.lines[i]
+        for i in range(len(lines)):
+            line = lines[i]
             speaker_matches = regexes.find_speakers(line)
             # If speaker found, change global current_speaker variable
             if speaker_matches:
@@ -233,7 +246,7 @@ class Document:
                     row_speakers[:i] = [other_speaker] * i
                 else:
                     warnings.warn(f'First {i+1} rows (out of '
-                                  f'{len(self.lines)}) empty in {self}, but '
+                                  f'{len(lines)}) empty in {self}, but '
                                    'there are too many speakers! I don\'t '
                                    'know how to fill them.')
         

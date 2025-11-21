@@ -1,47 +1,47 @@
-31:07 Interviewer:
+Interviewer:
 Okay, so then, could you please give me your first and last name.
 Participant:
-Yeah it’s [name] and the last name spelled [name]
-31:25 Interviewer:
-[Spelling name]
+Yeah it’s NAME and the last name spelled NAME
+Interviewer:
+SPELLING_NAME
 Participant:
-[spelling name]
-Interviewer 31:29= And then your email address. 
+SPELLING_NAME
+Interviewer = And then your email address.
 Participant:
-It's [email] l like Hansel and Gretel [spelling email] 
-31:47 Interviewer:
+It's EMAIL l like Hansel and Gretel SPELLING_EMAIL
+Interviewer:
 Okay, and then a permanent mailing address
 Participant:
-Yup its [address] like the flower. 
-31:55 Interviewer:
-Okay. 
+Yup its ADDRESS like the flower.
+Interviewer:
+Okay.
 Participant:
-And then [address] it's two words [address]
-32:15 Interviewer:
-Okay. Um, and then is this a good phone number to reach you.? 
+And then ADDRESS it's two words ADDRESS
+Interviewer:
+Okay. Um, and then is this a good phone number to reach you.?
 Participant:
 Yes. My cell
-32:23 Interviewer:
-Okay. Um, so that's it. Um, thank you so much for participating and for spending your time with me for a little bit today. we sincerely appreciate your help. And if you have any questions you can email, Rebecca, which is who you've probably been coordinating with. 
+Interviewer:
+Okay. Um, so that's it. Um, thank you so much for participating and for spending your time with me for a little bit today. we sincerely appreciate your help. And if you have any questions you can email, Interviewer, which is who you've probably been coordinating with.
 Participant:
-Yes. 
-32:42 Interviewer:
+Yes.
+Interviewer:
 Okay. Um, do you have any other questions?
 Participant:
-No, thank you, though. 
-32:48 Interviewer:
-Thank you. 
+No, thank you, though.
+Interviewer:
+Thank you.
 Participant:
-Yeah, it gives me more insight into my behavior. 
-32:53 Interviewer:
-Yes, you're helping us out so much. So we really appreciate it. [name]
-32:58 Interviewer:
-Have a good day. 
+Yeah, it gives me more insight into my behavior.
+Interviewer:
+Yes, you're helping us out so much. So we really appreciate it. NAME
+Interviewer:
+Have a good day.
 Participant:
-You too. Bye now. 
-33:02 Interviewer:
-Bye. Thank you. 
+You too. Bye now.
+Interviewer:
+Bye. Thank you.
 Participant:
 You're welcome.
 End of transcription
-[END OF RECORDING]
+END_OF_RECORDING

@@ -11,9 +11,9 @@ Okay. Okay. Once again, thank you for participating. We sincerely appreciate you
 Participant 005:
 I do not.
 Interviewer:
-Okay. Thank you for participating. If you ever have any questions, you can email Rebecca Henderson.
+Okay. Thank you for participating. If you ever have any questions, you can email Interviewer Henderson.
 Participant 005:
-Okay. 
+Okay.
 Interviewer:
 Okay. All right.
 Participant 005:
@@ -43,5 +43,5 @@ Yeah. Thank you.
 Participant 005:
 Bye.
 Interviewer:
-Bye bye. 
-[END OF RECORDING]
+Bye bye.
+END_OF_RECORDING

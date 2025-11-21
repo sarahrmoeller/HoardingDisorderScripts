@@ -2,8 +2,10 @@
 This file aggregates a bunch of changes, all summarized in `DATA_CLEANING.md `.
 """
 from collections import Counter
+import importlib
 import random
 import utils.datasaur as data
+import utils.transcript
 from utils.transcript import Transcript
 import json
 import os
@@ -32,7 +34,7 @@ for doc in Transcript("012").docs:
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 """
@@ -73,7 +75,7 @@ for doc in data.by_doc:
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 """
@@ -109,7 +111,7 @@ for doc in data.by_doc:
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 """
@@ -133,11 +135,31 @@ tokens.insert(1, "Right")
 
 # Switch out old row data in the JSON dump with the new one
 doc.json_dump['rows'] = doc.row_data
-with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+with open(doc.path, "w") as f:
     json.dump(doc.json_dump, f)
 
 
 """/Speaker Label Corrections"""
+
+
+"""Remove duplicate documents"""
+doc_names = [doc.name for doc in data.by_doc]
+doc_name_cntr = Counter(doc_names)
+duplicate_doc_names = [name for name, count in doc_name_cntr.items() 
+                       if count >= 2]
+                # list(set()) to remove possible duplicates in the list
+dupdocs = {name : list(set((doc for doc in data.by_doc if doc.name == name)))
+           for name in duplicate_doc_names}
+
+for name, docs in dupdocs.items():
+    # Choose random element of the pair to keep
+    print(name, [doc.path for doc in docs])
+    doc_to_keep = random.choice(docs)
+    # Remove all other duplicates
+    docs.remove(doc_to_keep)
+    for doc in docs:
+        os.remove(doc.path)
+        print(f"Removed duplicate document {doc.path}")
 
 
 """
@@ -154,44 +176,29 @@ actually hoarding documents, this is sufficient evidence to conclude that if a
 document has a speaker labeled "Interviewee", it is not a hoarding document, 
 and is in fact from transcripts 2001 to 2007.
 """
-transcripts = ['001', '002', '003', '004', '005', '006', '007']
-target_docs = (doc for doc in data.by_doc
-               if doc.transcript_number in transcripts)
+transcript_numbers = ['001', '002', '003', '004', '005', '006', '007']
 
-for doc in target_docs:
-    unique_set2_speaker_labels = {'Interviewee', 'P1', 'P2', 'P3'}
-    if any(speaker_label in doc.speaker_set() 
-           for speaker_label in unique_set2_speaker_labels):
-        project_path = data.review_dir(doc.project)
-        new_name = '2' + doc.name
-        old_path = project_path + doc.name + '.json'
-        with open(old_path, 'w') as f:
-            print(f'Fixing {old_path}')
-            doc.json_dump['data']['document']['name'] = new_name
-            json.dump(doc.json_dump, f)
-        new_path = project_path + new_name + '.json'
-        os.rename(old_path, new_path)
-        print(f'Renamed {old_path} to {new_path}')
+for tn in transcript_numbers:
+    for doc in Transcript(tn).docs:
+        unique_set2_speaker_labels = {'Interviewee', 'P1', 'P2', 'P3'}
+        if any(speaker_label in doc.speaker_set() 
+            for speaker_label in unique_set2_speaker_labels):
+            old_path = doc.path
+            new_name = '2' + doc.name
+            new_path = (os.path.dirname(old_path) + '/' + 
+                        new_name.rstrip('.txt') + '.json')
+            with open(old_path, 'w') as f:
+                print(f'Fixing {old_path}')
+                doc.json_dump['data']['document']['name'] = new_name
+                json.dump(doc.json_dump, f)
+            os.rename(old_path, new_path)
+            print(f'Renamed {old_path} to {new_path}')
 
 
-"""Remove duplicate documents"""
-doc_names = [doc.name for doc in data.by_doc]
-doc_name_cntr = Counter(doc_names)
-duplicate_doc_names = {name : count for name, count in doc_name_cntr.items()
-                       if count >= 2}
-duplicate_docs = [doc for doc in data.by_doc 
-                  if doc.name in duplicate_doc_names]
-dupdocs = {name : [doc for doc in duplicate_docs if doc.name == name]
-           for name in duplicate_doc_names}
-
-for name, docs in dupdocs.items():
-    # Choose random element of the pair to keep
-    doc_to_keep = random.choice(docs)
-    # Remove all other duplicates
-    docs.remove(doc_to_keep)
-    for doc in docs:
-        os.remove(doc.path)
-        print(f"Removed duplicate document {doc.path}")
+# Need to re-import to update changed file data
+importlib.reload(data)
+importlib.reload(utils.transcript)
+from utils.transcript import Transcript
 
 
 """Fix Transcript 2005"""
@@ -215,7 +222,7 @@ for doc in Transcript("2005").docs:
         doc.row_data[i]['tokens'] = doc.tokens
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 
@@ -229,11 +236,7 @@ Note that this code needs to be run after the previous code, as otherwise some
 of the documents from 2005 will not be targeted, as they will be mistakenly 
 labeled under transcript 005.
 """
-import utils.datasaur as data
-import json
-
-
-for doc in data.by_transcript['2005']:
+for doc in Transcript('2005').docs:
     # Fix rows/lines
     for i in range(len(doc.lines)):
         line = doc.lines[i]
@@ -253,7 +256,7 @@ for doc in data.by_transcript['2005']:
         doc.row_data[i]['tokens'] = doc.tokens
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
 
 
@@ -319,37 +322,5 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
 
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(doc.path, "w") as f:
         json.dump(doc.json_dump, f)
-
-
-"""
-## Fix Specific Line in Document 059_718.txt
-
-Document 059_718.txt contains this line
-```
-Interviewer19:09- Ok sounds good.
-```
-This script just changes this to
-```
-Interviewer 19:09- Ok sounds good.
-```
-Without doing this, the regex that finds timestamps will not be able to 
-identify the timestamp with it being "attached" to word characters.
-"""
-doc = Transcript("059")["718"]
-bad_line_index = [i for i in range(len(doc.lines)) 
-                  if "Interviewer19:09-" in doc.lines[i]][0]
-doc.row_data[bad_line_index]['content'] = doc.lines[bad_line_index].replace("Interviewer19:09-", 
-                                                                            "Interviewer 19:09-")
-# Fix labels in the tokens
-tokens = doc.row_data[bad_line_index]['tokens']
-tokens[0] = "Interviewer"
-tokens.insert(1, "19:09-")
-doc.row_data[bad_line_index]['tokens'] = tokens
-
-# Switch out old row data in the JSON dump with the new one
-doc.json_dump['rows'] = doc.row_data
-
-with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
-    json.dump(doc.json_dump, f)

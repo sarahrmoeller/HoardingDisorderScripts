@@ -7,7 +7,7 @@ Great.
 Interviewer:
 But if you have any questions, feel free to reach out to Dr. Matthews.
 Participant:
-Avery? Or, not Avery, Dr. Mathews. Okay. Sounds good. 
+Avery? Or, not Avery, Dr. Mathews. Okay. Sounds good.
 Interviewer:
 Thank you so much.
 Participant:
@@ -16,4 +16,4 @@ Interviewer:
 Have a great day.
 Participant:
 Yeah, you too. Bye bye.
-[END OF RECORDING]
+END_OF_RECORDING
