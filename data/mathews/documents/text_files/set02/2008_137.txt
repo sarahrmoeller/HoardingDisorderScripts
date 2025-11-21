@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 P2: And it's not just about overvalued ideation it's about how much how a space should look how a normal home looks like
 Interviewee: Yeah exactly mhm
 P2: That is important and I think that you are right um so one interesting idea that we’ve heard about this I just want to kind of run by you is that there is a difficulty for clinicians sometimes when talking about insight and that um there’s two things going on one thing is recognizing that the behavior is a problem and the other is the behavior itself so um there’s insight in that you know the behavior problematic but then there’s also insight that you have to know that you know that the saving you shouldn’t save so I don’t know if I'm phrasing that well but it something that came up in our most recent interview is that there’s a degree that insight its kind of part of hoarding disorder if you really know that you shouldn’t save stuff um then there is another level that is able to get rid of it level its very difficult to distinguish I don’t know if I'm making this INAUDIBLE
@@ -6,3 +7,13 @@ P2: Mhm mhm
 Interviewee: I think that INAUDIBLE
 P2: INAUDIBLE  – would be better without this stuff but still
 Interviewee: Yeah
+=======
+P2: And it's not just about overvalued ideation, it's about how much-- how a space should look. How a normal home looks like.
+Interviewee: Yeah, exactly. Mhm.
+P2: That is important, and I think that you are right. Um, so one interesting idea that we’ve heard about this, I just want, to kind, of run by you, is that there is a difficulty for clinicians sometimes, when talking about insight, and that, um, there’s two things going on. One thing is recognizing that the behavior is a problem, and the other is the behavior itself. So, um, there’s insight in that, you know, the behavior problematic, but then there’s also insight that you have to know that, you know, that the saving you shouldn’t save. So, I don’t know if I'm phrasing that well, but it something that came up in our most recent interview is that there’s a degree that insight, its kind of part of hoarding disorder. If you really know that you shouldn’t save stuff, um, then there is another level that is able to get rid of it level. It's very difficult to distinguish. I don’t know if I'm making this [INAUDIBLE].
+Interviewee: No, I think that whoever said that is spot on. I think that a really important distinction-- It would be, like, you know-- with, with hurricane Irma we had a lot of patients call us, you know, before the storm and just say ‘I just wish it would just take it all away I wish the storm would come in and just take it all away.’. I would not say that all of those patients were the most kind of, um, high on insight, but it really, kind of, reflects this part. Like, ‘Okay great. I recognize that I have a problem, but I don’t recognize that I have control over my behavior.’.
+P2: Mhm, mhm. 
+Interviewee: I think that [INAUDIBLE]
+P2: [INAUDIBLE] – would be better without this stuff, but still--
+Interviewee: Yeah.
+>>>>>>> 792b3de7 (Tava- First Batch of Punctuation Fixes)
