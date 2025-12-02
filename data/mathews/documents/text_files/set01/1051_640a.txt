@@ -1,69 +1,69 @@
-Interviewer : Okay, and what would you consider your race to be?
+Interviewer: Okay, and what would you consider your race to be?
 Participant:
 Caucasian.
-Interviewer : Okay.
+Interviewer: Okay.
 So non-Hispanic?
 Participant:
 Yeah, non-Hispanic.
-Interviewer : Okay.
+Interviewer: Okay.
 Um, the next one is an estimate, if you can, of your household income.
 Participant:
-Um, INAUDIBLE.
-Interviewer : Okay.
+Um, [INAUDIBLE].
+Interviewer: Okay.
 And the geographic region that you live in in the United States?
 Participant:
-INAUDIBLE.
-Interviewer : Okay.
+[INAUDIBLE].
+Interviewer: Okay.
 So, the last little bit is just some information so we can send you your payment.
 It's going to be a $30 Amazon gift card.
 Um, I would recommend that you indicate an electronic gift card would be okay.
 Just because with COVID and everything right now, a physical gift card—
 Participant:
-INAUDIBLE.
-Interviewer : Okay, so electronic.
+[INAUDIBLE].
+Interviewer: Okay, so electronic.
 I'm good to write you down for that?
 Participant:
 yes.
-Interviewer : Okay, perfect.
+Interviewer: Okay, perfect.
 Participant:
-INAUDIBLE.
-Interviewer : Right.
+[INAUDIBLE].
+Interviewer: Right.
 Well, you know, you can use it for whatever you want, but definitely the electronic—
 Participant:
-INAUDIBLE.
-Interviewer : Perfect, yeah.
+[INAUDIBLE].
+Interviewer: Perfect, yeah.
 Okay, so next I just need your first and last name.
 Participant:
-INAUDIBLE.
-Interviewer : Okay.
+[INAUDIBLE].
+Interviewer: Okay.
 And your email address.
 Participant:
-INAUDIBLE.
-Interviewer : Alright.
+[INAUDIBLE].
+Interviewer: Alright.
 Your permanent mailing address?
 Participant:
-INAUDIBLE.
-Interviewer : Alright.
+[INAUDIBLE].
+Interviewer: Alright.
 And country or city?
 Participant:
-INAUDIBLE.
-Interviewer : Okay.
+[INAUDIBLE].
+Interviewer: Okay.
 And state of [state name; ].
 Participant:
-INAUDIBLE.
-Interviewer : And you said your zip code is ZIP_CODE?
+[INAUDIBLE].
+Interviewer: And you said your zip code is ZIP_CODE?
 Participant:
 Yes.
-Interviewer : Alright.
+Interviewer: Alright.
 And your phone number.
 Participant:
 PHONE_NUMBER.
-Interviewer : Alright, perfect.
+Interviewer: Alright, perfect.
 Well, thank you so much for doing this interview today.
 We really appreciate it.
 Participant:
 Oh, thank you.
 It was a pleasure talking to you.
-Interviewer : No problem.
+Interviewer: No problem.
 All right, you have a wonderful day.
 END_OF_RECORDING

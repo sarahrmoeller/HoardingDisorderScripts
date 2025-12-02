@@ -35,7 +35,7 @@ I have this bank of America prepaid card from the University of Florida.
 Interviewer:
 And then I'm just for our system for our human subjects payment system we have to. I'm gonna ask you for your first and last name.
 Participant:
-NAME.
+[NAME].
 Interviewer:
 Could you spell your last name, please?
 Participant:

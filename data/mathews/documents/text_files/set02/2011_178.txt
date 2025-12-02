@@ -1,5 +1,5 @@
-Interviewer: Hi NAME  how are you?
-This is NAME  again.
+Interviewer: Hi [NAME] how are you?
+This is [NAME] again.
 Interviewee: Ok.
 Well that sounds like a better connection already.
 Interviewer: I’m really hoping so.

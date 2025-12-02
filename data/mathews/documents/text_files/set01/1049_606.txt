@@ -23,11 +23,11 @@ I met her ...
 I'm trying to think.
 I met her through a friend who had ...
 I'm trying to remember this.
-A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found NAME.
+A friend of mine had somewhat of a hoarding problem, and wanted to get help, and found [NAME].
 That's the helper's name.
-Found NAME somewhere.
+Found [NAME] somewhere.
 I don't know if she found her on the internet, or through another friend or whatever.
-But then I met NAME, and I was very comfortable with her.
+But then I met [NAME], and I was very comfortable with her.
 She's kind of a neat person.
 And I agreed with her about, let's say, 12 years ago, to work a little bit on my house.
 I left that out when I jumped from 2000 to now.
@@ -35,7 +35,7 @@ To work a little bit on the house, and then she moved to Georgia.
 And now she's back in the area.
 So she's been back in the area for three or four years, but it was just this winter that ...
 It was right after I fell, really, that I finally said, "This is ridiculous.
-I've got to get NAME back."
+I've got to get [NAME] back."
 I didn't want to spend the money, is part of it.
 And I thought, "You have to do this, money or no money."
 And I was so relieved that she would come back, and her attitude, she's very non-judgmental.
