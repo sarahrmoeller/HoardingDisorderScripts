@@ -31,7 +31,7 @@ Interviewee: Ok.
 Interviewer 2: Would that be alright?
 Interviewee: Sure
 Interviewer 2: Ok.
-So, you’re volunteering to participate in a research projected conducted by NAME  from the UNIVERSITY .
+So, you’re volunteering to participate in a research projected conducted by [NAME]  from the UNIVERSITY .
 The aim of the study is to better understand the ways that researchers and clinicians think about hoarding disorder.
 You’ll be one of approximately thirty people being interviewed for this research.
 Your participation is volunteer, you will not be paid for your participation

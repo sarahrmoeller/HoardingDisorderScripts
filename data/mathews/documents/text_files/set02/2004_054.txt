@@ -1,4 +1,4 @@
-Interviewer 1: NAME  do you want to take over with the next section?
+Interviewer 1: [NAME]  do you want to take over with the next section?
 Interviewer 2: Yeah so, it kind of leads us into the next section of the interview, which is talking about the DSM 5 criteria for hoarding disorder.
 We know that you had a hand in kind of crafting those criteria; and so are there particular elements of the criteria that you regard as difficult to apply, kind of similar to that distinction that we were talking about where the clutter invades certain areas of the home or certain living space.
 So are there elements that you regard as difficult to apply or that you see different clinicians may apply differently?

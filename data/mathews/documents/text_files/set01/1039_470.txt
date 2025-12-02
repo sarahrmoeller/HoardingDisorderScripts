@@ -41,8 +41,8 @@ Interviewer:
 Yeah.
 Interesting.
 Participant 039:
-We both, NAME is my partner's name.
+We both, [NAME] is my partner's name.
 She used to know some people, well, she still knows them, but they used to have a house up in Massachusetts and occasionally we would go up to visit them.
 Well, they and this was a huge rambling house, but talk about the feel of clutter and a house lived in.
 Again, everybody that visited them said the same thing.
-The LOCATION house, oh my God, it's such a rambling old house and it's such a mess and clutter of things but it is so comfortable.
+The [LOCATION] house, oh my God, it's such a rambling old house and it's such a mess and clutter of things but it is so comfortable.

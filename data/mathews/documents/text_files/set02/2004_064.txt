@@ -1,7 +1,7 @@
 (part 2)
-Interviewer 1: Good morning, NAME?
-Interviewee: Yes, NAME?
-Interviewer 1: Yeah, NAME is on the line too.
+Interviewer 1: Good morning, [NAME]?
+Interviewee: Yes, [NAME]?
+Interviewer 1: Yeah, [NAME] is on the line too.
 How are you?
 Interviewer 2: Hi.
 Interviewee: Alright, good.

@@ -1,7 +1,7 @@
 (part 1)
 Interviewer 2: Um, I’m doing good.
-I’m on the line with my colleague, NAME .
-Interviewee: Hi NAME .
+I’m on the line with my colleague, [NAME] .
+Interviewee: Hi [NAME] .
 Interviewer 1: Hi.
 Nice to meet you.
 Interviewee: Nice to meet you.

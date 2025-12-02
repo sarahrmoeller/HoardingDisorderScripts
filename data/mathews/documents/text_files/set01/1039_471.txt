@@ -1,7 +1,7 @@
 Interviewer:
 Do you think that that maybe inhibits your desire to discard because it seems like your friends don't care as much about it as maybe others would?
 Participant 039:
-Well, the funny thing, I care about more about what our friends think than NAME does.
+Well, the funny thing, I care about more about what our friends think than [NAME] does.
 It used to be, she is a much more social person than I am.
 I'm really not social at all.
 The friends that we have are her friends.

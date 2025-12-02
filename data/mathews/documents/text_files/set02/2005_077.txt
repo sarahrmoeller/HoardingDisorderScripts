@@ -1,6 +1,6 @@
 P3: It there anything you’d like to know before we get started?
 Interviewee: Uh not at this point.
-P3: Okay so um our informed consent: your volunteering to participate in our research project conducted by NAME  from UNIVERSITY .
+P3: Okay so um our informed consent: your volunteering to participate in our research project conducted by [NAME]  from UNIVERSITY .
 The aim of this study is to better understand the ways that researchers and clinicians think about hoarding disorder.
 You’ll be one of approximately thirty people being interviewed for this research, your participation in this project is voluntary, you will not be paid for your participation.
 You may withdraw and discontinue participation at any time without prenatally, if you decline to participate or withdraw from the study no one will be told.
