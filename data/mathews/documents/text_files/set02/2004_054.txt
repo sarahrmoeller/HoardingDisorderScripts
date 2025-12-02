@@ -1,5 +1,5 @@
-Interviewer 1: [NAME]  do you want to take over with the next section?
-Interviewer 2: Yeah so, it kind of leads us into the next section of the interview, which is talking about the DSM 5 criteria for hoarding disorder.
+Interviewer1: [NAME]  do you want to take over with the next section?
+Interviewer2: Yeah so, it kind of leads us into the next section of the interview, which is talking about the DSM 5 criteria for hoarding disorder.
 We know that you had a hand in kind of crafting those criteria; and so are there particular elements of the criteria that you regard as difficult to apply, kind of similar to that distinction that we were talking about where the clutter invades certain areas of the home or certain living space.
 So are there elements that you regard as difficult to apply or that you see different clinicians may apply differently?
 Interviewee: Yeah…I think, I think that one is certainly one that’s a little difficult to apply because you got to make a judgement about interference and distress and if there’s no clutter or little clutter in the living areas of the home.
@@ -10,7 +10,7 @@ The other part that I think is a little bit misunderstood and you probably creat
 Based on our research, we find that well over 90% of people have excessive acquisition, but it’s difficult sometimes to assess it because people often either have a hard time recognizing when they’re acquisition is excessive or they answer the question based on the fact that they have attempted to control and are somewhat successful controlling the acquisition by avoiding triggers to acquiring.
 And the difficulty with that is that those triggers can be avoided very successfully over a long period of time.
 So someone can gain some short-term control over the acquisition by avoidance but in the long-run it’s still a problem because they can’t keep up that avoidance for very long.
-Interviewer 2: Ok.
+Interviewer2: Ok.
 Ok. So now we want to ask you some specific questions about the way you think about the DSM 5 criteria, and we both know that you probably know them much better than we do, but we just want to read you a phrase from the criteria and then get to know a little more of your thought process as you apply it to patients.
 So…
 Interviewee: Yeah.

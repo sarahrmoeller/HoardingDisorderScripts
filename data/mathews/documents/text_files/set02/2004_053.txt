@@ -1,4 +1,4 @@
-Interviewer 1: And, um, could you think of a specific case or a number of cases that were particularly difficult or challenging to diagnose either clinically or in research?
+Interviewer1: And, um, could you think of a specific case or a number of cases that were particularly difficult or challenging to diagnose either clinically or in research?
 Because we are kind of on the border between pathological and non-pathological behavior or borderline sub-clinical.
 And kind of talk through that case or cases and how you made the distinction between something that was sub-clinical or something that was not true hoarding disorder and hoarding disorder patient.
 Interviewee: Well there’s two, two ways to think about that.
@@ -17,6 +17,6 @@ And so those are the ones that I think are the hardest to distinguish because it
 Some of these folks have clutter in their attics, basement, garage and so forth, not in areas central to their living environment.
 And it’s not necessarily that someone else has control of the living area.
 And so those are the cases that are a little tougher to diagnose properly.
-Interviewer 2: And how do you make the distinction for those individuals?
+Interviewer2: And how do you make the distinction for those individuals?
 Interviewee: The distinction…yeah… the way I make the distinction is the level distress associated with the management of possessions.
 By management I mean both the acquisition and the disposition – where it goes, how much care is required, and so forth.
