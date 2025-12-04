@@ -6,13 +6,13 @@ Interviewee: Hm, um I would say decades.
 P3: Decades?
 Interviewee: Mhm, yeah.
 P3: Uh, and
-P1: Um
-P3: Go ahead NAME
-P1: No go.
+Interviewer1: Um
+P3: Go ahead [NAME]
+Interviewer1: No go.
 P3: No it’s okay, you take the next one.
-P1: Mkay, um so when you will first see a patient how aware are you, or how aware are the typical patients that they have hoarding disorder when they first come in?
+Interviewer1: Mkay, um so when you will first see a patient how aware are you, or how aware are the typical patients that they have hoarding disorder when they first come in?
 Interviewee: How aware are uhuh.
-P1: Yeah.
+Interviewer1: Yeah.
 Interviewee: The people I would see they would they would typically they would already say they have hoarding problems; I want to see you yeah they would already self identify as someone with hoarding problems
 P3: Oh okay.
 Interviewee: Yeah

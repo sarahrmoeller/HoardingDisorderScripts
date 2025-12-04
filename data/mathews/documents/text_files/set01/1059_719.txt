@@ -11,7 +11,7 @@ No, not for me.
 Interviewer:
 Okay. Um, so now we'll move on to our second section which is about your space and living area. So, could you please describe where you live now.
 Participant:
-I live in a house in suburban neighborhood in LOCATION_NAME.
+I live in a house in suburban neighborhood in LOCATION_[NAME].
 Interviewer:
 And what’s the space like?
 Participant:

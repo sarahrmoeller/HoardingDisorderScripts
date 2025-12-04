@@ -1,11 +1,11 @@
 Interviewer:
 Okay, so then, could you please give me your first and last name.
 Participant:
-Yeah it’s NAME and the last name spelled NAME
+Yeah it’s [NAME] and the last name spelled [NAME]
 Interviewer:
-SPELLING_NAME
+SPELLING_[NAME]
 Participant:
-SPELLING_NAME
+SPELLING_[NAME]
 Interviewer = And then your email address.
 Participant:
 It's EMAIL l like Hansel and Gretel SPELLING_EMAIL
@@ -34,7 +34,7 @@ Thank you.
 Participant:
 Yeah, it gives me more insight into my behavior.
 Interviewer:
-Yes, you're helping us out so much. So we really appreciate it. NAME
+Yes, you're helping us out so much. So we really appreciate it. [NAME]
 Interviewer:
 Have a good day.
 Participant:

@@ -1,16 +1,16 @@
-Interviewer 1: Thank you so much.
+Interviewer1: Thank you so much.
 You have actually added to our list now just off the top of your head, so I really appreciate your effort in doing that.
 Interviewee: Oh, there’s a couple more who occurred to me.
-NAME  that’s with, he’s also out of San Diego.
-And actually would you take a look when you’re in touch with NAME , he can give you the list of the names of the people who are involved in the hoarding special interest group at the International OCD Foundation, IOCDF, and that group tends to have several people in it that are more clinically based.
-NAME  is one of them.
+[NAME]  that’s with, he’s also out of San Diego.
+And actually would you take a look when you’re in touch with [NAME] , he can give you the list of the names of the people who are involved in the hoarding special interest group at the International OCD Foundation, IOCDF, and that group tends to have several people in it that are more clinically based.
+[NAME]  is one of them.
 Uh, these are mental health clinicians.
-Um, NAME .
+Um, [NAME] .
 Uh, I know there are others.
 Well those are just popping into my head.
-Interviewer 2: Thank you.
+Interviewer2: Thank you.
 Thank you so much for your time today.
 Interviewee: Sure.
 Much welcome.
 Bye-bye now.
-Interviewer 1: Take care.
+Interviewer1: Take care.
