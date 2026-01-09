@@ -6,14 +6,12 @@ what comes to your mind?
 I know there's a lot of stereotypes that people associate with it.
 Participant:
 Well, the worst part I’ve seen— and I try not to watch the hoarding shows because those shows are depressing to me— lot of people that hoard have things that are— TALKING_TO_SOMEONE_NOT_ON_THE_PHONE it’s locked, it’s locked.
-A lot of people that hoard have like, um, broken hearts.
-TALKING_TO_PERSON_NOT_ON_THE_PHONE Yes.
-Judy, Judy.
+A lot of people that hoard have like, um, broken hearts. Yes. [NAME], [NAME].
 I’m almost through, let me get finish with this.
 I will tell you when I'm done, okay?
 I will tell you when I'm done, please.
 Go ahead and eat, go ahead and eat, I'll be right there.
-If I could just kidding, I'm Connor, I would like, but anyway.
+If I could just kidding, I'm [NAME], I would like, but anyway.
 If I could just get in my own car and leave, I would leave, but.
 Interviewer: Okay, so, the shows for you, those are distressing, right?
 Participant:
@@ -28,7 +26,7 @@ Okay.
 Interviewer: First of all, what's your highest level of education?
 Participant:
 Oh, uh, high School.
-Two weeks out of high school I went to work for [names of companies; (].
+Two weeks out of high school I went to work for [INSTITUTION].
 Two weeks out of high school, I was working.
 Interviewer: Gotcha.
 Okay, so, now I'm going to list some ranges for household incomes and if you could just go ahead and pick which one applies to your own household.
@@ -41,7 +39,7 @@ Yes.
 Interviewer: Gotcha.
 Okay, so next, um, which geographic region do you live in, in the US?
 Participant:
-Um, I live in [name of state; ].
+Um, I live in [LOCATION].
 Interviewer: Okay, so southeast?.
 Participant:
 Okay, southeast.
