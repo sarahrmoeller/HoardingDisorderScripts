@@ -77,6 +77,39 @@ We then proceed to find pairs of documents in the data that have the same name, 
 ### Fix Transcript 2005: Swap "P3" and "Interviweee" Labels
 
 Transcript 2005 had mismatched speakers: "P3" should have been "Interviewee" and vice versa.
+
+### Final Cleaning Documentation / TODO list
+
+- [ ] Fix Text Data (to the best of our ability, for now)
+  - [ ] Remove from every document transcriber notes that don’t stand in for words: 
+    - [x] Timestamps, 
+    - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
+      - [ ] Transcript-related details (INTERVIEW 001), [PAUSED], [END OF RECORDING] 
+      - [x] [affirmative], [negative], [laughter], etc.
+    - [ ] Figure out how to remove each removable token (see `./utils/regexes.py`, lines 88-108)
+      - [ ] Make separate regex to filter transcript-related details
+  - [x] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters. Same as old note "Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC" 
+  - [x] Make speaker labels homogeneous: all interviewers and interviewees notated the same when in "{Speaker Label}:" format.
+    - [x] Edit `Document` class to include a cleaned version
+    - [x] Test Document cleaning on specific Documents
+- [x] Figure out what to do about speakers that are not at the beginning of the line
+- [ ] Manual Work, check for:
+  - [ ] Consistently formatted speaker labels <Label(#):_> Interviewer: or Interviewer1: or Interviewer2: Interviewee: 
+  - [ ] Make sure that interviewer/interviewee are correctly labeled, especially when there is more than two speakers.
+  - [ ] Keep these transcriber notes. Put them on their own line. Put square brackets around them. 
+        [Interview 001] 
+        [END OF RECORDING]
+        [PAUSED]
+- [ ] Remove any transcriber notes that do not stand in for an utterance, such as:
+      time stamps
+      [laughter]
+      [affirmative]
+      [negative]
+- [ ] Keep that the transcriptionists' notes that represent anonymized or inaudible speech. Put in all caps, make them consistent (at least across sets).
+      ANONYMIZATION
+      ORGANIZATION
+      NAME 
+      INAUDIBLE
 This script should not be run until after transcripts `001`-`007` are fixed, otherwise not all documents from `2005` will be targeted.
 
 ### Fix Timestamps
