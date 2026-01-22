@@ -89,7 +89,7 @@ We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a numb
     - [x] Timestamps, 
     - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
       - [ ] Transcript-related details (INTERVIEW 001), [PAUSED], [END OF RECORDING] 
-      - [x] [affirmative], [negative], [laughter], etc.
+      - [ ] [affirmative], [negative], [laughter], etc.
     - [ ] Figure out how to remove each removable token (see `./utils/regexes.py`, lines 88-108)
       - [ ] Make separate regex to filter transcript-related details
   - [x] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters. Same as old note "Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC" 
