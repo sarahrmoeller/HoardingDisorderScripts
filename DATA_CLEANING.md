@@ -116,10 +116,12 @@ We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a numb
       INAUDIBLE
 This script should not be run until after transcripts `001`-`007` are fixed, otherwise not all documents from `2005` will be targeted.
 
+FOR SOFIA
 - [ ] Document all changes made. Copy lists from Slack messages.
 - [ ] Export all files from Set 1 Cleaning Datasaur project. First make sure all changes have been saved.
 - [ ] Write to ensure Set 1 has been cleaned based on all lists above and all messages on Slack.
 - [ ] Upload cleanest version to GitHub!
+- [ ] organize these notes into documentation
 - [ ] Inform Carol Mathews about all potential anonymization. What they are and where they are.
 - [ ] Then we can rerun scripts!
 
