@@ -126,71 +126,69 @@ FOR SOFIA
 - [ ] Then we can rerun scripts!
 
 ### Lists from Slack
-[even ##:##:##]
-[virtually ##:##:##]
-PART 4 of 4 ENDS [01:30:56]
-[Josha ##:##:##]
-Interviewer (#:##):
-Interviewer (##:##):
-Participant:
-[Inaudible.]
-[inaudible; (##:##)]
-[inaudible]
-[Inaudible]
-[Colleague name]’s
-[Personal demographic info…]
-##:## Interviewer:
-[##:##] INCOHERENT
-[imaudible]. 
+- [even ##:##:##] -> Delete?
+- [virtually ##:##:##] -> Delete?
+- PART 4 of 4 ENDS [01:30:56] -> Keep but delete time stamp
+- [Josha ##:##:##] -> Delete?
+- Interviewer (#:##): -> Interviewer:
+- Interviewer (##:##): -> Interviewer:
+- Participant: -> Do nothing? Check our decisions above. 
+- [Inaudible.] -> [INAUDIBLE] Check our decisions above. 
+- [inaudible; (##:##)] -> [INAUDIBLE]
+- [inaudible] -> [INAUDIBLE]
+- [Inaudible] -> [INAUDIBLE]
+- [Colleague name]’s -> [ANONYMIZATION]
+- [Personal demographic info…] -> [ANONYMIZATION]
+- ##:## Interviewer: -> Interviewer:
+- [##:##] INCOHERENT -> [INAUDIBLE]
+- [imaudible]. -> [INAUDIBLE]
+ - [name of place; inaudible; (34:15)] -> [NAME][INAUDIBLE]
+- “[name of place].” -> [ANONYMIZATION]
+- Interviewer (34:4y): -> Interviewer:
+- [Laughing] -> delete
+- [laughing]  -> delete
+- [name of fast food restaurant; (45:15)] > [ORGANIZATION]
+- Participant ### (#:##): -> Participant:
+- Participant ### ##:## -> Participant:
+- Participant ### ##:##- -> Participant:
+- [unclear] -> [INAUDIBLE]
+- [location] -> [ANONYMIZATION]
+- Speaker # ##:##- -> IS THIS INTERVIEWER OR INTERVIEWEE/PARTICIPANT???
+- Interviewer ##: ##- -> Interviewer:
+- Interviewer #:##- -> Interviewer:
+- #:## Interviewer: -> Interviewer:
+- [unclear] (#:##) -> [INAUDIBLE]
+- [unclear](#:##) -> [INAUDIBLE]
+- [unclear] (##:##). -> [INAUDIBLE]
+- [unclear.] -> [INAUDIBLE]
+- ##:## Interviewer #: -> Interviewer:
+- #Participant:  -> Participant:
 
- [name of place; inaudible; (34:15)]
-“[name of place].”
-Interviewer (34:4y):
-[Laughing]
-[laughing]
-[name of fast food restaurant; (45:15)]
-Participant ### (#:##):
-Participant ### ##:##
-Participant ### ##:##-
-[unclear]
-[location]
-Speaker # ##:##-
-Interviewer ##: ##-
-Interviewer #:##-
-#:## Interviewer:
-[unclear] (#:##)
-[unclear](#:##)
-[unclear] (##:##).
-[unclear.]
-##:## Interviewer #:
-#Participant:
+- [problem ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
+- [agents ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
+- [Sand ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
+- [Vise by 16 Box in Wrench ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
+- [Ann ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
+- [inaudible; (##:##)]. -> [INAUDIBLE]
+- [name of state; (##:##)].  -> [NAME]
+- [talking to someone not on the phone] -> WHERE IS THIS? WHAT IS THIS? Delete?
+- [Talking to person not on the phone] -> WHERE IS THIS? WHAT IS THIS? Delete?
+- [unclear]-> [INAUDIBLE]
+- [STATE] -> [NAME]
+- [State] -> [NAME]
+- [state] -> [NAME]
+- [PHONE CALL HANGS UP] -> WHERE IS THIS? WHAT IS THIS? Delete? or is [END OF INTERVIEW]?
+- [listing ##:##:##] -> WHERE IS THIS? WHAT IS THIS? Delete?
+- [Lauren Mellin ##:##:##] -> [ANONYMIZATION]
+- [names of companies; ((##:##)] -> [NAME]
+- [name] -> [NAME]
+- [Buttonheim ##:##:##] -> [ANONYMIZATION]
 
-[problem ##:##:##]
-[agents ##:##:##]
-[Sand ##:##:##]
-[Vise by 16 Box in Wrench ##:##:##]
-[Ann ##:##:##]
-[inaudible; (##:##)].
-[name of state; (##:##)].
-[talking to someone not on the phone]
-[Talking to person not on the phone]
-[unclear]
-[STATE]
-[State]
-[state]
-[PHONE CALL HANGS UP]
-[listing ##:##:##]
-[Lauren Mellin ##:##:##]
-[names of companies; ((##:##)]
-[name]
-[Buttonheim ##:##:##] 
+- [] Gabi Matzen: My files are also all cleaned up except for iterations of "Participant:", "Participant #:", "Participant ##:", and "Participant ###:" to change into "Interviewee:". -> AUTOMATED CLEANING
 
-Anna: if we come across a time stamp for an inaudible statement (i.e [inaudible 00:28:36]) do we replace this with “…” or do we insert [INAUDIBLE]? (edited) 
-Gabi Matzen: My files are also all cleaned up except for iterations of "Participant:", "Participant #:", "Participant ##:", and "Participant ###:" to change into "Interviewee:".
-
-If a line has a name with a timestamp, should we just leave the name in brackets and delete the time stamp? for example “[Lauren Mellin 00:58:09]”
+- If a line has a name with a timestamp, should we just leave the name in brackets and delete the time stamp? for example “[Lauren Mellin 00:58:09]”
 Savannah Cherry: Yeah, I found some of these in my docs as well. For now, I'm going to mark them down in my notes and move on until we get an answer.
 smoeller: We would need to anonymize that by changing the name to NAME and removing the time stamp. You can do that or leave a note for @Tava Reese
 
-Savannah Cherry: Also, for the issue where the interviewer/interviewee tag is on the same line as their speech, you can right click to add a new line above or below a line that already exists. That's what I did for the instances I encountered that issue.
+- Savannah Cherry: Also, for the issue where the interviewer/interviewee tag is on the same line as their speech, you can right click to add a new line above or below a line that already exists. That's what I did for the instances I encountered that issue. - CHECK DECISION ON HAVING SPEAKER ON SAME OR DIFFERENT LINE. MAKE IT UNIFORM.
 
