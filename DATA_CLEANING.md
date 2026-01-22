@@ -80,7 +80,7 @@ Transcript 2005 had mismatched speakers: "P3" should have been "Interviewee" and
 
 ### Final Cleaning Documentation / TODO list
 
-- [ ] Fix Text Data (to the best of our ability, for now)
+- [ ] Clean Text Data (to the best of our ability, for now)
   - [ ] Remove from every document transcriber notes that don’t stand in for words: 
     - [x] Timestamps, 
     - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
@@ -111,6 +111,12 @@ Transcript 2005 had mismatched speakers: "P3" should have been "Interviewee" and
       NAME 
       INAUDIBLE
 This script should not be run until after transcripts `001`-`007` are fixed, otherwise not all documents from `2005` will be targeted.
+
+- [ ] Document all changes made. Copy lists from Slack messages.
+- [ ] Export all files from Set 1 Cleaning Datasaur project. First make sure all changes have been saved.
+- [ ] Write to ensure Set 1 has been cleaned based on all lists above and all messages on Slack.
+- [ ] Upload cleanest version to GitHub!
+- [ ] Inform Carol Mathews about all potential anonymization. What they are and where they are. 
 
 ### Fix Timestamps
 
