@@ -78,6 +78,10 @@ We then proceed to find pairs of documents in the data that have the same name, 
 
 Transcript 2005 had mismatched speakers: "P3" should have been "Interviewee" and vice versa.
 
+### Fix Timestamps
+
+We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a number of specific documents.
+
 ### Final Cleaning Documentation / TODO list
 
 - [ ] Clean Text Data (to the best of our ability, for now)
@@ -116,8 +120,75 @@ This script should not be run until after transcripts `001`-`007` are fixed, oth
 - [ ] Export all files from Set 1 Cleaning Datasaur project. First make sure all changes have been saved.
 - [ ] Write to ensure Set 1 has been cleaned based on all lists above and all messages on Slack.
 - [ ] Upload cleanest version to GitHub!
-- [ ] Inform Carol Mathews about all potential anonymization. What they are and where they are. 
+- [ ] Inform Carol Mathews about all potential anonymization. What they are and where they are.
+- [ ] Then we can rerun scripts!
 
-### Fix Timestamps
+### Lists from Slack
+[even ##:##:##]
+[virtually ##:##:##]
+PART 4 of 4 ENDS [01:30:56]
+[Josha ##:##:##]
+Interviewer (#:##):
+Interviewer (##:##):
+Participant:
+[Inaudible.]
+[inaudible; (##:##)]
+[inaudible]
+[Inaudible]
+[Colleague name]’s
+[Personal demographic info…]
+##:## Interviewer:
+[##:##] INCOHERENT
+[imaudible]. 
 
-We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a number of specific documents.
+ [name of place; inaudible; (34:15)]
+“[name of place].”
+Interviewer (34:4y):
+[Laughing]
+[laughing]
+[name of fast food restaurant; (45:15)]
+Participant ### (#:##):
+Participant ### ##:##
+Participant ### ##:##-
+[unclear]
+[location]
+Speaker # ##:##-
+Interviewer ##: ##-
+Interviewer #:##-
+#:## Interviewer:
+[unclear] (#:##)
+[unclear](#:##)
+[unclear] (##:##).
+[unclear.]
+##:## Interviewer #:
+#Participant:
+
+[problem ##:##:##]
+[agents ##:##:##]
+[Sand ##:##:##]
+[Vise by 16 Box in Wrench ##:##:##]
+[Ann ##:##:##]
+[inaudible; (##:##)].
+[name of state; (##:##)].
+[talking to someone not on the phone]
+[Talking to person not on the phone]
+[unclear]
+[STATE]
+[State]
+[state]
+[PHONE CALL HANGS UP]
+[listing ##:##:##]
+[Lauren Mellin ##:##:##]
+[names of companies; ((##:##)]
+[name]
+[Buttonheim ##:##:##] 
+
+Anna: if we come across a time stamp for an inaudible statement (i.e [inaudible 00:28:36]) do we replace this with “…” or do we insert [INAUDIBLE]? (edited) 
+Gabi Matzen: My files are also all cleaned up except for iterations of "Participant:", "Participant #:", "Participant ##:", and "Participant ###:" to change into "Interviewee:".
+
+If a line has a name with a timestamp, should we just leave the name in brackets and delete the time stamp? for example “[Lauren Mellin 00:58:09]”
+Savannah Cherry: Yeah, I found some of these in my docs as well. For now, I'm going to mark them down in my notes and move on until we get an answer.
+smoeller: We would need to anonymize that by changing the name to NAME and removing the time stamp. You can do that or leave a note for @Tava Reese
+
+Savannah Cherry: Also, for the issue where the interviewer/interviewee tag is on the same line as their speech, you can right click to add a new line above or below a line that already exists. That's what I did for the instances I encountered that issue.
+
