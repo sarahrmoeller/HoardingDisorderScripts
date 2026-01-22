@@ -119,7 +119,8 @@ This script should not be run until after transcripts `001`-`007` are fixed, oth
 FOR SOFIA
 - [ ] Document all changes made. Copy lists from Slack messages.
 - [ ] Save conflicted edits/changes on Set 1 Cleaning Datasaur project before export files
-- [ ] Export all files from Set 1 Cleaning Datasaur project as  plain text files. 
+- [ ] Export all files from Set 1 Cleaning Datasaur project as  plain text files.
+- [ ] Remove empty lines (\n\n -> \n)
 - [ ] Write to ensure Set 1 has been cleaned based on all lists above and all messages on Slack.
 - [ ] Upload cleanest version to GitHub!
 - [ ] organize these notes into documentation
