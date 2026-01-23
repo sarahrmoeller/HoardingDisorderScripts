@@ -85,21 +85,15 @@ We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a numb
 ### Final Cleaning Documentation / TODO list
 
 - [ ] Clean Text Data (to the best of our ability, for now)
-  - [ ] Remove from every document transcriber notes that don’t stand in for words: 
-    - [x] Timestamps, 
-    - [x] Identify removable tokens in documents (see `identifying_removable_tokens.ipynb`)
-      - [ ] Transcript-related details (INTERVIEW 001), [PAUSED], [END OF RECORDING] 
-      - [ ] [affirmative], [negative], [laughter], etc.
-    - [ ] Figure out how to remove each removable token (see `./utils/regexes.py`, lines 88-108)
-      - [ ] Make separate regex to filter transcript-related details
-  - [x] Make sure anonymization and other transcriber notes that need to be kept because they substitute words are marked with identical format for same types of things, e.g. [ANONYMIZATION], [ORGANIZATION], [NAME], [INAUDIBLE]. Format exactly the same in every document the anonymization and unclear comments in square brackets and capital letters. Same as old note "Normalize certain tokens, i.e. LOCATION == CITY, STATE, ETC" 
-  - [x] Make speaker labels homogeneous: all interviewers and interviewees notated the same when in "{Speaker Label}:" format.
+      - [ ] Make separate regex to filter transcript-related details?
+  - [ ] Make speaker labels homogeneous: all interviewers and interviewees notated the same when in "{Speaker Label}:" format. FOrmat: Interviewer (#): , Participant (#): (same line or own line? - make consistent!)
     - [x] Edit `Document` class to include a cleaned version
     - [x] Test Document cleaning on specific Documents
 - [x] Figure out what to do about speakers that are not at the beginning of the line
+      
 - [ ] Manual Work, check for:
   - [ ] Consistently formatted speaker labels <Label(#):_> Interviewer: or Interviewer1: or Interviewer2: Interviewee: 
-  - [ ] Make sure that interviewer/interviewee are correctly labeled, especially when there is more than two speakers.
+  - [x] Make sure that interviewer/interviewee are correctly labeled, especially when there is more than two speakers.
   - [ ] Keep these transcriber notes. Put them on their own line. Put square brackets around them. 
         [Interview 001] 
         [END OF RECORDING]
@@ -109,28 +103,31 @@ We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a numb
       [laughter]
       [affirmative]
       [negative]
-- [ ] Keep that the transcriptionists' notes that represent anonymized or inaudible speech. Put in all caps, make them consistent (at least across sets).
+- [ ] Keep that the transcriptionists' notes that represent anonymized or inaudible speech (redaction). Put in all caps (with square brackets?), make them consistent (at least across sets).
       ANONYMIZATION
       ORGANIZATION
       NAME 
       INAUDIBLE
-This script should not be run until after transcripts `001`-`007` are fixed, otherwise not all documents from `2005` will be targeted.
+- [x] This script should not be run until after transcripts `001`-`007` are fixed, otherwise not all documents from `2005` will be targeted.
 
 FOR SOFIA
-- [ ] Document all changes made. Copy lists from Slack messages.
-- [ ] Save conflicted edits/changes in Set 1 Cleaning Datasaur project before export files
-- [ ] Export all files from Set 1 Cleaning Datasaur project as  plain text files.
+- [x] Copy lists from Slack messages.
+- [ ] Check in with Tava. Verify what formatting decisions she made.
+- [ ] Remove repeated interviews.
+- [ ] Document all changes made. 
+- [ ] In Datasaur, save conflicted edits/changes in Set 1 Cleaning Datasaur project before export files
+- [ ] Export all files from Set 1 Cleaning Datasaur project as plain text files.
 - [ ] Remove empty lines (\n\n -> \n)
-- [ ] Write to ensure Set 1 has been cleaned based on all lists above and all messages on Slack.
-- [ ] Upload cleanest version to GitHub!
+- [ ] Write code to ensure Set 1 has been "cleaned" based on all lists above and all messages on Slack using final formatting decisions. (Document those decisions here).
+- [ ] Upload cleanest version to GitHub! Replace current files
 - [ ] organize these notes into documentation
-- [ ] Inform Carol Mathews about all potential anonymization. What they are and where they are.
-- [ ] Then we can rerun scripts!
+- [x] Inform Carol Mathews about all potential anonymization. What they are and where they are.
+- [ ] Then we can rerun statistics scripts and write paper!
 
 ### Lists from Slack
 - [even ##:##:##] -> Delete?
 - [virtually ##:##:##] -> Delete?
-- PART 4 of 4 ENDS [01:30:56] -> Keep but delete time stamp
+- PART 4 of 4 ENDS [01:30:56] -> Keep but delete time stamp. Make consistent without formatting. 
 - [Josha ##:##:##] -> Delete?
 - Interviewer (#:##): -> Interviewer:
 - Interviewer (##:##): -> Interviewer:
@@ -166,31 +163,33 @@ FOR SOFIA
 - ##:## Interviewer #: -> Interviewer:
 - #Participant:  -> Participant:
 
-- [problem ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
-- [agents ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
-- [Sand ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
-- [Vise by 16 Box in Wrench ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
-- [Ann ##:##:##] -> WHERE IS THIS? WHAT IS THIS?
+- [problem ##:##:##] -> Delete?
+- [agents ##:##:##] -> Delete?
+- [Sand ##:##:##] -> Delete?
+- [Vise by 16 Box in Wrench ##:##:##] -> Delete?
+- [Ann ##:##:##] -> Delete?
 - [inaudible; (##:##)]. -> [INAUDIBLE]
 - [name of state; (##:##)].  -> [NAME]
-- [talking to someone not on the phone] -> WHERE IS THIS? WHAT IS THIS? Delete?
-- [Talking to person not on the phone] -> WHERE IS THIS? WHAT IS THIS? Delete?
+- [talking to someone not on the phone] -> [PAUSED]
+- [Talking to person not on the phone] -> [PAUSED]
 - [unclear]-> [INAUDIBLE]
 - [STATE] -> [NAME]
 - [State] -> [NAME]
 - [state] -> [NAME]
-- [PHONE CALL HANGS UP] -> WHERE IS THIS? WHAT IS THIS? Delete? or is [END OF INTERVIEW]?
-- [listing ##:##:##] -> WHERE IS THIS? WHAT IS THIS? Delete?
+- [PHONE CALL HANGS UP] -> [PAUSED] or [END OF INTERVIEW]
+- [listing ##:##:##] -> Delete?
 - [Lauren Mellin ##:##:##] -> [ANONYMIZATION]
 - [names of companies; ((##:##)] -> [NAME]
 - [name] -> [NAME]
 - [Buttonheim ##:##:##] -> [ANONYMIZATION]
 
-- [] Gabi Matzen: My files are also all cleaned up except for iterations of "Participant:", "Participant #:", "Participant ##:", and "Participant ###:" to change into "Interviewee:". -> AUTOMATED CLEANING
+- [ ] Gabi Matzen: My files are also all cleaned up except for iterations of "Participant:", "Participant #:", "Participant ##:", and "Participant ###:" to change into "Interviewee:". -> AUTOMATED CLEANING
+- [ ] Savannah Cherry: Also, for the issue where the interviewer/interviewee tag is on the same line as their speech, you can right click to add a new line above or below a line that already exists. That's what I did for the instances I encountered that issue. - CHECK DECISION ON HAVING SPEAKER ON SAME OR DIFFERENT LINE. MAKE IT UNIFORM.
 
+### Notes from Slack
 - If a line has a name with a timestamp, should we just leave the name in brackets and delete the time stamp? for example “[Lauren Mellin 00:58:09]”
 Savannah Cherry: Yeah, I found some of these in my docs as well. For now, I'm going to mark them down in my notes and move on until we get an answer.
 smoeller: We would need to anonymize that by changing the name to NAME and removing the time stamp. You can do that or leave a note for @Tava Reese
 
-- Savannah Cherry: Also, for the issue where the interviewer/interviewee tag is on the same line as their speech, you can right click to add a new line above or below a line that already exists. That's what I did for the instances I encountered that issue. - CHECK DECISION ON HAVING SPEAKER ON SAME OR DIFFERENT LINE. MAKE IT UNIFORM.
+
 
