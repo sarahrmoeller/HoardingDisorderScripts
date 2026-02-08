@@ -112,9 +112,9 @@ We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a numb
 
 FOR SOFIA
 - [x] Copy lists from Slack messages.
-- [ ] Check in with Tava. Verify what formatting decisions she made.
-- [ ] Remove repeated interviews.
-- [ ] Document all changes made. 
+- [x] Check in with Tava. Verify what formatting decisions she made.
+- [x] Remove repeated interviews.
+- [x] Document all changes made. 
 - [ ] In Datasaur, save conflicted edits/changes in Set 1 Cleaning Datasaur project before export files
 - [ ] Export all files from Set 1 Cleaning Datasaur project as plain text files.
 - [ ] Remove empty lines (\n\n -> \n)
@@ -191,5 +191,9 @@ FOR SOFIA
 Savannah Cherry: Yeah, I found some of these in my docs as well. For now, I'm going to mark them down in my notes and move on until we get an answer.
 smoeller: We would need to anonymize that by changing the name to NAME and removing the time stamp. You can do that or leave a note for @Tava Reese
 
-
-
+SOFIA
+- See fix_text_files_clean.py in punctuation_cleanup branch for full documentation of changes
+- All Slack lists checked
+- Interviewer/Interviewee format for sets 1-3
+        - Sometimes Interviewer1: and Interviewer2:
+        - Interviewee###: (may be followed by 0-3 numbers)
