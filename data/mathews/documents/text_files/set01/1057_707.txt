@@ -1,19 +1,19 @@
-Participant:
+Interviewee:
 No, I don’t think so. I mean, hopefully I still qualify for the $30 gift card, is that-
 Interviewer:
 Yeah, you, you participated so I would assume so.
-Participant:
+Interviewee:
 Great.
 Interviewer:
 But if you have any questions, feel free to reach out to Dr. Matthews.
-Participant:
+Interviewee:
 Avery? Or, not Avery, Dr. Mathews. Okay. Sounds good.
 Interviewer:
 Thank you so much.
-Participant:
+Interviewee:
 Awesome thanks Avery.
 Interviewer:
 Have a great day.
-Participant:
+Interviewee:
 Yeah, you too. Bye bye.
 END_OF_RECORDING

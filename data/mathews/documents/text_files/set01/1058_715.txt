@@ -1,47 +1,47 @@
 Interviewer:
 Okay, so then, could you please give me your first and last name.
-Participant:
+Interviewee:
 Yeah it’s [NAME] and the last name spelled [NAME]
 Interviewer:
 SPELLING_[NAME]
-Participant:
+Interviewee:
 SPELLING_[NAME]
 Interviewer = And then your email address.
-Participant:
+Interviewee:
 It's EMAIL l like Hansel and Gretel SPELLING_EMAIL
 Interviewer:
 Okay, and then a permanent mailing address
-Participant:
+Interviewee:
 Yup its ADDRESS like the flower.
 Interviewer:
 Okay.
-Participant:
+Interviewee:
 And then ADDRESS it's two words ADDRESS
 Interviewer:
 Okay. Um, and then is this a good phone number to reach you.?
-Participant:
+Interviewee:
 Yes. My cell
 Interviewer:
 Okay. Um, so that's it. Um, thank you so much for participating and for spending your time with me for a little bit today. we sincerely appreciate your help. And if you have any questions you can email, Interviewer, which is who you've probably been coordinating with.
-Participant:
+Interviewee:
 Yes.
 Interviewer:
 Okay. Um, do you have any other questions?
-Participant:
+Interviewee:
 No, thank you, though.
 Interviewer:
 Thank you.
-Participant:
+Interviewee:
 Yeah, it gives me more insight into my behavior.
 Interviewer:
 Yes, you're helping us out so much. So we really appreciate it. [NAME]
 Interviewer:
 Have a good day.
-Participant:
+Interviewee:
 You too. Bye now.
 Interviewer:
 Bye. Thank you.
-Participant:
+Interviewee:
 You're welcome.
 End of transcription
 END_OF_RECORDING

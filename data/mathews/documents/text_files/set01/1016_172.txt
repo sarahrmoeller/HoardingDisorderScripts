@@ -33,7 +33,7 @@ Oh, I use Amazon all the time, so that would be real easy.
 Interviewer:
 Okay, so electronic is fine?
 Interviewee:
-Mm-hmm AFFIRMATIVE
+Mm-hmm 
 Interviewer:
 Okay.
 And we need to collect information for that for the funding, so could you please give me your first and last name?
@@ -50,7 +50,7 @@ You said D-O-O-K-S 61?
 Interviewee:
 Interviewer:
 631.
-Mm-hmm AFFIRMATIVE
+Mm-hmm 
 Interviewee:
 @GMAIL
 COM
