@@ -19,4 +19,4 @@ docs_by_transcript = {tn: [dp for dp in doc_paths
 
 def get_doc_path(doc_name: str) -> str:
     set_num = '1' if doc_name[0] == '0' else doc_name[0]
-    return f'{text_files_dir}/raw/set0{set_num}/{doc_name}'
+    return f'{text_files_dir}/set0{set_num}/{doc_name}'
