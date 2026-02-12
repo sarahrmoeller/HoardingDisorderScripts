@@ -13,13 +13,13 @@ from utils.ling import type_token_ratio, average_sentence_length, \
     (["Word", "word", "WORD"], 1 / 3), # Case insensitive, all the same
 ])
 def test_type_token_ratio(tokens, expected):
-    assert type_token_ratio(tokens) == expected
+    assert type_token_ratio(tokens, per_sent=False) == expected
 
 # In future commit, separate warning functionality from the main logic
 def test_type_token_ratio_empty():
     with warnings.catch_warnings(record=True) as w:
         warnings.simplefilter("always")
-        result = type_token_ratio([])
+        result = type_token_ratio([], per_sent=False)
         assert result == 0.0
         assert any("Empty token list" in str(warn.message) for warn in w)
 
