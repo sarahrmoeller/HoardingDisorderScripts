@@ -6,7 +6,7 @@ text_files_dir = './data/mathews/documents/text_files'
 
 
 doc_paths = [root + '/' + file
-             for root, dirs, files in os.walk(f'{text_files_dir}/raw/')
+             for root, dirs, files in os.walk(text_files_dir)
              for file in files if file.endswith('.txt')]
 doc_names = [os.path.basename(path) for path in doc_paths]
 transcript_numbers = set(map(
