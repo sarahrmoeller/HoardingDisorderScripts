@@ -119,6 +119,24 @@ class RawDocument:
                                         lower=lower)
         return speaker_lines
 
+    def content(self, 
+                speaker: None | str=None, cleaned=True, 
+                remove_timestamps=True, do_replacements=True, do_removals=True,
+                speaker_labels=False, remove_punctuation=False, lower=False
+        ) -> str:
+        """
+        Returns a dictionary where keys are speaker names and values are lists
+        of lines spoken by that speaker.
+        """
+        content = '\n'.join(self.lines(speaker, cleaned=cleaned,
+                         remove_timestamps=remove_timestamps, 
+                         do_replacements=do_replacements, 
+                         do_removals=do_removals, 
+                         speaker_labels=speaker_labels, 
+                         remove_punctuation=remove_punctuation, 
+                         lower=lower))
+        return content
+
     def speaker_set(self, restrict=True) -> set[str]:
         """
         Returns the set of all speaker labels found in the document.
