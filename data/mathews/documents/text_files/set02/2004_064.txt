@@ -1,23 +1,23 @@
 (part 2)
-Interviewer1: Good morning, [NAME]?
-Interviewee: Yes, [NAME]?
-Interviewer1: Yeah, [NAME] is on the line too.
+Interviewer: Good morning, NAME?
+Interviewee: Yes, NAME?
+Interviewer: Yeah, NAME is on the line too.
 How are you?
-Interviewer2: Hi.
+Interviewer: Hi.
 Interviewee: Alright, good.
 How are you?
-Interviewer1: Doing good.
+Interviewer: Doing good.
 Doing really good.
-Interviewer2: Good.
-Interviewer1: Thank you for giving us a little more of your time today.
+Interviewer: Good.
+Interviewer: Thank you for giving us a little more of your time today.
 We really appreciate it.
 Interviewee: Sure.
-Interviewer1: So, kind of just to hop back into the interview, the next section that we had wanted… or the next few things that we had wanted to discuss with you were some of the explanations that patients with hoarding disorder have for their behavior.
+Interviewer: So, kind of just to hop back into the interview, the next section that we had wanted… or the next few things that we had wanted to discuss with you were some of the explanations that patients with hoarding disorder have for their behavior.
 So, we kind of wanted you to think through some of the questions from the Brown Assessment of Beliefs Scale, and we have them here for you.
 We kind of want you to think about, in your experience, how your patients, or how you think your patients would respond to some of these questions.
 And um, just to kind of reiterate, the goal is to eventually do patient interviews and hopefully have them take a look at these questions as well, and kind of be able to compare the answers that we’re getting from clinicians and what patients are actually telling us.
 Interviewee: Ok.
-Interviewer1: So, the first one that we had was… in the Brown Assessment of Beliefs it says, “What do you think has caused you to have these behaviors?
+Interviewer: So, the first one that we had was… in the Brown Assessment of Beliefs it says, “What do you think has caused you to have these behaviors?
 Do these behaviors have a psychiatric or underlying biological cause?” So, how do you think your patients would reply or respond to that?
 Interviewee: Uh.
 Let’s see.
@@ -29,14 +29,14 @@ In terms of biological cause, I think some patients answer that way, but probabl
 So, let’s see.
 I don’t think there will be one universal explanation on the part of patients.
 So, I think they will vary along those lines.
-Interviewer1: Yeah.
+Interviewer: Yeah.
 Do you think that there are things that would make a patient more likely to believe in the biological origin versus not?
 Interviewee: I think if they had recognized that in themselves and been trying to work on in and been unable to make progress, then I think they’re more likely to say it’s a biological cause, that “there’s something wrong with my brain.”
-Interviewer1: Ok.
+Interviewer: Ok.
 So, kind of to relate that back to something that we’ve been talking about earlier.
 How does that kind of tie into the insight question that we’ve been talking about?
 So, it seems like they need to have some insight in order to be doing the things to try and improve, that that’s kind of tied into their understanding of it as being biological.
 Interviewee: I think so, yeah.
 I think otherwise people may have tried to do something about it but sort of given up and convinced themselves that this is ok, that this is just the way I live, and it’s not a big deal.
 So, I think, in part, that’s a function of some defensiveness and a part of people… I think we talked about this last time.
-Interviewer1: Yeah.
+Interviewer: Yeah.
