@@ -183,7 +183,7 @@ class RawDocument:
                 return pair
         # If we still haven't found a match, something has gone wrong
         raise ValueError(f'No valid speaker pair found for {self}. '
-                         f'Speakers: {self.speaker_set}')
+                         f'Speakers: {self.speaker_set()}')
 
     @cached_property
     def _row_speakers(self) -> list[str | None]:
