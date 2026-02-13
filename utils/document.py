@@ -35,6 +35,9 @@ class RawDocument:
         self.full_text = '\n'.join(self.full_lines)
         self.path = path
         self.name = os.path.basename(path)
+        self.transcript_number = self.name.split('_')[0]
+        self.set = 1 if self.name[0] == '0' else int(self.name[0])
+        assert self.set in (1, 2, 3)
 
     def clean_lines(self, lines, 
                     remove_timestamps=True,
