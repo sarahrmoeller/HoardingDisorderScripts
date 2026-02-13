@@ -14,7 +14,7 @@ if __name__ == "__main__":
                           for sent in stanza_doc.sentences] # type: ignore
 
         csv_rows.append({
-            'Document Name': raw.get_doc_path(doc_path).split('/')[-1],
+            'Document Name': doc.name,
             'TTR': ling.type_token_ratio(speaker_tokens),
             'ASL': ling.average_sentence_length(speaker_tokens),
             'NPR': ling.NP_ratio(stanza_doc) # type: ignore
