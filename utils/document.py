@@ -32,7 +32,7 @@ class RawDocument:
     def __init__(self, path: str) -> None:
         with open(path) as f:
             self.full_lines = f.readlines()
-        self.full_text = '\n'.join(self.full_lines)
+        self.full_text = ''.join(self.full_lines)
         self.path = path
         self.name = os.path.basename(path)
         self.transcript_number = self.name.split('_')[0]
