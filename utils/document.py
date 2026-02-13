@@ -243,6 +243,9 @@ class RawDocument:
                 else default_interviewer_name 
                 for speaker in self._row_speakers]
 
+    def __repr__(self) -> str:
+        return f"RawDocument({self.path})"
+
 class Document:
     """
     Read-only class that provides information relevant to us given a datasaur
