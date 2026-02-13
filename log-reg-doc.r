@@ -12,6 +12,17 @@ missing_docs <- setdiff(all.data$Document.Name, ling.data$Document.Name)
 all.data <- all.data[-which(all.data$Document.Name %in% missing_docs), ]
 nrow(all.data)
 
+# Merge the two dataframes by Document.Name, keeping all rows from all.data
+data <- merge(all.data, ling.data, by = "Document.Name", all.x = TRUE)
+
+# Now for the model
+mdl <- glm(Hoarder.Flag ~ Clarification.Participant + 
+                          Self.Correction.Participant + 
+                          Incomplete.Thought.Participant + Overlap.Participant + 
+                          TTR + ASL + NPR,
+           data, family = binomial(link = "logit"))
+summary(mdl)
+
 # Remove project names (we will remove document names soon, but not yet)
 data <- all.data[, names(all.data) != "Project"]
 names(data)
