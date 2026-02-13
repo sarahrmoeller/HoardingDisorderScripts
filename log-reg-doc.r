@@ -19,6 +19,7 @@ data <- merge(all.data, ling.data, by = "Document.Name", all.x = TRUE)
 mdl <- glm(Hoarder.Flag ~ Clarification.Participant + 
                           Self.Correction.Participant + 
                           Incomplete.Thought.Participant + Overlap.Participant + 
+                          Generic.Disfluency.Participant + 
                           TTR + ASL + NPR,
            data, family = binomial(link = "logit"))
 summary(mdl)
