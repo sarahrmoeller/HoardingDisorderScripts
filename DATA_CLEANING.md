@@ -85,6 +85,7 @@ We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a numb
 ### Misc
 
 - `1048_590`: Change Interviewee -> Participant 48. All other documents in this transcript follow this convention.
+- Transcript 2005: Replace Interviewer -> P1.
 
 ### Final Cleaning Documentation / TODO list
 
