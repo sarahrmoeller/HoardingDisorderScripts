@@ -18,7 +18,7 @@ if __name__ == "__main__":
             'Document Name': doc.name,
             'TTR': ling.type_token_ratio(speaker_tokens),
             'ASL': ling.average_sentence_length(speaker_tokens),
-            'NPR': ling.NP_ratio(stanza_doc) # type: ignore
+            'NPR': ling.NP_ratio_in_sd(stanza_doc)
         })
 
     df = pd.DataFrame(csv_rows)
