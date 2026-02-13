@@ -82,6 +82,10 @@ Transcript 2005 had mismatched speakers: "P3" should have been "Interviewee" and
 
 We then fixes issues with timestamps looking like `07 :08` and `34:4o` in a number of specific documents.
 
+### Misc
+
+- `1048_590`: Change Interviewee -> Participant 48. All other documents in this transcript follow this convention.
+
 ### Final Cleaning Documentation / TODO list
 
 - [ ] Clean Text Data (to the best of our ability, for now)
