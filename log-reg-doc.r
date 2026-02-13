@@ -9,7 +9,8 @@ ling.data <- read.csv("./out/ling_table.csv")
 # The ling data doesn't have all of the same documents as in all.data, so
 # so we will remove their difference
 missing_docs <- setdiff(all.data$Document.Name, ling.data$Document.Name)
-all.data <- all.data[-which(all.data$Document.Name %in% missing_docs)]
+all.data <- all.data[-which(all.data$Document.Name %in% missing_docs), ]
+nrow(all.data)
 
 # Remove project names (we will remove document names soon, but not yet)
 data <- all.data[, names(all.data) != "Project"]
