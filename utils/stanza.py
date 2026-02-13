@@ -1,3 +1,5 @@
+# file is unusable for now
+
 import stanza.models.common.doc as stnzdoc
 import ling
 from utils.document import RawDocument
