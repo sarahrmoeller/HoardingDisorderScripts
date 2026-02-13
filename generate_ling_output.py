@@ -2,12 +2,13 @@ import pandas as pd
 import utils.ling as ling
 import utils.raw as raw
 from utils.document import RawDocument
+from tqdm import tqdm
 
 
 if __name__ == "__main__":
     csv_rows = []
 
-    for doc_path in raw.doc_paths:
+    for doc_path in tqdm(raw.doc_paths):
         doc = RawDocument(doc_path)
         stanza_doc = ling.nlp(doc.content("Participant"))
         speaker_tokens = [[token.text for token in sent.tokens] 
