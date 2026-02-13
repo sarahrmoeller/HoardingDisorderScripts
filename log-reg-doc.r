@@ -1,4 +1,16 @@
 all.data <- read.csv("./out/document_table.csv")
+
+# Make it so all documents that start with 0 start with 1 instead
+for (i in which(startsWith(all.data$Document.Name, "0"))) { 
+  all.data$Document.Name[i] <- paste("1", all.data$Document.Name[i], sep="")
+}
+ling.data <- read.csv("./out/ling_table.csv")
+
+# The ling data doesn't have all of the same documents as in all.data, so
+# so we will remove their difference
+missing_docs <- setdiff(all.data$Document.Name, ling.data$Document.Name)
+all.data <- all.data[-which(all.data$Document.Name %in% missing_docs)]
+
 # Remove project names (we will remove document names soon, but not yet)
 data <- all.data[, names(all.data) != "Project"]
 names(data)
