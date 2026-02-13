@@ -13,6 +13,9 @@ if __name__ == "__main__":
         stanza_doc = ling.nlp(doc.content("Participant"))
         speaker_tokens = [[token.text for token in sent.tokens] 
                           for sent in stanza_doc.sentences] # type: ignore
+        if speaker_tokens is None:
+            raise ValueError(f"Could not extract speaker tokens for document: "
+                             f"{doc.name}")
 
         csv_rows.append({
             'Document Name': doc.name,
