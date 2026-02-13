@@ -246,6 +246,7 @@ class RawDocument:
     def __repr__(self) -> str:
         return f"RawDocument({self.path})"
 
+
 class Document:
     """
     Read-only class that provides information relevant to us given a datasaur
