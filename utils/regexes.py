@@ -28,7 +28,7 @@ timestamps = re.compile(r'(?:\({ts}\)|\[{ts}\]|{ts})'
 # 'Participant 12:', 'Spongebob: '. Any attempt to match a speaker label
 # will return the label itself, e.g. finding 'Interviewer:' in the text 
 # returns 'Interviewer'
-speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+(?:\d+|{ts}))?[:\-—]'
+speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s*(?:\d+|{ts}))?[:\-—]'
                             .format(ts=timestamps.pattern),
                             re.UNICODE)
 # This regex is used to match only speaker labels that are found in the 
