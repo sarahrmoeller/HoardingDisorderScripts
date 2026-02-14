@@ -1,0 +1,21 @@
+
+Logistic Regression Models for Hoarder Detection
+============================================================
+                                     Dependent variable:    
+                                 ---------------------------
+                                        Hoarder Flag        
+------------------------------------------------------------
+Clarification (Participant)               0.663***          
+                                           (0.142)          
+Self-Correction (Participant)               0.296           
+                                           (0.204)          
+Incomplete Thought (Participant)          0.376***          
+                                           (0.089)          
+Overlap (Participant)                     0.656***          
+                                           (0.215)          
+NP Ratio (Participant)                      0.063           
+                                           (0.070)          
+------------------------------------------------------------
+Observations                                1,234           
+============================================================
+Note:                            *p<0.1; **p<0.05; ***p<0.01
