@@ -1,11 +1,11 @@
-Interviewer: You are volunteering to participate in a research project conducted by NAME from INSTITUTION.
+Interviewer2: You are volunteering to participate in a research project conducted by [NAME] from [INSTITUTION].
 The aim of this study is to better understand the ways that researchers and clinicians think about hoarding disorder.
 You’ll be one of approximately 30 people being interviewed for this research and your participation is fully voluntary.
 You won’t be paid and you can withdraw or discontinue at any time without any penalty.
 If you decline to participate or if you decide to withdraw from the study no one will be told.
 Most interviewees we hope will find the discussion interesting and thought-provoking.
 If you feel uncomfortable in any way during the interview session, however, you obviously have the right to answer any question or to end the interview at any time.
-Participation in this study involves being interviewed by researchers from INSTITUTION.
+Participation in this study involves being interviewed by researchers from [INSTITUTION].
 Our interview will last approximately 60 minutes, and we’re going to take notes during the interview.
 We’re also audio recording our interview and we’re going to transcribe the subsequent dialogue.
 If you don’t want to be taped unfortunately you won’t be able to participate in the study.
@@ -13,7 +13,7 @@ We the researchers won’t identify you by name in any report using any informat
 Subsequent usage of records of data will be subject to standard data use policies which will protect the anonymity of individuals and institutions.
 Faculty and administrators from my campus will neither be present at the interview, nor will have access to raw notes or transcripts.
 This precaution will prevent your comments from having any negative repercussions.
-And, this research study has been reviewed and approved by the IRB at INSTITUTION.
-I have contact info for both NAME and for the Institution Review Board if you’d like it.
+And, this research study has been reviewed and approved by the IRB at [INSTITUTION].
+I have contact info for both [NAME] and for the Institution Review Board if you’d like it.
 Do you have any questions or would you like to continue with the interview?
 Interviewee: I have no questions, and I am consenting to continue.

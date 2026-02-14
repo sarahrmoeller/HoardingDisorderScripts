@@ -1,21 +1,21 @@
 (part 1)
-Interviewer: Um, I’m doing good.
-I’m on the line with my colleague, NAME .
-Interviewee: Hi NAME .
-Interviewer: Hi.
+Interviewer2: Um, I’m doing good.
+I’m on the line with my colleague, [NAME] .
+Interviewee: Hi [NAME] .
+Interviewer1: Hi.
 Nice to meet you.
 Interviewee: Nice to meet you.
-Interviewer: Ok.
+Interviewer2: Ok.
 Um, well first of all we just wanted to say thank you so much to agreeing to meet and interview with us.
 We’re really excited about this interview.
 We both read a lot of your work on hoarding disorder, so we’re really excited to talk to you today.
 Interviewee: Well, it’s my pleasure.
-Interviewer: We also, of course, wanted to thank you for sending out the email to the special interest group.
+Interviewer2: We also, of course, wanted to thank you for sending out the email to the special interest group.
 We set up several interviews through that and have conducted about five or six now.
 We have a few more scheduled for later on.
 We’re still continuing to receive replies, so thank you again for that.
 Interviewee: Good.
-Interviewer: Just to kind of start things off, we have an informed consent that we’d like to read to you over the phone just to let you know a little but about the study, but really it was all in the email.
+Interviewer2: Just to kind of start things off, we have an informed consent that we’d like to read to you over the phone just to let you know a little but about the study, but really it was all in the email.
 We’re trying to understand how patients and clinicians understand hoarding disorder and how that understanding might differ between clinicians and patients, and we eventually want to compare these interviews to patient interviews in order to see what differences and similarities might exist.
 So there are of course no direct benefits to you for participating.
 The biggest risk to you would be a violation of confidentiality.
@@ -29,7 +29,7 @@ We will not identify you by name in any reports.
 All of these precautions are in order to prevent your individual comments from having any negative repercussions.
 Do you have any questions about any of that?
 Interviewee: No, that sounds good.
-Interviewer: Ok.
+Interviewer2: Ok.
 Well thank you so much.
 These are some great listings generated for us.
 Kind of moving into the more free-form section of the interview.
