@@ -30,4 +30,4 @@ if __name__ == "__main__":
         })
 
     df = pd.DataFrame(csv_rows)
-    df.to_csv('./out/linguistic_data.csv', index=False)
+    df.to_csv('./tables/linguistic_data.csv', index=False)

@@ -1,4 +1,4 @@
-label.counts <- read.csv("./out/label_counts.csv")
+label.counts <- read.csv("./tables/label_counts.csv")
 
 # Make it so all documents that start with 0 start with 1 instead
 for (i in which(startsWith(label.counts$Document.Name, "0"))) { 
@@ -6,7 +6,7 @@ for (i in which(startsWith(label.counts$Document.Name, "0"))) {
                                          sep="")
 }
 
-ling.data <- read.csv("./out/linguistic_data.csv")
+ling.data <- read.csv("./tables/linguistic_data.csv")
 
 # The ling data doesn't have all of the same documents as in label.counts, so
 # so we will remove their difference
@@ -27,7 +27,7 @@ mdl <- glm(Hoarder.Flag ~ Clarification.Participant +
 summary(mdl)
 
 # Add embeddings to the dataframe
-embeddings_table <- read.csv("out/embedding_call_response_table.csv")
+embeddings_table <- read.csv("./tables/embedding_call_response_table.csv")
 
 # Aggregate mean and sd of Similarity by Document.Name
 embeddings_summary <- aggregate(Similarity ~ Document.Name,
