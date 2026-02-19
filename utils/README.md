@@ -7,6 +7,7 @@ Run all of the following examples **from the root directory**.
 ### Documents
 
 For nearly anything you need to know about document data, look at the `docs` list within `utils.data.datasaur`.
+This is a list of each datasaur document, which came as a json dump, organized into the `DatasaurDocument` class.
 
 > "I need a list of all documents with truncated clause labels in them."
 
@@ -32,7 +33,21 @@ $ python
 >>> len([doc for doc in docs if doc.set == 1])
 734
 ```
+See the documentation on the `DatasaurDocument` class from the `document` module to see what else you can do when looking at this list.
 
+## Transcripts
+
+> "How many Interview Transcripts are in this Data?"
+
+```python
+$ python
+>>> # Import the list of all transcript numbers
+>>> from utils.transcript import transcript_numbers
+>>> len(transcript_numbers)
+84
+>>> 
+>>> # If you wanted to do this directly
+```
 
 Here are some example use cases of how to use the utils module.
 
