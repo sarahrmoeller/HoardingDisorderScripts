@@ -174,7 +174,8 @@ actually hoarding documents, this is sufficient evidence to conclude that if a
 document has a speaker labeled "Interviewee", it is not a hoarding document, 
 and is in fact from transcripts 2001 to 2007.
 """
-transcript_numbers = ['001', '002', '003', '004', '005', '006', '007']
+transcript_numbers = ['001', '002', '003', # '004', 
+                      '005', '006', '007']
 
 for tn in transcript_numbers:
     for doc in Transcript(tn).docs:
