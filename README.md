@@ -40,7 +40,7 @@ This contains a number of functions and classes written in python useful for ana
 See `./utils/README.md` for an explanation of the code in this module.
 
 
-##### Why Is The Root Directory So Messy?
+#### Why Is The Root Directory So Messy?
 
 Due to limitations we encountered from the Python language, our root directory is littered with random `*.py` scripts in the root directory.
 Ideally, we would have put a lot of these scripts in their own directories so things could be easier on the eyes, but the scripts in the root directory rely on the functions and classes within the `*.py` files in the `./utils/` directory.
