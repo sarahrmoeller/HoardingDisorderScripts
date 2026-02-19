@@ -65,12 +65,12 @@ for doc in data.by_doc:
         # Fix labels in the lines
         for name, repl in replacements.items():
             doc.row_data[i]['content'] = doc.row_data[i]['content'].replace(name, repl)
-        # Fix labels in the tokens
-        for j in range(len(doc.row_data[i]['tokens'])):
-            token: str = doc.row_data[i]['tokens'][j]
-            for name, repl in replacements.items():
-                token = token.replace(name, repl)
-            doc.row_data[i]['tokens'][j] = token
+        # Fix labels in the tokens (Commented out because it's not working lol)
+        # for j in range(len(doc.row_data[i]['tokens'])):
+        #     token: str = doc.row_data[i]['tokens'][j]
+        #     for name, repl in replacements.items():
+        #         token = token.replace(name, repl)
+        #     doc.row_data[i]['tokens'][j] = token
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
