@@ -1,5 +1,5 @@
 from .document import DatasaurDocument
-from . import datasaur as data
+from . import data as data
 from functools import cached_property
 from collections import Counter
 

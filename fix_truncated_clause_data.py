@@ -4,7 +4,7 @@ This file aggregates a bunch of changes, all summarized in `DATA_CLEANING.md `.
 from collections import Counter
 import importlib
 import random
-import utils.datasaur as data
+import utils.data as data
 import utils.transcript
 from utils.transcript import Transcript
 import json

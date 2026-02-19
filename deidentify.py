@@ -3,7 +3,7 @@ This script loops over every single document, checks whether it has someone's
 name in the text that we know of, like "Rebecca" or "Christian", and replace it
 something appropriate that de-identifies it.
 """
-import utils.datasaur as data
+import utils.data as data
 import json
 
 

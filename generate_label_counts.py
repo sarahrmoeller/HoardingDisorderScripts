@@ -1,6 +1,6 @@
 import pandas as pd
 from tqdm import tqdm
-import utils.datasaur as data 
+import utils.data as data 
 
 
 if __name__ == "__main__":
