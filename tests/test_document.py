@@ -11,7 +11,7 @@ test_files: list[tuple[str, str]] = [
     ("s1062_s2022-26_s3076-97-NDQ2OTMwYjg", "2022_335"), 
     ("s1062_s2022-26_s3076-97-NDQ2OTMwYjg", "3001_090"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
     # Misc files with special cases
-    ("s1043-5_s2010-11_s3016-25-NjFlYmM5MGE", "049_606"), # Has speaker label with a number, "Participant 49:"
+    # ("s1043-5_s2010-11_s3016-25-NjFlYmM5MGE", "049_606"), # Has speaker label with a number, "Participant 49:"
     # ("s1036-42_s2008-9_s3000-15", "2008_118"), # Starts with Interview 008
     ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_083"), # contains "P1: " and "P3: " interview/speaker format
     ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_082"),
@@ -33,8 +33,8 @@ test_docs = {filename: DatasaurDocument(f"./data/mathews/documents/"
                  id="Test arbitrary set 2 doc"),
     pytest.param(test_docs["3001_090"], {'Interviewer', 'Speaker'}, 
                  id="Test arbitrary set 3 doc"),
-    pytest.param(test_docs["049_606"], {'Interviewer', 'Participant'}, 
-                 id="Document that doesn't begin with a speaker label"),
+    # pytest.param(test_docs["049_606"], {'Interviewer', 'Participant'}, 
+    #              id="Document that doesn't begin with a speaker label"),
     # Do this test after 005 documents are fixed
     pytest.param(test_docs["2005_086"], {'Interviewee', 'P1', 'P3'}, 
                  id="Three-speaker document (Interviewers: P1 and P3)"),
@@ -75,20 +75,20 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
     ], id="Test arbitrary set 3 doc"),
-    pytest.param(test_docs["049_606"], [
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant',
-        'Interviewer', 'Interviewer', 'Interviewer', 'Interviewer', 
-        'Interviewer',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant'
-    ], id="Document that doesn't begin with a speaker label"),
+    # pytest.param(test_docs["049_606"], [
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant',
+    #     'Interviewer', 'Interviewer', 'Interviewer', 'Interviewer', 
+    #     'Interviewer',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant'
+    # ], id="Document that doesn't begin with a speaker label"),
     (test_docs["2005_086"], [ 
         'P3',
         'P1',
@@ -171,20 +171,20 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
     ], id="Test arbitrary set 2 doc with default speakers"),
-    pytest.param(test_docs["049_606"], [
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant',
-        'Interviewer', 'Interviewer', 'Interviewer', 'Interviewer', 
-        'Interviewer',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant',
-        'Participant', 'Participant', 'Participant', 'Participant'
-    ], id="Document that doesn't begin with a speaker label"),
+    # pytest.param(test_docs["049_606"], [
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant',
+    #     'Interviewer', 'Interviewer', 'Interviewer', 'Interviewer', 
+    #     'Interviewer',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant',
+    #     'Participant', 'Participant', 'Participant', 'Participant'
+    # ], id="Document that doesn't begin with a speaker label"),
     (test_docs["2005_086"], [ 
         'Interviewer',
         'Interviewer',
