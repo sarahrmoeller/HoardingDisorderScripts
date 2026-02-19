@@ -105,16 +105,14 @@ def count_non_NP_phrases(tree: pt.Tree) -> int:
 def NP_ratio(tree: pt.Tree) -> float:
     """
     Calculate the noun phrase (NP) ratio for a given constituency tree.
-
     The NP ratio is defined as:
         number of noun phrases (NPs) / number of phrases in the sentence
 
-    Args:
-        tree (stanza.models.common.constituent.Tree): The constituency tree 
-        for a sentence.
+    :param tree: The constituency tree for a sentence.
+    :type tree: stanza.models.constituency.parse_tree.Tree
+    :return: The NP ratio
+    :rtype: float
 
-    Returns:
-        float: The NP ratio
     """
     if not tree:
         return 0.0
