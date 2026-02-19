@@ -25,6 +25,7 @@ def type_token_ratio(tokens: list[str] | list[list[str]],
     :type per_sent: bool
     :return: The type-token ratio of the document.
     :rtype: float
+
     """
     if not tokens:
         warnings.warn("Empty token list provided for type-token ratio "
