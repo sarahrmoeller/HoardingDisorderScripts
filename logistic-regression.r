@@ -1,21 +1,21 @@
 label.counts <- read.csv("./out/label_counts.csv")
 
 # Make it so all documents that start with 0 start with 1 instead
-for (i in which(startsWith(all.data$Document.Name, "0"))) { 
+for (i in which(startsWith(label.counts$Document.Name, "0"))) { 
   label.counts$Document.Name[i] <- paste("1", label.counts$Document.Name[i], 
                                          sep="")
 }
 
 ling.data <- read.csv("./out/linguistic_data.csv")
 
-# The ling data doesn't have all of the same documents as in all.data, so
+# The ling data doesn't have all of the same documents as in label.counts, so
 # so we will remove their difference
-missing_docs <- setdiff(all.data$Document.Name, ling.data$Document.Name)
-all.data <- all.data[-which(all.data$Document.Name %in% missing_docs), ]
-nrow(all.data)
+missing_docs <- setdiff(label.counts$Document.Name, ling.data$Document.Name)
+label.counts <- label.counts[-which(label.counts$Document.Name %in% missing_docs), ]
+nrow(label.counts)
 
-# Merge the two dataframes by Document.Name, keeping all rows from all.data
-data <- merge(all.data, ling.data, by = "Document.Name", all.x = TRUE)
+# Merge the two dataframes by Document.Name, keeping all rows from label.counts
+data <- merge(label.counts, ling.data, by = "Document.Name", all.x = TRUE)
 
 # Now for the model
 mdl <- glm(Hoarder.Flag ~ Clarification.Participant + 
