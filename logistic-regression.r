@@ -6,7 +6,7 @@ for (i in which(startsWith(all.data$Document.Name, "0"))) {
                                          sep="")
 }
 
-ling.data <- read.csv("./out/ling_table.csv")
+ling.data <- read.csv("./out/linguistic_data.csv")
 
 # The ling data doesn't have all of the same documents as in all.data, so
 # so we will remove their difference
