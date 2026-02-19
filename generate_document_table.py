@@ -20,4 +20,4 @@ if __name__ == "__main__":
         table_rows.append(row)
 
     df = pd.DataFrame(table_rows)
-    df.to_csv('./out/document_table.csv', index=False)
+    df.to_csv('./out/label_table.csv', index=False)
