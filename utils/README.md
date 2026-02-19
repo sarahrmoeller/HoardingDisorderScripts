@@ -11,6 +11,10 @@ It is a submodule of `utils` that is designed to allow for querying of the data.
 
 Each submodule is designed to query the datasaur data—the data containing the manually labeled truncated clauses—and the raw text data, respectively.
 
+### `datasaur`
+
+The most important thing that this module has is the `docs` variable: this contains a list of every single document.
+
 ## How to Use Our Code to Inspect the Datasaur Data
 
 The meat of this project is the `Document` class within `./utils/document.py`. 
