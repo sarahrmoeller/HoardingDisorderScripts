@@ -9,6 +9,7 @@
 project = 'HoardingDisorderScripts'
 copyright = '2026, Kathyrn Conger, Daniel Soto, Joseph Weaver, Tava Reese, Sofia Wangsteen, Sarah Moeller'
 author = 'Kathyrn Conger, Daniel Soto, Joseph Weaver, Tava Reese, Sofia Wangsteen, Sarah Moeller'
+release = '0.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
