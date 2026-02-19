@@ -43,22 +43,6 @@ $ python
 {'Interviewee', 'Interviewer', 'Participant'}
 ```
 
-See the documentation on the `DatasaurDocument` class from the `document` module to see what else you can do when looking at this list.
-
-## Transcripts
-
-> "How many Interview Transcripts are in this Data?"
-
-```python
-$ python
->>> # Import the list of all transcript numbers
->>> from utils.transcript import transcript_numbers
->>> len(transcript_numbers)
-84
->>> 
->>> # If you wanted to do this directly
-```
-
 Here are some example use cases of how to use the utils module.
 
 The meat of this project is the `Document` class within `./utils/document.py`. 
@@ -89,6 +73,22 @@ Some examples:
 Though many of these functions are designed to provide information on both Interivewer and Participant speech, you will likely only be concerned with Participant speech.
 If so, please focus soley on Participant speech by passing in the string "Participant" to functions that differentiate between speakers, or by ignoring entries
 in lists or dictionaries that involve Interviewers.
+
+See the documentation on the `DatasaurDocument` class from the `document` module to see what else you can do when looking at this list.
+
+## Transcripts
+
+> "How many Interview Transcripts are in this Data?"
+
+```python
+$ python
+>>> # Import the list of all transcript numbers
+>>> from utils.transcript import transcript_numbers
+>>> len(transcript_numbers)
+84
+>>> 
+>>> # If you wanted to do this directly
+```
 
 ## `document`
 
