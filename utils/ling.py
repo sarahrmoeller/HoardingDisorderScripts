@@ -12,19 +12,19 @@ def type_token_ratio(tokens: list[str] | list[list[str]],
     """
     Calculate the type-token ratio of a document.
     
-    Args:
-        tokens (list[list[str]]): Either a flat list of tokens (`list[str]`), 
-                                  or a list of tokenized sentences 
-                                  (`list[list[str]]`).
-        per_sent (bool): If `True`, the function expects an input in the form 
-                         of `list[list[str]]`, which is a list of tokenized 
-                         sentences. The TTR of each sentence is calculated and
-                         their average is returned. 
-                         If `False`, the function expects a flat list of 
-                         tokens, and the TTR of that list is calculated.
-        
-    Returns:
-        float: The type-token ratio of the document.
+    :param tokens: : Either a flat list of tokens (`list[str]`), 
+                     or a list of tokenized sentences 
+                     (`list[list[str]]`).
+    :type tokens: list[str] or list[list[str]]
+    :param per_sent: If `True`, the function expects an input in the form 
+                     of `list[list[str]]`, which is a list of tokenized 
+                     sentences. The TTR of each sentence is calculated and
+                     their average is returned. 
+                     If `False`, the function expects a flat list of 
+                     tokens, and the TTR of that list is calculated.
+    :type per_sent: bool
+    :return: The type-token ratio of the document.
+    :rtype: float
     """
     if not tokens:
         warnings.warn("Empty token list provided for type-token ratio "
