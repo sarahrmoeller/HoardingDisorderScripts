@@ -66,18 +66,3 @@ You can use these structures to make queries about the data, often with some for
 >>> hdset_speakers
 {'Interviewee', 'Interviewer', 'Participant'}
 ```
-
-## Label Count Results
-
-Our first test was to see whether the number of labels of each type in a document were significant in predicting Hoarding. To this end, we
-created a logistic regression model each document's hoarding flag given the number of labels in each document.
-Run `python generate_table.py` to generate the file `table.csv` located in the `./out/` directiory. Each row in this file specifies a file,
-the set it came from, and provides a "hoarding flag" (1 if hoarding patient, 0 otherwise), the number of labels of each type in the file, as well as
-the total label counts in the file. It also contains Type-token ratio (TTR) and Average Sentence Length (ASL) information.
-
-Create an interactive R session with the file `log-reg.r` to see the logisitc models. 
-We created a few models:
-
-1. `total.slr`: Model predicting Hoarding against total label counts in a document.
-2. `speaker.mlr`: Model predicting Hoarding against label counts, which are divided by type and speaker (of the label), the speakers being Interviewer or Participant.
-3. `total.mlr`: Model predicting Hoarding against label counts, divided only by type.
