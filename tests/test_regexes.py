@@ -51,7 +51,7 @@ from utils import regexes
     ("Rebecca: Hi NAME [00:01] how are you?", ['Rebecca']),
 ])
 def test_speaker_labels(input_line, expected):
-    assert regexes.speaker_labels.findall(input_line) == expected
+    assert regexes.speaker_labels_spaced.findall(input_line) == expected
 
 
 @pytest.mark.parametrize("string,expected", [

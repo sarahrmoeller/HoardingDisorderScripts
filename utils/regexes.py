@@ -28,7 +28,7 @@ timestamps = re.compile(r'(?:\({ts}\)|\[{ts}\]|{ts})'
 # 'Participant 12:', 'Spongebob: '. Any attempt to match a speaker label
 # will return the label itself, e.g. finding 'Interviewer:' in the text 
 # returns 'Interviewer'
-speaker_labels = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s*(?:\d+|{ts}))?[:\-—]'
+speaker_labels_spaced = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+(?:\d+|{ts}))?[:\-—]'
                             .format(ts=timestamps.pattern),
                             re.UNICODE)
 # This regex is used to match only speaker labels that are found in the 
@@ -53,7 +53,7 @@ def find_speakers(content: str, restrict=True) -> list[str]:
     - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not 
                             in `SPEAKERS`)
     """
-    matches = speaker_labels.findall(content)
+    matches = speaker_labels_spaced.findall(content)
     if not restrict:
         return matches
     return [match for match in matches if match in SPEAKERS]
@@ -150,7 +150,7 @@ def find_spelling_variants(text, speaker_set=SPEAKERS, threshold=0.8) -> dict:
     corresponding to each potential misspelling.
     '''
     fuzzy_hits = {}
-    for potential_label in speaker_labels.findall(text):
+    for potential_label in speaker_labels_spaced.findall(text):
         # Check if the potential label is similar to any existing labels
         matches = get_close_matches(potential_label, speaker_set, 
                                     cutoff=threshold)
