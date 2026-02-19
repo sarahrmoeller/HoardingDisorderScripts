@@ -49,7 +49,7 @@ extracts and deduces important information about each document, including label 
 Some examples:
 
 - `DatasaurDocument.name`: Document's name, i.e. `'001_001.txt'`
-- `DatasaurDocument.project`: Document's project, i.e. `'HD_set1_1-7'`
+- `DatasaurDocument.project`: Document's project, i.e. `'HD_set1_1-7-{ProjectID}'`
 - `DatasaurDocument.hoarder_flag`: 1 if the document is a hoarding document, 0 otherwise (determined by the document's name)
 - `DatasaurDocument.lines`: A list of each line (separate by newlines) in the document.  
 - `DatasaurDocument.full_content`: The document's entire text content in one string
