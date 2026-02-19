@@ -22,6 +22,11 @@ We are working to port our environment to nix.
 All data that is used for this project can be found in the `./data` folder. 
 See `./data/mathews/documents/README.md` for a full explanation of the data.
 
+### Code
+
+If you are working directly on this project, you will likely find that most—if not all—of what you will need to work with this project is in the `./utils/` directory.
+This contains a number of functions and classes written in python useful for analyzing individual transcripts and documents, as well as making queries on a large number of documents.
+
 
 ## How to Use Our Code to Inspect the Datasaur Data
 
