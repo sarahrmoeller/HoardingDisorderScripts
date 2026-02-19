@@ -2,7 +2,7 @@
 
 import stanza.models.common.doc as stnzdoc
 import ling
-from utils.document import RawDocument
+from utils.document import Base
     
 
 def stanza_docs(self) -> dict:

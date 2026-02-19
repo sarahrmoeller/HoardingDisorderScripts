@@ -1,7 +1,7 @@
 import pandas as pd
 import utils.ling as ling
 import utils.raw as raw
-from utils.document import RawDocument
+from utils.document import TextDocument
 from tqdm import tqdm
 import warnings
 
@@ -10,7 +10,7 @@ if __name__ == "__main__":
     csv_rows = []
 
     for doc_path in tqdm(raw.doc_paths):
-        doc = RawDocument(doc_path)
+        doc = TextDocument(doc_path)
         stanza_doc_part = ling.nlp(doc.content("Participant"))
         participant_tokens = [[token.text for token in sent.tokens] 
                           for sent in stanza_doc_part.sentences] # type: ignore

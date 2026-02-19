@@ -1,4 +1,4 @@
-from .document import Document
+from .document import DatasaurDocument
 from . import datasaur as data
 from functools import cached_property
 from collections import Counter
@@ -8,7 +8,7 @@ transcript_numbers = sorted(list(set(doc.transcript_number
                                      for doc in data.by_doc)))
 
 
-class Transcript(Document):
+class Transcript(DatasaurDocument):
     """
     A class to represent a transcript, which is a collection of documents
     with the same transcript number.
@@ -22,7 +22,7 @@ class Transcript(Document):
         # All documents associated with this transcript number
         # i.e. if transcript_number is "005", then this will have
         # '005_082', '005_083', '005_086', etc.
-        self.docs: list[Document] = [
+        self.docs: list[DatasaurDocument] = [
             doc for doc in data.by_doc 
             if doc.transcript_number == self.number
         ]
@@ -98,7 +98,7 @@ class Transcript(Document):
             summed_counter.update(doc.label_counts)
         return dict(summed_counter)
 
-    def __getitem__(self, index: str) -> Document:
+    def __getitem__(self, index: str) -> DatasaurDocument:
         """
         Get a document by its index within the transcript.
         

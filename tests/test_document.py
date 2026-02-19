@@ -1,5 +1,5 @@
 import pytest
-from utils.document import Document
+from utils.document import DatasaurDocument
 import json
 import os
 
@@ -20,7 +20,7 @@ test_files: list[tuple[str, str]] = [
     ("s1_21-27_s2_1-3", "026_307.txt"), # Contains only Interviewer label, as well as [END OF RECORDING]
     ("s1051-54_s2014-19_s3051-75", "051_628.txt"), # Very normal doc that came out as empty for some reason
 ]
-test_docs = {filename: Document(f"./data/{project}/REVIEW/{filename}.json")
+test_docs = {filename: DatasaurDocument(f"./data/{project}/REVIEW/{filename}.json")
              for project, filename in test_files}
 
 
