@@ -27,6 +27,13 @@ See `./data/mathews/documents/README.md` for a full explanation of the data.
 If you are working directly on this project, you will likely find that most—if not all—of what you will need to work with this project is in the `./utils/` directory.
 This contains a number of functions and classes written in python useful for analyzing individual transcripts and documents, as well as making queries on a large number of documents.
 
+#### Why Is It So Messy?
+
+Due to limitations we encountered from the Python language, our root directory is littered with random `*.py` scripts in the root directory.
+Ideally, we would have put a lot of these scripts in their own directories so things could be easier on the eyes, but the scripts in the root directory rely on the functions and classes within the `*.py` files in the `./utils/` directory.
+To our knowledge, if we were to put the scripts you see in their own directories, python would consider these directories to be modules. 
+Then, when the scripts attempt to use code from the `./utils/` directory, which to them would be some relative import like `../utils/`, python would forbid this as a rule against relative module importing. 
+We have not found a clean workaround for this.
 
 ## How to Use Our Code to Inspect the Datasaur Data
 
