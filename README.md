@@ -39,6 +39,9 @@ You will likely find that most—if not all—of what you will need to work with
 This contains a number of functions and classes written in python useful for analyzing individual transcripts and documents, as well as making queries on a large number of documents.
 See `./utils/README.md` for an explanation of the code in this module.
 
+You'll also want to know of some important files in the root directory:
+- `./generate_label_counts.py` counts truncated clause labels (from the data from datasaur in `./data/mathews/documents/datasaur_exports/truncated_clauses/`) and outputs these counts in `./tables/label_counts.csv`. 
+- `./generate_linguistic_data.py` looks through raw text files (in `./data/mathews/documents/text_files/`) and calculates Mean Type-Token Ratio (TTR) per sentence, Average Sentence Length (ASL), and Mean surface-level Noun Phrase Ratio (NPR) per sentence.
 
 #### Why Is The Root Directory So Messy?
 
