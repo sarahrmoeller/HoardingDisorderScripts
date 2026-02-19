@@ -1,5 +1,39 @@
 # How to Use the `utils` Module to Inspect The Data
 
+Run all of the following examples **from the root directory**.
+
+## Queries on Label Data
+
+### Documents
+
+For nearly anything you need to know about document data, look at the `docs` list within `utils.data.datasaur`.
+
+> "I need a list of all documents with truncated clause labels in them."
+
+```python
+$ python
+>>> # Import the list of all transcript numbers
+>>> from utils.data.datasaur import docs
+>>> docs
+[DatasaurDocument(2009_147.txt, s1036-42_s2008-9_s3000-15-NTliMzIxODk),
+ DatasaurDocument(037_458.txt, s1036-42_s2008-9_s3000-15-NTliMzIxODk),
+ DatasaurDocument(036_439.txt, s1036-42_s2008-9_s3000-15-NTliMzIxODk),
+ DatasaurDocument(2009_148.txt, s1036-42_s2008-9_s3000-15-NTliMzIxODk),
+ ...,
+ DatasaurDocument(041_499.txt, s1036-42_s2008-9_s3000-15-NTliMzIxODk)]
+>>> len(docs) # Now, if you're curious about how many docs there are
+1226
+>>>
+```
+
+> How many of these documents are from the Hoarding set (set 1)?
+
+```python
+>>> len([doc for doc in docs if doc.set == 1])
+734
+```
+
+
 Here are some example use cases of how to use the utils module.
 
 The meat of this project is the `Document` class within `./utils/document.py`. 
