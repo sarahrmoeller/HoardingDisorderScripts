@@ -15,6 +15,14 @@ We tested this on multiple computers with the given versions.
 It may be possible to get our code working using `conda`/`anaconda`, but we have not tested this. 
 We are working to port our environment to nix.
 
+## Project Structure
+
+### Data
+
+All data that is used for this project can be found in the `./data` folder. 
+See `./data/mathews/documents/README.md` for a full explanation of the data.
+
+
 ## How to Use Our Code to Inspect the Datasaur Data
 
 The meat of this project is the `Document` class within `./utils/document.py`. 
