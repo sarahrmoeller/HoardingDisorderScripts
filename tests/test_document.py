@@ -7,18 +7,18 @@ import os
 test_files: list[tuple[str, str]] = [
     # First three are chosen from a project that has files from each of 
     # sets 1-3
-    ("s1062_s2022-26_s3076-97", "062_745"), 
-    ("s1062_s2022-26_s3076-97", "2022_335"), 
-    ("s1062_s2022-26_s3076-97", "3001_090"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
+    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjq", "062_745"), 
+    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjq", "2022_335"), 
+    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjq", "3001_090"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
     # Misc files with special cases
-    ("s1043-5_s2010-11_s3016-25", "049_606"), # Has speaker label with a number, "Participant 49:"
+    ("s1043-5_s2010-11_s3016-25-NjFlYmM5MGE", "049_606"), # Has speaker label with a number, "Participant 49:"
     # ("s1036-42_s2008-9_s3000-15", "2008_118"), # Starts with Interview 008
-    ("s1_28-35_s2_4-7", "2005_083"), # contains "P1: " and "P3: " interview/speaker format
-    ("s1_28-35_s2_4-7", "2005_082"),
-    ("s1_28-35_s2_4-7", "2005_086"),
+    ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_083"), # contains "P1: " and "P3: " interview/speaker format
+    ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_082"),
+    ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_086"),
     # ("s1036-42_s2008-9_s3000-15", "2008_136"),
-    ("s1_21-27_s2_1-3", "026_307"), # Contains only Interviewer label, as well as [END OF RECORDING]
-    ("s1051-54_s2014-19_s3051-75", "051_628"), # Very normal doc that came out as empty for some reason
+    ("s1_21-27_s2_1-3-NTE3MmUyODM", "026_307"), # Contains only Interviewer label, as well as [END OF RECORDING]
+    ("s1051-54_s2014-19_s3051-75-MDFjZTBkZDY", "051_628"), # Very normal doc that came out as empty for some reason
 ]
 test_docs = {filename: DatasaurDocument(f"./data/mathews/documents/"
                                          "datasaur_exports/truncated_clauses/"
