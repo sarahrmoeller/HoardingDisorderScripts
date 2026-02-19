@@ -3,9 +3,7 @@
 Here reside the scripts for running Statistics on the data we have on Hoarding Disorder patients and control, 
 including labeled data from datasaur and the original unlabeled data (TBD). 
 
-## How to Replicate our Environment
-
-### Python
+## How to Replicate our Python Environment
 
 These python scripts were run in a a python virtual environment with `venv`. To replicate our results, we recommend the following:
 1. Clone our repository.
