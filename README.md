@@ -43,6 +43,11 @@ You'll also want to know of some important files in the root directory:
 - `./generate_label_counts.py` counts truncated clause labels (from the data from datasaur in `./data/mathews/documents/datasaur_exports/truncated_clauses/`) and outputs these counts in `./tables/label_counts.csv`. 
 - `./generate_linguistic_data.py` looks through raw text files (in `./data/mathews/documents/text_files/`) and calculates Mean Type-Token Ratio (TTR) per sentence, Average Sentence Length (ASL), and Mean surface-level Noun Phrase Ratio (NPR) per sentence.
 
+##### Data Cleaning Files
+
+There are a number of files in the root directory that are scripts meant to fix issues with the data.
+These fixes are documented in `DATA_CLEANING.md`.
+
 #### Why Is The Root Directory So Messy?
 
 Due to limitations we encountered from the Python language, our root directory is littered with random `*.py` scripts in the root directory.
