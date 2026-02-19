@@ -1,3 +1,16 @@
+# `utils` module
+
+## `data`
+
+If you're here, the `data` module is likely going to contain most of what you're going to care about.
+It is a submodule of `utils` that is designed to allow for querying of the data.
+
+`data` itself has two submodules:
+- `datasaur`
+- `raw`
+
+Each submodule is designed to query the datasaur data—the data containing the manually labeled truncated clauses—and the raw text data, respectively.
+
 ## How to Use Our Code to Inspect the Datasaur Data
 
 The meat of this project is the `Document` class within `./utils/document.py`. 
