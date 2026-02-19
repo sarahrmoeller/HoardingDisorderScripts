@@ -278,7 +278,8 @@ class DatasaurDocument(BaseDocument):
         # JSON always looks like {'version' : '1.0', 'data' : {...}},
         # So we will just index into the 'data' key
         self.data = self.json_dump['data']
-        self.project = self.data['project']['name']
+        self.project = (f"{self.data['project']['name']}-" 
+                        f"{self.data['project']['id']}")
         self.name = self.data['document']['name']
         self.transcript_number = self.name.split('_')[0]
         self.set = 1 if self.name[0] == '0' else int(self.name[0])
