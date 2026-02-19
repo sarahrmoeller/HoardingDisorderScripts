@@ -1,30 +1,6 @@
-# `utils` module
+# How to Use the `utils` Module to Inspect The Data
 
-## `document`
-
-The `document` module contains two classes that are designed to make it easy for users to split the data for a particular document into Interviewer and Participant data.
-This module contains two classes for this purpose:
-
-- `BaseDocument`
-- `TextDocument`
-- `DatasaurDocument`
-
-## `data`
-
-If you're here, the `data` module is likely going to contain most of what you're going to care about.
-It is a submodule of `utils` that is designed to allow for querying of the data.
-
-`data` itself has two submodules:
-- `datasaur`
-- `raw`
-
-Each submodule is designed to query the datasaur data—the data containing the manually labeled truncated clauses—and the raw text data, respectively.
-
-### `datasaur`
-
-The most important thing that this module has is the `docs` variable: this contains a list of every single document.
-
-## How to Use Our Code to Inspect the Datasaur Data
+Here are some example use cases of how to use the utils module.
 
 The meat of this project is the `Document` class within `./utils/document.py`. 
 Given a path to a .json file from the datasaur data, this class
@@ -75,3 +51,27 @@ You can use these structures to make queries about the data, often with some for
 >>> hdset_speakers
 {'Interviewee', 'Interviewer', 'Participant'}
 ```
+
+## `document`
+
+The `document` module contains two classes that are designed to make it easy for users to split the data for a particular document into Interviewer and Participant data.
+This module contains two classes for this purpose:
+
+- `BaseDocument`
+- `TextDocument`
+- `DatasaurDocument`
+
+## `data`
+
+If you're here, the `data` module is likely going to contain most of what you're going to care about.
+It is a submodule of `utils` that is designed to allow for querying of the data.
+
+`data` itself has two submodules:
+- `datasaur`
+- `raw`
+
+Each submodule is designed to query the datasaur data—the data containing the manually labeled truncated clauses—and the raw text data, respectively.
+
+### `datasaur`
+
+The most important thing that this module has is the `docs` variable: this contains a list of every single document.
