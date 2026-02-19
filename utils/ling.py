@@ -82,15 +82,14 @@ def count_non_NP_phrases(tree: pt.Tree) -> int:
     """
     Recursively counts the total number of phrase nodes in a Stanza 
     constituency tree. We define a "phrase" to be any node that is not 
-    preterminal---since all terminal nodes are words, we assume preterminal
+    preterminal—since all terminal nodes are words, we assume preterminal
     nodes are POS tags for the words.
 
-    Args:
-        tree (stanza.models.common.constituent.Tree): The constituency tree or 
-        a sub-tree.
+    :param tree: The constituency tree or a sub-tree.
+    :type tree: stanza.models.constituency.parse_tree.Tree
+    :return: The total count of phrase nodes in the tree.
+    :rtype: int
 
-    Returns:
-        int: The total count of phrase nodes in the tree.
     """
     # Base case    
     if tree.is_preterminal():
