@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'HoardingDisorderScripts'
-copyright = '2026, Kathyrn Conger, Daniel Soto, Joseph Weaver, Sofia Wangsteen, Sarah Moeller'
-author = 'Kathyrn Conger, Daniel Soto, Joseph Weaver, Sofia Wangsteen, Sarah Moeller'
+copyright = '2026, Kathyrn Conger, Daniel Soto, Joseph Weaver, Tava Reese, Sofia Wangsteen, Sarah Moeller'
+author = 'Kathyrn Conger, Daniel Soto, Joseph Weaver, Tava Reese, Sofia Wangsteen, Sarah Moeller'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
