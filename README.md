@@ -9,7 +9,7 @@ including labeled data from datasaur and the original unlabeled data (TBD).
 
 These python scripts were run in a a python virtual environment with `venv`. To replicate our results, we recommend the following:
 1. Check for `python` version 3.10.19 and `pip` version 26.0.1.
-2. Clone our repository with `git` to your machine, and ensure you are in the root directory of the cloned repository.
+2. Clone our repository, and ensure you are in the root directory of the cloned repository.
 3. Create a new virtual environment using `{path/to/python3} -m venv .venv`.
 4. Run `source .venv/bin/activate` from the project's root directory to activate the virtual environment.
 5. Run `pip install -r requirements.txt` to install all needed dependencies to replicate our work. 
