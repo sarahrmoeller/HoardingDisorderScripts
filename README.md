@@ -15,6 +15,7 @@ These python scripts were run in a a python virtual environment with `venv`. To 
 
 We tested this on multiple computers with the given versions.  
 It may be possible to get our code working using `conda`/`anaconda`, but we have not tested this. 
+We are working to port our environment to nix.
 
 ## How to Use Our Code to Inspect the Datasaur Data
 
