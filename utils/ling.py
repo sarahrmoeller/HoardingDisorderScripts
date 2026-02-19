@@ -42,11 +42,12 @@ def average_sentence_length(sentences: list[list[str]]) -> float:
     """
     Calculate the average sentence length of a document.
     
-    Args:
-        sentences (list[list[str]]): A list of sentences, each sentence is a list of tokens.
-        
-    Returns:
-        float: The average number of tokens in each sentence in the document.
+    :param sentences: A list of sentences, wher each sentence is a list of 
+                      tokens.
+    :type sentences: list[list[str]]
+    :return: The average number of tokens in each sentence in the document.
+    :rtype: float
+
     """
     if not sentences:
         warnings.warn("Empty sentences list provided for average sentence "
