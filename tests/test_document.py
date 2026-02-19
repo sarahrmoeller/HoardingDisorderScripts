@@ -27,20 +27,20 @@ test_docs = {filename: DatasaurDocument(f"./data/mathews/documents/"
 
 
 @pytest.mark.parametrize("test_doc,expected_speaker_set", [
-    pytest.param(test_docs["062_745.txt"], {'Interviewer', 'Participant'}, 
+    pytest.param(test_docs["062_745"], {'Interviewer', 'Participant'}, 
                  id="Test arbitrary set 1 doc"),
-    pytest.param(test_docs["2022_335.txt"], {'Interviewer', 'Interviewee'}, 
+    pytest.param(test_docs["2022_335"], {'Interviewer', 'Interviewee'}, 
                  id="Test arbitrary set 2 doc"),
-    pytest.param(test_docs["3001_090.txt"], {'Interviewer', 'Speaker'}, 
+    pytest.param(test_docs["3001_090"], {'Interviewer', 'Speaker'}, 
                  id="Test arbitrary set 3 doc"),
-    pytest.param(test_docs["049_606.txt"], {'Interviewer', 'Participant'}, 
+    pytest.param(test_docs["049_606"], {'Interviewer', 'Participant'}, 
                  id="Document that doesn't begin with a speaker label"),
     # Do this test after 005 documents are fixed
-    pytest.param(test_docs["2005_086.txt"], {'Interviewee', 'P1', 'P3'}, 
+    pytest.param(test_docs["2005_086"], {'Interviewee', 'P1', 'P3'}, 
                  id="Three-speaker document (Interviewers: P1 and P3)"),
-    pytest.param(test_docs["2008_136.txt"], {'P2', 'Interviewee', 'P1'}, 
+    pytest.param(test_docs["2008_136"], {'P2', 'Interviewee', 'P1'}, 
                  id="Three-speaker document (Interviewers: P1 and P2)"),
-    pytest.param(test_docs["026_307.txt"], {'Interviewer'}, 
+    pytest.param(test_docs["026_307"], {'Interviewer'}, 
                  id="Contains only Interviewer label, as well as [END OF RECORDING]"), # 
 ])
 def test_speaker_set(test_doc, expected_speaker_set):
@@ -48,7 +48,7 @@ def test_speaker_set(test_doc, expected_speaker_set):
 
 
 @pytest.mark.parametrize("test_doc,expected_speakers", [
-    pytest.param(test_docs["062_745.txt"], [ 
+    pytest.param(test_docs["062_745"], [ 
                 'Interviewer', 'Interviewer',
                 'Participant', 'Participant',
                 'Interviewer', 'Interviewer',
@@ -61,9 +61,9 @@ def test_speaker_set(test_doc, expected_speaker_set):
                 'Participant', 'Participant',
                 'Interviewer', 'Interviewer',
             ], id="Test arbitrary set 1 doc"),
-    pytest.param(test_docs["2022_335.txt"], ['Interviewer', 'Interviewee'], 
+    pytest.param(test_docs["2022_335"], ['Interviewer', 'Interviewee'], 
                  id="Test arbitrary set 2 doc"),
-    pytest.param(test_docs["3001_090.txt"], [
+    pytest.param(test_docs["3001_090"], [
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
@@ -75,7 +75,7 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'Interviewer', 'Speaker',
         'Interviewer', 'Speaker',
     ], id="Test arbitrary set 3 doc"),
-    pytest.param(test_docs["049_606.txt"], [
+    pytest.param(test_docs["049_606"], [
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
@@ -89,7 +89,7 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant'
     ], id="Document that doesn't begin with a speaker label"),
-    (test_docs["2005_086.txt"], [ 
+    (test_docs["2005_086"], [ 
         'P3',
         'P1',
         'P3',
@@ -100,7 +100,7 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'P3',
         'Interviewee',
     ]),
-    pytest.param(test_docs["2008_136.txt"], [
+    pytest.param(test_docs["2008_136"], [
         'P2',
         'Interviewee',
         'Interviewee',
@@ -115,13 +115,13 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'P2',
         'Interviewee'
     ], id="Three-speaker document"),
-    pytest.param(test_docs["026_307.txt"], [
+    pytest.param(test_docs["026_307"], [
         'Interviewer',
         'Interviewer',
         'Interviewer',
         'Interviewer',
     ], id="Contains only Interviewer label, as well as [END OF RECORDING]"), # 
-    pytest.param(test_docs["051_628.txt"], [
+    pytest.param(test_docs["051_628"], [
         # Lines 1-14 part. of interview
         "Participant", "Participant", "Participant", "Participant",
         "Participant", "Participant", "Participant", "Participant",
@@ -144,7 +144,7 @@ def test_row_speakers(test_doc, expected_speakers):
 # with all interviewer names changed to 'Interviewer' and all participant names
 # changed to 'Participant'. This is useful for testing the default speaker 
 @pytest.mark.parametrize("test_doc,expected_speakers", [
-    pytest.param(test_docs["062_745.txt"], [
+    pytest.param(test_docs["062_745"], [
         'Interviewer', 'Interviewer',
         'Participant', 'Participant',
         'Interviewer', 'Interviewer',
@@ -157,9 +157,9 @@ def test_row_speakers(test_doc, expected_speakers):
         'Participant', 'Participant',
         'Interviewer', 'Interviewer',
     ], id="Test arbitrary set 1 doc with default speakers"),
-    pytest.param(test_docs["2022_335.txt"], ['Interviewer', 'Participant'],
+    pytest.param(test_docs["2022_335"], ['Interviewer', 'Participant'],
                  id="Test arbitrary set 2 doc with default speakers"),
-    pytest.param(test_docs["3001_090.txt"], [
+    pytest.param(test_docs["3001_090"], [
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
@@ -171,7 +171,7 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer', 'Participant',
         'Interviewer', 'Participant',
     ], id="Test arbitrary set 2 doc with default speakers"),
-    pytest.param(test_docs["049_606.txt"], [
+    pytest.param(test_docs["049_606"], [
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant',
@@ -185,7 +185,7 @@ def test_row_speakers(test_doc, expected_speakers):
         'Participant', 'Participant', 'Participant', 'Participant',
         'Participant', 'Participant', 'Participant', 'Participant'
     ], id="Document that doesn't begin with a speaker label"),
-    (test_docs["2005_086.txt"], [ 
+    (test_docs["2005_086"], [ 
         'Interviewer',
         'Interviewer',
         'Interviewer',
@@ -196,7 +196,7 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer',
         'Participant',
     ]),
-    pytest.param(test_docs["2008_136.txt"], [
+    pytest.param(test_docs["2008_136"], [
         'Interviewer',
         'Participant',
         'Participant',
@@ -211,7 +211,7 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer',
         'Participant'
     ], id="Three-speaker document"),
-    pytest.param(test_docs["026_307.txt"], [
+    pytest.param(test_docs["026_307"], [
         'Interviewer',
         'Interviewer',
         'Interviewer',
