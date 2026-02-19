@@ -4,7 +4,7 @@ This file aggregates a bunch of changes, all summarized in `DATA_CLEANING.md `.
 from collections import Counter
 import importlib
 import random
-import utils.data as data
+import utils.data.datasaur as datasaur
 import utils.transcript
 from utils.transcript import Transcript
 import json
@@ -50,7 +50,7 @@ replacements = {
     **dict.fromkeys(["Sand", "Buttonheim"], "LOCATION"),
 }
 
-for doc in data.by_doc:
+for doc in datasaur.by_doc:
     # If both Rebecca and Christian are present, we can distinguish them
     # (not necessary, but makes reading the transcript easier)
     if {"Rebecca", "Christian"}.issubset(doc.speaker_set(restrict=False)):
@@ -88,7 +88,7 @@ misspellings = {
     "Interviewer" : ["Interviewer1", "1:Interviewer"],
     "Note" : ["1:Note"] # extra thing we caught---we'll fix even though it isn't a speaker label
 }
-for doc in data.by_doc:
+for doc in datasaur.by_doc:
     # Modify doc.row_data and labels
     for i in range(len(doc.row_data)):
         # Fix labels in the lines
@@ -141,12 +141,12 @@ with open(doc.path, "w") as f:
 
 
 """Remove duplicate documents"""
-doc_names = [doc.name for doc in data.by_doc]
+doc_names = [doc.name for doc in datasaur.by_doc]
 doc_name_cntr = Counter(doc_names)
 duplicate_doc_names = [name for name, count in doc_name_cntr.items() 
                        if count >= 2]
                 # list(set()) to remove possible duplicates in the list
-dupdocs = {name : list(set((doc for doc in data.by_doc if doc.name == name)))
+dupdocs = {name : list(set((doc for doc in datasaur.by_doc if doc.name == name)))
            for name in duplicate_doc_names}
 
 for name, docs in dupdocs.items():
@@ -195,7 +195,7 @@ for tn in transcript_numbers:
 
 
 # Need to re-import to update changed file data
-importlib.reload(data)
+importlib.reload(datasaur)
 importlib.reload(utils.transcript)
 from utils.transcript import Transcript
 

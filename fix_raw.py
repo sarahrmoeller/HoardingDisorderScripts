@@ -4,7 +4,7 @@ document data, applying them all in order.
 """
 import os
 from collections import Counter
-from utils.raw import *
+from utils.data.raw import *
 
 
 """Step 0a: Remove non-txt files from raw data directories"""

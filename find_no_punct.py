@@ -4,7 +4,7 @@ end-of-sentence characters in them. We're only looking for periods (.) since
 these are crucial for sentence segmentation, but we'll note if there are 
 other end-of-sentence characters.
 """
-from utils.raw import doc_paths
+from utils.data.raw import doc_paths
 import csv
 import os
 

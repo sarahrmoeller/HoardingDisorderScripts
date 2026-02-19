@@ -1,6 +1,6 @@
 import pandas as pd
 import utils.ling as ling
-import utils.raw as raw
+import utils.data.raw as raw
 from utils.document import TextDocument
 from tqdm import tqdm
 import warnings

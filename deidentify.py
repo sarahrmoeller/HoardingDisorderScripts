@@ -3,7 +3,7 @@ This script loops over every single document, checks whether it has someone's
 name in the text that we know of, like "Rebecca" or "Christian", and replace it
 something appropriate that de-identifies it.
 """
-import utils.data as data
+import utils.data.datasaur as datasaur
 import json
 
 
@@ -14,7 +14,7 @@ replacements = {
 }
 
 
-for doc in data.by_doc:
+for doc in datasaur.by_doc:
     # If both Rebecca and Christian are present, we can distinguish them
     # (not necessary, but makes reading the transcript easier)
     if {"Rebecca", "Christian"}.issubset(doc.speaker_set(restrict=False)):
@@ -39,5 +39,5 @@ for doc in data.by_doc:
     # Switch out old row data in the JSON dump with the new one
     doc.json_dump['rows'] = doc.row_data
 
-    with open(data.review_dir(doc.project) + doc.name + '.json', "w") as f:
+    with open(datasaur.review_dir(doc.project) + doc.name + '.json', "w") as f:
         json.dump(doc.json_dump, f)

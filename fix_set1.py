@@ -4,7 +4,7 @@ This is consistent, so all this script does is add a 1 to the beginning of
 every filename in set 1.
 """
 # In the text files
-from utils.raw import doc_paths
+from utils.data.raw import doc_paths
 import os
 
 

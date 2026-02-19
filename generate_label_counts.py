@@ -1,13 +1,13 @@
 import pandas as pd
 from tqdm import tqdm
-import utils.data as data 
+import utils.data.datasaur as datasaur 
 
 
 if __name__ == "__main__":
     # List of rows in the csv file 
     table_rows = []
     
-    pbar = tqdm(data.by_doc)
+    pbar = tqdm(datasaur.by_doc)
     for doc in pbar:
         pbar.set_description(f"{doc}")
 
