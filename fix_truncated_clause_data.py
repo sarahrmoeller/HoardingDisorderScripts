@@ -24,7 +24,7 @@ for doc in Transcript("012").docs:
     # Modify doc.row_data and fix Interviewer label
     for i in range(len(doc.row_data)):
         # Fix labels in the lines
-        doc.row_data[i]['content'] = doc.lines[i].replace("Interviewee:", 
+        doc.row_data[i]['content'] = doc.row_data[i]['content'].replace("Interviewee:", 
                                                           "Interviewer:")
         # Fix labels in the tokens
         for j in range(len(doc.row_data[i]['tokens'])):
@@ -64,8 +64,7 @@ for doc in data.by_doc:
     for i in range(len(doc.row_data)):
         # Fix labels in the lines
         for name, repl in replacements.items():
-            doc.lines[i] = doc.lines[i].replace(name, repl)
-        doc.row_data[i]['content'] = doc.lines[i]
+            doc.row_data[i]['content'] = doc.row_data[i]['content'].replace(name, repl)
         # Fix labels in the tokens
         for j in range(len(doc.row_data[i]['tokens'])):
             token: str = doc.row_data[i]['tokens'][j]
@@ -121,11 +120,10 @@ Literally just change "Interviewer:Right" to "Interviewer: Right" in this
 document. Necessary for speaker label detection.
 """
 doc = Transcript("3001")["039"]
-bad_line_index = [i for i in range(len(doc.lines)) 
-                  if "Interviewer:Right" in doc.lines[i]][0]
-doc.row_data[bad_line_index]['content'] = (doc.lines[bad_line_index]
-                                              .replace("Interviewer:Right", 
-                                                       "Interviewer: Right"))
+bad_line_index = [i for i in range(len(doc.row_data))][0]
+if "Interviewer:Right" in doc.row_data[bad_line_index]['content']:
+    doc.row_data[bad_line_index]['content'] = (doc.row_data[bad_line_index]['content'].replace("Interviewer:Right", "Interviewer: Right"))
+
 # Fix labels in the tokens
 tokens: list[str] = doc.row_data[bad_line_index]['tokens']
 # In this case, this line only had one token, so we can just delete it
@@ -204,8 +202,8 @@ from utils.transcript import Transcript
 """Fix Transcript 2005"""
 for doc in Transcript("2005").docs:
     # Fix rows/lines
-    for i in range(len(doc.lines)):
-        line = doc.lines[i]
+    for i in range(len(doc.row_data)):
+        line = doc.row_data[i]['content']
         if 'P3' in line:
             line = line.replace('P3', 'Interviewee')
         elif 'Interviewee' in line:
@@ -238,8 +236,8 @@ labeled under transcript 005.
 """
 for doc in Transcript('2005').docs:
     # Fix rows/lines
-    for i in range(len(doc.lines)):
-        line = doc.lines[i]
+    for i in range(len(doc.row_data)):
+        line = doc.row_data[i]['content']
         if 'P3' in line:
             line = line.replace('P3', 'Interviewee')
         elif 'Interviewee' in line:
@@ -297,8 +295,7 @@ for broken_ts, fixed_ts, line_num, [trans_num, doc_num] in broken_timestamps:
     doc = Transcript(trans_num)[doc_num]
 
     # Fix line
-    doc.lines[line_num] = doc.lines[line_num].replace(broken_ts, fixed_ts)
-    doc.row_data[line_num]['content'] = doc.lines[line_num]
+    doc.row_data[line_num]['content'] = doc.row_data[line_num]['content'].replace(broken_ts, fixed_ts)
 
     # Fix tokens
     token_line: list[str] = doc.tokens[line_num]
