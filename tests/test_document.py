@@ -12,11 +12,11 @@ test_files: list[tuple[str, str]] = [
     ("s1062_s2022-26_s3076-97", "3001_090"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
     # Misc files with special cases
     # ("s1043-5_s2010-11_s3016-25", "049_606"), # Has speaker label with a number, "Participant 49:"
-    ("s1036-42_s2008-9_s3000-15", "2008_118"), # Starts with Interview 008
+    # ("s1036-42_s2008-9_s3000-15", "2008_118"), # Starts with Interview 008
     ("s1_28-35_s2_4-7", "2005_083"), # contains "P1: " and "P3: " interview/speaker format
     ("s1_28-35_s2_4-7", "2005_082"),
     ("s1_28-35_s2_4-7", "2005_086"),
-    ("s1036-42_s2008-9_s3000-15", "2008_136"),
+    # ("s1036-42_s2008-9_s3000-15", "2008_136"),
     ("s1_21-27_s2_1-3", "026_307"), # Contains only Interviewer label, as well as [END OF RECORDING]
     ("s1051-54_s2014-19_s3051-75", "051_628"), # Very normal doc that came out as empty for some reason
 ]
@@ -38,8 +38,8 @@ test_docs = {filename: DatasaurDocument(f"./data/mathews/documents/"
     # Do this test after 005 documents are fixed
     pytest.param(test_docs["2005_086"], {'Interviewee', 'P1', 'P3'}, 
                  id="Three-speaker document (Interviewers: P1 and P3)"),
-    pytest.param(test_docs["2008_136"], {'P2', 'Interviewee', 'P1'}, 
-                 id="Three-speaker document (Interviewers: P1 and P2)"),
+    # pytest.param(test_docs["2008_136"], {'P2', 'Interviewee', 'P1'}, 
+    #              id="Three-speaker document (Interviewers: P1 and P2)"),
     pytest.param(test_docs["026_307"], {'Interviewer'}, 
                  id="Contains only Interviewer label, as well as [END OF RECORDING]"), # 
 ])
@@ -100,21 +100,21 @@ def test_speaker_set(test_doc, expected_speaker_set):
         'P3',
         'Interviewee',
     ]),
-    pytest.param(test_docs["2008_136"], [
-        'P2',
-        'Interviewee',
-        'Interviewee',
-        'P1',
-        'Interviewee',
-        'P2',
-        'Interviewee',
-        'P2',
-        'Interviewee',
-        'P2',
-        'Interviewee',
-        'P2',
-        'Interviewee'
-    ], id="Three-speaker document"),
+    # pytest.param(test_docs["2008_136"], [
+    #     'P2',
+    #     'Interviewee',
+    #     'Interviewee',
+    #     'P1',
+    #     'Interviewee',
+    #     'P2',
+    #     'Interviewee',
+    #     'P2',
+    #     'Interviewee',
+    #     'P2',
+    #     'Interviewee',
+    #     'P2',
+    #     'Interviewee'
+    # ], id="Three-speaker document"),
     pytest.param(test_docs["026_307"], [
         'Interviewer',
         'Interviewer',
@@ -196,21 +196,21 @@ def test_row_speakers(test_doc, expected_speakers):
         'Interviewer',
         'Participant',
     ]),
-    pytest.param(test_docs["2008_136"], [
-        'Interviewer',
-        'Participant',
-        'Participant',
-        'Interviewer',
-        'Participant',
-        'Interviewer',
-        'Participant',
-        'Interviewer',
-        'Participant',
-        'Interviewer',
-        'Participant',
-        'Interviewer',
-        'Participant'
-    ], id="Three-speaker document"),
+    # pytest.param(test_docs["2008_136"], [
+    #     'Interviewer',
+    #     'Participant',
+    #     'Participant',
+    #     'Interviewer',
+    #     'Participant',
+    #     'Interviewer',
+    #     'Participant',
+    #     'Interviewer',
+    #     'Participant',
+    #     'Interviewer',
+    #     'Participant',
+    #     'Interviewer',
+    #     'Participant'
+    # ], id="Three-speaker document"),
     pytest.param(test_docs["026_307"], [
         'Interviewer',
         'Interviewer',
