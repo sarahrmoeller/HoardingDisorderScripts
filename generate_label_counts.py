@@ -7,7 +7,7 @@ if __name__ == "__main__":
     # List of rows in the csv file 
     table_rows = []
     
-    pbar = tqdm(datasaur.by_doc)
+    pbar = tqdm(datasaur.docs)
     for doc in pbar:
         pbar.set_description(f"{doc}")
 

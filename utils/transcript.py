@@ -5,7 +5,7 @@ from collections import Counter
 
 
 transcript_numbers = sorted(list(set(doc.transcript_number 
-                                     for doc in datasaur.by_doc)))
+                                     for doc in datasaur.docs)))
 
 
 class Transcript(DatasaurDocument):
@@ -23,7 +23,7 @@ class Transcript(DatasaurDocument):
         # i.e. if transcript_number is "005", then this will have
         # '005_082', '005_083', '005_086', etc.
         self.docs: list[DatasaurDocument] = [
-            doc for doc in datasaur.by_doc 
+            doc for doc in datasaur.docs 
             if doc.transcript_number == self.number
         ]
         assert self.docs, \

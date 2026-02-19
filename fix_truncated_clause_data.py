@@ -50,7 +50,7 @@ replacements = {
     **dict.fromkeys(["Sand", "Buttonheim"], "LOCATION"),
 }
 
-for doc in datasaur.by_doc:
+for doc in datasaur.docs:
     # If both Rebecca and Christian are present, we can distinguish them
     # (not necessary, but makes reading the transcript easier)
     if {"Rebecca", "Christian"}.issubset(doc.speaker_set(restrict=False)):
@@ -88,7 +88,7 @@ misspellings = {
     "Interviewer" : ["Interviewer1", "1:Interviewer"],
     "Note" : ["1:Note"] # extra thing we caught---we'll fix even though it isn't a speaker label
 }
-for doc in datasaur.by_doc:
+for doc in datasaur.docs:
     # Modify doc.row_data and labels
     for i in range(len(doc.row_data)):
         # Fix labels in the lines
@@ -141,12 +141,12 @@ with open(doc.path, "w") as f:
 
 
 """Remove duplicate documents"""
-doc_names = [doc.name for doc in datasaur.by_doc]
+doc_names = [doc.name for doc in datasaur.docs]
 doc_name_cntr = Counter(doc_names)
 duplicate_doc_names = [name for name, count in doc_name_cntr.items() 
                        if count >= 2]
                 # list(set()) to remove possible duplicates in the list
-dupdocs = {name : list(set((doc for doc in datasaur.by_doc if doc.name == name)))
+dupdocs = {name : list(set((doc for doc in datasaur.docs if doc.name == name)))
            for name in duplicate_doc_names}
 
 for name, docs in dupdocs.items():

@@ -14,7 +14,7 @@ replacements = {
 }
 
 
-for doc in datasaur.by_doc:
+for doc in datasaur.docs:
     # If both Rebecca and Christian are present, we can distinguish them
     # (not necessary, but makes reading the transcript easier)
     if {"Rebecca", "Christian"}.issubset(doc.speaker_set(restrict=False)):
