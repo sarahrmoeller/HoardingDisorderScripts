@@ -58,8 +58,8 @@ def average_sentence_length(sentences: list[list[str]]) -> float:
 
 def count_nps(tree: pt.Tree) -> int:
     """
-    Recursively count the number of noun phrases (NPs) in a constituency parse 
-    tree.
+    Recursively count the number of surface-level noun phrases (NPs) in a 
+    constituency parse tree.
 
     Args:
         tree (Tree): A constituency parse tree for a sentence.
