@@ -199,32 +199,6 @@ importlib.reload(data)
 importlib.reload(utils.transcript)
 from utils.transcript import Transcript
 
-
-"""Fix Transcript 2005"""
-for doc in Transcript("2005").docs:
-    # Fix rows/lines
-    for i in range(len(doc.row_data)):
-        line = doc.row_data[i]['content']
-        if 'P3' in line:
-            line = line.replace('P3', 'Interviewee')
-        elif 'Interviewee' in line:
-            line = line.replace('Interviewee', 'P3')
-        doc.row_data[i]['content'] = line
-        # Fix tokens
-        for j in range(len(doc.tokens)):
-            token = doc.tokens[j]
-            if 'P3' in token:
-                token = token.replace('P3', 'Interviewee')
-            elif 'Interviewee' in token:
-                token = token.replace('Interviewee', 'P3')
-            doc.tokens[j] = token
-        doc.row_data[i]['tokens'] = doc.tokens
-    doc.json_dump['rows'] = doc.row_data
-
-    with open(doc.path, "w") as f:
-        json.dump(doc.json_dump, f)
-
-
 """
 ## Fix Transcript 2005 Speaker Labels
 
