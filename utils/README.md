@@ -43,32 +43,30 @@ $ python
 {'Interviewee', 'Interviewer', 'Participant'}
 ```
 
-Here are some example use cases of how to use the utils module.
-
-The meat of this project is the `Document` class within `./utils/document.py`. 
+As we see, the `DatasaurDocument` class—recall each object in `docs` in these examples is an instance of this class—is doing the heavy lifting here. 
 Given a path to a .json file from the datasaur data, this class
 extracts and deduces important information about each document, including label data. 
 Some examples:
 
-- `Document.name`: Document's name, i.e. `'001_001.txt'`
-- `Document.project`: Document's project, i.e. `'HD_set1_1-7'`
-- `Document.hoarder_flag`: 1 if the document is a hoarding document, 0 otherwise (determined by the document's name)
-- `Document.lines`: A list of each line (separate by newlines) in the document.  
-- `Document.full_content`: The document's entire text content in one string
-- `Document.content_by_speaker(speaker: str)`: The set of all text spoken by a particular speaker, Interviewer or Participant, in a document.
+- `DatasaurDocument.name`: Document's name, i.e. `'001_001.txt'`
+- `DatasaurDocument.project`: Document's project, i.e. `'HD_set1_1-7'`
+- `DatasaurDocument.hoarder_flag`: 1 if the document is a hoarding document, 0 otherwise (determined by the document's name)
+- `DatasaurDocument.lines`: A list of each line (separate by newlines) in the document.  
+- `DatasaurDocument.full_content`: The document's entire text content in one string
+- `DatasaurDocument.content_by_speaker(speaker: str)`: The set of all text spoken by a particular speaker, Interviewer or Participant, in a document.
   Pass in either "Interviewer" or "Participant" to get the text from the speaker you are looking for.
-- `Document.speaker_set(restrict=True)`: The set of all speaker labels (strings followed by a colon, i.e. "Interviewer: ") found in the document.
+- `DatasaurDocument.speaker_set(restrict=True)`: The set of all speaker labels (strings followed by a colon, i.e. "Interviewer: ") found in the document.
    - The `restrict` option, set to `True` by default, filters the speaker labels to only show strings that we know are valid speaker labels.
      For instance, if the labels "Interviewer:" and "Spongebob:" are found and `restrict=True`, only the former would be returned.
-- `Document._labels`: A list of the document's labels, organized as tuples (Label, Speaker).
+- `DatasaurDocument._labels`: A list of the document's labels, organized as tuples (Label, Speaker).
   Each tuple tells us which label is found (i.e. Incomplete Thought, Clarification) and which speaker the label came from (Interviewer or Participant).
-- `Document.label_counts`: A dictionary containing all relevant information regarding label counts.
+- `DatasaurDocument.label_counts`: A dictionary containing all relevant information regarding label counts.
   The dictionary is organized in the format "[Label]-[Type]". For instance:
      - The entry "Incomplete Thought-Participant" is the number of Incomplete Thought labels found in the Participant's speech in this document. There
        will also be an entry with Interviewer in the place of Participant, which is interpreted the same way.
      - The entry "Clarification-Total" is the total number of clarification labels in general, spoken either by Interviewer or Participant.
      - The entry "Total" is the total number of labels in the document, regardless of type or speaker.  
-- `Document.tokens(speaker: str)`: A list of all tokens spoken by a particular speaker.
+- `DatasaurDocument.tokens(speaker: str)`: A list of all tokens spoken by a particular speaker.
 
 Though many of these functions are designed to provide information on both Interivewer and Participant speech, you will likely only be concerned with Participant speech.
 If so, please focus soley on Participant speech by passing in the string "Participant" to functions that differentiate between speakers, or by ignoring entries
