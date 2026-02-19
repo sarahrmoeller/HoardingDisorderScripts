@@ -30,9 +30,19 @@ $ python
 > How many of these documents are from the Hoarding set (set 1)?
 
 ```python
->>> len([doc for doc in docs if doc.set == 1])
+>>> docs_from_set1 = [doc for doc in docs if doc.set == 1]
+>>> len(docs_from_set1)
 734
 ```
+
+> Which speaker labels (e.g. text behind the colon, "Interviewer: ", "Participant: ") appeared in set 1?
+
+```python
+>>> hdset_speakers = {speaker for doc in docs_from_set1 for speaker in doc.speaker_set()}
+>>> hdset_speakers
+{'Interviewee', 'Interviewer', 'Participant'}
+```
+
 See the documentation on the `DatasaurDocument` class from the `document` module to see what else you can do when looking at this list.
 
 ## Transcripts
@@ -81,16 +91,6 @@ If so, please focus soley on Participant speech by passing in the string "Partic
 in lists or dictionaries that involve Interviewers.
 
 Further, `utils/datasaur.py` contains a few data structures that organize all of the document objects:
-
-You can use these structures to make queries about the data, often with some form of Pythonic comprehension. For instance, the following code finds the set of all speaker labels for all Hoarding documents found in the HD_set1 projects:
-
-```python
->>> hdsets = {proj: docs for proj, docs in data.by_project.items() if proj.startswith('HD_set1')}
->>> hdset_docs = [doc for doclist in hdsets.values() for doc in doclist] # flattened list
->>> hdset_speakers = {speaker for doc in hdset_docs for speaker in doc.speaker_set}
->>> hdset_speakers
-{'Interviewee', 'Interviewer', 'Participant'}
-```
 
 ## `document`
 
