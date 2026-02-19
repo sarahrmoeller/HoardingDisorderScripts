@@ -1,5 +1,14 @@
 # `utils` module
 
+## `document`
+
+The `document` module contains two classes that are designed to make it easy for users to split the data for a particular document into Interviewer and Participant data.
+This module contains two classes for this purpose:
+
+- `BaseDocument`
+- `TextDocument`
+- `DatasaurDocument`
+
 ## `data`
 
 If you're here, the `data` module is likely going to contain most of what you're going to care about.
