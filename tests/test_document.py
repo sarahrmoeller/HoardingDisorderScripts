@@ -7,9 +7,9 @@ import os
 test_files: list[tuple[str, str]] = [
     # First three are chosen from a project that has files from each of 
     # sets 1-3
-    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjq", "062_745"), 
-    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjq", "2022_335"), 
-    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjq", "3001_090"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
+    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjg", "062_745"), 
+    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjg", "2022_335"), 
+    ("s1062_s2022-26_s3076-97-NDQ2OTMwYjg", "3001_090"), # Contains a single line saying "[TRANSCRIPTION PAUSED]"
     # Misc files with special cases
     ("s1043-5_s2010-11_s3016-25-NjFlYmM5MGE", "049_606"), # Has speaker label with a number, "Participant 49:"
     # ("s1036-42_s2008-9_s3000-15", "2008_118"), # Starts with Interview 008
