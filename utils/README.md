@@ -82,15 +82,6 @@ in lists or dictionaries that involve Interviewers.
 
 Further, `utils/datasaur.py` contains a few data structures that organize all of the document objects:
 
-```python
-# Run this in the project root
-import utils.datasaur as data
-
-data.by_project # dict[project name -> list of docs in that project]
-data.by_doc # list of all documents
-data.by_transcript # dict[transcript name (i.e. '002') -> list of all docs corresponding to that transcript (i.e. '002_015.txt')]
-```
-
 You can use these structures to make queries about the data, often with some form of Pythonic comprehension. For instance, the following code finds the set of all speaker labels for all Hoarding documents found in the HD_set1 projects:
 
 ```python
