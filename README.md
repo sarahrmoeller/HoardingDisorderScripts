@@ -24,7 +24,18 @@ See `./data/mathews/documents/README.md` for a full explanation of the data.
 
 ### Code
 
-If you are working directly on this project, you will likely find that most—if not all—of what you will need to work with this project is in the `./utils/` directory.
+#### For Those Reading The Paper
+
+If you are looking to replicate our results and have little or no interest in looking directly at the nitty-gritty details of the data, look for `./logistic-regression.r`. 
+This contains the code containing the model and numbers for the tables used in the paper's result section.
+You'll also find the spreadsheets used for the model in the `./tables/` directory.
+
+If you're coming from the poster session, `./forest.R` generates the forest plot for the data that was shown (its code may be outdated).
+
+#### For Those Working More Deeply with The Code
+
+If you are here, and finding yourself asking questions like "How many transcripts are in our data?" "How many documents does Transcript 2005 have?" "How transcripts are in set 3?" "Are there any duplicated documents?"
+You will likely find that most—if not all—of what you will need to work with this project is in the `./utils/` directory.
 This contains a number of functions and classes written in python useful for analyzing individual transcripts and documents, as well as making queries on a large number of documents.
 
 #### Why Is It So Messy?
