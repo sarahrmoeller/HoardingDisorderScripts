@@ -61,11 +61,11 @@ def count_nps(tree: pt.Tree) -> int:
     Recursively count the number of surface-level noun phrases (NPs) in a 
     constituency parse tree.
 
-    Args:
-        tree (Tree): A constituency parse tree for a sentence.
+    :param tree: A constituency parse tree for a sentence.
+    :type tree: stanza.models.constituency.parse_tree.Tree
+    :return: The total number of NP (noun phrase) nodes in the tree.
+    :rtype: int
 
-    Returns:
-        int: Total number of NP (noun phrase) nodes in the tree.
     """
     # Theoretically, this will count only the lowest node
     # If this node is an NP and contains no NP children, it's a lowest NP
