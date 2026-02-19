@@ -37,6 +37,8 @@ If you're coming from the poster session, `./forest.R` generates the forest plot
 If you are here, and finding yourself asking questions like "How many transcripts are in our data?" "How many documents does Transcript 2005 have?" "How transcripts are in set 3?" "Are there any duplicated documents?"
 You will likely find that most—if not all—of what you will need to work with this project is in the `./utils/` directory.
 This contains a number of functions and classes written in python useful for analyzing individual transcripts and documents, as well as making queries on a large number of documents.
+See `./utils/README.md` for an explanation of the code in this module.
+
 
 #### Why Is It So Messy?
 
