@@ -1,9 +1,11 @@
-all.data <- read.csv("./out/document_table.csv")
+label.counts <- read.csv("./out/label_counts.csv")
 
 # Make it so all documents that start with 0 start with 1 instead
 for (i in which(startsWith(all.data$Document.Name, "0"))) { 
-  all.data$Document.Name[i] <- paste("1", all.data$Document.Name[i], sep="")
+  label.counts$Document.Name[i] <- paste("1", label.counts$Document.Name[i], 
+                                         sep="")
 }
+
 ling.data <- read.csv("./out/ling_table.csv")
 
 # The ling data doesn't have all of the same documents as in all.data, so
