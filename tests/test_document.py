@@ -16,7 +16,7 @@ test_files: list[tuple[str, str]] = [
     ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_083"), # contains "P1: " and "P3: " interview/speaker format
     ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_082"),
     ("s1_28-35_s2_4-7-M2Y5YjVkMjM", "2005_086"),
-    ("s1036-42_s2008-9_s3000-15", "2008_136"),
+    ("s1036-42_s2008-9_s3000-15-NTliMzIxODk", "2008_136"),
     ("s1_21-27_s2_1-3-NTE3MmUyODM", "026_307"), # Contains only Interviewer label, as well as [END OF RECORDING]
     ("s1051-54_s2014-19_s3051-75-MDFjZTBkZDY", "051_628"), # Very normal doc that came out as empty for some reason
 ]
