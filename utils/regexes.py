@@ -31,6 +31,9 @@ timestamps = re.compile(r'(?:\({ts}\)|\[{ts}\]|{ts})'
 speaker_labels_spaced = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+(?:\d+|{ts}))?[:\-—]'
                             .format(ts=timestamps.pattern),
                             re.UNICODE)
+speaker_labels_unspaced = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s*(?:\d+|{ts}))?[:\-—]'
+                            .format(ts=timestamps.pattern),
+                            re.UNICODE)
 # This regex is used to match only speaker labels that are found in the 
 # SPEAKERS set.
 speaker_labels_restricted = re.compile(r'(?:{speakers})(?:\s+\d+)?:'
