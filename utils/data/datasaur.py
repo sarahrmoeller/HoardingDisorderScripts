@@ -1,4 +1,4 @@
-from .document import DatasaurDocument
+from ..document import DatasaurDocument
 import os
 from .project import projects, review_dir
 
