@@ -90,8 +90,6 @@ Though many of these functions are designed to provide information on both Inter
 If so, please focus soley on Participant speech by passing in the string "Participant" to functions that differentiate between speakers, or by ignoring entries
 in lists or dictionaries that involve Interviewers.
 
-Further, `utils/datasaur.py` contains a few data structures that organize all of the document objects:
-
 ## `document`
 
 The `document` module contains two classes that are designed to make it easy for users to split the data for a particular document into Interviewer and Participant data.
