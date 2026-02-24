@@ -28,7 +28,10 @@ See `./data/mathews/documents/README.md` for a full explanation of the data.
 
 If you are looking to replicate our results and have little or no interest in looking directly at the nitty-gritty details of the data, look for `./logistic-regression.r`. 
 This contains the code containing the model and numbers for the tables used in the paper's result section.
-You'll also find the spreadsheets used for the model in the `./tables/` directory.
+You'll also find the spreadsheets used for the model in the `./tables/` directory:
+
+- The spreadsheet for label counts is located in `./tables/label_counts.csv`,
+- The spreadsheet for linguistic metrics is located in `./tables/linguistic_data.csv`.
 
 If you're coming from the poster session, `./forest.R` generates the forest plot for the data that was shown (its code may be outdated).
 
