@@ -113,3 +113,6 @@ class Transcript(DatasaurDocument):
 
     def __repr__(self) -> str:
         return f"Transcript(\"{self.number}\")"
+
+
+transcripts = [Transcript(tn) for tn in transcript_numbers]
