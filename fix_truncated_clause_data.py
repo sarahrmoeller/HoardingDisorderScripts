@@ -1,7 +1,7 @@
 """
 This file aggregates a bunch of changes, all summarized in `DATA_CLEANING.md `.
 """
-from collections import Counter
+from collections import Counter, defaultdict
 import importlib
 import random
 import utils.data.datasaur as datasaur
@@ -141,24 +141,12 @@ with open(doc.path, "w") as f:
 
 
 """Remove duplicate documents"""
-doc_names = [doc.name for doc in datasaur.docs]
-doc_name_cntr = Counter(doc_names)
-duplicate_doc_names = [name for name, count in doc_name_cntr.items() 
-                       if count >= 2]
-                # list(set()) to remove possible duplicates in the list
-dupdocs = {name : list(set((doc for doc in datasaur.docs if doc.name == name)))
-           for name in duplicate_doc_names}
-
-for name, docs in dupdocs.items():
-    # Choose random element of the pair to keep
-    print(name, [doc.path for doc in docs])
-    doc_to_keep = random.choice(docs)
-    # Remove all other duplicates
-    docs.remove(doc_to_keep)
-    for doc in docs:
+names = set()
+for doc in datasaur.docs:
+    if doc.name not in names:
+        names.add(doc.name)
+    else:
         os.remove(doc.path)
-        print(f"Removed duplicate document {doc.path}")
-
 
 """
 ## Fix Transcripts 001-007
