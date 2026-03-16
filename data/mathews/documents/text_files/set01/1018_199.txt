@@ -47,4 +47,4 @@ Interviewee:
 Oh, okay.
 Interviewee:
 You're so up on email, that might be the easiest way to do it.
-END_OF_RECORDING
+[END_OR_RECORDING]

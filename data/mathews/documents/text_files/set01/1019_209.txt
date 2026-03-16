@@ -47,4 +47,4 @@ But it hasn't become part of my constant, it's not on my radar right now.
 Interviewer:
 That makes sense.
 That's most of the questions.
-END_OF_RECORDING
+[END_OR_RECORDING]

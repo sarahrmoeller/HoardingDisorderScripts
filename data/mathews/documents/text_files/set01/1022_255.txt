@@ -30,4 +30,4 @@ I'm trying to think if I missed anything.
 I think that we've covered everything.
 Interviewee:
 Oh, okay.
-END_OF_RECORDING
+[END_OR_RECORDING]

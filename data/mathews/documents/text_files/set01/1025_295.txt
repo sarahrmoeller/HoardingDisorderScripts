@@ -27,4 +27,4 @@ CROSSTALK
 Interviewer:
 I do have a few questions.
 I'm going to end the recording now.
-END_OF_RECORDING
+[END_OR_RECORDING]

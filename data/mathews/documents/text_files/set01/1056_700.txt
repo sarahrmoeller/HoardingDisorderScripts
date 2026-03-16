@@ -51,4 +51,4 @@ You too. Thank you.
 Interviewer: Mhmm, bye now.
 Interviewee:
 Buh-bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

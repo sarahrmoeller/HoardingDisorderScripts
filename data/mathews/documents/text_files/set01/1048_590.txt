@@ -77,4 +77,4 @@ So I'm just going to ask you the demographic questions.
 So I'm going to go ahead and guess that you're female.
 Interviewee4:
 Yes.
-END_OF_RECORDING
+[END_OR_RECORDING]

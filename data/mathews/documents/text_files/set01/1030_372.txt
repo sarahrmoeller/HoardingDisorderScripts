@@ -19,4 +19,4 @@ Interviewer:
 And the geographic region you live in, in the US?
 Interviewee:
 California
-END_OF_RECORDING
+[END_OR_RECORDING]

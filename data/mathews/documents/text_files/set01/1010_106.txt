@@ -51,4 +51,4 @@ Perfect.
 This is it for the interview questions.
 I'm going to stop the recording if there's nothing else to add.
 Give me a second.
-END_OF_RECORDING
+[END_OR_RECORDING]

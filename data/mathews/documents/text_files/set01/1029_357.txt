@@ -76,4 +76,4 @@ So that was pretty good.
 Interviewer:
 That is cool to hear.
 Thank you for sharing that with me.
-END_OF_RECORDING
+[END_OR_RECORDING]

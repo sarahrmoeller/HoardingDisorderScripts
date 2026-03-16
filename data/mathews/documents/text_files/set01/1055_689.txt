@@ -26,4 +26,4 @@ Interviewer: Alright, thank you so much and you have a great day, okay?
 Interviewee:
 You too, bye.
 Interviewer: Bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

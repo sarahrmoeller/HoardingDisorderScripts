@@ -49,4 +49,4 @@ All right.
 Okay.
 Bye.
 PART 4 OF 4 ENDS
-END_OF_RECORDING
+[END_OR_RECORDING]

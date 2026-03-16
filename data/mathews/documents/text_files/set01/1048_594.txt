@@ -75,4 +75,4 @@ So I don't know.
 Interviewer:
 No, that's okay.
 Some college, that's totally fine.
-END_OF_RECORDING
+[END_OR_RECORDING]

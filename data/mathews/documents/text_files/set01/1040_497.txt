@@ -125,4 +125,4 @@ Interviewee:
 Yeah.
 It depends on whether people digress, and whether they have an answer that's quick and easy.
 PART 4 OF 4 ENDS
-END_OF_RECORDING
+[END_OR_RECORDING]

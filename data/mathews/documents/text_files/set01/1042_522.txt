@@ -48,4 +48,4 @@ Do you have any questions for me?
 Interviewee:
 When is the next something?
 Do I do anything next?
-END_OF_RECORDING
+[END_OR_RECORDING]

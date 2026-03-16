@@ -66,4 +66,4 @@ Oh, thank you.
 It was a pleasure talking to you.
 Interviewer: No problem.
 All right, you have a wonderful day.
-END_OF_RECORDING
+[END_OR_RECORDING]

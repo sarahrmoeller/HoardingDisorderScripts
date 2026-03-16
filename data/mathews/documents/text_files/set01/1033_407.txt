@@ -85,4 +85,4 @@ Bachelor's.
 Interviewer:
 Bachelor's.
 Then let me go ahead and turn this off.
-END_OF_RECORDING
+[END_OR_RECORDING]

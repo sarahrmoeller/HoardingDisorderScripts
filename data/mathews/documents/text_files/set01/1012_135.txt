@@ -53,4 +53,4 @@ Okay.
 That makes sense.
 Okay.
 That pretty much concludes ...
-END_OF_RECORDING
+[END_OR_RECORDING]

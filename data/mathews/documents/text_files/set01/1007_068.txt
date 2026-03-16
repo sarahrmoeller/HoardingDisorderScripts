@@ -10,4 +10,4 @@ Interviewer:
 Okay. No, that's understandable. Okay. I think that we've covered everything. I'm just really quickly looking over all my questions just to make sure. Okay. I'm going to stop recording now.
 Interviewee:
 All right.
-END_OF_RECORDING
+[END_OR_RECORDING]

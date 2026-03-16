@@ -27,4 +27,4 @@ Mm-hmm .
 It sounds like there's a lot behind all the decisions you're making.
 Those are actually all the questions that I have for you.
 I have some demographic questions, and I want to tell you about the next steps from our-
-END_OF_RECORDING
+[END_OR_RECORDING]

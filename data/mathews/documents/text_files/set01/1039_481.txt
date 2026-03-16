@@ -84,4 +84,4 @@ Gotcha.
 What is it in, I'm just curious.
 Interviewee:
 It's in music history.
-END_OF_RECORDING
+[END_OR_RECORDING]

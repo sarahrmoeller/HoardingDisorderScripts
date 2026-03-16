@@ -116,4 +116,4 @@ Interviewer:
 Bye.
 Interviewee:
 Bye bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

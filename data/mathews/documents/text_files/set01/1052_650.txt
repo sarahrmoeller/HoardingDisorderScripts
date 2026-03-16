@@ -56,4 +56,4 @@ I want to thank you so much for participating.
 Interviewee:
 Thank you for everything.
 Interviewer: No problem, and I hope you have a great day.
-END_OF_RECORDING
+[END_OR_RECORDING]

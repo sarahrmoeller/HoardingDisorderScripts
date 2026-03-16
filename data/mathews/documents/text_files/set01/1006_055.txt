@@ -44,4 +44,4 @@ Interviewee:
 Okay, okay.
 Interviewer:
 All right. Let me end it.
-END_OF_RECORDING
+[END_OR_RECORDING]

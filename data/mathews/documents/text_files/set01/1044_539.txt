@@ -54,4 +54,4 @@ Interviewee44:
 Master's.
 Interviewer:
 Okay.
-END_OF_RECORDING
+[END_OR_RECORDING]

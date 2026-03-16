@@ -82,4 +82,4 @@ Interviewee7:
 We're spending on traveling and hoarding.
 Interviewer:
 Okay.
-END_OF_RECORDING
+[END_OR_RECORDING]

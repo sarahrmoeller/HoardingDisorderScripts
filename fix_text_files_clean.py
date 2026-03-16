@@ -11,6 +11,12 @@ participant_errors = 'Participant '
 note_taker_errors = ['Note Taker-', 'Note taker:']
 
 location_errors = [' UF', ' LOCATION', ' THE_[LOCATION]']
+    #Kept [' Bay Area', ' Silicon Valley', ' Mountain View', ' San Francisco'] for now since included in multiple interviews
+
+#Found in 1001 files that were added later
+anonymous_errors = ['Lifelock', 'Symantec', 'Broadcom']
+age_error1 = ["I'm 66"]
+age_error2 = ["birthday in May"]
 
 notes_not_speech = ['[laughter]', '[LAUGHTER]', ' LAUGH', '[LAUGH]', ' LAUGHS', '[LAUGHS]', 'LAUGHING', '[LAUGHING]', 'AFFIRMATIVE', '[affirmative]', '[AFFIRMATIVE]', ' NEGATIVE', '[negative]', '[NEGATIVE]', 'Transcribed by Aqueena', 'Transcripted by Aqueena']
 
@@ -21,6 +27,8 @@ crosstalk_notes = [' [crosstalk]', ' CROSSTALK']
 talking_notes = [' [Talking to person not on the phone]', ' TALKING TO PERSON NOT ON THE PHONE']
 
 paused_notes = ['TRANSCRIPTION PAUSED', 'Transcription Paused – Kendall', 'Transcription paused by Aqueena @', '[CUTS_OUT]']
+end_notes = ['END_OF_RECORDING']
+end_note_corrections = ['-End of transcript-', 'End of transcription.', 'End of transcription']
 
 underscore = r'__+'
 
@@ -69,9 +77,16 @@ for root, dirs, files in os.walk(f'{TEXT_FILE_DIRECTORY}'):
                 UF --> [LOCATION]
                 ' LOCATION' --> ' [LOCATION]'
                 THE_[LOCATION] error in 3001_074.
+                1001 files had very specific California information replaced with [LOCATION], and companies, age, and birthday that were replaced with [ANONYMIZATION]
             """
             for error in location_errors:
                 clean = clean.replace(f'{error}', ' [LOCATION]')
+            for error in anonymous_errors:
+                clean = clean.replace(f'{error}', '[ANONYMIZATION]')
+            for error in age_error1:
+                clean = clean.replace(f'{error}', "I'm [ANONYMIZATION]")
+            for error in age_error2:
+                clean = clean.replace(f'{error}', "birthday in [ANONYMIZATION]")
 
             """
             Removing transcriber notes that do not stand in for speech.
@@ -82,7 +97,7 @@ for root, dirs, files in os.walk(f'{TEXT_FILE_DIRECTORY}'):
 
             """
             Correct transcriber notes that do stand in for speech. Should be in all caps and within brackets.
-            [unclear], [inaudible], [incoherent], unclear, [crosstalk], [Talking to person not on the phone]
+            [unclear], [inaudible], [incoherent], unclear, [crosstalk], [Talking to person not on the phone], 'END_OF_RECORDING '
             """
             for error in unclear_notes:
                 clean = clean.replace(f'{error}', ' [UNCLEAR]')
@@ -96,10 +111,16 @@ for root, dirs, files in os.walk(f'{TEXT_FILE_DIRECTORY}'):
                 clean = clean.replace(f'{error}', ' [TALKING TO PERSON NOT ON THE PHONE]')
 
             """
-            Transcriptions paused corrections. Should be [PAUSED]
+            Transcriptions paused corrections. Should be [PAUSED] or [END_OF_RECORDING]
             """
             for error in paused_notes:
                 clean = clean.replace(f'{error}', '[PAUSED]')
+            for error in end_notes:
+                clean = clean.replace(f'{error}', '[END_OF_RECORDING]')
+            for error in end_note_corrections:
+                clean = clean.replace(f'{error}', '[END_OF_TRANSCRIPT]')
+                #could be removed completely ''
+            clean = clean.replace('[[END_OF_RECORDING]]', '[END_OR_RECORDING]')
 
             """
             Other errors and typos.

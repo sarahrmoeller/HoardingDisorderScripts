@@ -41,4 +41,4 @@ And you've been mentioned some college education.
 Was your highest level of education a bachelor's degree?
 Interviewee8:
 Yeah.
-END_OF_RECORDING
+[END_OR_RECORDING]
