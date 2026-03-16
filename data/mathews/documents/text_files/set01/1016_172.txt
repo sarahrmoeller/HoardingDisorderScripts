@@ -85,4 +85,4 @@ Thank you.
 Bye bye.
 Interviewee:
 Bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

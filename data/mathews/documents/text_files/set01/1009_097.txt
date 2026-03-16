@@ -34,4 +34,4 @@ Okay.
 Well, I'm trying to see if there's any other questions.
 I think we actually covered everything.
 Let me just pause the recording.
-END_OF_RECORDING
+[END_OR_RECORDING]

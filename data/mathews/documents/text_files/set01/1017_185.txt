@@ -13,4 +13,4 @@ Interviewer:
 Okay.
 Well thank you for sharing that.
 So this concludes...
-END_OF_RECORDING
+[END_OR_RECORDING]

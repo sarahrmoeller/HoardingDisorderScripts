@@ -30,4 +30,4 @@ Interviewee:
 Thank you, I appreciate this so, so much.
 Interviewer: No problem.
 Alright, buh-bye now.
-END_OF_RECORDING
+[END_OR_RECORDING]

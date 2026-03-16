@@ -50,4 +50,4 @@ Bye-bye.
 Interviewee32:
 Take care.
 Bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

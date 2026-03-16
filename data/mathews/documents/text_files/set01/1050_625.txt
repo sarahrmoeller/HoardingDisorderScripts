@@ -16,4 +16,4 @@ So it did not affect me that way.
 Interviewer:
 Great.
 Well, that is all the questions.
-END_OF_RECORDING
+[END_OR_RECORDING]

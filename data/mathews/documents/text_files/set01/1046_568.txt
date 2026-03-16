@@ -81,4 +81,4 @@ Bye.
 Interviewee46:
 Yeah, you too.
 Bye, bye bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

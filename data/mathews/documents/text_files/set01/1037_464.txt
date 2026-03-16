@@ -58,4 +58,4 @@ Interviewer:
 And your highest level of education?
 Interviewee37:
 I have a bachelor's degree.
-END_OF_RECORDING
+[END_OR_RECORDING]

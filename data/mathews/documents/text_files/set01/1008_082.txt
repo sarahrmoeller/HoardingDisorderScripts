@@ -66,4 +66,4 @@ Totally.
 People are like, "Oh, I don't know how to follow up with that."
 Interviewee:
 I have nothing else to say in response to that.
-END_OF_RECORDING
+[END_OR_RECORDING]

@@ -21,4 +21,4 @@ Interviewee:
 Interviewer:
 Okay.
 So, that basically concludes the interview.
-END_OF_RECORDING
+[END_OR_RECORDING]

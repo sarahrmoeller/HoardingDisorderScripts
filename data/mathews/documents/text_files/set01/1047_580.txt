@@ -106,4 +106,4 @@ Interviewee47:
 Okay, thank you.
 You too.
 Bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

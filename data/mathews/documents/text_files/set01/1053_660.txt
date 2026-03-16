@@ -23,4 +23,4 @@ I'm not sure, but okay.
 And your highest level of education?
 Interviewee:
 Graduate school.
-END_OF_RECORDING
+[END_OR_RECORDING]

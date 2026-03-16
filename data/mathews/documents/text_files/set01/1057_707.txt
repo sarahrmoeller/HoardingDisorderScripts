@@ -16,4 +16,4 @@ Interviewer:
 Have a great day.
 Interviewee:
 Yeah, you too. Bye bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

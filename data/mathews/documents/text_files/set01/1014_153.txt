@@ -81,4 +81,4 @@ Okay.
 And concerning the $30 gift card, do you have a preference for it to be physical or electronic?
 Interviewee:
 I like physical cards coming in the mail.
-END_OF_RECORDING
+[END_OR_RECORDING]

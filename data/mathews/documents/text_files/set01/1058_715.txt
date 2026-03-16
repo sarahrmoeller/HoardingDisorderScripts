@@ -43,5 +43,5 @@ Interviewer:
 Bye. Thank you.
 Interviewee:
 You're welcome.
-End of transcription
-END_OF_RECORDING
+[END_OF_TRANSCRIPT]
+[END_OR_RECORDING]

@@ -19,4 +19,4 @@ Interviewer:
 ...some demographic information from you, and your address, so that I can send you a gift card to say thank you for your time.
 Again, it can be either electronic or it can be a physical gift card that we will mail to you.
 The only caveat I will say is-
-END_OF_RECORDING
+[END_OR_RECORDING]
