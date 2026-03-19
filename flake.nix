@@ -16,7 +16,7 @@
       system = "x86_64-linux";
       # system = "x86_64-rwin";
 
-      pythonVersion = "3.7";
+      pythonVersion = "3.10.19";
 
 
       pkgs = import nixpkgs { inherit system; };
