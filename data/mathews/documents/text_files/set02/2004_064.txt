@@ -1,4 +1,3 @@
-(part 2)
 Interviewer1: Good morning, [NAME]?
 Interviewee: Yes, [NAME]?
 Interviewer1: Yeah, [NAME] is on the line too.

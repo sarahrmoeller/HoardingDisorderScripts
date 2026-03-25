@@ -50,4 +50,4 @@ Interviewer:
 You too. Bye-bye.
 Interviewee:
 Bye.
-END_OF_RECORDING
+[END_OR_RECORDING]

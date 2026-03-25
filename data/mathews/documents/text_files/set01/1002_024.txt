@@ -28,4 +28,4 @@ Interviewee:
 College degree, bachelor's.
 Interviewer:
 Okay, so the demographic information was for the study. I'm going to ask you for payment information now, so your first... This we'll keep-
-END_OF_RECORDING
+[END_OR_RECORDING]

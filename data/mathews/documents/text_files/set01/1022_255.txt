@@ -10,7 +10,7 @@ Interviewer:
 Did it ever affect your work?
 Interviewee:
 My work?
-No, mm-mm NEGATIVE.
+No, mm-mm.
 Interviewer:
 Did you have a desk or anything?
 Was your office or desk clean at work?
@@ -30,4 +30,4 @@ I'm trying to think if I missed anything.
 I think that we've covered everything.
 Interviewee:
 Oh, okay.
-END_OF_RECORDING
+[END_OR_RECORDING]

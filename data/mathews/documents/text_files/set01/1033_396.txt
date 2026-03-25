@@ -8,7 +8,7 @@ Interviewer:
 That's about it, I think.
 That gives me a good understanding of how you determine the value of objects.
 On the flip side of that, how do you decide what's trash?
-Participant 33:
+Interviewee33:
 That is a good question because I'm sure if you thought hard enough, you could find a use for almost anything.
 I don't know.
 I mean there is a point where I have too much of something, and so I say, "No, I'm not going to keep any more of these."

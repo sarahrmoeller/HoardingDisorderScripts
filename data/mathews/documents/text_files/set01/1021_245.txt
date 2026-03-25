@@ -30,4 +30,4 @@ Interviewee:
 Not by you but there was some study that, this was going back a ways, where they did send me a gift card and they put $20 on it.
 Interviewer:
 That was probably either an entirely different study or a different university, so this will be a new gift card.
-END_OF_RECORDING
+[END_OR_RECORDING]

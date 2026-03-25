@@ -37,4 +37,4 @@ Okay.
 That makes sense.
 Okay.
 That kind of concludes our-
-END_OF_RECORDING
+[END_OR_RECORDING]
