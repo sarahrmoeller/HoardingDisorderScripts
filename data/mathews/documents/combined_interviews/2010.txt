@@ -1,0 +1,478 @@
+Interviewee: Hello?
+Interviewer1: Hello?
+Interviewer2: Hello?
+Interviewee: Hey its [NAME].
+Let me try to figure it out… I had you on my Bluetooth.
+It should be on Bluetooth now.
+Interviewer1: Ok.
+We can hear you.
+Can you hear us?
+Interviewee: I can hear you.
+Interviewer1: Alright, how are you doing?
+Interviewer2: Ok, [NAME].
+Interviewee: Yes?
+Interviewer2: There’s two of us on this call so I apologize if we step on each other a little bit.
+And, I might interrupt, kind of.
+Yeah, I’m a graduate student working with [NAME].
+And [NAME], I believe you were introduced to [NAME].
+He’s a graduate student out of [NAME].
+And we’re kind of jointly conducting this project.
+And to just, you know, give you a really brief intro as to what we’re doing, I’m going to have you answer any questions.
+We’re kind of conducting interviews with people who are forming the, kind of, base group of clinical experts of hoarding disorder as it kind of grows from being established by the DSM-5 as a disorder.
+We’re kind of trying to gather knowledge from the group of people who are really the key clinical experts.
+And the purpose of this is both to understand what that knowledge looks like at this point in time and also to kind of… The second stage of our project is we’re going to be interviewing individuals with hoarding disorder, and so we’re going to try to do a comparison of the way that those individuals understand their own disorder and the way that it’s understood clinically.
+So, if some of the questions that we ask today sound a little bit odd, you know, just thinking about them as being framed in terms of comparing it to what a patient with hoarding disorder might say might clarify for you why we’re asking the particular things that we’re asking.
+Interviewee: Sure
+Interviewer2: That’s kind of like our short intro, sort of a disclaimer to give you some context.
+We have a lot of questions for you and I want to be respectful of your time.
+So, if it’s ok with you I can just…
+Interviewee: I am in the car.
+I’m actually driving back from doing a hoarding training, so I am stuck in the car for the next two and a half hours.
+Interviewer2: Ok.
+Ok so good.
+We’ll still try to be respectful of your time, but it’s good to know that you are not crunched, and if you need to go at any point or you’re distracted that’s totally fine, just let us know.
+Ok?
+Interviewee: Ok.
+And, actually I’m going to switch you over to just my earbud here just so… because I don’t want you getting the sound of the – Ok I think you’re on the earbud now – just the sound from the road and everything kind of getting in my way.
+Ok there we go.
+Interviewer2: Yeah that sounds clearer, thank you for that.
+Interviewee: Sure!
+Interviewer2: Yeah.
+Ok so let me go through our informed consent just, you know, to get you acclimated.
+I can answer any questions that you have at any point during our conversation, so just going to read you what we have for our informed consent.
+Interviewee: Ok.Interviewer2: You are volunteering to participate in a research project conducted by [NAME] from [INSTITUTION].
+The aim of this study is to better understand the ways that researchers and clinicians think about hoarding disorder.
+You’ll be one of approximately 30 people being interviewed for this research and your participation is fully voluntary.
+You won’t be paid and you can withdraw or discontinue at any time without any penalty.
+If you decline to participate or if you decide to withdraw from the study no one will be told.
+Most interviewees we hope will find the discussion interesting and thought-provoking.
+If you feel uncomfortable in any way during the interview session, however, you obviously have the right to answer any question or to end the interview at any time.
+Participation in this study involves being interviewed by researchers from [INSTITUTION].
+Our interview will last approximately 60 minutes, and we’re going to take notes during the interview.
+We’re also audio recording our interview and we’re going to transcribe the subsequent dialogue.
+If you don’t want to be taped unfortunately you won’t be able to participate in the study.
+We the researchers won’t identify you by name in any report using any information obtained from this interview, and your confidentiality as a participant in the study will remain secure.
+Subsequent usage of records of data will be subject to standard data use policies which will protect the anonymity of individuals and institutions.
+Faculty and administrators from my campus will neither be present at the interview, nor will have access to raw notes or transcripts.
+This precaution will prevent your comments from having any negative repercussions.
+And, this research study has been reviewed and approved by the IRB at [INSTITUTION].
+I have contact info for both [NAME] and for the Institution Review Board if you’d like it.
+Do you have any questions or would you like to continue with the interview?
+Interviewee: I have no questions, and I am consenting to continue.Interviewer2: We’re just trying to get the things that are on the top, you know, the top of your mind when the prompt is read.
+Yeah.
+Ok, so now we’ll move more into the free form interview section where we’ll have a little bit more of a conversation.
+We’re just going to ask you some questions about how you think about this, kind of, clinical picture in your practice and in your work.
+And just so to give us some background about you, could you just start out by telling us your background related to this disorder and how you kind of got involved with this?
+Interviewee: Sure.
+So, I started working with hoarding in 2006.
+So, the practice where I had been working at, which was the [INSTITUTION], [NAME] was on staff there and she had been setting up the hoarding program, and when she was leaving the staff to go work elsewhere they were looking to bring somebody else on to work with hoarding.
+And, I already had a strong background in working with OCD and with a CBT background, so they said, “If you’re interested we’ll bring you on, and we’ll kind of start orienting you at that point.”
+So, that was the first formal work with hoarding disorder at that point, and previous to that I always joke that I enjoy organizing, the container store is one of my favorite places, I have multiple label makers.
+So, I already kind of had the mindset of, “how do you deal with stuff,” and then it just kind of got moved into a hoarding situation through getting introduced to it by [NAME].
+Interviewer2: What is your training and educational background?
+Interviewee: So, my undergraduate is psychology from [INSTITUTION], and then I did my Master’s and my PhD in clinical psych at [INSTITUTION].
+Interviewer2: Ok, and do you now see patient’s clinically with hoarding disorder?
+Interviewee: Yes, yeah.
+So, I do private practice working with hoarding and OCD spectrum, anxiety, and depression.
+Interviewer2: Mhm, and do you also conduct research or is your role mostly clinical?
+Interviewee: No, it’s all clinical.
+Interviewer2: Ok.
+And, you said how long has it been since you started working in hoarding disorder?
+Interviewee: 2006.
+Interviewer2: Ok.
+[NAME], do you want to take over with the next couple questions?
+Interviewer1: Yeah.
+So, the first question that we have for you in this section now is, “What for you are the most important differences between normal saving behavior, like collecting for example, and hoarding disorder?”
+Interviewee: I think it’s the… I’m trying to… I would put it where there is the detachment of importance to the item.
+Kind of, the difficulty making the decision and trying to prioritize what items are more important, less important.
+So, tending to apply greater importance across the board, and I think that just ties in with the impaired decision-making process.
+So, I feel as though a lot of the emotional attachment is not necessarily that different, but I think it is more intense.
+So, yeah.
+Interviewer1: More intense and more, I guess, dispersed.
+Interviewee: Yeah, so a broader blanket, and more intense emotions and a greater value attached.Interviewer1: Ok, ok.
+And, can you tell us, you know, what are the demographics of the typical patient with hoarding disorder?
+Interviewee: Well, demographics of the clients that I see?
+Interviewer1: Yeah, the clients that you see or if you think that there is a difference between the clientele that you see and the typical individual with hoarding disorder in the country, maybe speaking to that as well.
+Interviewee: Right, well I think with who I see, it’s generally female, and with my client base its mostly Caucasian, but I know that that’s not representative.
+I think that’s more of where my practice tends to be.
+Age range, I’d probably put it at, probably in the upper 50’s for the clients who are seeking treatment.
+The age is starting to come down a bit.
+I do have clients now, you know, coming down to maybe more, low 50’s, upper 40’s.
+And then, socioeconomics, you know, again, the clients I see are self-pay and they are often self-referred, so they tend to be more either middle to upper-middle SES.
+Interviewer1: Ok, and do you feel like any of those demographics that you described are translatable to the hoarding population at large?
+Interviewee: I feel like the age definitely is, and I just feel like in general women are more likely to seek out mental health services than men are.
+So, that’s where the question of is it more being referred to services or seeking out services versus more of a crisis intervention where the clutter has gotten extremely worse.
+I feel like that kind of skews the sampling in there.
+Interviewer1: Yeah, definitely.
+And, do you have any idea why the age has been coming down, that you’ve noticed in the individuals that you see?
+Interviewee: Well I think that there’s a growing awareness about the fact that there are services available.
+So, either people are aware themselves in wanting to seek out support or family members are more likely to intervene and encourage that they need to seek treatment.
+Yeah, I think that maybe previously there may have been a forced clean out without the supportive mental health services.
+Whereas now there is an attempt to do it in a more sensitive way.
+Interviewer1: Ok.
+And can you think of a specific case or cases that were challenging to diagnose because they were on the border between pathological and non-pathological, maybe subclinical, and kind of talk about how you made that distinction?
+Interviewee: I’m trying to think of someone in particular.
+So, with one person, this was actually pretty recent, they tried to make the distinction between was it a mental health issue versus, as he put it, was it more of a management issue?
+More of a… was it a skill deficit?
+Where, if he just had the skills there wouldn’t be a clutter issue, and just during the process of the conversation as he started to identify his expectations for what his intentions were, what he wanted to do with the items, versus the practicality of, “would he actually have the time and the resources to do all of those things,” was one distinguishing element.
+Then also, being able to identify the past efforts to clean up at the encouragement of his loved ones and his inability to be able to do so.
+That was another indication that it was more of a hoarding issue rather than a skills deficit.
+Because, he had multiple attempts of trying to learn the skills and not being able to do so.
+Interviewer1: Ok, ok.
+Interviewee: Yeah.Interviewer1: I don’t know why, but the analogy of one of the qualifiers for diagnosis of substance use disorder would be multiple attempts to cut back and not being able to do so.
+Similarly, trying to clean and bring your space under order and not being able to do so as an indicator that there may be a pathological problem.
+Interviewee: Yeah, definitely.
+Interviewer1: Ok.
+Interviewer2: Ok, I guess I’ll pick up with the next question.
+So, the next section kind of takes off really nicely from that point.
+We’d like to talk a little bit more specifically about the DSM 5 criteria and just to hear from you how you apply them and how you construe them and how you use them.
+So, you know, I’m assuming you apply these criteria frequently in diagnosing individuals with hoarding disorder and of course of your practice.
+Do you feel like, first of all, that there are particular elements of these criteria that might be particularly difficult or ambiguous, or that some clinicians might see differently than others, or do you feel like there’s anything in them that might have to do with the language or might be a matter of clinical judgement more than others?
+Interviewee: One part that gets… and I notice it’s kind of the language with most of the diagnoses in the DSM is kind of the rule out.
+So, if it’s hoarding disorder the behaviors are not occurring in the context of other diagnoses.
+But, I think just the… the fact that there’s such a high rate of co-occurring diagnoses with hoarding disorder.
+I think… I’m not sure if the statistics have changed, but like 92% of people who are diagnosed with hoarding disorder are also diagnosed with some other mental health diagnosis at some point in their life.
+And so, I think that because there is so much that goes hand in hand, I still diagnose the hoarding disorder, but there are times when someone is maybe feeling, “Well, no this is more just because I’m depressed.
+I’m not doing these things… if I wasn’t depressed I wouldn’t have the hoarding issue.”
+But, if 57% of people who are diagnosed with hoarding disorder are also struggling with depression, it can be really difficult to separate out, is this a consequence of the depression or is this a freestanding hoarding disorder in addition to depression.
+Interviewer2: And, how do you make that clinical judgement, how do you make that call?
+Interviewee: I go more based on what the level of accumulation in the house and how is it interfering... how is the clutter specifically interfering with the daily functioning?
+And, is that causing impairment separate from whether or not there is depression?
+Interviewer2: So, you look at the space and the way that the space is impacting their life.
+Interviewee: Yes.
+Interviewer2: Mhm, ok.
+Ok, that makes a lot of sense.
+And it sounds like… do you have the same kind of judgement calls to make in terms of anxiety or is it really mostly just telling if its hoarding or depression?
+Or, maybe not just anxiety, but other co-occurring mental health disorders.
+Interviewee: I feel like it’s much more with the depression.
+I don’t… I feel like with the anxiety it’s a more… it’s easier to separate the two.Interviewer2: And is that because the behavior of depression might cause someone to accumulate things or be unable to clean [INAUDIBLE]?
+Interviewee: Yeah, I think just the behavioral activation [INAUDIBLE].
+Is it the lethargy and the low self-esteem and the feeling not deserving of living in a cleaner space and kind of an apathy about the living environment as well.
+Interviewer1: Mhm, that makes total sense, yeah.
+Ok, I can understand that.
+Ok, now we’re going to ask you some questions about the DSM 5 criteria specifically, so we’ll read you one of the criteria and then ask you some questions about how you apply them.
+So, the first criteria is consistent difficulty discarding or parting with possessions regardless of their actual value.
+And, we’re kind of wondering how different clinicians might determine that term “actual value.”
+What makes the value judgement for a person with hoarding disorder inappropriate?
+Interviewee: I think it’s more… I mean one of the challenges I feel here is when I ask somebody, and this is like a fire marshal, “How do you know if it’s a hoarding disorder situation?” He’s like, “Well it’s like porn, you know it when you see it.”
+That’s not helpful because it’s such a subjective evaluation.
+How do you attach value to something?
+I feel it’s incredibly subjective as well because, so it may not be the value attached with one individual item, but is this a pattern I see repeated across multiple items?
+As compared to the value that might be determined by my own subjective standard of the items compared to how something might sell on EBay.
+But, I think it’s more… is the individual… how much are they trying to explain or justify the value that they attach to the item?
+Interviewer2: So, it sounds like you make the determination less about each item and more about the pattern of items.
+Interviewee: Yeah.Interviewer2: And, do you feel like, is it… Do you feel like this is more difficult more or less when we’re talking about items that are of low monetary value?
+Is it harder to make the distinction when you’re talking about emotional value or aesthetic value?
+And, does it matter which culture the patient is from or what their beliefs about items might be?
+Interviewee: I think it’s harder when it’s the emotional attachment to items or the emotional value because that really is so strongly based on an individual’s experiences, or kind of how they define their identity.
+Whereas if something has more monetary value, we can even just look up what’s the resale value of “x” item?
+Or if you’re looking at maybe aesthetic, you know, we can discuss what is appealing about an item.
+Just the visual attractiveness.
+But, if you’re going to talk about the importance of a child’s stuffed animal, I have no perspective as to which animal is of greater value than another unless I truly know that person and that person’s relationship to each of those stuffies.
+And then you layer on the more intense emotional connection, and if you look at kind of the object relations and how these items are acting as extensions of those relationships to other people.
+I don’t have that background of who those people are and what they’ve gone through.
+So, I think that’s what makes it much more difficult.
+I’m thinking from different cultural backgrounds… I’m trying to think of how that has come into play, and I think it’s more asking to be educated by the individuals about where they may be coming from if I’m not aware.
+But, it can be really hard to… and I’m just trying to think of what backgrounds various clients have come from.
+And, it’s much more kind of giving them the opportunity to share what their stories are and why something would be important in that context and kind of checking my own assumptions at the door as best I can.
+Interviewer2: Mhm.
+Yeah, that makes total sense.
+The next, kind of, criteria that we’d like you to talk through with us is the one that begins, “The difficulty discarding possessions results in the accumulation of possessions that congest and clutter active living areas and substantially compromises their intended use.”
+So, again, we’re kind of interested in this question of how you make the determination of how much stuff is too much, especially perhaps considering things like home size or other people in the home that might affect the degree of clutter that you see.Interviewee: Well, I think one of the big pieces is what’s the purpose of that home?
+So, is it being shared with other people, what other goals that the various residents have?
+So, like I mentioned at the workshop I did today, the standards are going to be very different if there’s a 3-month-old in the house versus a 3-year-old versus a 13-year-old.
+And, kind of gauging your threshold for is the stuff interfering based on the safety of the different people living in the home and how they would want to both developmentally, but also just personal interest wise, how they would want to make use of the space.
+So, the threshold for clutter is going to be a lot lower for the 3-year-old than for the 13-year-old, as in needed to get maybe call CPS or get other involvement.
+And, then I also want to look at the specific circumstances or how are the spaces of the house being used?
+So, if there’s a bedroom upstairs that is filled with clutter, but it’s kind of been agreed upon that that is a storage room rather than a used space, as long as the family is in agreement of that, then I think it’s ok.
+I think it’s when one person’s decisions about the stuff is then infringing upon the living choices for the other family members.
+Interviewer2: Do you think home size plays any role in being able to tell or how quickly you might pick up on it?
+Interviewee: I think it does.
+If you’ve got a mansion it can take a lot longer to fill it up than if you’ve got a studio apartment.
+But, I do think that if you’ve got a smaller living space it may seem more like a hoarding situation when it isn’t necessarily just because maybe multiple, there’s multiple uses for one given space.
+There was an article in the newspaper about someone living in a very small basement level apartment in I think Boston, and they didn’t have excessive stuff but because they only had like one closet the laundry basket was perpetually sitting out in the main living area, and because there was only one room, basically the laundry basket filled with dirty clothes was sitting in their living room.
+And, they felt much more overwhelmed by this than they would have if they had a two-bedroom apartment with a space where they could tuck it behind the door somewhere.Interviewer2: And kind of along those same lines, just kind of thinking through the idea of intended use, because, you know, [INAUDIBLE] tend to use space in different ways.
+So, for example, someone who doesn’t ever cook, they might see it as appropriate to store things on their stove.
+How do you kind of figure that into determining what a good intended use, you know, of the space is?
+Do you kind of notice those are not for storage or is it a little more flexible than that, and how do you negotiate what counts as [INAUDIBLE] and what doesn’t?
+Interviewee: Well, I think… I would say, you know, kind of separate from what the normal part is, the safety risk.
+So, if… even if they don’t cook, the stove is still considered like a hot space, and so if you’re storing things there even if you don’t use the stove it could still be a fire hazard, you want to keep items away from a potential combustible situation.
+But, otherwise I think it’s clearly… if it’s intentionally defined in a particular way.
+So, let’s say that there’s a second bathroom in the house, and nobody is using it.
+If that bathtub then gets converted for using for some kind of storage, so it’s not being used for its intended purpose as architects and builders designed it, but they weren’t using it for that purpose anyway.
+So, if it is being used for storage there would be the question of why is there inadequate storage elsewhere in the house?
+Is it a function of too much stuff overall, or is it making a distinction?
+This is actually what I did.
+I kept clothes that were being donated stored in the hallway bathroom kept in the tub because we never used it, but then my dad came and visited and turned the shower on and got all the clothes wet by accident.
+So, it’s a question of is it planned out?
+I think.
+And, what is the harm component or the potential risk associated with it?
+Just for the level of in the living space, not looking at the reasoning behind keeping those items, anyways.Interviewer2: Right, right.
+So, kind of just to take it one step further for healthy individuals there might be a degree of variance in the amount of free space they like in their home.
+So, some people really prefer to have clear spaces, like a clear desk, while others kind of like a little bit of clutter or don’t mind having things out and ready to use on their desk.
+Do you think hoarding disorder could be kind of an extension of this variance or is there… is that maybe [INAUDIBLE] below threshold, or is it something entirely different?
+Interviewee: I think that it’s a combination of the two.
+I think that it’s going beyond kind of that range of the typical behaviors, but I also feel as though there’s, everyone starts feeling more overwhelmed or more paralyzed by the stuff than the other people may be.
+So, someone who does not engage in hoarding behaviors but has a cluttered desk maybe just doesn’t prioritize the sorting and filing of items, whereas someone who is more overwhelmed by hoarding… Hold on sorry I have to start over… So, someone who’s not bothered by hoarding they just… You know, “I just don’t want to deal with the papers it’s not a big deal.
+I can sit down and do it later.”
+Whereas someone with hoarding, “The papers are there.
+I don’t know how to deal with it.
+I’m avoiding rather than choosing to not deal with it,” because it’s more associated with feeling overwhelmed, feeling distressed in some way.
+Interviewer2: Ok.
+Interviewee: Yeah, so my husband doesn’t care about his files, he just doesn’t want to deal with them, but if he needs to sit down and do it he has the ability to do it.
+Interviewer2: Ok, ok.
+The last criteria of the DSM 5 that we’d like to talk through with you is one that says, “This difficulty is due to a perceived need to save the items and to the distress associated with discarding them.”
+So, again we were kind of wondering how you assess the degree of distress that somebody has with discarding an item, and whether this might be more difficult to assess in patients who don’t have a lot of insight about the disorder.
+Interviewee: Yeah, I think that if the individuals don’t have the insight, or they’re also far enough removed from their stuff, they may think that they wouldn’t have any difficulty letting go of the items, but then when they’re actually in the moment of dealing with the items, that’s when the distress comes up.
+But, they may not be able to anticipate just how upsetting it would be.
+Interviewer2: So, you might ask a patient in your office, “Would you get rid of this item?” and they would say, “yes,” but then when actually confronted with the need to do it they would experience distress.
+Interviewee: Right.
+Interviewer2: But, they wouldn’t… they didn’t even know they would experience it.
+Interviewee: Or they would significantly underestimate the level of distress that they would expect to have.
+Interviewer2: That makes sense.
+Ok, [NAME] do you want to take over with some questions?
+Interviewer1: Yeah.
+Interviewer2: We appreciate your time, again we want to be respectful of it.
+I appreciate you… your answers are great so we’re kind of taking our time, assuming you have time, but if you need to end at any point just let us know.
+Interviewee: Ok, sure.
+We are good, I’ve still got 88 miles to go.Interviewer2: Ok.
+Interviewer1: Ok, so the last question kind of ties into the next topic that we want to cover which is insight.
+And so, the literature surrounding hoarding disorder has described a number of people with hoarding disorder as often having low insight.
+So, can you tell us how you define insight?
+Interviewee: I think it comes from, how did they explain the situation to me?
+And again, I’ve got a biased pool here because most of the individuals that I work with are… I mean they’re all voluntarily participating in services, so they’ve got some degree of insight.
+I think as they try to describe the level of clutter or the consequences that have resulted from their having clutter that’s where that level of insight… Do they see the… How well are they able to articulate a connection the clutter itself and, you know, if there’s some kind of negative circumstance that they’re experiencing?
+But, ones who don’t have as much insight are dismissing that the clutter is that problem.
+They’re tending to do more externalizing, I think.
+Interviewer1: What do you mean, externalizing?
+Interviewee: Putting responsibility of the situation… they didn’t have the resources that they needed to be able to effectively organize the situation, the landlord was being unreasonable about how the space needed to be maintained, it really wasn’t problematic.
+I mean, I think it’s often that, you know, if there was some concern regarding eviction or child welfare, they got… the inspection happened on an off day where somebody did something the day before that made it more cluttered kind of putting the responsibility elsewhere.
+But, the majority of people that I have been working with, you know, they do recognize the direct connection between the negative situation and their clutter, they do have fair insight into it, but I think it’s taken a while for that insight to build.
+So, I’m coming in after they’ve kind of been in this process for a while.
+Interviewer1: Ok.
+And, so do you have any knowledge about how patients successfully gain insight, or how you might help a patient try to gain insight?
+Interviewee: I think that a big part is in as nonjudgmental a way as possible kind of trying to point out kind of how are things connected.
+How do these things feed into one another?
+So, being able to highlight patterns that they may have either not seen or atttributed to other causes.
+And, then tying that in with the nonjudgmental piece of it… because I think that one of the things that maybe someone might avoid acknowledging that connection is if they’re afraid they’re going to be judged or criticized.
+But, if it’s just straight forward and matter of fact, this is how it is but what can we do about it, kind of creating the hope or the potential that things can still be done differently, then they may be more open to acknowledging the connection that’s there otherwise.Interviewer1: And, do you think that when patients kind of come to you with that insight already that that is something that they’ve come to on their own or do you think that its often their families that assisted in the process?
+Interviewee: I think it’s often either the family, but I feel like there’s been some kind of external event that’s been sort of almost like a wakeup call.
+So, they’ll have worked with people where it’s been somethings happened at their job where their job is… you know, they’re at a risk for losing their job because of the clutter.
+You know so being in the [LOCATION] area, I’ve had people from different government agencies that the hoarding behaviors have factored into maybe security clearances, and when that’s been brought to their attention and they could be facing charges for this behavior, “Oh wow, I didn’t realize it had been that bad,” when it’s been these behaviors were going on in this context.
+Interviewer1: Ok, so when they get some outside input.
+Interviewee: I think there’s been some outside input.
+I even worked with someone where she said, “If I didn’t have that outside input, if I’m not getting feedback about how my problems are… about how these behaviors are problematic, how do I know that they need to change?
+Because my perception is that I’m getting by and things are working out ok.”
+Interviewer1: Yeah, and things can also, I assume, become dangerous when individuals with hoarding disorder start to isolate, because then they don’t have that…
+Interviewee: That outside calibration, yeah.
+Interviewer1: Yeah.
+Ok, so in the literature there’s been kind of a breakdown of the concept of insight in hoarding disorder into different constructs and in different ways that lack of insight could be manifestations of other things.
+So, we kind of wanted to ask you how prevalent you find the following constructs in your patients.
+So, I know despite the fact that a lot of your patients, you said, already have some insight I’m just kind of curious as to whether you’ve seen any of these other things and whether any are more or less prevalent or problematic in your work.
+So, those constructs are defensiveness, anosognosia or the lack of ability to perceive your illness and the distress, the idea of overvalued ideation, unreasonable belief in the value of the items, and indifference.
+Interviewee: I think I’m more likely to see the indifference, and I don’t know if that’s more of the reaction of, “I’ve been dealing with this so ling I’ve kind of stopped caring about it or how it might be having an impact on other people,” or almost like a withdrawal from the situation, almost like a learned helplessness or hopelessness tied into it.
+That could come across as indifference.
+And, I do think that the overvaluation either of items themselves or the efforts that they’re trying to undertake.
+So, “this is so important I have to do this.
+I can’t be bothered with something as trivial as the decluttering right now because the other things are more important and more pressing.”
+So, not having perspective on how important the decluttering actually would be.
+Interviewer1: Ok.
+Interviewer2: I think that falls into some kind of borderline category between indifferent and maybe overvalued ideation, not realizing what a big difference it would make.
+Interviewee: Well and then also not prioritizing the actions that are tied into the decluttering.
+You know, so then that’s decision making, how do you choose to spend your time.Interviewer2: That makes sense.
+Interviewee: And, I think that the defensiveness, I think that depends on how you’re interacting with them.
+So, I think as long as you’re not really dealing with the stuff, then that defensiveness wouldn’t be there.
+Kind of like if you get between a mama bear and her cub.
+If you get between, you know, someone and their clutter I think that’s when the defensiveness tends to come in, especially if they have a history of feeling more criticized and attacked by other people around the hoarding issues and with that not feeling heard or understood by them.
+They’ve kind of learned that they need to fight for their position and to fight for their stuff.
+Interviewer2: So, they’re feeling like the need to justify themselves right off the bat [INAUDIBLE].
+Interviewee: Right.
+Interviewer2: Ok.
+Ok, I guess I’ll pick up with the next section which is about, we’re going to kind of return to one of the free listing prompts that talk about some of the explanations that patients with hoarding disorder might have for their behavior.
+And, the first thing we’d like you to do is just kind of think through some of the questions from an adapted version of the Brown Assessment of Beliefs Scale and we’d like you to just think about your patients and try to think about what, in your experience, your patients would say in response to these questions from the Brown Assessment of Beliefs.
+Interviewee: Ok.
+Interviewer2: And so, for example, one of the questions is, “What do you think has cause you to have these behaviors and do these behaviors have a psychiatric or underlying biological cause?” So, just from your time spent treating patients, what do you think your patients believe is causing their behaviors?
+Interviewee: Hm, I’m thinking of a couple clients in particular where there’s a feeling that they need to either be able to control or compensate for a particular situation.
+So, if they were feeling insecure in their ability to complete whatever job it might be.
+So, with one client, she’s a doctor with someone else.
+She’s already feeling anxious and insecure and unsure of herself.
+You know, foreign born, you know, she’s a second wife, so how can she prove that she’s capable and confident and able to fit in?
+And, I think that they do come to the awareness that there is a psychiatric issue.
+I think it comes as they’re building their insight, recognizing both the depression and the anxiety that have contributed to their participating in the hoarding behaviors, going back decades.
+Interviewer2: So, maybe it starts out with more of a, kind of, experiential cause and then over time as they begin to build insight they begin to realize that it’s more of a psychiatric cause.
+Interviewee: Right, right.
+And, I think they recognize that, kind of, the behaviors that have turned into hoarding behaviors.
+Maybe they already had a tendency toward it, but then maybe they got more overwhelmed, more stressed and just were not able to fully cope with it, and that’s when it started to more snowball and become a maladaptive and more disruptive behavior.Interviewer2: That makes sense.
+Ok, and so just one more of these things for you to think through, again, thinking about how your patients might answer this question.
+“How convinced are you that you need to keep these things or that some bad will come of discarding?” How do you think your patients would answer that question?
+“How convinced are you that you need to keep these things or that some bad will come of discarding?”
+Interviewee: I think a lot of them would say, like percentage wise maybe 60% convinced, and depending on how they would define something bad.
+Would it be the end of the world?
+No. But, would they feel discomfort, would they feel bad about it?
+Probably.
+And so, it would be survivable, but they’d still rather not deal with that uncomfortable feeling in the first place.
+You know, they’ll kind of say, “If you pushed me I could get rid of it and I’m sure I’d be fine, but I’d feel bad and I’d rather not go through that experience.”
+Interviewer2: Mhm.
+So, less something would happen to them and more they would experience it negatively.
+Interviewee: Right, it would more just be the emotional experience rather than “if I didn’t have this my family would disown me,” or some external consequence.
+So, “if I don’t keep all of these reports my boss will fire me.”
+Interviewer2: I’m kind of thinking about those explanations in the list that we generated earlier of reasons that people might give for hoarding behaviors.
+Do you think that these are post hoc reasons to justify kind of an underlying pathological need or do you think that they are, in some sense, real reasons?
+So, you know, reasons that people give for hoarding, are they post hoc justifications versus actual reasons, and how do you go through that idea?
+Interviewee: I’d say, you know, kind of similar to the way you think about an OCD, an obsessive thought with a related compulsion.
+There’s a grain of truth to it but that grain is now lost in a whole sand, like a whole beach of sand.
+So, I think when you talk about hoarding clients, often I might, one item at a time, “Ok, I can see a reason for wanting to do that.
+Ok.”
+To a point that makes sense, but it’s taken to such an extreme, that’s where it becomes more problematic.
+So, yes, I could understand wanting to hold on to an old vehicle registration because there’s a chance you might need to prove when you had the vehicle or something.
+But, if you’re holding onto it, it’s from 20 years ago… now it’s getting too involved.
+Now it’s an exaggeration of what did have a piece of… I don’t want to say what made sense because there was a part in there that would have been on the continuum of more typical decision-making behavior, then it went further than that and then it got distorted.Interviewer2: Mhm, and kind of just thinking through that and thinking about whether you can think of hoarding as kind of a thought process disorder or something that’s more biologically based, thinking about which came first.
+Was it the thought or was the thought just kind of justifying something that was already there?
+So, it is a disorder of the way that people think about things versus their thoughts are just kind of covering up a biological need of some kind?
+Interviewee: That’s a really interesting question.
+I think that there’s a piece of it where there’s already that initial urge or pull to keep the item and then maybe trying to put a layer of explanation over top of it to justify.
+But, then I also think that then that behavior gets reinforced and then the justification, you’re able to find validity to support that thought process.
+Interviewer2: [INAUDIBLE] Well, that’s actually easily separable.
+[INAUDIBLE] But, do you think that it’s kind of biology, the need comes first and everything is kind of layered?
+[INAUDIBLE]
+Interviewee: Um, I think for some people, yes, but I feel like there’s going to be some individuals where it really it is really much more of a learned and modeled behavior than something that is kind of biologically almost pre-programmed.
+And, that’s why I’m thinking more, like, what life events have they had?
+Interviewer2: And do you think… Right, right so some of them perhaps it’s more of a learned behavior or something that they’ve done to cope with an event, whereas other people perhaps it’s more of an urge that then gets justified.
+Interviewee: Right.
+Interviewer2: Ok.
+And, do you think that cultural forces perhaps associated with value and self-worth and consumption and ownership of material possessions play any role in the development of hoarding disorder?
+Interviewee: This I’m not sure of, because with the talk I did earlier today one of the questions – this was for professional organizers – they had the question about shopping addiction.
+So, I did very cursory reading about kind of the pressures for being more materialistic and kind of the identification of feeling… how you’re defining your own sense of worth as associated with the acquisition of items.
+I feel like it does tie into the excessive acquisition behaviors that you would see with hoarding disorder or it can.
+But, I’ve heard enough and seen enough where there are people where they do the excessive acquisition, but then they also are able to let go of those items.
+So, it’s more like a revolving door, whereas I think with the hoarding situation the stuff is coming in and it’s staying.
+I know [NAME] had like a street map sign for one of the presentations where it’s talking about the acquisition and feeling good, almost like an addictive behavior, and then, kind of, the high wears off more and more quickly, and having that be an addiction.
+But, I don’t know how that compares to the general population.
+Interviewer2: Ok.Interviewee: I think one of the statistics was like 60 or 70% of American women identify as being, you know, shopping addicts.
+But, I don’t know how that term would really be operationalized.
+So, is it more just linguistically thrown around similar to, like if someone said, “Oh my gosh I’m so OCD.”
+Well, are you really, or is it diagnostic criteria of Obsessive Compulsive Disorder?
+You know, how is shopping addiction compared to the actual excessive acquisition and the emotional piece that’s tied into it?
+Interviewer2: Ok, so maybe there’s excessive consumption that isn’t a shopping addiction.
+People might perceive it as obsessive, but that shopping addiction or that, you know, excessive accumulation of items through hoarding, that’s kind of separate from that but perhaps related as well.
+Interviewee: I think so, and then also looking at the excessive acquisition from the hoarding side of things, that is not actual shopping.
+Interviewer2: Mhm, great.
+Interviewee: And how is… and does that serve the same emotional purpose of shopping addiction or is it functionally different?
+Interviewer1: Yeah.
+Interviewer2: I see.
+Ok, that makes a lot of sense.
+It’s a good question, and it’s a good distinction to make kind of between those different levels of acquisition and different, kind of, reasons that people might do it and problems discarding versus purchasing.
+[NAME] do you want to ask this kind of next set of questions?
+Interviewer1: Yeah.
+Interviewer2: This is our kind of last group of questions for you.
+Interviewee: Ok.
+Interviewer1: Yeah, this is our last series.
+So, we’re kind of curious about the typical process that occurs to get patients into your office for treatment or for study participation, and so we talked about in the free listing, you know, the reasons why a person might seek treatment and, you know, experiencing distress or situational crisis or family urging were some of the things that you mentioned.
+So, do you feel like people presenting for treatment are normally self-motivated or more often by others?
+Interviewee: I think it’s more often by others, at least for maybe the initial appointment and then it transitions over to them more wanting to do it for themselves.
+Kind of as they start to maybe better understand what the process would be and they’re realizing that it’s something for them as opposed to something that is against them or them being blamed and chastised.
+Interviewer1: Yeah.
+Interviewee: It’s more constructive for them.
+Interviewer1: Ok, and how long has the hoarding behavior typically been going on before you’ll see patients?
+Interviewee: Decades.
+Yeah, I’m thinking… A lot of my clients, they’ve been hoarding for probably maybe 25, 30 years.
+And, that’s maybe towards the low end because I’ve got clients coming in in their sixties.
+It’s been going on in some form or another probably since, easily their thirties if not their twenties.Interviewer2: And, do you ever get patients who are in earlier stages of hoarding disorder or have been hoarding for less long?
+Interviewee: Well I did have… In my current group, there are two clients who are younger than I am.
+Which, I’m like wait a second, wow I think this is the first time that’s ever happened.
+I do have some people that come in where it’s in the earlier stages and maybe they’ve had family members where there’s been a hoarding situation and they don’t want to go as far down the path.
+Or there’s been a couple people that I’ve worked with who were in their twenties and there was significant clutter that had been going on at that point probably for maybe fifteen years, and they were starting to feel that is was having an impact on their job options or potential relationships.
+That was enough of a motivator for them to try to get involved in some changes.
+Interviewer2: And just one more follow-up question, sorry [NAME].
+Just wondering if in the course of your, kind of, practice you had developed kind of a sense of the life course of hoarding disorder, like when it typically begins or if that seems to differ from patient to patient.
+Interviewee: I definitely see it beginning, I would say by early twenties, and it’s not necessarily in the threshold for it to be a diagnosis of hoarding disorder, but the patterns of thoughts and behaviors that are contributing to the accumulation.
+So, excessive notetaking in class and keeping the notes semester after semester, making audio recordings of the classes with the idea of going back and listening to them at some later point but never doing it.
+Interviewer1: Ok.
+Interviewer2: And so, that’s pretty consistent that it starts that early?
+Interviewee: I think so, yeah.
+And, some individuals are even talking about as teenagers, just as they’re reflecting back.
+So, noticing that they’ve had consistent clutter.
+Interviewer2: [INAUDIBLE]
+Interviewee: Yeah, but it’s more… Some of it is when did they have the space and the opportunity to acquire, or when did they maybe get upset with their parents for discarding things?
+But, I definitely have people who are identifying it going back into teen years, but I can’t think of anyone looking back younger than that.
+Interviewer2: Ok, and you can go ahead [NAME].
+Interviewer1: And so, I know that we discussed this a little as well in terms of the role that patients’ family and friends play in arriving at the diagnosis of hoarding disorder, and so are there relatives that are more often involved in this process?
+Interviewee: I feel like it ends up being siblings.
+And… I say with the seeking treatment a lot of times it’s the siblings and the spouses as well.
+I’m thinking back here… I feel like a lot of the times it’s… And with siblings I think pretty evenly between brothers and sisters, but it’s more as adults, “Has there been some kind of crisis?
+How can we step in?
+We don’t want, if parents are still alive, we don’t want this to be a burden for mom and dad to have to be dealing with, so how can we start to intervene more now?” And, then I think the spouses tend to be very involved as well.Interviewer1: Yeah, and what about employees of institutions of the state: social workers, homeowner’s associations, police officers?
+Do you feel like you see a fair amount of that?
+Interviewee: Not so much.
+And, I’ve gotten a couple of calls say from a hospital looking to create a discharge plan.
+One of the issues that came up during the course of treatment while they were hospitalized is recognition of there being a hoarding situation, “What can we do to connect with services?” There have been some times, and maybe it’s just not happening as much now, when I was working in [INSTITUTION] there was a [INSTITUTION] hoarding past course in place for a couple of years.
+And so, during that time and then for a couple of years following that if there was a call to the county they would often channel it towards me before trying to connect with resources.
+I haven’t worked in [INSTITUTION] for almost 4 years now, so that might be why I’m not getting those same calls.
+And, the county that I’m in now, [INSTITUTION], it seems like… Well, at one point someone told me that there is no hoarding in [LOCATION], which I find very hard to believe, but I think that the resources… I’m not sure why I’m not getting calls in the same way, because I’m sure that there are cases.
+I don’t think their support system, county based, is really any different or more extensive than [LOCATION].
+They might just be referring elsewhere.
+Interviewer2: [INAUDIBLE] kind of thing?
+Or, do think that they perceive that it’s not the kind of place that hoarding disorder occurs?
+Interviewee: I think that there is a growing awareness of it, but maybe there….
+It’s a smaller county, so they might be able to feel they can handle some of the interventions more in house.
+Interviewer2: Ok.
+Interviewee: I’m not sure.
+Or, it may just be that these individuals are… they’re maybe getting support, they’re already engaged with a therapist.
+You know, that might be kind of how if there’s some agency that becomes aware of their big hoarding situation, “Oh well you’re already seeing a therapist, you’re already doing this, so we’re not going to refer out.”
+Interviewer2: Ok.
+So, just to kind of wrap up our interview, we really appreciate you going so long through this with us.
+It’s been a really great interview and it’s been a pleasure learning from you so we really appreciate you taking the time to go through really in detail with us.
+Interviewee: Happy to do it!
+Interviewer2: So, yeah, no it’s very, very valuable for us.
+Your experiences are really interesting, so the final kind of question that we have for you to close out our interview is to have you go through what you think the biggest things we still don’t know about hoarding disorder are or the unanswered questions in your mind for the future.
+Interviewee: Hm.
+I have no idea.
+One question that came up in the training that I did today would be, and I haven’t looked into this at all, is there any exploration of CBT in working with hoarding clients to deal with the intense emotional issues that can come up in relation to their items?
+And, it kind of seems like it would make sense that that would work, but I don’t know if that’s really been explored at all.
+Interviewer2: That’s interesting, yeah.Interviewee: Yeah, I think one of challenges, because there is the assumption, the faulty assumption that people who struggle with hoarding don’t want to get better, are treatment resistant.
+There do tend to be a lot of negative pieces in there.
+I’m trying to think of how to counteract that, because I don’t think that that’s the case at all.
+And, I think that’s more of an education and outreach piece as opposed to an understanding of the diagnosis and the treatment approach.
+Interviewer2: Mhm, mhm.
+Well, we really appreciate your time, that was our last question.
+Just kind of to close out, we were wondering if you wouldn’t mind telling us, so we’re trying to, as I said, get a really good picture of the clinical community as it exists right now and the way that they’re working through these issues.
+And so, if you were to think about the people that you would think we should talk to, thinking especially about people that we might not have heard of, we aren’t in contact with the same network.
+If you could come up with some names that we could try to find, people who you think would be valuable additions to the study, we’d greatly appreciate it.
+Let me know if anybody comes to mind.
+Interviewee: Well I think, I mean the email that [NAME] sent out, it kind of covered everybody.
+Oh… yeah, I mean there is nobody in particular that comes to mind that he wouldn’t have already covered.
+Yeah, I can kind of think and go through, you know, my address book to see who else I think of.
+But, the main names of who I would think of like [NAME] and I know that they’re all kind of already on that list.
+Unfortunately, there’s not that many treatment providers.
+Interviewer2: Right, that’s why we’re kind of asking to make sure that we’re just comprehensive.
+Interviewee: Yeah, I think that it’s pretty comprehensive.
+I mean, you could go through, you know just who is listed on ORGANIZATION website or the ORGANIZATION website and the ORGANIZATION website.
+Or, I think the hoardingcleanup.com, that listing is a consolidation of ORGANIZATIONS.
+But, then that runs into the challenge of are these people who have self-identified in working with hoarding?
+So, you don’t necessarily know what work they are doing.
+Interviewer2: That’s a good suggestion, I mean maybe we’ll go through that list and see who is on it and why.
+Good point.
+Interviewee: Yeah.Interviewer2: And I really appreciate, again, your time and your thoughtful responses to these questions, which are really interesting and will help us a great deal.
+So, just to give you some information on what we’re hoping to accomplish, we are now doing our interviews with clinical experts.
+We’re hoping to do about 30, although it may be more depending on how willing people like you are to share their time with us.
+And, we’re going to look at those just kind of as a set and kind of see where the group is in terms of their consensus on these issues, where there is a departure, and then we’re going to be recruiting people with problems with clutter, with just the hoarding disorder and talking to them about the same issues.
+And, hopefully the end product will be to be able to compare the understandings of the providers with those of their patients to see if we can learn a little bit more about where additions might occur and how to develop insight and to people that might still have very low insight.
+So, that’s our kind of research plan.
+And, we really appreciate you being part of it, again.
+Interviewee: Oh, happy to, it sounds really cool.
+Interviewer2: Yeah, so far it has been a very cool project.
+It’s a very interesting project, yeah.
+And so, if you have any questions about it as we go forward or you think of anything or you just want to follow up and see how it’s going, we’re hoping to be able to follow up once we’re done.
+But, please feel free to reach out, and again thank you so much for your generosity with your time.
+It is really valuable for us.
+Interviewer1: Yeah, thank you.
+Thank you so much.
+Interviewee: Well, thank you, I’m definitely wanting to see what the results are and see where it goes from there.
+Interviewer2: Thank you.
+Well, we’ll be sure to follow up once we finish with our interviews.
+So, thank you again for your time and have a safe drive home.
+Interviewee: You’re welcome.
+Thank you very much, I’ll hear from you later.
+Interviewer1: Thank you.
+Interviewer2: Yeah, take care.
+Bye.
