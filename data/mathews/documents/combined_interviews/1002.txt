@@ -1,0 +1,322 @@
+Interviewer:
+All right. Okay, so my first question would be, what term would you prefer when we're talking about your difficulties with clutter and difficulties discarding?
+Interviewee:
+Probably clutter.
+Interviewer:
+Okay, clutter...problems.
+Interviewee:
+I mean, it's both, I see them as two separate but similar issues.
+Interviewer:
+All right, perfect. The next part is more of a conversation, so I'll just ask you questions for you to answer. Feel free to ask questions if you need clarification, and if any questions make you at all uncomfortable, let me know, you do not need to answer them, okay?
+Interviewee:
+Mm-hmm .
+Interviewer:
+Okay, so can you can you please describe your clutter problems? How long has this been going on?
+Interviewee:
+Probably since I was a kid, I've always been... I'd always just start with probably procrastination. I probably have, every once a year, or once every six months, I do one major cleaning weekend, whatever, and get it all nice and neat. That lasts for about a week, and then just its gets all messed up again. But when I was in high school, I got into a car accident and my back got injured, and so I have a lot of back pain. It makes it hard for me to do household chores, and things like that.
+Interviewer:
+For sure, I'm sorry about that.
+Interviewee:
+Part of it is just health reasons, and then I also have some depression, so some of it's mood. Because I do have some pain management stuff. Some things are managed but, other things are just mood, so I say it's half and half.
+Interviewer:
+Okay, all right, thank you. For the next question I was going to ask, how severe would you say that this behavior is now? Do you believe that your behavior is a problem?
+Interviewee:
+I mean, I'm mostly functional, I work full-time. I don't really have a social life, but that's related to my health and stuff, but it is still a problem.
+Interviewer:
+Okay, have you ever sought to change this behavior? Have you gone to a professional to help for this behavior or no?
+Interviewee:
+No.
+Interviewer:
+Could you tell me why?
+Interviewee:
+I never really thought about it being so much of mental thing before, it's just a laziness thing.
+Interviewer:
+Okay, I understand. All right, how do your family and friends feel about this behavior? Have you ever had conflicts with people close to you about the behavior?
+Interviewee:
+Yeah, lots of things, arguments with parents, and things like that. They sometimes spent the long weekends helping me with getting it back together, and then only to have me get it all messed up again.Interviewer:
+Okay, all right. Next question, please describe where you live now, do you live alone?
+<<<<<<< HEAD
+Participant 2:
+Right now I'm living with my parents, because I didn't have a job for a few years and my health went down hill. But I'm working again, but my health's still a mess, and my current job doesn't pay as much, so I'm waiting to get to where I can earn enough to move out on my own again.
+Interviewer:
+Okay, and are there parts of your home that you consider cluttered? What makes them cluttered?
+Participant 2:
+My room is a disaster area, the rest of the house is... My parents control it, so when I was living by myself the whole place was cluttered.
+Interviewer:
+Are there parts of your room that you don't use because of the clutter?
+Participant 2:
+Well, I mean, instead of putting my laundry away, I just put a basket on the floor, and I use it. Then I put the dirty stuff in my laundry bag, and keep the clean stuff in the laundry basket when I could just put it in the dresser, and so that's an example. I have a bunch of cables and things from things that are plugged in, the cables could be organized better. A lot of different boxes and things that need to be cleaned out and put in the closet, a lot of papers and files. I have a hard time with filing things, so I always have papers everywhere.
+Interviewer:
+Okay, all right, perfect, thank you. Let me see, next question, when you think of your possessions, what makes them valuable? How do you determine if an object has value or not?
+Participant 2:
+For me if it's anything that... I collect books and things that are like, and anything relating to Star Wars, or whatever. But also, I'll save anything that I've ever written, like all my school stuff, so those I all value. Because of my health, I've been learning to that I have to save all my medical records. I've got lots of DVDs, Blu-ray discs CROSSTALK.
+Interviewer:
+What would be trash for you? What do you think?
+Participant 2:
+Let's see...
+Interviewer:
+How do you know it's time to throw something away?
+Participant 2:
+Well, for me, if its wrappers or if its... I'm trying to think of the word. When I recycle, I recycle junk mail, I recycle boxes.
+Interviewer:
+Would you say that recyclables are something...
+Participant 2:
+I throw food away.
+Interviewer:
+Throw food away, okay.
+Participant 2:
+=======
+Interviewee2:
+Right now I'm living with my parents, because I didn't have a job for a few years and my health went down hill. But I'm working again, but my health's still a mess, and my current job doesn't pay as much, so I'm waiting to get to where I can earn enough to move out on my own again.
+Interviewer:
+Okay, and are there parts of your home that you consider cluttered? What makes them cluttered?
+Interviewee2:
+My room is a disaster area, the rest of the house is... My parents control it, so when I was living by myself the whole place was cluttered.
+Interviewer:
+Are there parts of your room that you don't use because of the clutter?
+Interviewee2:
+Well, I mean, instead of putting my laundry away, I just put a basket on the floor, and I use it. Then I put the dirty stuff in my laundry bag, and keep the clean stuff in the laundry basket when I could just put it in the dresser, and so that's an example. I have a bunch of cables and things from things that are plugged in, the cables could be organized better. A lot of different boxes and things that need to be cleaned out and put in the closet, a lot of papers and files. I have a hard time with filing things, so I always have papers everywhere.
+Interviewer:
+Okay, all right, perfect, thank you. Let me see, next question, when you think of your possessions, what makes them valuable? How do you determine if an object has value or not?
+Interviewee2:
+For me if it's anything that... I collect books and things that are like, and anything relating to Star Wars, or whatever. But also, I'll save anything that I've ever written, like all my school stuff, so those I all value. Because of my health, I've been learning to that I have to save all my medical records. I've got lots of DVDs, Blu-ray discs [CROSSTALK].
+Interviewer:
+What would be trash for you? What do you think?
+Interviewee2:
+Let's see...
+Interviewer:
+How do you know it's time to throw something away?
+Interviewee2:
+Well, for me, if its wrappers or if its... I'm trying to think of the word. When I recycle, I recycle junk mail, I recycle boxes.
+Interviewer:
+Would you say that recyclables are something...
+Interviewee2:
+I throw food away.
+Interviewer:
+Throw food away, okay.
+Interviewee2:
+>>>>>>> 1558733b9f854ba59d98de1e30d8eb8f82c5feda
+I eat food but I don't waste food, but I mean scraps or whatever. I don't really have a garbage bin in my room, I have a recycling bin in my room, because our garbage bin we have is in the kitchen.
+Interviewer:
+What is the most precious item in your house for you?Interviewee:
+I mean, my laptop cost me a lot, I do a lot of work on that. My dog is, when it comes to living things. A lot of my stuff is boxed up in the garage right now, because when I moved in with my parents, I just put all of my stuff in storage. I don't really have access to too much of my stuff.
+Interviewer:
+If you did to choose between any of your items, how would you choose a certain item over another one?
+Interviewee:
+Probably how much time I use it.
+Interviewer:
+Okay, time.
+Interviewee:
+Electronics are first, and then...
+Interviewer:
+Would you say expensive items are more of a priority in that sense, or is it just time?
+Interviewee:
+Yeah, I mean because I use my iPad and my laptop every day, my phone. I've been moving from hard copy books to Kindle books because of my hands. Its just easier to hold a Kindle than it is to hold onto books, it's a problem to hold books all the time. A lot of my movies are now digital copies.
+Interviewer:
+Does your behavior upset you in any way?
+Interviewee:
+Yeah, I mean, I try to avoid looking at the floor. Because I don't care for the disorganization, but I also don't care enough to do anything about it.
+Interviewer:
+Okay, so would you be upset if you had to get rid of some of your items?
+Interviewee:
+Yeah, I mean, I wouldn't want to have to like the idea of it doesn't feel too... If I had to rent a storage unit and if I couldn't afford it, that would upset me. I got real lucky when I had to move in and my parents had a little portion of the garage to fit all my stuff, even though they can't stand it.
+Interviewer:
+Yeah, okay, so we're going to move onto the next section here. What do you think are the most important differences between what is considered normal saving behavior, such as collecting, and hoarding disorder?
+Interviewee:
+Hoarding is when you can't get rid of things, so not only do you collect, but you have a time a hard time letting go. To the point that your house and living areas become a mess, and you don't have much of a social life, or you can't have people over because your place, there isn't much room, or things like that. When I had my own little apartment, I wasn't able to have people over too often because it was real crowded with stuff.Interviewer:
+What do you think about when you hear the words hoarding disorder?
+Interviewee:
+Well, I mean, the first thing that comes to mind is situations like the show Hoarders, where it's the extreme. Then I had people on my dad's side, his siblings, some of them were real hoarders, and that on more of the extreme side, they'd have sheds and sheds of stuff. It was a mess and when a couple of them passed away. We had to just sort through some stuff. But I also have understood, just from my own personal living experiences, that it's not always that extreme. You can go through life having... to where it still affects your social life, and your mental well-being, just because you have trouble getting rid of things. You collect things, but you're not... from head to toe, every inch of your house is covered, but it still affects you and your house is still a mess.
+Interviewer:
+Okay, thank you. For the next section, I'm going to be reading you stories, and I'm going to ask you specific questions afterward, okay?
+Interviewee:
+Mm-hmm .
+Interviewer:
+First one, John Doe has several boxes that he keeps in case he needs to store something, or decides to move. When the items are delivered to his house, he keeps the container the item came in, he is worried that he might get rid of a box that he will need later. Stacks of boxes occupy one of his closets, but there are no boxes in other rooms. His house is not always organized, but not usually cluttered. Occasionally, it is difficult for Mr. Doe to find his car keys and wallet, so he'll spend a couple of minutes looking for them until he eventually finds them, when this happens he's rarely late in getting where he needs to be. Okay, so does the person depicted in this story have hoarding disorder, or is it more like clutter problems in your opinion?
+Interviewee:
+I wouldn't say so much hoarding. I mean, he does have some clutter issues, I've been known to do similar things with keeping boxes in case I need them later, or having trouble locating keys, and things like that. But the way you described it, it's more like he's just keeping boxes and his place is a little messy.
+Interviewer:
+Do you think this person should try to change their behavior?
+Interviewee:
+I mean, he could maybe organize his things a little better maybe, and not worry about the boxes as much. I've learned from own experience that when you move you can go to home depot and get boxes.Interviewer:
+Okay, so the next story is somewhat similar. I'm going to read it, okay? John Doe has several boxes that he keeps in case he needs to store something or decides to move. When items are delivered to his house, he keeps the container that the item came in, he is worried that he might get rid of a box that he will need later. Stacks of boxes occupy every room. Before entering his bathroom, he must remove several stack of boxes. His house is extremely cluttered. It is difficult for him to walk in his house. Often it is difficult for Mr. Doe to find his car keys and wallet, he will spend 30 minutes to an hour looking for them until he eventually finds them or forgets what he was looking for. He's always late in getting where he needs to be, and sometimes does not show up at all. Does the person depicted in this story have hoarding disorder or is it more like clutter problems, in your opinion?
+Interviewee:
+It's a hoarding problem.
+Interviewer:
+Okay, and do you think this person should try to change their behavior?
+Interviewee:
+Yes.
+Interviewer:
+Can you tell me why in your opinion?
+Interviewee:
+Because its affecting social life, getting to places on time, and also him getting distracted, or like you mentioned he forgot what he was doing.
+Interviewer:
+Is this behavior similar or different to that of your own, in your opinion?
+Interviewee:
+Probably different.
+Interviewer:
+Can you tell me why in your opinion.
+Interviewee:
+Because I don't have to move things out of the way to get to my- well that's not... just because of the way my... Where I currently live, because I live with my parents, my mom is a neat freak and OCD in that way, so my situation's more of a clutter problem. But when I lived by myself, it was half and half clutter hoarding, so I would have to move things. Not to exactly the extent you described but when I was in the kitchen, I'd always have to move things. I did have a small kitchen though, but I didn't have a dishwasher, and I had small... Everything was just this small situation, but my kitchen looked like it was all... Everything stacked up and a mess. My bathroom was fine but my bedroom and our living were in that situation.Interviewer:
+Okay, thank you for that, so the next story is a little different now. John Doe has clothes that he keeps in case he needs to use in the future. Clothes occupy most of his room, except for the kitchen and his bedroom. Before taking a shower, he must remove some of these items from his bathtub. Sometimes it's difficulty for Mr. Doe to find his car keys and wallet, so he'll spend 10 to 20 minutes looking for them until he eventuality finds them. When this happens, he's usually late in getting where he needs to be. For this one, do you think this person has hoarding disorder or is it more like clutter problems?
+Interviewee:
+I still think it's on the hoarding side. It's just more specific to a certain type of item, it's the specific to clothes.
+Interviewer:
+Yeah, do you think this person should try to change their behavior, in your opinion?
+Interviewee:
+Yeah, I mean, you can find ways that he could probably still collect or keep clothes but not to that extreme. Get organized better, so maybe just change a little and not having to change from one extreme to the other.
+Interviewer:
+Does this behavior require treatment from a psychiatrist?
+Interviewee:
+Not necessarily, I've seen people on shows like Konmari, or whatever, where she's gone into homes and changed people's lives. There's a lot of people that can help others that have been through it. But psychiatrists, they make a big a difference, it just depends on the person, I think.
+Interviewer:
+Yeah, of course. Is this behavior similar or different to that of your own?
+Interviewee:
+I mean, I do collect a lot of clothes, but I've had a lot weight shifting ups and downs, but I tend to keep it all in the bedroom. I mean, I do keep it all in the bedroom, whether it's a combination of the closet and the floor, that's about it. Like I described earlier, from the basket to the laundry bag, and then the closet, and on hangers in the closet. But the stuff that I use the most is the ones I wash and then put in the basket, and then put in the... But I still have other clothes in the dresser, and other clothes in the closet. Probably not to the same extent, but a little bit lesser.Interviewer:
+All right, perfect, thank you. Okay, so this is the last story that I'm going to read you. Okay, so John Doe has several antiques that he likes to keep, because he likes them and he knows that they are valuable. He goes out once a week and buys more antiques. He's worried that he might get rid of an antique that's worth a lot of money. Antiques occupy every room, before entering his bathroom, he must remove several antique items. Often it is difficult for Mr. Doe to find his car keys and wallet, so he'll spend 30 minutes to an hour looking for them, until he eventually finds them or forgets what he's looking for. He's almost always late getting where he needs to be, and sometimes does not show up at all. In this case, do you think this person has clutter problems or is their behavior more like hoarding disorder?
+<<<<<<< HEAD
+Participant 2:
+It's still going to be more of hoarding if he has to move things. Well, when I hear things like, "He can't the find keys," I think of a clutter thing, and if you have to move things around a little bit. If it's to the point where you have a whole lot and you can't... If it's moving or spilling over into the bathroom, I start to think hoarding, because that's functional, unless you've got a whole bunch of shelves in your bathroom or something. Similar where my kitchen was, I never had things spilled into the bathroom, but I certainly did it with my kitchen. My kitchen table's full of non-kitchen items. Just random stuff from the house, stuff I was collecting, or just stuff that I didn't want to put anywhere else, because I didn't know where to put it or just procrastinating of getting organized, or whatever. I didn't have much counter space, so every time I cooked I had to move everything, so I guess I'd call it hoarding.
+Interviewer:
+Do you think this person should try to change their behavior then?
+Participant 2:
+Yeah, just so they can be functional and on time for things.
+Interviewer:
+Did you really think that treatment would come from a psychiatrist?
+Participant 2:
+It could be beneficial. I think with things like that, you could get help from either a psychiatrist, or you could first start with a life coach, or just somebody that's going to take on a similar role, like when you're trying to start a diet or exercise program.
+Interviewer:
+Yeah, like a support, for sure.
+Participant 2:
+=======
+Interviewee2:
+It's still going to be more of hoarding if he has to move things. Well, when I hear things like, "He can't the find keys," I think of a clutter thing, and if you have to move things around a little bit. If it's to the point where you have a whole lot and you can't... If it's moving or spilling over into the bathroom, I start to think hoarding, because that's functional, unless you've got a whole bunch of shelves in your bathroom or something. Similar where my kitchen was, I never had things spilled into the bathroom, but I certainly did it with my kitchen. My kitchen table's full of non-kitchen items. Just random stuff from the house, stuff I was collecting, or just stuff that I didn't want to put anywhere else, because I didn't know where to put it or just procrastinating of getting organized, or whatever. I didn't have much counter space, so every time I cooked I had to move everything, so I guess I'd call it hoarding.
+Interviewer:
+Do you think this person should try to change their behavior then?
+Interviewee2:
+Yeah, just so they can be functional and on time for things.
+Interviewer:
+Did you really think that treatment would come from a psychiatrist?
+Interviewee2:
+It could be beneficial. I think with things like that, you could get help from either a psychiatrist, or you could first start with a life coach, or just somebody that's going to take on a similar role, like when you're trying to start a diet or exercise program.
+Interviewer:
+Yeah, like a support, for sure.
+Interviewee2:
+>>>>>>> 1558733b9f854ba59d98de1e30d8eb8f82c5feda
+A support person, but if its something you're really struggling with then you probably need to see a doctor or a psychiatrist. See if its something you might need more help with.
+Interviewer:
+Yeah, for sure, and do you think this behavior is similar or different from that of your own?<<<<<<< HEAD
+Participant 2:
+Like what I was describing, it could be similar because like I was saying, I had stuff that would spill over into my kitchen and living room. But I did have a really small apartment, but that doesn't mean if I had a bigger apartment it would get any better. But, thank goodness I didn't have a bigger apartment, because I know INAUDIBLE. But yeah, I'd say it could describe me.
+Interviewer:
+Yeah, okay. Perfect, thank you, so that ends the story portion. This last part is about COVID-19, and so I'm going to be asking you questions again. Please let me know if you need clarification or are uncomfortable answering any of the questions, okay?
+Participant 2:
+Okay.
+Interviewer:
+How has COVID-19 impacted your life?
+Participant 2:
+I went out of work when it started, because the schools closed and I was teaching at the time. I was a substitute teacher, so I had a long-term assignment but I wasn't a permanent teacher. I didn't get rehired when they reopened it, because the remote teaching stuff, so I was out of a job for four months. I gained 20 pounds because I was really depressed, stuck at home, and ended up... I would buy a bunch of stuff just because sometimes when I get stressed out, that's what I'll do. I'd eat a lot of junk food, and stuff like that. I finally got a job in July, so my stress levels went down a bit, but I still had some depression. When I'm not working I just seem to just be sleeping a lot.
+Interviewer:
+Okay, do you think that COVID-19 has affected difficulties throwing away things? Has it made it worse to throw away things?
+Participant 2:
+Well, I haven't really gone out. I mean, the stuff I do get I shop online for, but I don't know because I haven't really had things that I've gotten, whatever, things that I need to throw away. But when I do get new things, I have hard time throwing away the boxes they come in, because I think that, "Maybe what if I have to return this? I'm going to need the box to ship it back in." Things like that. It's hard to answer that question.
+Interviewer:
+Yeah, of course. Do you think that now that you're home all time, do you have time to organize or is that something that's not CROSSTALK?
+Participant 2:
+=======
+Interviewee2:
+Like what I was describing, it could be similar because like I was saying, I had stuff that would spill over into my kitchen and living room. But I did have a really small apartment, but that doesn't mean if I had a bigger apartment it would get any better. But, thank goodness I didn't have a bigger apartment, because I know [INAUDIBLE]. But yeah, I'd say it could describe me.
+Interviewer:
+Yeah, okay. Perfect, thank you, so that ends the story portion. This last part is about COVID-19, and so I'm going to be asking you questions again. Please let me know if you need clarification or are uncomfortable answering any of the questions, okay?
+Interviewee2:
+Okay.
+Interviewer:
+How has COVID-19 impacted your life?
+Interviewee2:
+I went out of work when it started, because the schools closed and I was teaching at the time. I was a substitute teacher, so I had a long-term assignment but I wasn't a permanent teacher. I didn't get rehired when they reopened it, because the remote teaching stuff, so I was out of a job for four months. I gained 20 pounds because I was really depressed, stuck at home, and ended up... I would buy a bunch of stuff just because sometimes when I get stressed out, that's what I'll do. I'd eat a lot of junk food, and stuff like that. I finally got a job in July, so my stress levels went down a bit, but I still had some depression. When I'm not working I just seem to just be sleeping a lot.
+Interviewer:
+Okay, do you think that COVID-19 has affected difficulties throwing away things? Has it made it worse to throw away things?
+Interviewee2:
+Well, I haven't really gone out. I mean, the stuff I do get I shop online for, but I don't know because I haven't really had things that I've gotten, whatever, things that I need to throw away. But when I do get new things, I have hard time throwing away the boxes they come in, because I think that, "Maybe what if I have to return this? I'm going to need the box to ship it back in." Things like that. It's hard to answer that question.
+Interviewer:
+Yeah, of course. Do you think that now that you're home all time, do you have time to organize or is that something that's not [CROSSTALK]?
+Interviewee2:
+>>>>>>> 1558733b9f854ba59d98de1e30d8eb8f82c5feda
+I should, but I haven't. I feel like I'm tired all the time and I lack energy. When I was doing the teaching, I seemed to be more physically active, and now I seem to just... I think part of it's the depression, I'm less physically active because I'm working from home, and so my body's a lot weaker. Like I said, I gained 20 pounds since it started, and I've been more anxious, and a little more depressed.Interviewer:
+Yeah, okay, so how have you been coping, would you say? Has there been specific techniques that you've found helpful?
+<<<<<<< HEAD
+Participant 2:
+I haven't been using been too many good coping methods, I've used, what people would consider... What the right word is, inappropriate? Eating, binging on TV shows, things that aren't the most beneficial health wise, or mental health wise. I do read a lot, but I haven't been exercising or doing a whole lot of things that are good for my health or mental health.
+Interviewer:
+Yeah, where do you think you seek comfort from? Is it from others, your items, something else?
+Participant 2:
+I used to get together with friends once or twice a month, but I haven't been able to do that. Right now I have my dog that I get comfort from her, from reading, but I'm in a lot pain so I am... That's harder, and when I'm less active the pain's worse. When I'm focusing on other things, I don't have as much time to think about the pain that I'm in. I find that when I'm working and engaged in stuff, my pain is... I have bulging discs and fibromyalgia so that pain is definitely real, it's not all in my head. But I can distract myself from my pain by doing things and stuff, but when I'm not doing things, I can't distract myself from it.
+Interviewer:
+Yeah, it's definitely tough to do.
+Participant 2:
+I'm sorry, I got distracted, CROSSTALK.
+Interviewer:
+No, don't worry about it. Okay, I can just go back to the questions. Were you involved in treatment for your clutter problems prior to COVID-19?
+Participant 2:
+No.
+Interviewer:
+Okay, have the people living with you changed during COVID-19 at all?
+Participant 2:
+I mean, so I have siblings that are a whole generation younger, because we adopted them and they're home from school. Now they're doing school from home, and they're social life is different because they don't get to do stuff with friends as much. A lot of us are driving each other crazy, and arguments more. I've been keeping to myself in my room. It isn't a whole lot different, when I lived by myself, that's what I did. Just being around the family, when we're stuck together for months at a time, we drive each other nuts. I try to just keep my distance right now.
+Interviewer:
+Definitely, for sure. How has COVID-19 affected your sense of isolation? Has it made you more lonely or no?
+Participant 2:
+=======
+Interviewee2:
+I haven't been using been too many good coping methods, I've used, what people would consider... What the right word is, inappropriate? Eating, binging on TV shows, things that aren't the most beneficial health wise, or mental health wise. I do read a lot, but I haven't been exercising or doing a whole lot of things that are good for my health or mental health.
+Interviewer:
+Yeah, where do you think you seek comfort from? Is it from others, your items, something else?
+Interviewee2:
+I used to get together with friends once or twice a month, but I haven't been able to do that. Right now I have my dog that I get comfort from her, from reading, but I'm in a lot pain so I am... That's harder, and when I'm less active the pain's worse. When I'm focusing on other things, I don't have as much time to think about the pain that I'm in. I find that when I'm working and engaged in stuff, my pain is... I have bulging discs and fibromyalgia so that pain is definitely real, it's not all in my head. But I can distract myself from my pain by doing things and stuff, but when I'm not doing things, I can't distract myself from it.
+Interviewer:
+Yeah, it's definitely tough to do.
+Interviewee2:
+I'm sorry, I got distracted, [CROSSTALK].
+Interviewer:
+No, don't worry about it. Okay, I can just go back to the questions. Were you involved in treatment for your clutter problems prior to COVID-19?
+Interviewee2:
+No.
+Interviewer:
+Okay, have the people living with you changed during COVID-19 at all?
+Interviewee2:
+I mean, so I have siblings that are a whole generation younger, because we adopted them and they're home from school. Now they're doing school from home, and they're social life is different because they don't get to do stuff with friends as much. A lot of us are driving each other crazy, and arguments more. I've been keeping to myself in my room. It isn't a whole lot different, when I lived by myself, that's what I did. Just being around the family, when we're stuck together for months at a time, we drive each other nuts. I try to just keep my distance right now.
+Interviewer:
+Definitely, for sure. How has COVID-19 affected your sense of isolation? Has it made you more lonely or no?
+Interviewee2:
+>>>>>>> 1558733b9f854ba59d98de1e30d8eb8f82c5feda
+Yeah, I mean, I don't have much of a social life even before that. It's not a whole lot different, but I used to at least get together with friends once a month. I've just sat more.Interviewer:
+Yeah, for sure. Okay, I think that's all the questions that I have for you today, as far as the interview. This next part, I just was going to ask you some demographic information so that I can send you the 30 dollar card for participating. First, I would need to ask you for your gender identity.
+Interviewee:
+I'm male.
+Interviewer:
+Okay, and sex assigned a birth?
+Interviewee:
+Male.
+Interviewer:
+Okay, and your race?
+Interviewee:
+White, I guess.
+Interviewer:
+Ethnicity, do you identify as Hispanic or Latino?
+Interviewee:
+No.
+Interviewer:
+Okay, and household income? You can give me a range, it doesn't have to be exact.
+Interviewee:
+My mom's a nurse, I'm not really sure what she makes. I'm only making about 12 bucks an hour right now, so it's hard to say.
+Interviewer:
+That's good, thank you. What geographic location are you're in, North, North-east, South, Midwest?
+Interviewee:
+Phoenix, so South-west.
+Interviewer:
+Okay, and your highest level of education?
+Interviewee:
+College degree, bachelor's.
+Interviewer:
+Okay, so the demographic information was for the study. I'm going to ask you for payment information now, so your first... This we'll keep-
+[END_OR_RECORDING]
