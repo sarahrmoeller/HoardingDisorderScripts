@@ -248,7 +248,7 @@ class TextDocument(BaseDocument):
     """
 
     def __init__(self, path: str) -> None:
-        with open(path, 'r') as f:
+        with open(path, 'r', encoding='utf-8') as f:
             text = f.read()
         super().__init__(text)
         self.path = path
