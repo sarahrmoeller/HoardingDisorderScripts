@@ -373,7 +373,7 @@ class DatasaurDocument(BaseDocument):
                 label_text.extend(self.tokens[end_row][:end_token])
             
             labels[label_name].append(label_text)
-
+        return labels
 
     @cached_property
     def label_counts(self) -> dict[str, str]:
