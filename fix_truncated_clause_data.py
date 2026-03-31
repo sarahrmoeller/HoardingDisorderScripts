@@ -147,6 +147,15 @@ for doc in datasaur.docs:
         names.add(doc.name)
     else:
         os.remove(doc.path)
+    
+    # Also remove 2017 documents
+    if doc.transcript_number == '2017':
+        os.remove(doc.path)
+    
+    # And these specific duplicate documents
+    if doc.name in ["2026_393.txt", "2026_394.txt", "2026_395.txt", 
+                    "2026_396.txt",  "2026_397.txt", "2026_398.txt"]:
+        os.remove(doc.path)
 
 """
 ## Fix Transcripts 001-007
