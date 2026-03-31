@@ -363,14 +363,14 @@ class DatasaurDocument(BaseDocument):
             end_token = label['textPosition']['end']['tokenIndex']
 
             if start_row == end_row:
-                label_text = " ".join(self.tokens[start_row][start_token:end_token])
+                label_text = " ".join(self.tokens[start_row][start_token:end_token+1])
             else:
                 distance = end_row - start_row
                 label_text = " ".join(self.tokens[start_row][start_token:])
                 if distance > 1:
                     for i in range(1, distance):
                         label_text += self.full_lines[start_row + i]
-                label_text += " ".join(self.tokens[end_row][:end_token])
+                label_text += " ".join(self.tokens[end_row][:end_token+1])
             
             labels[label_name].append(label_text)
         return labels
