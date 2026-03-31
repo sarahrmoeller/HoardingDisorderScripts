@@ -358,9 +358,9 @@ class DatasaurDocument(BaseDocument):
             label_name = label['labelItem']['labelName']
 
             start_row = label['textPosition']['start']['row']
-            start_token = label['textPosition']['start']['column']
+            start_token = label['textPosition']['start']['tokenIndex']
             end_row = label['textPosition']['end']['row']
-            end_token = label['textPosition']['end']['column']
+            end_token = label['textPosition']['end']['tokenIndex']
 
             if start_row == end_row:
                 label_text = " ".join(self.tokens[start_row][start_token:end_token])
