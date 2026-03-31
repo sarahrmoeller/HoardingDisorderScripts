@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 from functools import cached_property
 from itertools import product
 import json
@@ -342,6 +342,38 @@ class DatasaurDocument(BaseDocument):
             labels_with_speakers[k] = (label_name, speaker)
 
         return labels_with_speakers
+    
+    def label_text(self):
+        """
+        Method that gives the contents of labels in the document, organized
+        by label type.
+
+        Ex:
+            DatasaurDocument.label_text()["Overlap"] = [ 
+                (list of strs in the document that count as overlap) 
+            ]
+        """
+        labels = defaultdict(list)
+        for label in self.label_data:
+            label_name = label['labelItem']['labelName']
+
+            start_row = label['textPosition']['start']['row']
+            start_token = label['textPosition']['start']['column']
+            end_row = label['textPosition']['end']['row']
+            end_token = label['textPosition']['end']['column']
+
+            if start_row == end_row:
+                label_text = self.tokens[start_row][start_token:end_token]
+            else:
+                distance = end_row - start_row
+                label_text = self.tokens[start_row][start_token:]
+                if distance > 1:
+                    for i in range(1, distance):
+                        label_text.extend(self.tokens[start_row + i])
+                label_text.extend(self.tokens[end_row][:end_token])
+            
+            labels[label_name].append(label_text)
+
 
     @cached_property
     def label_counts(self) -> dict[str, str]:
