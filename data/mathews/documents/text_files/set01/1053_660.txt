@@ -1,0 +1,26 @@
+Participant:
+Female.
+Interviewer:
+Your race?
+Participant:
+White.
+Interviewer:
+Ethnicity- do you identify as Hispanic or Latino?
+Participant:
+Nope.
+Interviewer:
+Okay, and your general household income?
+You can give me a range if you'd like.
+Participant:
+Maybe 60 to 70 thousand.
+Interviewer:
+Okay, and your geographic region?
+Participant:
+We’re in Kentucky.
+Interviewer:
+Okay, so I think that's about the south or the Midwest.
+I'm not sure, but okay.
+And your highest level of education?
+Participant:
+Graduate school.
+END_OF_RECORDING
