@@ -1,67 +1,67 @@
 Interviewer: Okay, and what would you consider your race to be?
-Participant:
+Interviewee:
 Caucasian.
 Interviewer: Okay.
 So non-Hispanic?
-Participant:
+Interviewee:
 Yeah, non-Hispanic.
 Interviewer: Okay.
 Um, the next one is an estimate, if you can, of your household income.
-Participant:
+Interviewee:
 Um, [INAUDIBLE].
 Interviewer: Okay.
 And the geographic region that you live in in the United States?
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Okay.
 So, the last little bit is just some information so we can send you your payment.
 It's going to be a $30 Amazon gift card.
 Um, I would recommend that you indicate an electronic gift card would be okay.
 Just because with COVID and everything right now, a physical gift card—
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Okay, so electronic.
 I'm good to write you down for that?
-Participant:
+Interviewee:
 yes.
 Interviewer: Okay, perfect.
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Right.
 Well, you know, you can use it for whatever you want, but definitely the electronic—
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Perfect, yeah.
 Okay, so next I just need your first and last name.
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Okay.
 And your email address.
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Alright.
 Your permanent mailing address?
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Alright.
 And country or city?
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: Okay.
 And state of [state name; ].
-Participant:
+Interviewee:
 [INAUDIBLE].
 Interviewer: And you said your zip code is ZIP_CODE?
-Participant:
+Interviewee:
 Yes.
 Interviewer: Alright.
 And your phone number.
-Participant:
+Interviewee:
 PHONE_NUMBER.
 Interviewer: Alright, perfect.
 Well, thank you so much for doing this interview today.
 We really appreciate it.
-Participant:
+Interviewee:
 Oh, thank you.
 It was a pleasure talking to you.
 Interviewer: No problem.
