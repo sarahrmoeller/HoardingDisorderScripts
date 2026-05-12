@@ -10,8 +10,8 @@ SPEAKER_PAIRS: list[tuple] = [
     ("Interviewer", "Participant"), # Hoarding-Patient (set 1)
     ("Interviewer", "Interviewee"), # Hoarding-Clinician (set 2) & Transcript no. 012
     ("Interviewer", "Speaker"), # Parents (set 3)
-    ("P1", "P3", "Interviewee"), # Transcript no. (2)005
-    ("P1", "P2", "Interviewee") # Transcript no. 2008
+    ("P1", "P3", "Interviewer", "Interviewee"), # Transcript no. (2)005
+    ("P1", "P2", "Interviewer", "Interviewee") # Transcript no. 2008
 ]
 SPEAKERS: set = {speaker for pair in SPEAKER_PAIRS for speaker in pair}
 
@@ -31,7 +31,7 @@ timestamps = re.compile(r'(?:\({ts}\)|\[{ts}\]|{ts})'
 speaker_labels_spaced = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s+(?:\d+|{ts}))?[:\-—]'
                             .format(ts=timestamps.pattern),
                             re.UNICODE)
-speaker_labels_unspaced = re.compile(r'([a-zA-Z][a-zA-Z0-9]+)(?:\s*(?:\d+|{ts}))?[:\-—]'
+speaker_labels_unspaced = re.compile(r'(P\d|[a-zA-Z]+)(?:\s*(?:\d+|{ts}))?[:\-—]'
                             .format(ts=timestamps.pattern),
                             re.UNICODE)
 # This regex is used to match only speaker labels that are found in the 
@@ -56,7 +56,7 @@ def find_speakers(content: str, restrict=True) -> list[str]:
     - 'Spongebob:' -> [] (if `restrict` is True, since 'Spongebob' is not 
                             in `SPEAKERS`)
     """
-    matches = speaker_labels_spaced.findall(content)
+    matches = speaker_labels_unspaced.findall(content)
     if not restrict:
         return matches
     return [match for match in matches if match in SPEAKERS]
