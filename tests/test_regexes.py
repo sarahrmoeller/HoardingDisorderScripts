@@ -14,6 +14,7 @@ from utils import regexes
     # Speaker with number
     ("Participant 12:", ["Participant"]),
     ("Interviewer 2:", ["Interviewer"]),
+    ("Interviewee7:", ["Interviewee"]),
     # Speaker with timestamp
     ("19:24 Interviewer:", ["Interviewer"]),
     ("23:14 Participant:", ["Participant"]),
@@ -51,7 +52,7 @@ from utils import regexes
     ("Rebecca: Hi NAME [00:01] how are you?", ['Rebecca']),
 ])
 def test_speaker_labels(input_line, expected):
-    assert regexes.speaker_labels_spaced.findall(input_line) == expected
+    assert regexes.speaker_labels_unspaced.findall(input_line) == expected
 
 
 @pytest.mark.parametrize("string,expected", [
