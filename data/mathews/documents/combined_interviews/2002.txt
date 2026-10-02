@@ -50,7 +50,7 @@ Interviewer: Yeah, anyway,
 Interviewee: I mean that's probably the reason some of us have chosen to work with it as well.
 Interviewer: Right, there's a bias there for sure.
 So, just to kind of dive into the rest of our interview script, if you wouldn't mind just giving me like a two minute overview of your experience in terms of this disorder and, you know, if you see patients clinically, if you're mostly involved with research.
-Interviewee: Okay, so, starting in Graduate school I was running hoarding treatment groups supervised by [NAME] and then decided to do that as my PhD research and from that time on, have done a series of studies over the last two decades.
+Interviewee: Okay, so, starting in Graduate school I was running hoarding treatment groups supervised by NAME and then decided to do that as my PhD research and from that time on, have done a series of studies over the last two decades.
 I guess the first one would've been 2003-ish, so not quite two decades, decade and a half.
 Studies on hoarding, cognitive functioning, emotional functioning, treatment of hoarding.
 And while that has happened, I've been doing some treatment of hoarding, a little bit of clinical work, but much more research and supervision.
@@ -195,24 +195,7 @@ Like similarly thinking of obesity or other things, we're not trying to regulate
 They just lived in a perfectly clear environment, I think you'd get in a weird situation there.
 Interviewer: No, I agree with you.
 I definitely agree, I don't know that there's a--
-Interviewee: It's such a tricky one.Interviewer: But, let's turn to that distress criteria because the answer you gave about distress and seeking treatment is common.
-The genesis of this project is the problem of insight and the problem that you have a lot of patients with hoarding disorder who, you know, if you think about the kind of stereotypical example of a hoarding patient with low insight, has a house that's completely hoarded out, that's completely filled with stuff, lives fairly socially isolated, and until there's an external source of pressure, is happy living that way, at least in their own mind; so, they're not seeking treatment.
-So, with that person, where's the distress?
-Interviewee: I guess, for me, I allow it to be the distress that brought them into treatment, which may not be--you're absolutely right--distress about the stuff they have, but distress about the issues that have resulted from it.
-So for me I'm perfectly happy that the distress they come in with is, "I'm going to be evicted, people are yelling at me, my sister's trying to make me throw out my stuff" is hoarding related, but you're right, it's not the distress they have about having too much stuff, it's whatever external issues have happened around that.
-So, to me, the hoarding itself in my mind is causing the distress in their life, they think the distress is related to people won't leave them alone or the landlord is being unreasonable or their spouse wants to divorce them for unfair reasons.
-But to me, hoarding is causing distress, and whether or not it's the hoarding directly to distress of the hoarding to impacting other people to distress, is important clinically, but not what I use to make the diagnosis.
-So, if it's causing distress in their life, I don't need them to have insight necessarily that it's the hoarding yet, because there is so much low insight.
-But still in the grand scheme, again, what is psychopathology and where is our role as clinicians in diagnosing and helping people?
-It fits in my mind, this person is experiencing pain because of this problem they have, even if it's indirect.
-Interviewer: And in a hypothetical scenario where the person doesn't have that conflict, so owns a home, doesn't have a landlord, lives in an isolated enough place that no one is contacting their space, that wouldn't fit criteria for you.
-So, would that person have hoarding disorder?
-Interviewee: Um, it would, it would still fit criteria for me.
-I guess I was talking more about the scenarios where they're coming in for treatment and not saying distress, that it would be easy.
-But yeah, if I was then doing some sort of interview and I showed up to their house in Iceland and it was like, "I'm doing a community nationwide survey of hoarding" and I looked at their house and I saw that they were saving, I would still diagnose it as hoarding low insight.
-So, but they have the mansion, right, so yeah that is a tricky one.
-What's the interference?
-It’d be good if you could start doing like global interference, like it's interfering because it's taking up huge amounts of resources and it has a major environmental impact to have four mansions in Iceland with your stuff, even if you don't realize it.Interviewer: I mean, it's tricky because you have this intended use criteria, and then you have to start asking yourself, "Well who's intent?" You know like, if you have a four-bedroom home and three of those rooms are filled with stuff, but there's only one person who needs a bedroom, you know like is that acceptable?
+Interviewee: It's such a tricky one.Interviewer: I mean, it's tricky because you have this intended use criteria, and then you have to start asking yourself, "Well who's intent?" You know like, if you have a four-bedroom home and three of those rooms are filled with stuff, but there's only one person who needs a bedroom, you know like is that acceptable?
 Is that the intended use for that person?
 Interviewee: Yeah, I mean I guess at that point I'm willing to let it not be hoarding.
 If they're not seeking treatment, right, so they're not having distress either directly or indirectly due to the hoarding, and they're living happily in their one thing, that then goes to my more "let people do what they want" feeling, like don't be a nanny state.
@@ -224,7 +207,7 @@ If you're excluding people who are not experiencing distress, then your really s
 Interviewee: Yeah, excellent point.
 From a public health perspective, you're right, that's the danger.
 If I just said, "Fine, I'll let them be subclinical because they're not interference or distress currently" and I'll move on with my life, that might be fine in the short term because we're giving treatment to the people we want, but in terms of identifying the prevalence of the problem or finding those people before they die in all their relatives inherit their stuff and you create other problems, it doesn't really fix it.Interviewer: And, I mean, that sort of brings us really nicely to the next part of the interview and I don't want to take up more of your time than I have a right to; so, cut us off when you're done.
-So, first of all, I guess I'll just jump right into, [NAME] published this paper about insight and hoarding, where he broke hoarding down into four different constructs, and the constructs are defensiveness; anosognosia, or the lack of ability to perceive an illness or that anything is wrong; overvalued ideation, which is believing that your items are more valuable than they are; or indifference.
+So, first of all, I guess I'll just jump right into, NAME published this paper about insight and hoarding, where he broke hoarding down into four different constructs, and the constructs are defensiveness; anosognosia, or the lack of ability to perceive an illness or that anything is wrong; overvalued ideation, which is believing that your items are more valuable than they are; or indifference.
 And I wonder, when you think about insight, which of these 4 do you think about most?
 Which do you kind of experience with patients most?
 Interviewee: I'm sorry, could you just go through them one more time for me?
@@ -305,7 +288,7 @@ So, like, "I'm not crazy, I'm saving this for a rational reason."
 So the reasons that they give kind of give away a little bit--
 Interviewee: post hoc justificationsInterviewer: Yeah, well even if they're not post hoc, even if they're real justifications, they still see them as justifications.
 So, what they are saying is, "There are good reasons for saving objects in our society and I am saving objects in a way that is acceptable," and so I guess what I'm wondering, to frame this as a question is, from the US to Australia, do you see any differences in the way that people would justify this?
-Like this scrupulosity that [NAME] talks about, environmental ways or, you know, there's really a spectrum, and so I'm wondering, is what people are saying when they give these justifications some kind of litany of reasons that we as a society have said, "It's okay to save a lot of things."
+Like this scrupulosity that NAME talks about, environmental ways or, you know, there's really a spectrum, and so I'm wondering, is what people are saying when they give these justifications some kind of litany of reasons that we as a society have said, "It's okay to save a lot of things."
 So like, sentimental reasons, or environmental reasons, or usefulness.
 Are these like some kind of way that we as a society justify saving in general and hoarders are just using them?
 And if so, is that different in Australia?
@@ -329,7 +312,7 @@ Granted, that's a very small sample size, but it's 10 episodes a season and ther
 Interviewee: Wow, that is such a great idea.
 Yeah, I love it.
 Interviewer: We'll see how it goes.
-Interviewee: I think people have done interesting stigma stuff, [NAME] I think is doing it, I can't pronounce his last name correctly but showing people's attitudes, this is a different question but, pre- and post- watching the show, "Hoarders" and how it affects their feelings of stigma, but I think using that show over time is also really interesting to see reasons for saving, how they've changed.
+Interviewee: I think people have done interesting stigma stuff, NAME I think is doing it, I can't pronounce his last name correctly but showing people's attitudes, this is a different question but, pre- and post- watching the show, "Hoarders" and how it affects their feelings of stigma, but I think using that show over time is also really interesting to see reasons for saving, how they've changed.
 Interviewer: We'll see how it goes.
 Interviewee: Isn't there a British hoarding show as well as an American one?
 Interviewer: Yeah, there's like a ton.
