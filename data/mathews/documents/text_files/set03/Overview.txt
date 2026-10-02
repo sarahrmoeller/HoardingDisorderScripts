@@ -1,0 +1,23 @@
+Set 3 - Parent files (CBT + Cartoon Video)
+
+File Naming System:
+
+- Fourth digit indicates interview number. 
+	I.E, all 3004 files are part of interview 4, all 3005 files part of interview 5, etc. This matches with the naming conventions used for interview sets 1 and 2.
+
+- S or C has been added to the file names before the underscore (_). S means the files are separated and that the entire interview is not contained in a single document but rather multiple. C means the files are combined. All of the transcript for that given interview should be contained in order within the file.
+
+- as of 10/2/26, C files are now located in HoardingDisorderScripts/tree/divide-set3/data/mathews/documents/combined_interviews
+
+- For S files, the number after underscore (_) indicates overall file order in interview set 3. For most instances, they will not match the previous file name system for set 3, as new documents were created to split interview start/ends that were previously contained on the same document. Please be aware of this when looking up documents, particularly with the deletion of the duplicate interview set. Renamed files will be within 1-4 documents when comparing to the original naming system. Most will be higher, with only 3006S_52 to 3006S_61 being one number behind, and set 3007_62 to 3007_78 matching with the original file names. For the rest of the files, a general method to find the document you're looking for under the new system is to add the interview distance from interview 1, resetting at 3007.
+	I.E,3001_019 will be equal to 3003S_21 under the new naming system (3 is 2 interviews away from 	3001S, 19+2=21).3001_078 will be equal to 3008S_79 under the new naming system (you reset at 3007.
+	8 is one interview away from 7, 78+1=79).
+- Make sure to keep in mind where the interviews initially splitted when doing this. If you're looking at the end of one interview, keep with the previous interview distance when figuring out the new document number. When looking for the start of another interview, go to the next interview distance.
+	I.E, If looking for an annotation at the end of the interview contained on 3001_019, add 2 to the 	end number (3003S_21). If looking for an annotation at the start of the interview also contained
+	on 3001_019, add 3 (3004S_22).
+
+
+
+Note -- Original naming system files apply for the purposes of this note. 
+
+Duplicated set starting 3001_029 through 3001_035 was kept as the 3001_48 through 3001_053 interview was missing a few lines at the beginning. Duplicate interview (3001_48) was deleted and its filed were not separated/combined in this folder, excepting the part of interview 3001_053 through 3001_062 that was included at the end of file 3001_053.
